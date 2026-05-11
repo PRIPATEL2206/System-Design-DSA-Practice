@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prince Patel — Resume</title>
+  <style>
+    @page { size: letter; margin: 0.42in 0.55in; }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      font-size: 9.5pt;
+      color: #111;
+      background: #fff;
+      max-width: 8.5in;
+      margin: 0 auto;
+      padding: 0.42in 0.55in;
+      line-height: 1.35;
+    }
+
+    /* ── Header ── */
+    h1 {
+      font-size: 20pt;
+      font-weight: 800;
+      text-align: center;
+      letter-spacing: 1.5px;
+      color: #0a0a0a;
+    }
+    .subtitle {
+      text-align: center;
+      font-size: 9.5pt;
+      color: #444;
+      margin-top: 2px;
+    }
+    .contact {
+      text-align: center;
+      font-size: 8.8pt;
+      color: #333;
+      margin-top: 3px;
+    }
+    .contact a { color: #0055cc; text-decoration: none; }
+
+    /* ── Section ── */
+    .section { margin-top: 8px; }
+    .section-title {
+      font-size: 9.5pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      color: #0a0a0a;
+      border-bottom: 1.5px solid #0a0a0a;
+      padding-bottom: 1px;
+      margin-bottom: 5px;
+    }
+
+    /* ── Summary ── */
+    .summary { font-size: 9.3pt; line-height: 1.45; }
+
+    /* ── Skills ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px 20px;
+    }
+    .skill-row { display: flex; font-size: 9.2pt; }
+    .skill-label {
+      font-weight: 700;
+      min-width: 128px;
+      color: #111;
+      flex-shrink: 0;
+    }
+
+    /* ── Experience ── */
+    .job { margin-bottom: 6px; }
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+    }
+    .job-title { font-weight: 700; font-size: 9.5pt; }
+    .company { font-weight: 600; color: #222; font-size: 9.5pt; }
+    .date { font-size: 8.7pt; color: #555; font-style: italic; }
+
+    ul { padding-left: 15px; margin-top: 2px; }
+    li { margin-bottom: 1.5px; font-size: 9.2pt; }
+
+    /* ── Projects ── */
+    .project { margin-bottom: 5px; }
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 3px;
+    }
+    .project-name { font-weight: 700; font-size: 9.5pt; }
+    .project-name a { color: #0055cc; text-decoration: none; }
+    .project-tech { font-size: 8.7pt; font-style: italic; color: #555; }
+
+    /* ── Education & Cert ── */
+    .edu-cert-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 20px;
+      align-items: start;
+    }
+    .edu-degree { font-weight: 700; font-size: 9.5pt; }
+    .edu-school { color: #444; font-size: 9pt; }
+    .cert-label { font-weight: 700; font-size: 9.5pt; }
+    .cert-detail { font-size: 9pt; color: #333; }
+
+    @media print {
+      body { padding: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <h1>PRINCE PATEL</h1>
+  <div class="subtitle">ML Engineer &nbsp;·&nbsp; Data Engineer &nbsp;·&nbsp; AWS Certified Solutions Architect</div>
+  <div class="contact">
+    +91 63547 89002 &nbsp;|&nbsp;
+    <a href="mailto:princerpatel30112@gmail.com">princerpatel30112@gmail.com</a> &nbsp;|&nbsp;
+    Gandhinagar, Gujarat &nbsp;|&nbsp;
+    <a href="https://github.com/pripatel2206" target="_blank">github.com/pripatel2206</a> &nbsp;|&nbsp;
+    <a href="https://www.linkedin.com/in/prince-patel-7900b8212" target="_blank">linkedin.com/in/prince-patel-7900b8212</a> &nbsp;|&nbsp;
+    <a href="https://pripatel2206.github.io/PrincePatelPortfolio/#/" target="_blank">Portfolio</a>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="section">
+    <div class="section-title">Summary</div>
+    <p class="summary">
+      ML / Data Engineer with production experience building large-scale ETL pipelines and ML systems at TCS,
+      processing <strong>125M+ records on AWS</strong> and cutting cloud costs by <strong>10% (~₹1 lakh/month)</strong>.
+      Proficient in Python, PySpark, TensorFlow, FastAPI, and core AWS services (Glue, Lambda, Redshift, S3, Aurora).
+      AWS Certified SA · seeking to bring data engineering ownership and ML depth to a high-growth product company.
+    </p>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="section">
+    <div class="section-title">Technical Skills</div>
+    <div class="skills-grid">
+      <div class="skill-row"><span class="skill-label">Languages:</span>Python, SQL, Java, JavaScript</div>
+      <div class="skill-row"><span class="skill-label">ML / AI:</span>TensorFlow, Keras, Scikit-learn, Pandas, NumPy, Matplotlib</div>
+      <div class="skill-row"><span class="skill-label">Big Data &amp; ETL:</span>PySpark, AWS Glue, Apache Spark, Airflow (basic)</div>
+      <div class="skill-row"><span class="skill-label">Cloud – AWS:</span>Lambda, Redshift, S3, Aurora, Glue, EC2, IAM, CloudWatch</div>
+      <div class="skill-row"><span class="skill-label">Backend:</span>FastAPI, Django, Flask, REST APIs, Microservices</div>
+      <div class="skill-row"><span class="skill-label">Databases:</span>PostgreSQL, Amazon Redshift, MySQL</div>
+      <div class="skill-row"><span class="skill-label">DevOps &amp; Tools:</span>Git, GitHub, Docker, Linux, Jupyter, VS Code</div>
+      <div class="skill-row"><span class="skill-label">Frontend:</span>React, Tailwind CSS, WebSockets</div>
+    </div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div class="section">
+    <div class="section-title">Experience</div>
+
+    <div class="job">
+      <div class="job-header">
+        <div><span class="job-title">System Engineer</span> &nbsp;—&nbsp; <span class="company">Tata Consultancy Services (TCS)</span></div>
+        <div class="date">2024 – Present &nbsp;·&nbsp; Gandhinagar, India</div>
+      </div>
+      <ul>
+        <li>Engineered large-scale ETL pipelines on <strong>AWS (Glue, Lambda, Redshift, S3, Aurora)</strong>, processing <strong>125M+ HCP records</strong> with high reliability and fault tolerance.</li>
+        <li>Optimized <strong>PySpark and SQL analytics workflows</strong>, improving pipeline throughput and reducing end-to-end data processing latency for faster downstream reporting.</li>
+        <li>Drove cloud cost reduction by <strong>10% (~₹1 lakh/month)</strong> via Redshift query tuning, S3 lifecycle policies, and Lambda cold-start optimization.</li>
+        <li>Built internal analytics portals as <strong>FastAPI and Django microservices</strong>, enabling self-serve data access across business teams.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <div><span class="job-title">AI/ML &amp; Software Developer Intern</span> &nbsp;—&nbsp; <span class="company">Silver Touch Technologies Ltd.</span></div>
+        <div class="date">Jan 2024 – Jul 2024 &nbsp;·&nbsp; Ahmedabad, India</div>
+      </div>
+      <ul>
+        <li>Built a <strong>CNN image processing model</strong> (TensorFlow, Keras, OpenCV) for foul detection in autonomous driving assessments; developed end-to-end ML pipeline from preprocessing to inference.</li>
+        <li>Shipped production features using <strong>Java, Spring Boot, Python, and Flutter</strong>; integrated Odoo ERP modules and delivered sprint milestones in Agile environment.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PROJECTS -->
+  <div class="section">
+    <div class="section-title">Projects</div>
+
+    <div class="project">
+      <div class="project-header">
+        <div class="project-name"><a href="https://github.com/pripatel2206" target="_blank">Scalable Real-Time Chat App</a></div>
+        <div class="project-tech">FastAPI · React · Tailwind CSS · WebSockets · PostgreSQL · JWT</div>
+      </div>
+      <ul>
+        <li>Built a production-grade messaging system with persistent WebSocket connections, stateless FastAPI backend for horizontal scaling, JWT auth, and PostgreSQL message history.</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <div class="project-header">
+        <div class="project-name"><a href="https://github.com/pripatel2206" target="_blank">Trust Management System</a></div>
+        <div class="project-tech">Django · PostgreSQL · Tailwind CSS · Stripe</div>
+      </div>
+      <ul>
+        <li>Engineered a multi-role SaaS platform for trust operations (donations, expenses, approvals, member management) with Stripe payments, admin approval workflows, and downloadable analytics reports.</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <div class="project-header">
+        <div class="project-name"><a href="https://github.com/pripatel2206" target="_blank">Plant Disease Classification</a></div>
+        <div class="project-tech">CNN · TensorFlow · Keras · FastAPI · JavaScript</div>
+      </div>
+      <ul>
+        <li>Trained a CNN on leaf images with data augmentation (rotation, flip, zoom) to reduce overfitting; deployed model as a FastAPI REST inference endpoint.</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <div class="project-header">
+        <div class="project-name"><a href="https://github.com/pripatel2206" target="_blank">Time-Series Dengue Forecasting</a></div>
+        <div class="project-tech">LSTM · TensorFlow · Pandas · NumPy · Matplotlib</div>
+      </div>
+      <ul>
+        <li>Built LSTM model for multi-year dengue outbreak prediction with hyperparameter tuning (learning rate, dropout, layers) to improve forecast accuracy over statistical baselines.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- EDUCATION + CERT side by side -->
+  <div class="section">
+    <div class="section-title">Education &amp; Certification</div>
+    <div class="edu-cert-grid">
+      <div>
+        <span class="edu-degree">B.E. — Information Technology &nbsp; <span style="font-weight:400; color:#333;">CGPA: 8.65 / 10</span></span><br>
+        <span class="edu-school">Government Engineering College Gandhinagar</span>
+      </div>
+      <div>
+        <span class="cert-label">AWS Certified Solutions Architect – Associate</span><br>
+        <span class="cert-detail">Amazon Web Services</span>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
