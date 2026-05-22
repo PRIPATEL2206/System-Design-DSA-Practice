@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1000" height="700" fill="#1a1a2e" rx="10"/>
+  <text x="500" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">ANN Algorithms — Approximate Nearest Neighbor Search</text>
+
+  <!-- HNSW Section -->
+  <rect x="30" y="55" width="460" height="280" fill="#16213e" stroke="#00ff88" stroke-width="2" rx="8"/>
+  <text x="260" y="80" text-anchor="middle" fill="#00ff88" font-size="13" font-weight="bold">HNSW (Hierarchical Navigable Small World)</text>
+
+  <!-- Layer visualization -->
+  <text x="60" y="105" fill="#aaaaaa" font-size="9">Layer 2 (sparse)</text>
+  <circle cx="120" cy="120" r="5" fill="#e94560"/>
+  <circle cx="280" cy="115" r="5" fill="#e94560"/>
+  <circle cx="380" cy="125" r="5" fill="#e94560"/>
+  <line x1="125" y1="120" x2="275" y2="115" stroke="#e94560" stroke-width="1" opacity="0.6"/>
+  <line x1="285" y1="115" x2="375" y2="125" stroke="#e94560" stroke-width="1" opacity="0.6"/>
+
+  <text x="60" y="155" fill="#aaaaaa" font-size="9">Layer 1 (medium)</text>
+  <circle cx="90" cy="170" r="4" fill="#feca57"/>
+  <circle cx="160" cy="175" r="4" fill="#feca57"/>
+  <circle cx="230" cy="168" r="4" fill="#feca57"/>
+  <circle cx="300" cy="172" r="4" fill="#feca57"/>
+  <circle cx="370" cy="165" r="4" fill="#feca57"/>
+  <circle cx="430" cy="175" r="4" fill="#feca57"/>
+  <line x1="94" y1="170" x2="156" y2="175" stroke="#feca57" stroke-width="1" opacity="0.5"/>
+  <line x1="164" y1="175" x2="226" y2="168" stroke="#feca57" stroke-width="1" opacity="0.5"/>
+  <line x1="234" y1="168" x2="296" y2="172" stroke="#feca57" stroke-width="1" opacity="0.5"/>
+  <line x1="304" y1="172" x2="366" y2="165" stroke="#feca57" stroke-width="1" opacity="0.5"/>
+  <line x1="374" y1="165" x2="426" y2="175" stroke="#feca57" stroke-width="1" opacity="0.5"/>
+
+  <text x="60" y="205" fill="#aaaaaa" font-size="9">Layer 0 (dense)</text>
+  <circle cx="70" cy="220" r="3" fill="#54a0ff"/>
+  <circle cx="105" cy="225" r="3" fill="#54a0ff"/>
+  <circle cx="140" cy="218" r="3" fill="#54a0ff"/>
+  <circle cx="175" cy="222" r="3" fill="#54a0ff"/>
+  <circle cx="210" cy="215" r="3" fill="#54a0ff"/>
+  <circle cx="245" cy="225" r="3" fill="#54a0ff"/>
+  <circle cx="280" cy="218" r="3" fill="#54a0ff"/>
+  <circle cx="315" cy="222" r="3" fill="#54a0ff"/>
+  <circle cx="350" cy="215" r="3" fill="#54a0ff"/>
+  <circle cx="385" cy="225" r="3" fill="#54a0ff"/>
+  <circle cx="420" cy="218" r="3" fill="#54a0ff"/>
+  <circle cx="455" cy="222" r="3" fill="#54a0ff"/>
+
+  <!-- Search path arrow -->
+  <path d="M 120 125 L 160 170 L 210 218" fill="none" stroke="#00ff88" stroke-width="2" stroke-dasharray="4,2" marker-end="url(#annArr)"/>
+  <text x="130" y="145" fill="#00ff88" font-size="8">search path</text>
+
+  <text x="260" y="260" text-anchor="middle" fill="#ffffff" font-size="9">Search: O(log N) | Build: O(N log N)</text>
+  <text x="260" y="278" text-anchor="middle" fill="#ffffff" font-size="9">Memory: HIGH (graph in RAM)</text>
+  <text x="260" y="296" text-anchor="middle" fill="#ffffff" font-size="9">Recall: 95-99% | Parameters: M, ef</text>
+  <text x="260" y="318" text-anchor="middle" fill="#00ff88" font-size="9" font-weight="bold">Used by: Pinecone, Weaviate, Qdrant, pgvector</text>
+
+  <!-- IVF Section -->
+  <rect x="510" y="55" width="460" height="280" fill="#16213e" stroke="#feca57" stroke-width="2" rx="8"/>
+  <text x="740" y="80" text-anchor="middle" fill="#feca57" font-size="13" font-weight="bold">IVF (Inverted File Index)</text>
+
+  <!-- Voronoi-like cells -->
+  <rect x="540" y="95" width="100" height="80" fill="#0f3460" stroke="#e94560" stroke-width="1" rx="3"/>
+  <text x="590" y="112" text-anchor="middle" fill="#e94560" font-size="8">Cell 1</text>
+  <circle cx="560" cy="135" r="3" fill="#54a0ff"/>
+  <circle cx="580" cy="145" r="3" fill="#54a0ff"/>
+  <circle cx="600" cy="130" r="3" fill="#54a0ff"/>
+  <circle cx="615" cy="155" r="3" fill="#54a0ff"/>
+
+  <rect x="650" y="95" width="100" height="80" fill="#0f3460" stroke="#00ff88" stroke-width="1" rx="3"/>
+  <text x="700" y="112" text-anchor="middle" fill="#00ff88" font-size="8">Cell 2</text>
+  <circle cx="670" cy="135" r="3" fill="#54a0ff"/>
+  <circle cx="690" cy="150" r="3" fill="#54a0ff"/>
+  <circle cx="710" cy="128" r="3" fill="#54a0ff"/>
+  <circle cx="725" cy="145" r="3" fill="#54a0ff"/>
+  <circle cx="695" cy="160" r="3" fill="#00ff88" stroke="#fff" stroke-width="1"/>
+
+  <rect x="760" y="95" width="100" height="80" fill="#0f3460" stroke="#a29bfe" stroke-width="1" rx="3"/>
+  <text x="810" y="112" text-anchor="middle" fill="#a29bfe" font-size="8">Cell 3</text>
+  <circle cx="780" cy="140" r="3" fill="#54a0ff"/>
+  <circle cx="800" cy="130" r="3" fill="#54a0ff"/>
+  <circle cx="820" cy="150" r="3" fill="#54a0ff"/>
+
+  <rect x="870" y="95" width="80" height="80" fill="#0f3460" stroke="#feca57" stroke-width="1" rx="3"/>
+  <text x="910" y="112" text-anchor="middle" fill="#feca57" font-size="8">Cell N</text>
+  <circle cx="890" cy="135" r="3" fill="#54a0ff"/>
+  <circle cx="910" cy="148" r="3" fill="#54a0ff"/>
+  <circle cx="930" cy="130" r="3" fill="#54a0ff"/>
+
+  <!-- Query point -->
+  <circle cx="695" cy="160" r="6" fill="none" stroke="#00ff88" stroke-width="2"/>
+  <text x="695" y="188" text-anchor="middle" fill="#00ff88" font-size="8">query → find nearest cell → search within</text>
+
+  <!-- Centroids -->
+  <circle cx="590" cy="140" r="4" fill="#e94560" stroke="#fff" stroke-width="1"/>
+  <circle cx="700" cy="140" r="4" fill="#00ff88" stroke="#fff" stroke-width="1"/>
+  <circle cx="810" cy="140" r="4" fill="#a29bfe" stroke="#fff" stroke-width="1"/>
+  <circle cx="910" cy="140" r="4" fill="#feca57" stroke="#fff" stroke-width="1"/>
+
+  <text x="740" y="215" text-anchor="middle" fill="#aaaaaa" font-size="9">nprobe = number of cells to search (accuracy vs speed)</text>
+
+  <text x="740" y="248" text-anchor="middle" fill="#ffffff" font-size="9">Search: O(N/K × nprobe) | Build: O(N × K-means)</text>
+  <text x="740" y="266" text-anchor="middle" fill="#ffffff" font-size="9">Memory: LOW (only centroids + lists)</text>
+  <text x="740" y="284" text-anchor="middle" fill="#ffffff" font-size="9">Recall: 85-95% | Parameters: nlist, nprobe</text>
+  <text x="740" y="318" text-anchor="middle" fill="#feca57" font-size="9" font-weight="bold">Used by: FAISS (IVF-Flat, IVF-PQ), Milvus</text>
+
+  <!-- Product Quantization -->
+  <rect x="30" y="350" width="460" height="170" fill="#16213e" stroke="#a29bfe" stroke-width="2" rx="8"/>
+  <text x="260" y="375" text-anchor="middle" fill="#a29bfe" font-size="13" font-weight="bold">PQ (Product Quantization)</text>
+
+  <!-- Vector split visualization -->
+  <rect x="60" y="395" width="400" height="30" fill="#0f3460" stroke="#54a0ff" stroke-width="1" rx="3"/>
+  <text x="260" y="414" text-anchor="middle" fill="#54a0ff" font-size="9">Original vector [1536 dimensions]</text>
+
+  <text x="260" y="440" text-anchor="middle" fill="#fff" font-size="10">↓ Split into M subvectors ↓</text>
+
+  <rect x="60" y="450" width="95" height="25" fill="#0f3460" stroke="#e94560" stroke-width="1" rx="3"/>
+  <text x="107" y="467" text-anchor="middle" fill="#e94560" font-size="7">Sub 1 [192d]→code</text>
+  <rect x="160" y="450" width="95" height="25" fill="#0f3460" stroke="#00ff88" stroke-width="1" rx="3"/>
+  <text x="207" y="467" text-anchor="middle" fill="#00ff88" font-size="7">Sub 2 [192d]→code</text>
+  <rect x="260" y="450" width="95" height="25" fill="#0f3460" stroke="#feca57" stroke-width="1" rx="3"/>
+  <text x="307" y="467" text-anchor="middle" fill="#feca57" font-size="7">Sub 3 [192d]→code</text>
+  <rect x="360" y="450" width="95" height="25" fill="#0f3460" stroke="#a29bfe" stroke-width="1" rx="3"/>
+  <text x="407" y="467" text-anchor="middle" fill="#a29bfe" font-size="7">Sub M [192d]→code</text>
+
+  <text x="260" y="500" text-anchor="middle" fill="#ffffff" font-size="9">Compression: 1536 × 4B → 8 × 1B = 97% reduction</text>
+  <text x="260" y="515" text-anchor="middle" fill="#a29bfe" font-size="9" font-weight="bold">Trade-off: 10-100× less memory, ~5-10% recall loss</text>
+
+  <!-- LSH Section -->
+  <rect x="510" y="350" width="460" height="170" fill="#16213e" stroke="#00d2d3" stroke-width="2" rx="8"/>
+  <text x="740" y="375" text-anchor="middle" fill="#00d2d3" font-size="13" font-weight="bold">LSH (Locality-Sensitive Hashing)</text>
+
+  <!-- Hash buckets -->
+  <text x="740" y="398" text-anchor="middle" fill="#aaaaaa" font-size="9">Similar vectors → same hash bucket with high probability</text>
+
+  <rect x="550" y="410" width="80" height="50" fill="#0f3460" stroke="#00d2d3" stroke-width="1" rx="3"/>
+  <text x="590" y="428" text-anchor="middle" fill="#00d2d3" font-size="8">Bucket 01</text>
+  <circle cx="570" cy="445" r="3" fill="#54a0ff"/>
+  <circle cx="590" cy="445" r="3" fill="#54a0ff"/>
+  <circle cx="610" cy="445" r="3" fill="#00ff88"/>
+
+  <rect x="650" y="410" width="80" height="50" fill="#0f3460" stroke="#00d2d3" stroke-width="1" rx="3"/>
+  <text x="690" y="428" text-anchor="middle" fill="#00d2d3" font-size="8">Bucket 10</text>
+  <circle cx="670" cy="445" r="3" fill="#feca57"/>
+  <circle cx="690" cy="445" r="3" fill="#feca57"/>
+
+  <rect x="750" y="410" width="80" height="50" fill="#0f3460" stroke="#00d2d3" stroke-width="1" rx="3"/>
+  <text x="790" y="428" text-anchor="middle" fill="#00d2d3" font-size="8">Bucket 11</text>
+  <circle cx="770" cy="445" r="3" fill="#e94560"/>
+  <circle cx="790" cy="445" r="3" fill="#e94560"/>
+  <circle cx="810" cy="445" r="3" fill="#e94560"/>
+
+  <rect x="850" y="410" width="80" height="50" fill="#0f3460" stroke="#00d2d3" stroke-width="1" rx="3"/>
+  <text x="890" y="428" text-anchor="middle" fill="#00d2d3" font-size="8">Bucket 00</text>
+  <circle cx="880" cy="445" r="3" fill="#a29bfe"/>
+
+  <text x="740" y="488" text-anchor="middle" fill="#ffffff" font-size="9">Search: O(1) hash + scan bucket | Build: O(N)</text>
+  <text x="740" y="503" text-anchor="middle" fill="#ffffff" font-size="9">Memory: LOW | Recall: 70-90% (needs multiple tables)</text>
+  <text x="740" y="518" text-anchor="middle" fill="#00d2d3" font-size="9" font-weight="bold">Used by: Legacy systems, streaming data</text>
+
+  <!-- Bottom comparison -->
+  <rect x="30" y="535" width="940" height="150" fill="#0f3460" stroke="#e94560" stroke-width="1.5" rx="8"/>
+  <text x="500" y="560" text-anchor="middle" fill="#e94560" font-size="13" font-weight="bold">Algorithm Selection Guide</text>
+
+  <text x="60" y="585" fill="#00ff88" font-size="10" font-weight="bold">HNSW</text>
+  <text x="130" y="585" fill="#ffffff" font-size="9">→ Best overall recall + speed. Use when RAM is available. Default choice for most vector DBs.</text>
+
+  <text x="60" y="610" fill="#feca57" font-size="10" font-weight="bold">IVF-PQ</text>
+  <text x="130" y="610" fill="#ffffff" font-size="9">→ Best for billion-scale with limited RAM. Trades recall for massive compression.</text>
+
+  <text x="60" y="635" fill="#a29bfe" font-size="10" font-weight="bold">PQ</text>
+  <text x="130" y="635" fill="#ffffff" font-size="9">→ Use with IVF for memory-constrained deployments. 10-100× compression with acceptable recall.</text>
+
+  <text x="60" y="660" fill="#00d2d3" font-size="10" font-weight="bold">LSH</text>
+  <text x="130" y="660" fill="#ffffff" font-size="9">→ Simplest to implement. Good for streaming/online scenarios. Outperformed by HNSW in practice.</text>
+
+  <text x="500" y="680" text-anchor="middle" fill="#feca57" font-size="9" font-weight="bold">Production default: HNSW for &lt;100M vectors | IVF-PQ for &gt;100M vectors | HNSW+PQ for balanced</text>
+
+  <defs>
+    <marker id="annArr" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto"><polygon points="0 0, 6 2.5, 0 5" fill="#00ff88"/></marker>
+  </defs>
+</svg>

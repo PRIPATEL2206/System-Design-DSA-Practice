@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1000" height="480" fill="#1a1a2e" rx="10"/>
+  <text x="500" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">Tokenization — How LLMs See Text</text>
+
+  <!-- Input text -->
+  <rect x="30" y="55" width="940" height="50" fill="#0f3460" stroke="#54a0ff" stroke-width="1.5" rx="8"/>
+  <text x="500" y="75" text-anchor="middle" fill="#54a0ff" font-size="11" font-weight="bold">Raw Input Text</text>
+  <text x="500" y="95" text-anchor="middle" fill="#ffffff" font-size="12">"Hello, I'm learning about transformers! 🤖"</text>
+
+  <!-- Arrow -->
+  <line x1="500" y1="105" x2="500" y2="125" stroke="#fff" stroke-width="1.5" marker-end="url(#tokA)"/>
+
+  <!-- BPE Tokenization -->
+  <rect x="30" y="125" width="940" height="100" fill="#16213e" stroke="#00ff88" stroke-width="2" rx="8"/>
+  <text x="500" y="148" text-anchor="middle" fill="#00ff88" font-size="13" font-weight="bold">BPE Tokenizer (Byte-Pair Encoding)</text>
+
+  <!-- Token boxes -->
+  <rect x="60" y="160" width="55" height="28" fill="#0f3460" stroke="#e94560" stroke-width="1.5" rx="4"/>
+  <text x="87" y="178" text-anchor="middle" fill="#e94560" font-size="8">Hello</text>
+
+  <rect x="125" y="160" width="20" height="28" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="4"/>
+  <text x="135" y="178" text-anchor="middle" fill="#feca57" font-size="8">,</text>
+
+  <rect x="155" y="160" width="20" height="28" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="4"/>
+  <text x="165" y="178" text-anchor="middle" fill="#feca57" font-size="8">▁I</text>
+
+  <rect x="185" y="160" width="30" height="28" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="4"/>
+  <text x="200" y="178" text-anchor="middle" fill="#feca57" font-size="8">'m</text>
+
+  <rect x="225" y="160" width="65" height="28" fill="#0f3460" stroke="#00d2d3" stroke-width="1.5" rx="4"/>
+  <text x="257" y="178" text-anchor="middle" fill="#00d2d3" font-size="8">▁learning</text>
+
+  <rect x="300" y="160" width="50" height="28" fill="#0f3460" stroke="#00d2d3" stroke-width="1.5" rx="4"/>
+  <text x="325" y="178" text-anchor="middle" fill="#00d2d3" font-size="8">▁about</text>
+
+  <rect x="360" y="160" width="50" height="28" fill="#0f3460" stroke="#a29bfe" stroke-width="1.5" rx="4"/>
+  <text x="385" y="178" text-anchor="middle" fill="#a29bfe" font-size="8">▁trans</text>
+
+  <rect x="420" y="160" width="55" height="28" fill="#0f3460" stroke="#a29bfe" stroke-width="1.5" rx="4"/>
+  <text x="447" y="178" text-anchor="middle" fill="#a29bfe" font-size="8">formers</text>
+
+  <rect x="485" y="160" width="15" height="28" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="4"/>
+  <text x="492" y="178" text-anchor="middle" fill="#feca57" font-size="8">!</text>
+
+  <rect x="510" y="160" width="45" height="28" fill="#0f3460" stroke="#e94560" stroke-width="1.5" rx="4"/>
+  <text x="532" y="178" text-anchor="middle" fill="#e94560" font-size="8">▁🤖</text>
+
+  <!-- Token IDs -->
+  <text x="87" y="208" text-anchor="middle" fill="#aaaaaa" font-size="7">9906</text>
+  <text x="135" y="208" text-anchor="middle" fill="#aaaaaa" font-size="7">11</text>
+  <text x="165" y="208" text-anchor="middle" fill="#aaaaaa" font-size="7">358</text>
+  <text x="200" y="208" text-anchor="middle" fill="#aaaaaa" font-size="7">2846</text>
+  <text x="257" y="208" text-anchor="middle" fill="#aaaaaa" font-size="7">6975</text>
+  <text x="325" y="208" text-anchor="middle" fill="#aaaaaa" font-size="7">922</text>
+  <text x="385" y="208" text-anchor="middle" fill="#aaaaaa" font-size="7">4327</text>
+  <text x="447" y="208" text-anchor="middle" fill="#aaaaaa" font-size="7">52578</text>
+  <text x="492" y="208" text-anchor="middle" fill="#aaaaaa" font-size="7">0</text>
+  <text x="532" y="208" text-anchor="middle" fill="#aaaaaa" font-size="7">97208</text>
+
+  <text x="700" y="180" fill="#ffffff" font-size="9">10 tokens from 42 characters</text>
+  <text x="700" y="198" fill="#aaaaaa" font-size="8">▁ = space (part of token)</text>
+  <text x="700" y="214" fill="#aaaaaa" font-size="8">"transformers" split into 2 sub-tokens</text>
+
+  <!-- How BPE works -->
+  <rect x="30" y="240" width="460" height="220" fill="#16213e" stroke="#feca57" stroke-width="1.5" rx="8"/>
+  <text x="260" y="265" text-anchor="middle" fill="#feca57" font-size="12" font-weight="bold">How BPE Builds Vocabulary</text>
+
+  <text x="50" y="290" fill="#00ff88" font-size="9" font-weight="bold">Step 1: Start with individual bytes/chars</text>
+  <text x="50" y="308" fill="#ffffff" font-size="8">Initial vocab: a, b, c, ..., z, 0-9, punctuation (~256 base tokens)</text>
+
+  <text x="50" y="333" fill="#00ff88" font-size="9" font-weight="bold">Step 2: Count adjacent token pairs</text>
+  <text x="50" y="351" fill="#ffffff" font-size="8">Find most frequent pair in corpus: e.g., ("t", "h") → 50,000 times</text>
+
+  <text x="50" y="376" fill="#00ff88" font-size="9" font-weight="bold">Step 3: Merge most frequent pair</text>
+  <text x="50" y="394" fill="#ffffff" font-size="8">Create new token "th", replace all ("t","h") in corpus</text>
+
+  <text x="50" y="419" fill="#00ff88" font-size="9" font-weight="bold">Step 4: Repeat until target vocab size</text>
+  <text x="50" y="437" fill="#ffffff" font-size="8">Keep merging: "th"+"e"→"the", "in"+"g"→"ing", etc.</text>
+  <text x="50" y="455" fill="#aaaaaa" font-size="8">Typical sizes: GPT-4: 100K, LLaMA: 32K, BERT: 30K</text>
+
+  <!-- Why tokenization matters -->
+  <rect x="510" y="240" width="460" height="220" fill="#16213e" stroke="#e94560" stroke-width="1.5" rx="8"/>
+  <text x="740" y="265" text-anchor="middle" fill="#e94560" font-size="12" font-weight="bold">Why Tokenization Matters</text>
+
+  <text x="530" y="295" fill="#ffffff" font-size="9" font-weight="bold">Cost: You pay per token, not per character</text>
+  <text x="530" y="313" fill="#aaaaaa" font-size="8">"Hello" = 1 token, "antidisestablishment" = 4+ tokens</text>
+
+  <text x="530" y="340" fill="#ffffff" font-size="9" font-weight="bold">Context: Context window measured in tokens</text>
+  <text x="530" y="358" fill="#aaaaaa" font-size="8">128K tokens ≈ 96K words ≈ 300 pages of text</text>
+
+  <text x="530" y="385" fill="#ffffff" font-size="9" font-weight="bold">Arithmetic: Numbers are hard for LLMs</text>
+  <text x="530" y="403" fill="#aaaaaa" font-size="8">"12345" might be ["123", "45"] — no digit-level access</text>
+
+  <text x="530" y="430" fill="#ffffff" font-size="9" font-weight="bold">Multilingual: Non-English uses more tokens</text>
+  <text x="530" y="448" fill="#aaaaaa" font-size="8">"こんにちは" (5 chars) → 3-5 tokens (inefficient)</text>
+
+  <!-- Bottom -->
+  <text x="500" y="475" text-anchor="middle" fill="#feca57" font-size="9" font-weight="bold">Modern tokenizers: tiktoken (OpenAI), SentencePiece (Google/Meta), HuggingFace Tokenizers (Rust-based, fast)</text>
+
+  <defs>
+    <marker id="tokA" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto"><polygon points="0 0, 6 2.5, 0 5" fill="#ffffff"/></marker>
+  </defs>
+</svg>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 550" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1050" height="550" fill="#1a1a2e" rx="10"/>
+  <text x="525" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">LangGraph — Stateful Graph Execution Model</text>
+
+  <!-- Left: Graph Structure -->
+  <rect x="30" y="55" width="490" height="320" fill="#16213e" stroke="#00ff88" stroke-width="2" rx="8"/>
+  <text x="275" y="78" text-anchor="middle" fill="#00ff88" font-size="12" font-weight="bold">Graph Structure — Agent with Tool Use</text>
+
+  <!-- START node -->
+  <circle cx="275" cy="110" r="18" fill="#0f3460" stroke="#54a0ff" stroke-width="2"/>
+  <text x="275" y="114" text-anchor="middle" fill="#54a0ff" font-size="8" font-weight="bold">START</text>
+
+  <!-- Edge START → Agent -->
+  <line x1="275" y1="130" x2="275" y2="155" stroke="#ffffff" stroke-width="1.5" marker-end="url(#sgArr)"/>
+
+  <!-- Agent node -->
+  <rect x="200" y="160" width="150" height="50" fill="#0f3460" stroke="#feca57" stroke-width="2" rx="8"/>
+  <text x="275" y="182" text-anchor="middle" fill="#feca57" font-size="10" font-weight="bold">Agent (LLM)</text>
+  <text x="275" y="198" text-anchor="middle" fill="#aaaaaa" font-size="7">Reason + decide action</text>
+
+  <!-- Conditional edge diamond -->
+  <polygon points="275,230 310,255 275,280 240,255" fill="#0f3460" stroke="#a29bfe" stroke-width="2"/>
+  <text x="275" y="258" text-anchor="middle" fill="#a29bfe" font-size="7">route?</text>
+
+  <!-- Edge Agent → Diamond -->
+  <line x1="275" y1="212" x2="275" y2="228" stroke="#ffffff" stroke-width="1.5" marker-end="url(#sgArr)"/>
+
+  <!-- Edge to Tools (left) -->
+  <line x1="238" y1="255" x2="140" y2="255" stroke="#00ff88" stroke-width="1.5" marker-end="url(#sgArr)"/>
+  <text x="180" y="248" fill="#00ff88" font-size="7">has tool_calls</text>
+
+  <!-- Tools node -->
+  <rect x="60" y="235" width="120" height="45" fill="#0f3460" stroke="#00ff88" stroke-width="2" rx="8"/>
+  <text x="120" y="255" text-anchor="middle" fill="#00ff88" font-size="9" font-weight="bold">Tools</text>
+  <text x="120" y="270" text-anchor="middle" fill="#aaaaaa" font-size="7">Execute actions</text>
+
+  <!-- Cycle: Tools → Agent -->
+  <path d="M 60,258 C 40,258 40,185 200,185" fill="none" stroke="#feca57" stroke-width="1.5" marker-end="url(#sgArr)" stroke-dasharray="4,3"/>
+  <text x="50" y="210" fill="#feca57" font-size="7" transform="rotate(-90,50,210)">loop back</text>
+
+  <!-- Edge to END (right) -->
+  <line x1="312" y1="255" x2="400" y2="255" stroke="#54a0ff" stroke-width="1.5" marker-end="url(#sgArr)"/>
+  <text x="350" y="248" fill="#54a0ff" font-size="7">no tool_calls</text>
+
+  <!-- END node -->
+  <circle cx="430" cy="255" r="18" fill="#0f3460" stroke="#e94560" stroke-width="2"/>
+  <text x="430" y="259" text-anchor="middle" fill="#e94560" font-size="8" font-weight="bold">END</text>
+
+  <!-- Legend -->
+  <rect x="60" y="305" width="420" height="55" fill="#0f3460" rx="4"/>
+  <circle cx="80" cy="320" r="6" fill="#feca57"/>
+  <text x="95" y="324" fill="#ffffff" font-size="8">Node: function that modifies state</text>
+  <line x1="75" y1="340" x2="105" y2="340" stroke="#ffffff" stroke-width="1.5" marker-end="url(#sgArr)"/>
+  <text x="115" y="344" fill="#ffffff" font-size="8">Edge: unconditional transition</text>
+  <polygon points="80,355 92,349 80,343 68,349" fill="#a29bfe" stroke="#a29bfe" stroke-width="1"/>
+  <text x="115" y="355" fill="#ffffff" font-size="8">Conditional edge: route based on state</text>
+
+  <!-- Right: State Flow -->
+  <rect x="540" y="55" width="480" height="320" fill="#16213e" stroke="#54a0ff" stroke-width="2" rx="8"/>
+  <text x="780" y="78" text-anchor="middle" fill="#54a0ff" font-size="12" font-weight="bold">State Flows Through the Graph</text>
+
+  <!-- State box 1 -->
+  <rect x="560" y="92" width="200" height="65" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="4"/>
+  <text x="660" y="108" text-anchor="middle" fill="#feca57" font-size="8" font-weight="bold">Initial State</text>
+  <text x="575" y="124" fill="#ffffff" font-size="7">messages: [HumanMessage("...")]</text>
+  <text x="575" y="137" fill="#ffffff" font-size="7">next_step: ""</text>
+  <text x="575" y="150" fill="#ffffff" font-size="7">tool_results: []</text>
+
+  <line x1="660" y1="160" x2="660" y2="178" stroke="#fff" stroke-width="1" marker-end="url(#sgArr)"/>
+
+  <!-- State box 2: After Agent -->
+  <rect x="560" y="182" width="200" height="70" fill="#0f3460" stroke="#00ff88" stroke-width="1.5" rx="4"/>
+  <text x="660" y="198" text-anchor="middle" fill="#00ff88" font-size="8" font-weight="bold">After Agent Node</text>
+  <text x="575" y="214" fill="#ffffff" font-size="7">messages: [..., AIMessage(</text>
+  <text x="575" y="227" fill="#ffffff" font-size="7">  tool_calls=[search("query")]</text>
+  <text x="575" y="240" fill="#ffffff" font-size="7">)]</text>
+
+  <line x1="660" y1="255" x2="660" y2="273" stroke="#fff" stroke-width="1" marker-end="url(#sgArr)"/>
+
+  <!-- State box 3: After Tools -->
+  <rect x="560" y="277" width="200" height="70" fill="#0f3460" stroke="#a29bfe" stroke-width="1.5" rx="4"/>
+  <text x="660" y="293" text-anchor="middle" fill="#a29bfe" font-size="8" font-weight="bold">After Tools Node</text>
+  <text x="575" y="309" fill="#ffffff" font-size="7">messages: [..., AIMessage(...),</text>
+  <text x="575" y="322" fill="#ffffff" font-size="7">  ToolMessage("search results")]</text>
+  <text x="575" y="335" fill="#ffffff" font-size="7">→ loops back to Agent</text>
+
+  <!-- Reducer explanation -->
+  <rect x="780" y="92" width="225" height="95" fill="#0f3460" stroke="#e94560" stroke-width="1" rx="4"/>
+  <text x="892" y="112" text-anchor="middle" fill="#e94560" font-size="9" font-weight="bold">Reducers</text>
+  <text x="795" y="130" fill="#00ff88" font-size="7">add_messages: APPENDS</text>
+  <text x="795" y="145" fill="#aaaaaa" font-size="7">  new msgs added to existing list</text>
+  <text x="795" y="163" fill="#feca57" font-size="7">default: OVERWRITES</text>
+  <text x="795" y="178" fill="#aaaaaa" font-size="7">  new value replaces old value</text>
+
+  <!-- Key features -->
+  <rect x="780" y="200" width="225" height="150" fill="#0f3460" stroke="#00d2d3" stroke-width="1" rx="4"/>
+  <text x="892" y="220" text-anchor="middle" fill="#00d2d3" font-size="9" font-weight="bold">Key Capabilities</text>
+  <text x="795" y="240" fill="#ffffff" font-size="8">Cycles (self-correction)</text>
+  <text x="795" y="258" fill="#ffffff" font-size="8">Conditional routing</text>
+  <text x="795" y="276" fill="#ffffff" font-size="8">Human-in-the-loop</text>
+  <text x="795" y="294" fill="#ffffff" font-size="8">Checkpointing (persist state)</text>
+  <text x="795" y="312" fill="#ffffff" font-size="8">Streaming (tokens + state)</text>
+  <text x="795" y="330" fill="#ffffff" font-size="8">Multi-agent coordination</text>
+  <text x="795" y="345" fill="#ffffff" font-size="8">Time travel (replay from any point)</text>
+
+  <!-- Bottom: Comparison -->
+  <rect x="30" y="390" width="990" height="145" fill="#16213e" stroke="#feca57" stroke-width="2" rx="8"/>
+  <text x="525" y="413" text-anchor="middle" fill="#feca57" font-size="12" font-weight="bold">LangChain LCEL vs LangGraph — When to Use What</text>
+
+  <!-- LCEL -->
+  <rect x="50" y="425" width="440" height="95" fill="#0f3460" stroke="#54a0ff" stroke-width="1.5" rx="6"/>
+  <text x="270" y="445" text-anchor="middle" fill="#54a0ff" font-size="10" font-weight="bold">LCEL (LangChain Expression Language)</text>
+  <text x="70" y="465" fill="#ffffff" font-size="8">• Linear pipelines: prompt → model → parser</text>
+  <text x="70" y="480" fill="#ffffff" font-size="8">• Simple RAG, summarization, classification</text>
+  <text x="70" y="495" fill="#ffffff" font-size="8">• No loops, no state persistence, no human approval</text>
+  <text x="70" y="510" fill="#00ff88" font-size="8">Use for: 80% of LLM tasks (simple, deterministic)</text>
+
+  <!-- LangGraph -->
+  <rect x="520" y="425" width="480" height="95" fill="#0f3460" stroke="#e94560" stroke-width="1.5" rx="6"/>
+  <text x="760" y="445" text-anchor="middle" fill="#e94560" font-size="10" font-weight="bold">LangGraph (Graph-Based Workflows)</text>
+  <text x="540" y="465" fill="#ffffff" font-size="8">• Cycles: agent retries, self-correction loops</text>
+  <text x="540" y="480" fill="#ffffff" font-size="8">• Human-in-the-loop: approval before actions</text>
+  <text x="540" y="495" fill="#ffffff" font-size="8">• Multi-agent, state persistence, streaming</text>
+  <text x="540" y="510" fill="#e94560" font-size="8">Use for: complex agents, production workflows, orchestration</text>
+
+  <defs>
+    <marker id="sgArr" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto">
+      <polygon points="0 0, 6 2.5, 0 5" fill="#ffffff"/>
+    </marker>
+  </defs>
+</svg>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1000" height="520" fill="#1a1a2e" rx="10"/>
+
+  <!-- Title -->
+  <text x="500" y="35" text-anchor="middle" fill="#EE4C2C" font-size="20" font-weight="bold">PyTorch Training Loop — Step by Step</text>
+
+  <!-- Main loop steps -->
+  <!-- Step 1 -->
+  <rect x="30" y="65" width="160" height="75" fill="#0f3460" stroke="#00d2d3" stroke-width="2" rx="10"/>
+  <text x="110" y="88" text-anchor="middle" fill="#00d2d3" font-size="11" font-weight="bold">1. Zero Gradients</text>
+  <text x="110" y="108" text-anchor="middle" fill="#ffffff" font-size="9">optimizer</text>
+  <text x="110" y="121" text-anchor="middle" fill="#ffffff" font-size="9">.zero_grad()</text>
+  <text x="110" y="135" text-anchor="middle" fill="#aaaaaa" font-size="8">Clear old gradients!</text>
+
+  <line x1="190" y1="102" x2="220" y2="102" stroke="#00d2d3" stroke-width="2" marker-end="url(#tArrow1)"/>
+
+  <!-- Step 2 -->
+  <rect x="220" y="65" width="160" height="75" fill="#0f3460" stroke="#feca57" stroke-width="2" rx="10"/>
+  <text x="300" y="88" text-anchor="middle" fill="#feca57" font-size="11" font-weight="bold">2. Forward Pass</text>
+  <text x="300" y="108" text-anchor="middle" fill="#ffffff" font-size="9">outputs =</text>
+  <text x="300" y="121" text-anchor="middle" fill="#ffffff" font-size="9">model(inputs)</text>
+  <text x="300" y="135" text-anchor="middle" fill="#aaaaaa" font-size="8">Compute prediction</text>
+
+  <line x1="380" y1="102" x2="410" y2="102" stroke="#feca57" stroke-width="2" marker-end="url(#tArrow2)"/>
+
+  <!-- Step 3 -->
+  <rect x="410" y="65" width="160" height="75" fill="#0f3460" stroke="#e94560" stroke-width="2" rx="10"/>
+  <text x="490" y="88" text-anchor="middle" fill="#e94560" font-size="11" font-weight="bold">3. Compute Loss</text>
+  <text x="490" y="108" text-anchor="middle" fill="#ffffff" font-size="9">loss =</text>
+  <text x="490" y="121" text-anchor="middle" fill="#ffffff" font-size="9">criterion(out, target)</text>
+  <text x="490" y="135" text-anchor="middle" fill="#aaaaaa" font-size="8">Measure error</text>
+
+  <line x1="570" y1="102" x2="600" y2="102" stroke="#e94560" stroke-width="2" marker-end="url(#tArrow3)"/>
+
+  <!-- Step 4 -->
+  <rect x="600" y="65" width="160" height="75" fill="#0f3460" stroke="#ff6b6b" stroke-width="2" rx="10"/>
+  <text x="680" y="88" text-anchor="middle" fill="#ff6b6b" font-size="11" font-weight="bold">4. Backward Pass</text>
+  <text x="680" y="108" text-anchor="middle" fill="#ffffff" font-size="9">loss</text>
+  <text x="680" y="121" text-anchor="middle" fill="#ffffff" font-size="9">.backward()</text>
+  <text x="680" y="135" text-anchor="middle" fill="#aaaaaa" font-size="8">Compute gradients</text>
+
+  <line x1="760" y1="102" x2="790" y2="102" stroke="#ff6b6b" stroke-width="2" marker-end="url(#tArrow4)"/>
+
+  <!-- Step 5 -->
+  <rect x="790" y="65" width="180" height="75" fill="#0f3460" stroke="#54a0ff" stroke-width="2" rx="10"/>
+  <text x="880" y="88" text-anchor="middle" fill="#54a0ff" font-size="11" font-weight="bold">5. Update Weights</text>
+  <text x="880" y="108" text-anchor="middle" fill="#ffffff" font-size="9">optimizer</text>
+  <text x="880" y="121" text-anchor="middle" fill="#ffffff" font-size="9">.step()</text>
+  <text x="880" y="135" text-anchor="middle" fill="#aaaaaa" font-size="8">Apply gradients</text>
+
+  <!-- Loop arrow -->
+  <path d="M 880 140 L 880 160 Q 880 170 870 170 L 120 170 Q 110 170 110 160 L 110 140" fill="none" stroke="#a29bfe" stroke-width="2"/>
+  <polygon points="106,140 110,133 114,140" fill="#a29bfe"/>
+  <text x="500" y="185" text-anchor="middle" fill="#a29bfe" font-size="11" font-weight="bold">Repeat for each batch → Repeat for each epoch</text>
+
+  <!-- Complete code -->
+  <rect x="30" y="200" width="470" height="300" fill="#16213e" stroke="#EE4C2C" stroke-width="1.5" rx="8"/>
+  <text x="265" y="225" text-anchor="middle" fill="#EE4C2C" font-size="13" font-weight="bold">Complete Training Loop Code</text>
+
+  <text x="50" y="248" fill="#a29bfe" font-size="10">for epoch in range(num_epochs):</text>
+  <text x="60" y="266" fill="#ffffff" font-size="10">model.train()</text>
+  <text x="60" y="284" fill="#a29bfe" font-size="10">for batch_idx, (X, y) in enumerate(train_loader):</text>
+  <text x="70" y="302" fill="#00d2d3" font-size="10">X, y = X.to(device), y.to(device)</text>
+  <text x="70" y="322" fill="#ffffff" font-size="10"> </text>
+  <text x="70" y="335" fill="#00d2d3" font-size="10">optimizer.zero_grad()        # Step 1</text>
+  <text x="70" y="353" fill="#feca57" font-size="10">outputs = model(X)           # Step 2</text>
+  <text x="70" y="371" fill="#e94560" font-size="10">loss = criterion(outputs, y)  # Step 3</text>
+  <text x="70" y="389" fill="#ff6b6b" font-size="10">loss.backward()              # Step 4</text>
+  <text x="70" y="407" fill="#54a0ff" font-size="10">optimizer.step()             # Step 5</text>
+  <text x="70" y="427" fill="#ffffff" font-size="10"> </text>
+  <text x="60" y="440" fill="#aaaaaa" font-size="10">scheduler.step()  # Optional: update LR</text>
+  <text x="60" y="458" fill="#aaaaaa" font-size="10">validate(model, val_loader)  # Check progress</text>
+  <text x="60" y="478" fill="#aaaaaa" font-size="10">save_checkpoint(model, optimizer, epoch)</text>
+
+  <!-- Key differences from TensorFlow -->
+  <rect x="520" y="200" width="450" height="300" fill="#16213e" stroke="#54a0ff" stroke-width="1.5" rx="8"/>
+  <text x="745" y="225" text-anchor="middle" fill="#54a0ff" font-size="13" font-weight="bold">Critical Details &amp; Common Mistakes</text>
+
+  <!-- Why zero_grad -->
+  <rect x="540" y="240" width="410" height="55" fill="#0f3460" stroke="#ff6b6b" stroke-width="1" rx="5"/>
+  <text x="545" y="258" fill="#ff6b6b" font-size="10" font-weight="bold">⚠️ Why zero_grad() is REQUIRED:</text>
+  <text x="545" y="275" fill="#ffffff" font-size="9">PyTorch ACCUMULATES gradients by default. Without zeroing,</text>
+  <text x="545" y="289" fill="#ffffff" font-size="9">gradients from previous batches add up → wrong updates!</text>
+
+  <!-- model.train() vs model.eval() -->
+  <rect x="540" y="305" width="410" height="55" fill="#0f3460" stroke="#feca57" stroke-width="1" rx="5"/>
+  <text x="545" y="323" fill="#feca57" font-size="10" font-weight="bold">model.train() vs model.eval():</text>
+  <text x="545" y="340" fill="#ffffff" font-size="9">train(): Dropout active, BatchNorm uses batch stats</text>
+  <text x="545" y="354" fill="#ffffff" font-size="9">eval(): Dropout OFF, BatchNorm uses running stats</text>
+
+  <!-- torch.no_grad -->
+  <rect x="540" y="370" width="410" height="55" fill="#0f3460" stroke="#00d2d3" stroke-width="1" rx="5"/>
+  <text x="545" y="388" fill="#00d2d3" font-size="10" font-weight="bold">torch.no_grad() for inference:</text>
+  <text x="545" y="405" fill="#ffffff" font-size="9">Disables autograd → saves memory (no graph stored)</text>
+  <text x="545" y="419" fill="#ffffff" font-size="9">ALWAYS wrap validation/inference in with torch.no_grad():</text>
+
+  <!-- Device -->
+  <rect x="540" y="435" width="410" height="55" fill="#0f3460" stroke="#00ff88" stroke-width="1" rx="5"/>
+  <text x="545" y="453" fill="#00ff88" font-size="10" font-weight="bold">Device management:</text>
+  <text x="545" y="470" fill="#ffffff" font-size="9">device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')</text>
+  <text x="545" y="484" fill="#ffffff" font-size="9">model.to(device) + data.to(device) — both must be same device!</text>
+
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="tArrow1" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#00d2d3"/></marker>
+    <marker id="tArrow2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#feca57"/></marker>
+    <marker id="tArrow3" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#e94560"/></marker>
+    <marker id="tArrow4" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#ff6b6b"/></marker>
+  </defs>
+</svg>

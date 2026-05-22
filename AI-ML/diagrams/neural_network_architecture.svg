@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="900" height="600" fill="#1a1a2e" rx="10"/>
+
+  <!-- Title -->
+  <text x="450" y="40" text-anchor="middle" fill="#e94560" font-size="22" font-weight="bold">Neural Network Architecture</text>
+
+  <!-- Layer Labels -->
+  <text x="150" y="80" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="bold">Input Layer</text>
+  <text x="380" y="80" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="bold">Hidden Layer 1</text>
+  <text x="580" y="80" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="bold">Hidden Layer 2</text>
+  <text x="780" y="80" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="bold">Output Layer</text>
+
+  <!-- Input Layer Neurons -->
+  <circle cx="150" cy="150" r="25" fill="#0f3460" stroke="#e94560" stroke-width="2"/>
+  <text x="150" y="155" text-anchor="middle" fill="#ffffff" font-size="11">x₁</text>
+
+  <circle cx="150" cy="250" r="25" fill="#0f3460" stroke="#e94560" stroke-width="2"/>
+  <text x="150" y="255" text-anchor="middle" fill="#ffffff" font-size="11">x₂</text>
+
+  <circle cx="150" cy="350" r="25" fill="#0f3460" stroke="#e94560" stroke-width="2"/>
+  <text x="150" y="355" text-anchor="middle" fill="#ffffff" font-size="11">x₃</text>
+
+  <circle cx="150" cy="450" r="25" fill="#0f3460" stroke="#e94560" stroke-width="2"/>
+  <text x="150" y="455" text-anchor="middle" fill="#ffffff" font-size="11">x₄</text>
+
+  <!-- Hidden Layer 1 Neurons -->
+  <circle cx="380" cy="130" r="25" fill="#16213e" stroke="#00d2d3" stroke-width="2"/>
+  <text x="380" y="135" text-anchor="middle" fill="#ffffff" font-size="11">h₁¹</text>
+
+  <circle cx="380" cy="230" r="25" fill="#16213e" stroke="#00d2d3" stroke-width="2"/>
+  <text x="380" y="235" text-anchor="middle" fill="#ffffff" font-size="11">h₂¹</text>
+
+  <circle cx="380" cy="330" r="25" fill="#16213e" stroke="#00d2d3" stroke-width="2"/>
+  <text x="380" y="335" text-anchor="middle" fill="#ffffff" font-size="11">h₃¹</text>
+
+  <circle cx="380" cy="430" r="25" fill="#16213e" stroke="#00d2d3" stroke-width="2"/>
+  <text x="380" y="435" text-anchor="middle" fill="#ffffff" font-size="11">h₄¹</text>
+
+  <circle cx="380" cy="500" r="25" fill="#16213e" stroke="#00d2d3" stroke-width="2"/>
+  <text x="380" y="505" text-anchor="middle" fill="#ffffff" font-size="11">h₅¹</text>
+
+  <!-- Hidden Layer 2 Neurons -->
+  <circle cx="580" cy="180" r="25" fill="#16213e" stroke="#feca57" stroke-width="2"/>
+  <text x="580" y="185" text-anchor="middle" fill="#ffffff" font-size="11">h₁²</text>
+
+  <circle cx="580" cy="300" r="25" fill="#16213e" stroke="#feca57" stroke-width="2"/>
+  <text x="580" y="305" text-anchor="middle" fill="#ffffff" font-size="11">h₂²</text>
+
+  <circle cx="580" cy="420" r="25" fill="#16213e" stroke="#feca57" stroke-width="2"/>
+  <text x="580" y="425" text-anchor="middle" fill="#ffffff" font-size="11">h₃²</text>
+
+  <!-- Output Layer Neurons -->
+  <circle cx="780" cy="230" r="25" fill="#0f3460" stroke="#ff6b6b" stroke-width="2"/>
+  <text x="780" y="235" text-anchor="middle" fill="#ffffff" font-size="11">ŷ₁</text>
+
+  <circle cx="780" cy="370" r="25" fill="#0f3460" stroke="#ff6b6b" stroke-width="2"/>
+  <text x="780" y="375" text-anchor="middle" fill="#ffffff" font-size="11">ŷ₂</text>
+
+  <!-- Connections: Input to Hidden 1 -->
+  <g opacity="0.4" stroke="#e94560" stroke-width="1">
+    <line x1="175" y1="150" x2="355" y2="130"/>
+    <line x1="175" y1="150" x2="355" y2="230"/>
+    <line x1="175" y1="150" x2="355" y2="330"/>
+    <line x1="175" y1="150" x2="355" y2="430"/>
+    <line x1="175" y1="150" x2="355" y2="500"/>
+    <line x1="175" y1="250" x2="355" y2="130"/>
+    <line x1="175" y1="250" x2="355" y2="230"/>
+    <line x1="175" y1="250" x2="355" y2="330"/>
+    <line x1="175" y1="250" x2="355" y2="430"/>
+    <line x1="175" y1="250" x2="355" y2="500"/>
+    <line x1="175" y1="350" x2="355" y2="130"/>
+    <line x1="175" y1="350" x2="355" y2="230"/>
+    <line x1="175" y1="350" x2="355" y2="330"/>
+    <line x1="175" y1="350" x2="355" y2="430"/>
+    <line x1="175" y1="350" x2="355" y2="500"/>
+    <line x1="175" y1="450" x2="355" y2="130"/>
+    <line x1="175" y1="450" x2="355" y2="230"/>
+    <line x1="175" y1="450" x2="355" y2="330"/>
+    <line x1="175" y1="450" x2="355" y2="430"/>
+    <line x1="175" y1="450" x2="355" y2="500"/>
+  </g>
+
+  <!-- Connections: Hidden 1 to Hidden 2 -->
+  <g opacity="0.4" stroke="#00d2d3" stroke-width="1">
+    <line x1="405" y1="130" x2="555" y2="180"/>
+    <line x1="405" y1="130" x2="555" y2="300"/>
+    <line x1="405" y1="130" x2="555" y2="420"/>
+    <line x1="405" y1="230" x2="555" y2="180"/>
+    <line x1="405" y1="230" x2="555" y2="300"/>
+    <line x1="405" y1="230" x2="555" y2="420"/>
+    <line x1="405" y1="330" x2="555" y2="180"/>
+    <line x1="405" y1="330" x2="555" y2="300"/>
+    <line x1="405" y1="330" x2="555" y2="420"/>
+    <line x1="405" y1="430" x2="555" y2="180"/>
+    <line x1="405" y1="430" x2="555" y2="300"/>
+    <line x1="405" y1="430" x2="555" y2="420"/>
+    <line x1="405" y1="500" x2="555" y2="180"/>
+    <line x1="405" y1="500" x2="555" y2="300"/>
+    <line x1="405" y1="500" x2="555" y2="420"/>
+  </g>
+
+  <!-- Connections: Hidden 2 to Output -->
+  <g opacity="0.4" stroke="#feca57" stroke-width="1">
+    <line x1="605" y1="180" x2="755" y2="230"/>
+    <line x1="605" y1="180" x2="755" y2="370"/>
+    <line x1="605" y1="300" x2="755" y2="230"/>
+    <line x1="605" y1="300" x2="755" y2="370"/>
+    <line x1="605" y1="420" x2="755" y2="230"/>
+    <line x1="605" y1="420" x2="755" y2="370"/>
+  </g>
+
+  <!-- Legend -->
+  <rect x="30" y="530" width="840" height="55" fill="#16213e" rx="8"/>
+  <text x="60" y="555" fill="#e94560" font-size="12">● Input (Features)</text>
+  <text x="240" y="555" fill="#00d2d3" font-size="12">● Hidden Layer (Feature Extraction)</text>
+  <text x="520" y="555" fill="#feca57" font-size="12">● Hidden Layer (Abstraction)</text>
+  <text x="740" y="555" fill="#ff6b6b" font-size="12">● Output (Prediction)</text>
+  <text x="450" y="578" text-anchor="middle" fill="#aaaaaa" font-size="11">Each connection has a weight (w) and each neuron has a bias (b): output = σ(Σwᵢxᵢ + b)</text>
+</svg>

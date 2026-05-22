@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 480" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1050" height="480" fill="#1a1a2e" rx="10"/>
+  <text x="525" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">PEFT Methods — Parameter-Efficient Fine-Tuning Comparison</text>
+
+  <!-- Full Fine-Tuning (baseline) -->
+  <rect x="30" y="55" width="200" height="140" fill="#16213e" stroke="#ff6b6b" stroke-width="2" rx="8"/>
+  <text x="130" y="78" text-anchor="middle" fill="#ff6b6b" font-size="10" font-weight="bold">Full Fine-Tuning</text>
+  <rect x="50" y="90" width="160" height="50" fill="#c62828" rx="4" opacity="0.6"/>
+  <text x="130" y="112" text-anchor="middle" fill="#ffffff" font-size="8">ALL parameters trained</text>
+  <text x="130" y="128" text-anchor="middle" fill="#ffffff" font-size="7">(100% = billions)</text>
+  <text x="130" y="155" text-anchor="middle" fill="#aaaaaa" font-size="7">Memory: ~112 GB (7B)</text>
+  <text x="130" y="170" text-anchor="middle" fill="#aaaaaa" font-size="7">Quality: Best</text>
+  <text x="130" y="185" text-anchor="middle" fill="#ff6b6b" font-size="7">Cost: $$$$</text>
+
+  <!-- LoRA -->
+  <rect x="250" y="55" width="200" height="140" fill="#16213e" stroke="#00ff88" stroke-width="2" rx="8"/>
+  <text x="350" y="78" text-anchor="middle" fill="#00ff88" font-size="10" font-weight="bold">LoRA</text>
+
+  <!-- Model layers visualization -->
+  <rect x="270" y="90" width="160" height="50" fill="#0f3460" rx="4"/>
+  <!-- Frozen layers -->
+  <rect x="275" y="95" width="150" height="10" fill="#444444" rx="2"/>
+  <rect x="275" y="108" width="150" height="10" fill="#444444" rx="2"/>
+  <rect x="275" y="121" width="150" height="10" fill="#444444" rx="2"/>
+  <!-- LoRA adapters (thin green) -->
+  <rect x="430" y="95" width="8" height="10" fill="#00ff88" rx="1"/>
+  <rect x="430" y="108" width="8" height="10" fill="#00ff88" rx="1"/>
+  <rect x="430" y="121" width="8" height="10" fill="#00ff88" rx="1"/>
+
+  <text x="350" y="155" text-anchor="middle" fill="#aaaaaa" font-size="7">Params: 0.1-1% (low-rank B×A)</text>
+  <text x="350" y="170" text-anchor="middle" fill="#aaaaaa" font-size="7">Memory: ~6-18 GB (7B)</text>
+  <text x="350" y="185" text-anchor="middle" fill="#00ff88" font-size="7">Quality: 95-99% of full</text>
+
+  <!-- QLoRA -->
+  <rect x="470" y="55" width="200" height="140" fill="#16213e" stroke="#a29bfe" stroke-width="2" rx="8"/>
+  <text x="570" y="78" text-anchor="middle" fill="#a29bfe" font-size="10" font-weight="bold">QLoRA</text>
+
+  <rect x="490" y="90" width="160" height="50" fill="#0f3460" rx="4"/>
+  <!-- 4-bit frozen layers -->
+  <rect x="495" y="95" width="150" height="10" fill="#333333" rx="2"/>
+  <text x="570" y="103" text-anchor="middle" fill="#a29bfe" font-size="5">4-bit</text>
+  <rect x="495" y="108" width="150" height="10" fill="#333333" rx="2"/>
+  <text x="570" y="116" text-anchor="middle" fill="#a29bfe" font-size="5">4-bit</text>
+  <rect x="495" y="121" width="150" height="10" fill="#333333" rx="2"/>
+  <text x="570" y="129" text-anchor="middle" fill="#a29bfe" font-size="5">4-bit</text>
+  <!-- fp16 adapters -->
+  <rect x="650" y="95" width="8" height="10" fill="#00ff88" rx="1"/>
+  <rect x="650" y="108" width="8" height="10" fill="#00ff88" rx="1"/>
+  <rect x="650" y="121" width="8" height="10" fill="#00ff88" rx="1"/>
+
+  <text x="570" y="155" text-anchor="middle" fill="#aaaaaa" font-size="7">Params: 0.1% (LoRA on 4-bit base)</text>
+  <text x="570" y="170" text-anchor="middle" fill="#aaaaaa" font-size="7">Memory: ~6 GB (7B)!</text>
+  <text x="570" y="185" text-anchor="middle" fill="#a29bfe" font-size="7">Quality: 93-97% of full</text>
+
+  <!-- Prefix Tuning -->
+  <rect x="690" y="55" width="160" height="140" fill="#16213e" stroke="#feca57" stroke-width="2" rx="8"/>
+  <text x="770" y="78" text-anchor="middle" fill="#feca57" font-size="10" font-weight="bold">Prefix Tuning</text>
+
+  <rect x="705" y="90" width="130" height="50" fill="#0f3460" rx="4"/>
+  <!-- Prefix tokens (yellow) at the front -->
+  <rect x="710" y="95" width="30" height="10" fill="#feca57" rx="2"/>
+  <rect x="745" y="95" width="85" height="10" fill="#444444" rx="2"/>
+  <rect x="710" y="108" width="30" height="10" fill="#feca57" rx="2"/>
+  <rect x="745" y="108" width="85" height="10" fill="#444444" rx="2"/>
+  <rect x="710" y="121" width="30" height="10" fill="#feca57" rx="2"/>
+  <rect x="745" y="121" width="85" height="10" fill="#444444" rx="2"/>
+
+  <text x="770" y="155" text-anchor="middle" fill="#aaaaaa" font-size="7">Params: &lt;0.1% (soft prompts)</text>
+  <text x="770" y="170" text-anchor="middle" fill="#aaaaaa" font-size="7">Memory: Very low</text>
+  <text x="770" y="185" text-anchor="middle" fill="#feca57" font-size="7">Quality: 85-95%</text>
+
+  <!-- Adapters -->
+  <rect x="870" y="55" width="150" height="140" fill="#16213e" stroke="#00d2d3" stroke-width="2" rx="8"/>
+  <text x="945" y="78" text-anchor="middle" fill="#00d2d3" font-size="10" font-weight="bold">Adapters</text>
+
+  <rect x="885" y="90" width="120" height="50" fill="#0f3460" rx="4"/>
+  <!-- Layers with adapter bottlenecks inserted -->
+  <rect x="890" y="95" width="110" height="7" fill="#444444" rx="2"/>
+  <rect x="905" y="103" width="80" height="5" fill="#00d2d3" rx="1"/>
+  <rect x="890" y="110" width="110" height="7" fill="#444444" rx="2"/>
+  <rect x="905" y="118" width="80" height="5" fill="#00d2d3" rx="1"/>
+  <rect x="890" y="125" width="110" height="7" fill="#444444" rx="2"/>
+  <rect x="905" y="133" width="80" height="5" fill="#00d2d3" rx="1"/>
+
+  <text x="945" y="155" text-anchor="middle" fill="#aaaaaa" font-size="7">Params: 1-5% (bottleneck)</text>
+  <text x="945" y="170" text-anchor="middle" fill="#aaaaaa" font-size="7">Memory: ~20-30 GB (7B)</text>
+  <text x="945" y="185" text-anchor="middle" fill="#00d2d3" font-size="7">Quality: 93-98%</text>
+
+  <!-- Comparison chart -->
+  <rect x="30" y="210" width="990" height="250" fill="#16213e" stroke="#54a0ff" stroke-width="2" rx="8"/>
+  <text x="525" y="233" text-anchor="middle" fill="#54a0ff" font-size="12" font-weight="bold">Detailed Comparison Matrix</text>
+
+  <!-- Table headers -->
+  <rect x="50" y="245" width="950" height="22" fill="#0f3460" rx="3"/>
+  <text x="120" y="260" text-anchor="middle" fill="#ffffff" font-size="8" font-weight="bold">Method</text>
+  <text x="240" y="260" text-anchor="middle" fill="#ffffff" font-size="8" font-weight="bold">% Params</text>
+  <text x="350" y="260" text-anchor="middle" fill="#ffffff" font-size="8" font-weight="bold">Memory</text>
+  <text x="460" y="260" text-anchor="middle" fill="#ffffff" font-size="8" font-weight="bold">Quality</text>
+  <text x="580" y="260" text-anchor="middle" fill="#ffffff" font-size="8" font-weight="bold">Speed</text>
+  <text x="710" y="260" text-anchor="middle" fill="#ffffff" font-size="8" font-weight="bold">Multi-task</text>
+  <text x="870" y="260" text-anchor="middle" fill="#ffffff" font-size="8" font-weight="bold">Best For</text>
+
+  <!-- Full Fine-Tune -->
+  <text x="120" y="285" text-anchor="middle" fill="#ff6b6b" font-size="8">Full Fine-Tune</text>
+  <text x="240" y="285" text-anchor="middle" fill="#ffffff" font-size="8">100%</text>
+  <text x="350" y="285" text-anchor="middle" fill="#ff6b6b" font-size="8">Very High</text>
+  <text x="460" y="285" text-anchor="middle" fill="#00ff88" font-size="8">Best</text>
+  <text x="580" y="285" text-anchor="middle" fill="#ff6b6b" font-size="8">Slow</text>
+  <text x="710" y="285" text-anchor="middle" fill="#ff6b6b" font-size="8">Separate models</text>
+  <text x="870" y="285" text-anchor="middle" fill="#aaaaaa" font-size="7">Unlimited budget</text>
+
+  <!-- LoRA -->
+  <text x="120" y="310" text-anchor="middle" fill="#00ff88" font-size="8">LoRA</text>
+  <text x="240" y="310" text-anchor="middle" fill="#ffffff" font-size="8">0.1-1%</text>
+  <text x="350" y="310" text-anchor="middle" fill="#feca57" font-size="8">Low</text>
+  <text x="460" y="310" text-anchor="middle" fill="#00ff88" font-size="8">95-99%</text>
+  <text x="580" y="310" text-anchor="middle" fill="#00ff88" font-size="8">Fast</text>
+  <text x="710" y="310" text-anchor="middle" fill="#00ff88" font-size="8">Swap adapters</text>
+  <text x="870" y="310" text-anchor="middle" fill="#aaaaaa" font-size="7">Default choice</text>
+
+  <!-- QLoRA -->
+  <text x="120" y="335" text-anchor="middle" fill="#a29bfe" font-size="8">QLoRA</text>
+  <text x="240" y="335" text-anchor="middle" fill="#ffffff" font-size="8">0.1%</text>
+  <text x="350" y="335" text-anchor="middle" fill="#00ff88" font-size="8">Very Low</text>
+  <text x="460" y="335" text-anchor="middle" fill="#feca57" font-size="8">93-97%</text>
+  <text x="580" y="335" text-anchor="middle" fill="#feca57" font-size="8">Medium</text>
+  <text x="710" y="335" text-anchor="middle" fill="#00ff88" font-size="8">Swap adapters</text>
+  <text x="870" y="335" text-anchor="middle" fill="#aaaaaa" font-size="7">Consumer GPUs</text>
+
+  <!-- Prefix Tuning -->
+  <text x="120" y="360" text-anchor="middle" fill="#feca57" font-size="8">Prefix Tuning</text>
+  <text x="240" y="360" text-anchor="middle" fill="#ffffff" font-size="8">&lt;0.1%</text>
+  <text x="350" y="360" text-anchor="middle" fill="#00ff88" font-size="8">Minimal</text>
+  <text x="460" y="360" text-anchor="middle" fill="#ff6b6b" font-size="8">85-95%</text>
+  <text x="580" y="360" text-anchor="middle" fill="#00ff88" font-size="8">Fastest</text>
+  <text x="710" y="360" text-anchor="middle" fill="#00ff88" font-size="8">Swap prefixes</text>
+  <text x="870" y="360" text-anchor="middle" fill="#aaaaaa" font-size="7">Lightweight tasks</text>
+
+  <!-- Adapters -->
+  <text x="120" y="385" text-anchor="middle" fill="#00d2d3" font-size="8">Adapters</text>
+  <text x="240" y="385" text-anchor="middle" fill="#ffffff" font-size="8">1-5%</text>
+  <text x="350" y="385" text-anchor="middle" fill="#feca57" font-size="8">Medium</text>
+  <text x="460" y="385" text-anchor="middle" fill="#00ff88" font-size="8">93-98%</text>
+  <text x="580" y="385" text-anchor="middle" fill="#feca57" font-size="8">Medium</text>
+  <text x="710" y="385" text-anchor="middle" fill="#00ff88" font-size="8">Modular</text>
+  <text x="870" y="385" text-anchor="middle" fill="#aaaaaa" font-size="7">NLP benchmarks</text>
+
+  <!-- IA3 -->
+  <text x="120" y="410" text-anchor="middle" fill="#54a0ff" font-size="8">IA3</text>
+  <text x="240" y="410" text-anchor="middle" fill="#ffffff" font-size="8">&lt;0.01%</text>
+  <text x="350" y="410" text-anchor="middle" fill="#00ff88" font-size="8">Minimal</text>
+  <text x="460" y="410" text-anchor="middle" fill="#feca57" font-size="8">85-92%</text>
+  <text x="580" y="410" text-anchor="middle" fill="#00ff88" font-size="8">Fastest</text>
+  <text x="710" y="410" text-anchor="middle" fill="#00ff88" font-size="8">Swap vectors</text>
+  <text x="870" y="410" text-anchor="middle" fill="#aaaaaa" font-size="7">Extreme efficiency</text>
+
+  <!-- Recommendation -->
+  <rect x="50" y="425" width="950" height="40" fill="#0f3460" stroke="#00ff88" stroke-width="1.5" rx="6"/>
+  <text x="525" y="443" text-anchor="middle" fill="#00ff88" font-size="10" font-weight="bold">Recommendation: Start with QLoRA (consumer GPU) or LoRA (cloud GPU)</text>
+  <text x="525" y="458" text-anchor="middle" fill="#aaaaaa" font-size="8">QLoRA gives 93%+ of full fine-tuning quality on a single RTX 4090. LoRA is the industry standard for production.</text>
+</svg>

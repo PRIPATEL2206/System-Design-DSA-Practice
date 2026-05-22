@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 440" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1000" height="440" fill="#1a1a2e" rx="10"/>
+  <text x="500" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">Pooling Operations — Spatial Downsampling</text>
+
+  <!-- Max Pooling -->
+  <rect x="30" y="55" width="460" height="180" fill="#16213e" stroke="#feca57" stroke-width="2" rx="8"/>
+  <text x="260" y="80" text-anchor="middle" fill="#feca57" font-size="14" font-weight="bold">Max Pooling (2×2, stride=2)</text>
+
+  <!-- Input 4x4 -->
+  <g transform="translate(50, 95)">
+    <rect x="0" y="0" width="35" height="35" fill="#e94560" opacity="0.3" stroke="#e94560" stroke-width="1"/><text x="17" y="22" text-anchor="middle" fill="#fff" font-size="10">1</text>
+    <rect x="35" y="0" width="35" height="35" fill="#e94560" opacity="0.3" stroke="#e94560" stroke-width="1"/><text x="52" y="22" text-anchor="middle" fill="#fff" font-size="10">3</text>
+    <rect x="70" y="0" width="35" height="35" fill="#00d2d3" opacity="0.3" stroke="#00d2d3" stroke-width="1"/><text x="87" y="22" text-anchor="middle" fill="#fff" font-size="10">2</text>
+    <rect x="105" y="0" width="35" height="35" fill="#00d2d3" opacity="0.3" stroke="#00d2d3" stroke-width="1"/><text x="122" y="22" text-anchor="middle" fill="#fff" font-size="10">1</text>
+
+    <rect x="0" y="35" width="35" height="35" fill="#e94560" opacity="0.3" stroke="#e94560" stroke-width="1"/><text x="17" y="57" text-anchor="middle" fill="#fff" font-size="10">2</text>
+    <rect x="35" y="35" width="35" height="35" fill="#e94560" opacity="0.3" stroke="#e94560" stroke-width="1"/><text x="52" y="57" text-anchor="middle" fill="#feca57" font-size="12" font-weight="bold">9</text>
+    <rect x="70" y="35" width="35" height="35" fill="#00d2d3" opacity="0.3" stroke="#00d2d3" stroke-width="1"/><text x="87" y="57" text-anchor="middle" fill="#fff" font-size="10">1</text>
+    <rect x="105" y="35" width="35" height="35" fill="#00d2d3" opacity="0.3" stroke="#00d2d3" stroke-width="1"/><text x="122" y="57" text-anchor="middle" fill="#00d2d3" font-size="12" font-weight="bold">3</text>
+
+    <rect x="0" y="70" width="35" height="35" fill="#a29bfe" opacity="0.3" stroke="#a29bfe" stroke-width="1"/><text x="17" y="92" text-anchor="middle" fill="#fff" font-size="10">1</text>
+    <rect x="35" y="70" width="35" height="35" fill="#a29bfe" opacity="0.3" stroke="#a29bfe" stroke-width="1"/><text x="52" y="92" text-anchor="middle" fill="#fff" font-size="10">4</text>
+    <rect x="70" y="70" width="35" height="35" fill="#54a0ff" opacity="0.3" stroke="#54a0ff" stroke-width="1"/><text x="87" y="92" text-anchor="middle" fill="#fff" font-size="10">5</text>
+    <rect x="105" y="70" width="35" height="35" fill="#54a0ff" opacity="0.3" stroke="#54a0ff" stroke-width="1"/><text x="122" y="92" text-anchor="middle" fill="#fff" font-size="10">2</text>
+
+    <rect x="0" y="105" width="35" height="35" fill="#a29bfe" opacity="0.3" stroke="#a29bfe" stroke-width="1"/><text x="17" y="127" text-anchor="middle" fill="#a29bfe" font-size="12" font-weight="bold">7</text>
+    <rect x="35" y="105" width="35" height="35" fill="#a29bfe" opacity="0.3" stroke="#a29bfe" stroke-width="1"/><text x="52" y="127" text-anchor="middle" fill="#fff" font-size="10">2</text>
+    <rect x="70" y="105" width="35" height="35" fill="#54a0ff" opacity="0.3" stroke="#54a0ff" stroke-width="1"/><text x="87" y="127" text-anchor="middle" fill="#54a0ff" font-size="12" font-weight="bold">8</text>
+    <rect x="105" y="105" width="35" height="35" fill="#54a0ff" opacity="0.3" stroke="#54a0ff" stroke-width="1"/><text x="122" y="127" text-anchor="middle" fill="#fff" font-size="10">3</text>
+  </g>
+
+  <text x="225" y="157" fill="#ffffff" font-size="9">4×4 input</text>
+
+  <!-- Arrow -->
+  <line x1="210" y1="165" x2="250" y2="165" stroke="#feca57" stroke-width="2" marker-end="url(#poolA)"/>
+  <text x="230" y="155" text-anchor="middle" fill="#feca57" font-size="8">max</text>
+
+  <!-- Output 2x2 -->
+  <g transform="translate(260, 130)">
+    <rect x="0" y="0" width="45" height="45" fill="#0f3460" stroke="#feca57" stroke-width="2"/><text x="22" y="28" text-anchor="middle" fill="#feca57" font-size="14" font-weight="bold">9</text>
+    <rect x="45" y="0" width="45" height="45" fill="#0f3460" stroke="#feca57" stroke-width="2"/><text x="67" y="28" text-anchor="middle" fill="#00d2d3" font-size="14" font-weight="bold">3</text>
+    <rect x="0" y="45" width="45" height="45" fill="#0f3460" stroke="#feca57" stroke-width="2"/><text x="22" y="73" text-anchor="middle" fill="#a29bfe" font-size="14" font-weight="bold">7</text>
+    <rect x="45" y="45" width="45" height="45" fill="#0f3460" stroke="#feca57" stroke-width="2"/><text x="67" y="73" text-anchor="middle" fill="#54a0ff" font-size="14" font-weight="bold">8</text>
+  </g>
+
+  <text x="350" y="157" fill="#ffffff" font-size="9">2×2 output</text>
+  <text x="400" y="200" fill="#aaaaaa" font-size="9">Takes MAX value from</text>
+  <text x="400" y="213" fill="#aaaaaa" font-size="9">each 2×2 window</text>
+
+  <!-- Average Pooling -->
+  <rect x="510" y="55" width="460" height="180" fill="#16213e" stroke="#00d2d3" stroke-width="2" rx="8"/>
+  <text x="740" y="80" text-anchor="middle" fill="#00d2d3" font-size="14" font-weight="bold">Average Pooling (2×2, stride=2)</text>
+
+  <!-- Input 4x4 -->
+  <g transform="translate(530, 95)">
+    <rect x="0" y="0" width="35" height="35" fill="#e94560" opacity="0.3" stroke="#e94560" stroke-width="1"/><text x="17" y="22" text-anchor="middle" fill="#fff" font-size="10">1</text>
+    <rect x="35" y="0" width="35" height="35" fill="#e94560" opacity="0.3" stroke="#e94560" stroke-width="1"/><text x="52" y="22" text-anchor="middle" fill="#fff" font-size="10">3</text>
+    <rect x="70" y="0" width="35" height="35" fill="#00d2d3" opacity="0.3" stroke="#00d2d3" stroke-width="1"/><text x="87" y="22" text-anchor="middle" fill="#fff" font-size="10">2</text>
+    <rect x="105" y="0" width="35" height="35" fill="#00d2d3" opacity="0.3" stroke="#00d2d3" stroke-width="1"/><text x="122" y="22" text-anchor="middle" fill="#fff" font-size="10">1</text>
+    <rect x="0" y="35" width="35" height="35" fill="#e94560" opacity="0.3" stroke="#e94560" stroke-width="1"/><text x="17" y="57" text-anchor="middle" fill="#fff" font-size="10">2</text>
+    <rect x="35" y="35" width="35" height="35" fill="#e94560" opacity="0.3" stroke="#e94560" stroke-width="1"/><text x="52" y="57" text-anchor="middle" fill="#fff" font-size="10">9</text>
+    <rect x="70" y="35" width="35" height="35" fill="#00d2d3" opacity="0.3" stroke="#00d2d3" stroke-width="1"/><text x="87" y="57" text-anchor="middle" fill="#fff" font-size="10">1</text>
+    <rect x="105" y="35" width="35" height="35" fill="#00d2d3" opacity="0.3" stroke="#00d2d3" stroke-width="1"/><text x="122" y="57" text-anchor="middle" fill="#fff" font-size="10">3</text>
+    <rect x="0" y="70" width="35" height="35" fill="#a29bfe" opacity="0.3" stroke="#a29bfe" stroke-width="1"/><text x="17" y="92" text-anchor="middle" fill="#fff" font-size="10">1</text>
+    <rect x="35" y="70" width="35" height="35" fill="#a29bfe" opacity="0.3" stroke="#a29bfe" stroke-width="1"/><text x="52" y="92" text-anchor="middle" fill="#fff" font-size="10">4</text>
+    <rect x="70" y="70" width="35" height="35" fill="#54a0ff" opacity="0.3" stroke="#54a0ff" stroke-width="1"/><text x="87" y="92" text-anchor="middle" fill="#fff" font-size="10">5</text>
+    <rect x="105" y="70" width="35" height="35" fill="#54a0ff" opacity="0.3" stroke="#54a0ff" stroke-width="1"/><text x="122" y="92" text-anchor="middle" fill="#fff" font-size="10">2</text>
+    <rect x="0" y="105" width="35" height="35" fill="#a29bfe" opacity="0.3" stroke="#a29bfe" stroke-width="1"/><text x="17" y="127" text-anchor="middle" fill="#fff" font-size="10">7</text>
+    <rect x="35" y="105" width="35" height="35" fill="#a29bfe" opacity="0.3" stroke="#a29bfe" stroke-width="1"/><text x="52" y="127" text-anchor="middle" fill="#fff" font-size="10">2</text>
+    <rect x="70" y="105" width="35" height="35" fill="#54a0ff" opacity="0.3" stroke="#54a0ff" stroke-width="1"/><text x="87" y="127" text-anchor="middle" fill="#fff" font-size="10">8</text>
+    <rect x="105" y="105" width="35" height="35" fill="#54a0ff" opacity="0.3" stroke="#54a0ff" stroke-width="1"/><text x="122" y="127" text-anchor="middle" fill="#fff" font-size="10">3</text>
+  </g>
+
+  <!-- Arrow -->
+  <line x1="690" y1="165" x2="730" y2="165" stroke="#00d2d3" stroke-width="2" marker-end="url(#poolA2)"/>
+  <text x="710" y="155" text-anchor="middle" fill="#00d2d3" font-size="8">avg</text>
+
+  <!-- Output -->
+  <g transform="translate(740, 130)">
+    <rect x="0" y="0" width="45" height="45" fill="#0f3460" stroke="#00d2d3" stroke-width="2"/><text x="22" y="28" text-anchor="middle" fill="#00d2d3" font-size="12" font-weight="bold">3.75</text>
+    <rect x="45" y="0" width="45" height="45" fill="#0f3460" stroke="#00d2d3" stroke-width="2"/><text x="67" y="28" text-anchor="middle" fill="#00d2d3" font-size="12" font-weight="bold">1.75</text>
+    <rect x="0" y="45" width="45" height="45" fill="#0f3460" stroke="#00d2d3" stroke-width="2"/><text x="22" y="73" text-anchor="middle" fill="#00d2d3" font-size="12" font-weight="bold">3.5</text>
+    <rect x="45" y="45" width="45" height="45" fill="#0f3460" stroke="#00d2d3" stroke-width="2"/><text x="67" y="73" text-anchor="middle" fill="#00d2d3" font-size="12" font-weight="bold">4.5</text>
+  </g>
+
+  <text x="860" y="200" fill="#aaaaaa" font-size="9">Takes AVERAGE of</text>
+  <text x="860" y="213" fill="#aaaaaa" font-size="9">each 2×2 window</text>
+
+  <!-- Comparison table -->
+  <rect x="30" y="255" width="940" height="165" fill="#0f3460" stroke="#54a0ff" stroke-width="1.5" rx="8"/>
+  <text x="500" y="280" text-anchor="middle" fill="#54a0ff" font-size="14" font-weight="bold">Pooling Types Comparison</text>
+
+  <!-- Headers -->
+  <text x="130" y="305" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="bold">Type</text>
+  <text x="320" y="305" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="bold">What it Does</text>
+  <text x="560" y="305" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="bold">Best For</text>
+  <text x="800" y="305" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="bold">Used In</text>
+  <line x1="50" y1="312" x2="950" y2="312" stroke="#444" stroke-width="1"/>
+
+  <text x="130" y="332" text-anchor="middle" fill="#feca57" font-size="10">Max Pooling</text>
+  <text x="320" y="332" text-anchor="middle" fill="#ffffff" font-size="10">Keeps strongest activation</text>
+  <text x="560" y="332" text-anchor="middle" fill="#ffffff" font-size="10">Feature detection (is edge present?)</text>
+  <text x="800" y="332" text-anchor="middle" fill="#ffffff" font-size="10">VGG, AlexNet, most CNNs</text>
+
+  <text x="130" y="355" text-anchor="middle" fill="#00d2d3" font-size="10">Average Pooling</text>
+  <text x="320" y="355" text-anchor="middle" fill="#ffffff" font-size="10">Smooth average of region</text>
+  <text x="560" y="355" text-anchor="middle" fill="#ffffff" font-size="10">Background/texture features</text>
+  <text x="800" y="355" text-anchor="middle" fill="#ffffff" font-size="10">Inception, some classifiers</text>
+
+  <text x="130" y="378" text-anchor="middle" fill="#00ff88" font-size="10">Global Avg Pool</text>
+  <text x="320" y="378" text-anchor="middle" fill="#ffffff" font-size="10">Average entire feature map → 1 value</text>
+  <text x="560" y="378" text-anchor="middle" fill="#ffffff" font-size="10">Replace FC layers (fewer params!)</text>
+  <text x="800" y="378" text-anchor="middle" fill="#ffffff" font-size="10">ResNet, EfficientNet, modern CNNs</text>
+
+  <text x="130" y="401" text-anchor="middle" fill="#a29bfe" font-size="10">Strided Conv</text>
+  <text x="320" y="401" text-anchor="middle" fill="#ffffff" font-size="10">Learnable downsampling (conv stride=2)</text>
+  <text x="560" y="401" text-anchor="middle" fill="#ffffff" font-size="10">When pooling is too lossy</text>
+  <text x="800" y="401" text-anchor="middle" fill="#ffffff" font-size="10">DCGAN, StyleGAN, some modern nets</text>
+
+  <defs>
+    <marker id="poolA" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#feca57"/></marker>
+    <marker id="poolA2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#00d2d3"/></marker>
+  </defs>
+</svg>

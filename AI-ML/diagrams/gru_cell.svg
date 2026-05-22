@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1000" height="480" fill="#1a1a2e" rx="10"/>
+  <text x="500" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">GRU Cell — Gated Recurrent Unit (Simplified LSTM)</text>
+
+  <!-- Main cell outline -->
+  <rect x="100" y="55" width="550" height="260" fill="#16213e" stroke="#a29bfe" stroke-width="2" rx="10"/>
+  <text x="375" y="78" text-anchor="middle" fill="#a29bfe" font-size="12" font-weight="bold">GRU Cell Architecture</text>
+
+  <!-- Reset Gate -->
+  <rect x="140" y="100" width="150" height="70" fill="#0f3460" stroke="#e94560" stroke-width="2" rx="8"/>
+  <text x="215" y="125" text-anchor="middle" fill="#e94560" font-size="11" font-weight="bold">Reset Gate (r)</text>
+  <text x="215" y="145" text-anchor="middle" fill="#ffffff" font-size="9">r(t) = σ(W_r · [h(t-1), x(t)])</text>
+  <text x="215" y="162" text-anchor="middle" fill="#aaaaaa" font-size="8">How much past to forget</text>
+
+  <!-- Update Gate -->
+  <rect x="340" y="100" width="150" height="70" fill="#0f3460" stroke="#feca57" stroke-width="2" rx="8"/>
+  <text x="415" y="125" text-anchor="middle" fill="#feca57" font-size="11" font-weight="bold">Update Gate (z)</text>
+  <text x="415" y="145" text-anchor="middle" fill="#ffffff" font-size="9">z(t) = σ(W_z · [h(t-1), x(t)])</text>
+  <text x="415" y="162" text-anchor="middle" fill="#aaaaaa" font-size="8">How much new to accept</text>
+
+  <!-- Candidate hidden state -->
+  <rect x="170" y="195" width="200" height="55" fill="#0f3460" stroke="#00d2d3" stroke-width="2" rx="8"/>
+  <text x="270" y="218" text-anchor="middle" fill="#00d2d3" font-size="11" font-weight="bold">Candidate State</text>
+  <text x="270" y="238" text-anchor="middle" fill="#ffffff" font-size="9">h̃(t) = tanh(W · [r(t) * h(t-1), x(t)])</text>
+
+  <!-- Final combination -->
+  <rect x="420" y="195" width="200" height="55" fill="#0f3460" stroke="#00ff88" stroke-width="2" rx="8"/>
+  <text x="520" y="218" text-anchor="middle" fill="#00ff88" font-size="11" font-weight="bold">Final Hidden State</text>
+  <text x="520" y="238" text-anchor="middle" fill="#ffffff" font-size="9">h(t) = (1-z) * h(t-1) + z * h̃(t)</text>
+
+  <!-- Arrows connecting components -->
+  <line x1="215" y1="170" x2="215" y2="195" stroke="#e94560" stroke-width="1.5" marker-end="url(#gruA)"/>
+  <line x1="415" y1="170" x2="520" y2="195" stroke="#feca57" stroke-width="1.5" marker-end="url(#gruA)"/>
+  <line x1="370" y1="222" x2="420" y2="222" stroke="#00d2d3" stroke-width="1.5" marker-end="url(#gruA)"/>
+
+  <!-- Input labels -->
+  <text x="120" y="290" fill="#ffffff" font-size="10">h(t-1) →</text>
+  <text x="120" y="308" fill="#00ff88" font-size="10">x(t) →</text>
+
+  <!-- Output -->
+  <line x1="620" y1="222" x2="660" y2="222" stroke="#00ff88" stroke-width="2" marker-end="url(#gruA)"/>
+  <text x="680" y="226" fill="#00ff88" font-size="10">h(t)</text>
+
+  <!-- GRU vs LSTM comparison -->
+  <rect x="680" y="55" width="290" height="260" fill="#0f3460" stroke="#54a0ff" stroke-width="1.5" rx="8"/>
+  <text x="825" y="80" text-anchor="middle" fill="#54a0ff" font-size="12" font-weight="bold">GRU vs LSTM</text>
+
+  <text x="700" y="105" fill="#a29bfe" font-size="10" font-weight="bold">GRU (2 gates):</text>
+  <text x="700" y="123" fill="#ffffff" font-size="9">• Reset gate (r)</text>
+  <text x="700" y="139" fill="#ffffff" font-size="9">• Update gate (z)</text>
+  <text x="700" y="155" fill="#aaaaaa" font-size="8">No separate cell state</text>
+  <text x="700" y="170" fill="#aaaaaa" font-size="8">Fewer parameters</text>
+
+  <line x1="700" y1="180" x2="950" y2="180" stroke="#444" stroke-width="1"/>
+
+  <text x="700" y="200" fill="#54a0ff" font-size="10" font-weight="bold">LSTM (3 gates):</text>
+  <text x="700" y="218" fill="#ffffff" font-size="9">• Forget gate (f)</text>
+  <text x="700" y="234" fill="#ffffff" font-size="9">• Input gate (i)</text>
+  <text x="700" y="250" fill="#ffffff" font-size="9">• Output gate (o)</text>
+  <text x="700" y="266" fill="#aaaaaa" font-size="8">Separate cell state C(t)</text>
+  <text x="700" y="282" fill="#aaaaaa" font-size="8">More expressive, more params</text>
+
+  <text x="825" y="308" text-anchor="middle" fill="#feca57" font-size="9" font-weight="bold">Rule: Try GRU first. Use LSTM if</text>
+  <text x="825" y="322" text-anchor="middle" fill="#feca57" font-size="9" font-weight="bold">sequences are very long (&gt;200 steps)</text>
+
+  <!-- Intuition section -->
+  <rect x="30" y="340" width="940" height="125" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="8"/>
+  <text x="500" y="365" text-anchor="middle" fill="#feca57" font-size="13" font-weight="bold">GRU Intuition — The "Interpolation" Trick</text>
+
+  <text x="60" y="395" fill="#ffffff" font-size="11">h(t) = (1 - z) * h(t-1) + z * h̃(t)</text>
+  <text x="60" y="420" fill="#aaaaaa" font-size="10">• z = 0: h(t) = h(t-1) → completely keep old state (copy gate open)</text>
+  <text x="60" y="440" fill="#aaaaaa" font-size="10">• z = 1: h(t) = h̃(t) → completely replace with new candidate</text>
+  <text x="60" y="460" fill="#aaaaaa" font-size="10">• z ∈ (0,1): blend old and new → smooth interpolation between past and present</text>
+
+  <text x="700" y="395" fill="#00ff88" font-size="10" font-weight="bold">Key Insight:</text>
+  <text x="700" y="415" fill="#ffffff" font-size="10">Update gate z controls the</text>
+  <text x="700" y="435" fill="#ffffff" font-size="10">tradeoff between REMEMBERING</text>
+  <text x="700" y="455" fill="#ffffff" font-size="10">(old h) and UPDATING (new h̃)</text>
+
+  <defs>
+    <marker id="gruA" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#ffffff"/></marker>
+  </defs>
+</svg>

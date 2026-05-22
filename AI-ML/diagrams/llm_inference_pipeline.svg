@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1000" height="500" fill="#1a1a2e" rx="10"/>
+  <text x="500" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">LLM Inference Pipeline — From Prompt to Response</text>
+
+  <!-- Phase 1: Prefill -->
+  <rect x="30" y="55" width="300" height="200" fill="#16213e" stroke="#54a0ff" stroke-width="2" rx="8"/>
+  <text x="180" y="80" text-anchor="middle" fill="#54a0ff" font-size="13" font-weight="bold">Phase 1: Prefill</text>
+  <text x="180" y="97" text-anchor="middle" fill="#aaaaaa" font-size="8">(Process entire prompt in parallel)</text>
+
+  <rect x="50" y="110" width="260" height="30" fill="#0f3460" stroke="#00ff88" stroke-width="1" rx="4"/>
+  <text x="180" y="130" text-anchor="middle" fill="#00ff88" font-size="9">Tokenize prompt → [token IDs]</text>
+
+  <line x1="180" y1="140" x2="180" y2="150" stroke="#fff" stroke-width="1" marker-end="url(#infA)"/>
+
+  <rect x="50" y="152" width="260" height="30" fill="#0f3460" stroke="#feca57" stroke-width="1" rx="4"/>
+  <text x="180" y="172" text-anchor="middle" fill="#feca57" font-size="9">Forward pass (all tokens at once)</text>
+
+  <line x1="180" y1="182" x2="180" y2="192" stroke="#fff" stroke-width="1" marker-end="url(#infA)"/>
+
+  <rect x="50" y="194" width="260" height="30" fill="#0f3460" stroke="#e94560" stroke-width="1" rx="4"/>
+  <text x="180" y="214" text-anchor="middle" fill="#e94560" font-size="9">Populate KV-Cache for all positions</text>
+
+  <text x="50" y="245" fill="#ffffff" font-size="8">• Compute-bound (matrix multiplications)</text>
+  <text x="50" y="260" fill="#ffffff" font-size="8">• High GPU utilization (batched matmul)</text>
+  <text x="50" y="275" fill="#ffffff" font-size="8">• Latency: O(n²) for n input tokens</text>
+
+  <!-- Arrow between phases -->
+  <line x1="330" y1="155" x2="360" y2="155" stroke="#00ff88" stroke-width="2" marker-end="url(#infA)"/>
+
+  <!-- Phase 2: Decode -->
+  <rect x="360" y="55" width="300" height="200" fill="#16213e" stroke="#e94560" stroke-width="2" rx="8"/>
+  <text x="510" y="80" text-anchor="middle" fill="#e94560" font-size="13" font-weight="bold">Phase 2: Decode (Autoregressive)</text>
+  <text x="510" y="97" text-anchor="middle" fill="#aaaaaa" font-size="8">(Generate one token at a time)</text>
+
+  <rect x="380" y="110" width="260" height="30" fill="#0f3460" stroke="#a29bfe" stroke-width="1" rx="4"/>
+  <text x="510" y="130" text-anchor="middle" fill="#a29bfe" font-size="9">Forward pass (1 new token only)</text>
+
+  <line x1="510" y1="140" x2="510" y2="150" stroke="#fff" stroke-width="1" marker-end="url(#infA)"/>
+
+  <rect x="380" y="152" width="260" height="30" fill="#0f3460" stroke="#00d2d3" stroke-width="1" rx="4"/>
+  <text x="510" y="172" text-anchor="middle" fill="#00d2d3" font-size="9">Attend to KV-Cache (all past tokens)</text>
+
+  <line x1="510" y1="182" x2="510" y2="192" stroke="#fff" stroke-width="1" marker-end="url(#infA)"/>
+
+  <rect x="380" y="194" width="260" height="30" fill="#0f3460" stroke="#feca57" stroke-width="1" rx="4"/>
+  <text x="510" y="214" text-anchor="middle" fill="#feca57" font-size="9">Sample next token → append to KV-Cache</text>
+
+  <text x="380" y="245" fill="#ffffff" font-size="8">• Memory-bound (reading KV cache)</text>
+  <text x="380" y="260" fill="#ffffff" font-size="8">• Low GPU utilization (tiny matmul)</text>
+  <text x="380" y="275" fill="#ffffff" font-size="8">• Latency: O(n) per token generated</text>
+
+  <!-- Loop arrow -->
+  <path d="M 640 194 C 680 194 680 130 640 130" fill="none" stroke="#feca57" stroke-width="1.5" marker-end="url(#infA)" stroke-dasharray="4"/>
+  <text x="675" y="165" fill="#feca57" font-size="7">repeat</text>
+
+  <!-- Phase 3: Output -->
+  <rect x="690" y="55" width="280" height="200" fill="#16213e" stroke="#00ff88" stroke-width="2" rx="8"/>
+  <text x="830" y="80" text-anchor="middle" fill="#00ff88" font-size="13" font-weight="bold">Phase 3: Post-Processing</text>
+
+  <text x="710" y="110" fill="#ffffff" font-size="9" font-weight="bold">Stop Conditions:</text>
+  <text x="710" y="128" fill="#ffffff" font-size="8">• EOS token generated</text>
+  <text x="710" y="144" fill="#ffffff" font-size="8">• max_tokens reached</text>
+  <text x="710" y="160" fill="#ffffff" font-size="8">• Stop sequence matched</text>
+
+  <text x="710" y="185" fill="#ffffff" font-size="9" font-weight="bold">Detokenize:</text>
+  <text x="710" y="203" fill="#ffffff" font-size="8">• Token IDs → text string</text>
+  <text x="710" y="219" fill="#ffffff" font-size="8">• Handle special tokens</text>
+  <text x="710" y="235" fill="#ffffff" font-size="8">• Stream chunks to user</text>
+
+  <!-- Arrow -->
+  <line x1="660" y1="155" x2="690" y2="155" stroke="#00ff88" stroke-width="2" marker-end="url(#infA)"/>
+
+  <!-- Latency breakdown -->
+  <rect x="30" y="275" width="940" height="100" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="8"/>
+  <text x="500" y="300" text-anchor="middle" fill="#feca57" font-size="12" font-weight="bold">Latency Breakdown — Why LLMs Feel Slow</text>
+
+  <text x="60" y="325" fill="#54a0ff" font-size="9" font-weight="bold">Time to First Token (TTFT):</text>
+  <text x="60" y="343" fill="#ffffff" font-size="8">= Prefill time. Depends on prompt length. 100-2000ms typical.</text>
+  <text x="60" y="361" fill="#aaaaaa" font-size="7">Optimization: prompt caching, prefix sharing, speculative decoding</text>
+
+  <text x="530" y="325" fill="#e94560" font-size="9" font-weight="bold">Time Per Output Token (TPOT):</text>
+  <text x="530" y="343" fill="#ffffff" font-size="8">= Decode latency per token. 20-100ms typical. Determines streaming speed.</text>
+  <text x="530" y="361" fill="#aaaaaa" font-size="7">Optimization: quantization (INT4/INT8), batching, tensor parallelism</text>
+
+  <!-- Optimization techniques -->
+  <rect x="30" y="390" width="940" height="95" fill="#16213e" stroke="#a29bfe" stroke-width="1.5" rx="8"/>
+  <text x="500" y="415" text-anchor="middle" fill="#a29bfe" font-size="12" font-weight="bold">Serving Optimizations</text>
+
+  <text x="50" y="440" fill="#00ff88" font-size="8" font-weight="bold">Batching:</text>
+  <text x="50" y="456" fill="#ffffff" font-size="7">Continuous batching (vLLM)</text>
+  <text x="50" y="470" fill="#ffffff" font-size="7">Process multiple requests simultaneously</text>
+
+  <text x="220" y="440" fill="#feca57" font-size="8" font-weight="bold">Quantization:</text>
+  <text x="220" y="456" fill="#ffffff" font-size="7">FP16→INT8→INT4 (GPTQ, AWQ)</text>
+  <text x="220" y="470" fill="#ffffff" font-size="7">4× memory reduction, 2-3× speed</text>
+
+  <text x="410" y="440" fill="#e94560" font-size="8" font-weight="bold">Speculative Decoding:</text>
+  <text x="410" y="456" fill="#ffffff" font-size="7">Small model drafts, big model verifies</text>
+  <text x="410" y="470" fill="#ffffff" font-size="7">2-3× faster with same quality</text>
+
+  <text x="610" y="440" fill="#00d2d3" font-size="8" font-weight="bold">Tensor Parallelism:</text>
+  <text x="610" y="456" fill="#ffffff" font-size="7">Split model across GPUs</text>
+  <text x="610" y="470" fill="#ffffff" font-size="7">Serve 70B+ models efficiently</text>
+
+  <text x="800" y="440" fill="#54a0ff" font-size="8" font-weight="bold">PagedAttention:</text>
+  <text x="800" y="456" fill="#ffffff" font-size="7">Non-contiguous KV cache (vLLM)</text>
+  <text x="800" y="470" fill="#ffffff" font-size="7">~4× more concurrent requests</text>
+
+  <defs>
+    <marker id="infA" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto"><polygon points="0 0, 6 2.5, 0 5" fill="#ffffff"/></marker>
+  </defs>
+</svg>

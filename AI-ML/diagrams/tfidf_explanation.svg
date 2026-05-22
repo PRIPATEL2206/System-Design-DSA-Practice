@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1000" height="480" fill="#1a1a2e" rx="10"/>
+  <text x="500" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">TF-IDF — Term Frequency × Inverse Document Frequency</text>
+
+  <!-- TF section -->
+  <rect x="30" y="55" width="450" height="190" fill="#16213e" stroke="#feca57" stroke-width="2" rx="8"/>
+  <text x="255" y="80" text-anchor="middle" fill="#feca57" font-size="13" font-weight="bold">Term Frequency (TF)</text>
+  <text x="255" y="100" text-anchor="middle" fill="#aaaaaa" font-size="10">How often does the term appear in THIS document?</text>
+
+  <text x="60" y="130" fill="#ffffff" font-size="11">TF(t, d) = count(t in d) / total_terms(d)</text>
+
+  <text x="60" y="160" fill="#00d2d3" font-size="10" font-weight="bold">Example document: "the cat sat on the mat"</text>
+  <text x="60" y="183" fill="#ffffff" font-size="9">TF("the") = 2/6 = 0.333</text>
+  <text x="60" y="200" fill="#ffffff" font-size="9">TF("cat") = 1/6 = 0.167</text>
+  <text x="60" y="217" fill="#ffffff" font-size="9">TF("sat") = 1/6 = 0.167</text>
+  <text x="60" y="234" fill="#aaaaaa" font-size="8">Problem: "the" gets highest score but carries no meaning!</text>
+
+  <!-- IDF section -->
+  <rect x="500" y="55" width="470" height="190" fill="#16213e" stroke="#00d2d3" stroke-width="2" rx="8"/>
+  <text x="735" y="80" text-anchor="middle" fill="#00d2d3" font-size="13" font-weight="bold">Inverse Document Frequency (IDF)</text>
+  <text x="735" y="100" text-anchor="middle" fill="#aaaaaa" font-size="10">How rare is this term across ALL documents?</text>
+
+  <text x="530" y="130" fill="#ffffff" font-size="11">IDF(t) = log(N / df(t))</text>
+  <text x="530" y="150" fill="#aaaaaa" font-size="9">N = total documents, df(t) = docs containing term t</text>
+
+  <text x="530" y="178" fill="#00d2d3" font-size="10" font-weight="bold">Example corpus (1000 docs):</text>
+  <text x="530" y="198" fill="#ffffff" font-size="9">IDF("the") = log(1000/990) = 0.010  (appears everywhere → LOW)</text>
+  <text x="530" y="215" fill="#ffffff" font-size="9">IDF("cat") = log(1000/50) = 2.996   (less common → MEDIUM)</text>
+  <text x="530" y="232" fill="#ffffff" font-size="9">IDF("quantum") = log(1000/3) = 5.81  (very rare → HIGH)</text>
+
+  <!-- Combined TF-IDF -->
+  <rect x="30" y="260" width="940" height="100" fill="#0f3460" stroke="#e94560" stroke-width="2" rx="8"/>
+  <text x="500" y="288" text-anchor="middle" fill="#e94560" font-size="14" font-weight="bold">TF-IDF(t, d) = TF(t, d) × IDF(t)</text>
+  <text x="500" y="310" text-anchor="middle" fill="#ffffff" font-size="11">HIGH score = term is frequent in this document BUT rare across corpus → discriminative keyword</text>
+  <text x="500" y="330" text-anchor="middle" fill="#ffffff" font-size="11">LOW score = term is either rare in this document OR common everywhere (like "the", "is", "a")</text>
+  <text x="500" y="350" text-anchor="middle" fill="#aaaaaa" font-size="10">Result: Each document becomes a sparse vector where dimensions are vocabulary terms, values are TF-IDF scores</text>
+
+  <!-- Practical example -->
+  <rect x="30" y="375" width="940" height="90" fill="#16213e" stroke="#54a0ff" stroke-width="1.5" rx="8"/>
+  <text x="500" y="398" text-anchor="middle" fill="#54a0ff" font-size="12" font-weight="bold">Document Similarity with TF-IDF</text>
+
+  <text x="60" y="420" fill="#ffffff" font-size="9">Doc A: "machine learning is great" → TF-IDF vector: [0, 0.3, 0.3, 0.1, 0, ...]</text>
+  <text x="60" y="438" fill="#ffffff" font-size="9">Doc B: "deep learning is amazing" → TF-IDF vector: [0.3, 0.3, 0, 0.1, 0, ...]</text>
+  <text x="60" y="456" fill="#ffffff" font-size="9">Cosine similarity(A, B) = dot(A,B) / (||A|| × ||B||) → captures how similar they are topically</text>
+
+  <text x="700" y="420" fill="#feca57" font-size="9" font-weight="bold">Use cases:</text>
+  <text x="700" y="438" fill="#ffffff" font-size="9">• Search engines (query matching)</text>
+  <text x="700" y="456" fill="#ffffff" font-size="9">• Document classification • Keyword extraction</text>
+
+  <defs>
+    <marker id="tfidfA" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#ffffff"/></marker>
+  </defs>
+</svg>

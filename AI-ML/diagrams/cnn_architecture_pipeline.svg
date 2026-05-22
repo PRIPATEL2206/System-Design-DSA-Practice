@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1000" height="480" fill="#1a1a2e" rx="10"/>
+  <text x="500" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">CNN Architecture — Complete Pipeline</text>
+
+  <!-- Input Image -->
+  <rect x="20" y="140" width="80" height="80" fill="#16213e" stroke="#00d2d3" stroke-width="2" rx="4"/>
+  <rect x="25" y="135" width="80" height="80" fill="#16213e" stroke="#00d2d3" stroke-width="1.5" rx="4" opacity="0.7"/>
+  <rect x="30" y="130" width="80" height="80" fill="#16213e" stroke="#00d2d3" stroke-width="1" rx="4" opacity="0.4"/>
+  <text x="60" y="185" text-anchor="middle" fill="#00d2d3" font-size="9">224×224×3</text>
+  <text x="60" y="235" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="bold">Input</text>
+  <text x="60" y="250" text-anchor="middle" fill="#aaaaaa" font-size="8">RGB Image</text>
+
+  <!-- Arrow -->
+  <line x1="115" y1="180" x2="145" y2="180" stroke="#ffffff" stroke-width="1.5" marker-end="url(#cnnA)"/>
+
+  <!-- Conv Block 1 -->
+  <rect x="145" y="130" width="60" height="100" fill="#0f3460" stroke="#e94560" stroke-width="2" rx="4"/>
+  <rect x="150" y="125" width="60" height="100" fill="#0f3460" stroke="#e94560" stroke-width="1.5" rx="4" opacity="0.7"/>
+  <rect x="155" y="120" width="60" height="100" fill="#0f3460" stroke="#e94560" stroke-width="1" rx="4" opacity="0.5"/>
+  <text x="180" y="175" text-anchor="middle" fill="#e94560" font-size="8">Conv</text>
+  <text x="180" y="188" text-anchor="middle" fill="#e94560" font-size="8">3×3×64</text>
+  <text x="180" y="235" text-anchor="middle" fill="#ffffff" font-size="9" font-weight="bold">Conv+ReLU</text>
+  <text x="180" y="250" text-anchor="middle" fill="#aaaaaa" font-size="8">112×112×64</text>
+
+  <!-- Arrow -->
+  <line x1="220" y1="180" x2="250" y2="180" stroke="#ffffff" stroke-width="1.5" marker-end="url(#cnnA)"/>
+
+  <!-- Pool 1 -->
+  <rect x="250" y="145" width="45" height="70" fill="#16213e" stroke="#feca57" stroke-width="2" rx="4"/>
+  <text x="272" y="177" text-anchor="middle" fill="#feca57" font-size="8">Pool</text>
+  <text x="272" y="190" text-anchor="middle" fill="#feca57" font-size="8">2×2</text>
+  <text x="272" y="235" text-anchor="middle" fill="#ffffff" font-size="9" font-weight="bold">MaxPool</text>
+  <text x="272" y="250" text-anchor="middle" fill="#aaaaaa" font-size="8">56×56×64</text>
+
+  <!-- Arrow -->
+  <line x1="295" y1="180" x2="320" y2="180" stroke="#ffffff" stroke-width="1.5" marker-end="url(#cnnA)"/>
+
+  <!-- Conv Block 2 -->
+  <rect x="320" y="140" width="55" height="80" fill="#0f3460" stroke="#e94560" stroke-width="2" rx="4"/>
+  <rect x="325" y="135" width="55" height="80" fill="#0f3460" stroke="#e94560" stroke-width="1.5" rx="4" opacity="0.6"/>
+  <rect x="330" y="130" width="55" height="80" fill="#0f3460" stroke="#e94560" stroke-width="1" rx="4" opacity="0.4"/>
+  <rect x="335" y="125" width="55" height="80" fill="#0f3460" stroke="#e94560" stroke-width="1" rx="4" opacity="0.2"/>
+  <text x="350" y="175" text-anchor="middle" fill="#e94560" font-size="8">Conv</text>
+  <text x="350" y="188" text-anchor="middle" fill="#e94560" font-size="8">3×3×128</text>
+  <text x="350" y="235" text-anchor="middle" fill="#ffffff" font-size="9" font-weight="bold">Conv+ReLU</text>
+  <text x="350" y="250" text-anchor="middle" fill="#aaaaaa" font-size="8">56×56×128</text>
+
+  <!-- Arrow -->
+  <line x1="395" y1="180" x2="420" y2="180" stroke="#ffffff" stroke-width="1.5" marker-end="url(#cnnA)"/>
+
+  <!-- Pool 2 -->
+  <rect x="420" y="150" width="40" height="60" fill="#16213e" stroke="#feca57" stroke-width="2" rx="4"/>
+  <text x="440" y="177" text-anchor="middle" fill="#feca57" font-size="8">Pool</text>
+  <text x="440" y="190" text-anchor="middle" fill="#feca57" font-size="8">2×2</text>
+  <text x="440" y="235" text-anchor="middle" fill="#ffffff" font-size="9" font-weight="bold">MaxPool</text>
+  <text x="440" y="250" text-anchor="middle" fill="#aaaaaa" font-size="8">28×28×128</text>
+
+  <!-- Arrow -->
+  <line x1="460" y1="180" x2="485" y2="180" stroke="#ffffff" stroke-width="1.5" marker-end="url(#cnnA)"/>
+
+  <!-- Conv Block 3 -->
+  <rect x="485" y="145" width="50" height="70" fill="#0f3460" stroke="#e94560" stroke-width="2" rx="4"/>
+  <rect x="490" y="140" width="50" height="70" fill="#0f3460" stroke="#e94560" stroke-width="1" rx="4" opacity="0.5"/>
+  <rect x="495" y="135" width="50" height="70" fill="#0f3460" stroke="#e94560" stroke-width="1" rx="4" opacity="0.3"/>
+  <text x="510" y="178" text-anchor="middle" fill="#e94560" font-size="8">Conv</text>
+  <text x="510" y="191" text-anchor="middle" fill="#e94560" font-size="8">3×3×256</text>
+  <text x="510" y="235" text-anchor="middle" fill="#ffffff" font-size="9" font-weight="bold">Conv+ReLU</text>
+  <text x="510" y="250" text-anchor="middle" fill="#aaaaaa" font-size="8">28×28×256</text>
+
+  <!-- Arrow -->
+  <line x1="550" y1="180" x2="575" y2="180" stroke="#ffffff" stroke-width="1.5" marker-end="url(#cnnA)"/>
+
+  <!-- Global Average Pool -->
+  <rect x="575" y="160" width="50" height="40" fill="#16213e" stroke="#a29bfe" stroke-width="2" rx="4"/>
+  <text x="600" y="183" text-anchor="middle" fill="#a29bfe" font-size="8">GAP</text>
+  <text x="600" y="235" text-anchor="middle" fill="#ffffff" font-size="9" font-weight="bold">GlobalAvg</text>
+  <text x="600" y="250" text-anchor="middle" fill="#aaaaaa" font-size="8">1×1×256</text>
+
+  <!-- Arrow -->
+  <line x1="625" y1="180" x2="655" y2="180" stroke="#ffffff" stroke-width="1.5" marker-end="url(#cnnA)"/>
+
+  <!-- Flatten -->
+  <rect x="655" y="155" width="15" height="50" fill="#54a0ff" stroke="#54a0ff" stroke-width="1" rx="2"/>
+  <text x="662" y="235" text-anchor="middle" fill="#ffffff" font-size="9" font-weight="bold">Flatten</text>
+  <text x="662" y="250" text-anchor="middle" fill="#aaaaaa" font-size="8">256</text>
+
+  <!-- Arrow -->
+  <line x1="675" y1="180" x2="700" y2="180" stroke="#ffffff" stroke-width="1.5" marker-end="url(#cnnA)"/>
+
+  <!-- FC Layers -->
+  <rect x="700" y="155" width="12" height="50" fill="#00ff88" stroke="#00ff88" stroke-width="1" rx="2"/>
+  <rect x="720" y="160" width="10" height="40" fill="#00ff88" stroke="#00ff88" stroke-width="1" rx="2" opacity="0.7"/>
+  <text x="715" y="235" text-anchor="middle" fill="#ffffff" font-size="9" font-weight="bold">FC</text>
+  <text x="715" y="250" text-anchor="middle" fill="#aaaaaa" font-size="8">128</text>
+
+  <!-- Arrow -->
+  <line x1="735" y1="180" x2="760" y2="180" stroke="#ffffff" stroke-width="1.5" marker-end="url(#cnnA)"/>
+
+  <!-- Output -->
+  <rect x="760" y="165" width="12" height="30" fill="#ff6b6b" stroke="#ff6b6b" stroke-width="1" rx="2"/>
+  <text x="766" y="235" text-anchor="middle" fill="#ffffff" font-size="9" font-weight="bold">Output</text>
+  <text x="766" y="250" text-anchor="middle" fill="#aaaaaa" font-size="8">10 classes</text>
+
+  <!-- Labels -->
+  <text x="500" y="65" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">Feature Extraction (learn filters) → Classification (learn weights)</text>
+
+  <!-- Feature extraction bracket -->
+  <line x1="140" y1="270" x2="630" y2="270" stroke="#e94560" stroke-width="2"/>
+  <text x="385" y="285" text-anchor="middle" fill="#e94560" font-size="10">FEATURE EXTRACTOR (Convolutional layers)</text>
+
+  <!-- Classifier bracket -->
+  <line x1="650" y1="270" x2="780" y2="270" stroke="#00ff88" stroke-width="2"/>
+  <text x="715" y="285" text-anchor="middle" fill="#00ff88" font-size="10">CLASSIFIER (FC layers)</text>
+
+  <!-- What each layer learns -->
+  <rect x="30" y="300" width="940" height="160" fill="#16213e" stroke="#ffffff" stroke-width="1" rx="8"/>
+  <text x="500" y="325" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">What Each Layer Learns (Hierarchical Features)</text>
+
+  <rect x="50" y="340" width="170" height="55" fill="#0f3460" stroke="#e94560" stroke-width="1.5" rx="5"/>
+  <text x="135" y="360" text-anchor="middle" fill="#e94560" font-size="11" font-weight="bold">Layer 1-2 (Early)</text>
+  <text x="135" y="378" text-anchor="middle" fill="#ffffff" font-size="9">Edges, corners, colors</text>
+  <text x="135" y="391" text-anchor="middle" fill="#aaaaaa" font-size="8">Simple, low-level features</text>
+
+  <rect x="240" y="340" width="170" height="55" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="5"/>
+  <text x="325" y="360" text-anchor="middle" fill="#feca57" font-size="11" font-weight="bold">Layer 3-4 (Mid)</text>
+  <text x="325" y="378" text-anchor="middle" fill="#ffffff" font-size="9">Textures, patterns, parts</text>
+  <text x="325" y="391" text-anchor="middle" fill="#aaaaaa" font-size="8">Combinations of edges</text>
+
+  <rect x="430" y="340" width="170" height="55" fill="#0f3460" stroke="#00d2d3" stroke-width="1.5" rx="5"/>
+  <text x="515" y="360" text-anchor="middle" fill="#00d2d3" font-size="11" font-weight="bold">Layer 5-7 (Deep)</text>
+  <text x="515" y="378" text-anchor="middle" fill="#ffffff" font-size="9">Objects, faces, wheels</text>
+  <text x="515" y="391" text-anchor="middle" fill="#aaaaaa" font-size="8">High-level semantics</text>
+
+  <rect x="620" y="340" width="170" height="55" fill="#0f3460" stroke="#54a0ff" stroke-width="1.5" rx="5"/>
+  <text x="705" y="360" text-anchor="middle" fill="#54a0ff" font-size="11" font-weight="bold">Final Layers</text>
+  <text x="705" y="378" text-anchor="middle" fill="#ffffff" font-size="9">Full objects, scenes</text>
+  <text x="705" y="391" text-anchor="middle" fill="#aaaaaa" font-size="8">Task-specific features</text>
+
+  <rect x="810" y="340" width="140" height="55" fill="#0f3460" stroke="#00ff88" stroke-width="1.5" rx="5"/>
+  <text x="880" y="360" text-anchor="middle" fill="#00ff88" font-size="11" font-weight="bold">FC Head</text>
+  <text x="880" y="378" text-anchor="middle" fill="#ffffff" font-size="9">Classification</text>
+  <text x="880" y="391" text-anchor="middle" fill="#aaaaaa" font-size="8">"It's a cat!"</text>
+
+  <!-- Key insight -->
+  <text x="500" y="430" text-anchor="middle" fill="#aaaaaa" font-size="11">Early layers = general (reusable across tasks) | Later layers = task-specific (transfer learning freezes early, trains later)</text>
+  <text x="500" y="455" text-anchor="middle" fill="#feca57" font-size="11" font-weight="bold">Key advantage of CNNs: Parameter sharing (same filter everywhere) + Translation invariance (detect cat anywhere in image)</text>
+
+  <defs>
+    <marker id="cnnA" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto"><polygon points="0 0, 6 2.5, 0 5" fill="#ffffff"/></marker>
+  </defs>
+</svg>

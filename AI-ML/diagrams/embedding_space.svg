@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1000" height="420" fill="#1a1a2e" rx="10"/>
+  <text x="500" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">Word Embedding Space — Similarity &amp; Relationships</text>
+
+  <!-- 2D embedding visualization -->
+  <rect x="30" y="55" width="500" height="340" fill="#16213e" stroke="#54a0ff" stroke-width="1.5" rx="8"/>
+  <text x="280" y="78" text-anchor="middle" fill="#54a0ff" font-size="12" font-weight="bold">2D Projection of Word Embedding Space (t-SNE)</text>
+
+  <!-- Cluster: Royalty -->
+  <ellipse cx="150" cy="150" rx="70" ry="50" fill="none" stroke="#e94560" stroke-width="1" stroke-dasharray="4"/>
+  <text x="150" y="105" text-anchor="middle" fill="#e94560" font-size="8">royalty</text>
+  <circle cx="120" cy="140" r="4" fill="#e94560"/>
+  <text x="120" y="155" text-anchor="middle" fill="#fff" font-size="8">king</text>
+  <circle cx="170" cy="135" r="4" fill="#e94560"/>
+  <text x="170" y="150" text-anchor="middle" fill="#fff" font-size="8">queen</text>
+  <circle cx="140" cy="170" r="4" fill="#e94560"/>
+  <text x="140" y="185" text-anchor="middle" fill="#fff" font-size="8">prince</text>
+  <circle cx="180" cy="165" r="4" fill="#e94560"/>
+  <text x="180" y="180" text-anchor="middle" fill="#fff" font-size="8">princess</text>
+
+  <!-- Cluster: Animals -->
+  <ellipse cx="380" cy="150" rx="80" ry="50" fill="none" stroke="#00ff88" stroke-width="1" stroke-dasharray="4"/>
+  <text x="380" y="105" text-anchor="middle" fill="#00ff88" font-size="8">animals</text>
+  <circle cx="340" cy="140" r="4" fill="#00ff88"/>
+  <text x="340" y="155" text-anchor="middle" fill="#fff" font-size="8">cat</text>
+  <circle cx="380" cy="135" r="4" fill="#00ff88"/>
+  <text x="380" y="150" text-anchor="middle" fill="#fff" font-size="8">dog</text>
+  <circle cx="420" cy="145" r="4" fill="#00ff88"/>
+  <text x="420" y="160" text-anchor="middle" fill="#fff" font-size="8">lion</text>
+  <circle cx="360" cy="170" r="4" fill="#00ff88"/>
+  <text x="360" y="185" text-anchor="middle" fill="#fff" font-size="8">kitten</text>
+
+  <!-- Cluster: Countries -->
+  <ellipse cx="160" cy="290" rx="80" ry="50" fill="none" stroke="#feca57" stroke-width="1" stroke-dasharray="4"/>
+  <text x="160" y="247" text-anchor="middle" fill="#feca57" font-size="8">countries</text>
+  <circle cx="120" cy="280" r="4" fill="#feca57"/>
+  <text x="120" y="295" text-anchor="middle" fill="#fff" font-size="8">France</text>
+  <circle cx="170" cy="275" r="4" fill="#feca57"/>
+  <text x="170" y="290" text-anchor="middle" fill="#fff" font-size="8">Italy</text>
+  <circle cx="200" cy="300" r="4" fill="#feca57"/>
+  <text x="200" y="315" text-anchor="middle" fill="#fff" font-size="8">Germany</text>
+  <circle cx="140" cy="315" r="4" fill="#feca57"/>
+  <text x="140" y="330" text-anchor="middle" fill="#fff" font-size="8">Japan</text>
+
+  <!-- Cluster: Cities -->
+  <ellipse cx="380" cy="290" rx="80" ry="50" fill="none" stroke="#00d2d3" stroke-width="1" stroke-dasharray="4"/>
+  <text x="380" y="247" text-anchor="middle" fill="#00d2d3" font-size="8">cities</text>
+  <circle cx="345" cy="280" r="4" fill="#00d2d3"/>
+  <text x="345" y="295" text-anchor="middle" fill="#fff" font-size="8">Paris</text>
+  <circle cx="390" cy="275" r="4" fill="#00d2d3"/>
+  <text x="390" y="290" text-anchor="middle" fill="#fff" font-size="8">Rome</text>
+  <circle cx="420" cy="300" r="4" fill="#00d2d3"/>
+  <text x="420" y="315" text-anchor="middle" fill="#fff" font-size="8">Berlin</text>
+  <circle cx="360" cy="315" r="4" fill="#00d2d3"/>
+  <text x="360" y="330" text-anchor="middle" fill="#fff" font-size="8">Tokyo</text>
+
+  <!-- Relationship arrows -->
+  <line x1="120" y1="280" x2="345" y2="280" stroke="#feca57" stroke-width="1" stroke-dasharray="3"/>
+  <line x1="170" y1="275" x2="390" y2="275" stroke="#feca57" stroke-width="1" stroke-dasharray="3"/>
+  <text x="255" y="268" text-anchor="middle" fill="#feca57" font-size="7">capital_of direction</text>
+
+  <!-- Similarity metrics -->
+  <rect x="550" y="55" width="420" height="155" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="8"/>
+  <text x="760" y="80" text-anchor="middle" fill="#feca57" font-size="12" font-weight="bold">Similarity Metrics</text>
+
+  <text x="580" y="105" fill="#00d2d3" font-size="10" font-weight="bold">Cosine Similarity (most common):</text>
+  <text x="580" y="125" fill="#ffffff" font-size="10">sim(A, B) = (A · B) / (||A|| × ||B||)</text>
+  <text x="580" y="143" fill="#aaaaaa" font-size="9">Range: [-1, 1]. 1=identical direction, 0=orthogonal, -1=opposite</text>
+
+  <text x="580" y="168" fill="#e94560" font-size="10" font-weight="bold">Euclidean Distance:</text>
+  <text x="580" y="186" fill="#ffffff" font-size="10">dist(A, B) = ||A - B||₂</text>
+  <text x="580" y="202" fill="#aaaaaa" font-size="9">Smaller = more similar. Sensitive to vector magnitude.</text>
+
+  <!-- Embedding use cases -->
+  <rect x="550" y="225" width="420" height="170" fill="#0f3460" stroke="#00ff88" stroke-width="1.5" rx="8"/>
+  <text x="760" y="250" text-anchor="middle" fill="#00ff88" font-size="12" font-weight="bold">Embedding Applications</text>
+
+  <text x="580" y="275" fill="#feca57" font-size="9" font-weight="bold">1. Initialize neural network embedding layers</text>
+  <text x="580" y="292" fill="#aaaaaa" font-size="8">   Pre-trained GloVe → nn.Embedding weights</text>
+
+  <text x="580" y="312" fill="#feca57" font-size="9" font-weight="bold">2. Document similarity (average word vectors)</text>
+  <text x="580" y="329" fill="#aaaaaa" font-size="8">   doc_vec = mean([embed(w) for w in doc])</text>
+
+  <text x="580" y="349" fill="#feca57" font-size="9" font-weight="bold">3. Analogy solving</text>
+  <text x="580" y="366" fill="#aaaaaa" font-size="8">   A:B :: C:? → find nearest to (B - A + C)</text>
+
+  <text x="580" y="386" fill="#feca57" font-size="9" font-weight="bold">4. Feature input for ML models</text>
+  <text x="580" y="403" fill="#aaaaaa" font-size="8">   Replace one-hot with dense embedding for downstream tasks</text>
+
+  <defs>
+    <marker id="embA" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#ffffff"/></marker>
+  </defs>
+</svg>

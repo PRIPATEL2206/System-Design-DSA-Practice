@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 450" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1000" height="450" fill="#1a1a2e" rx="10"/>
+  <text x="500" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">Context Window — The LLM's Working Memory</text>
+
+  <!-- Context window visualization -->
+  <rect x="30" y="55" width="940" height="120" fill="#16213e" stroke="#54a0ff" stroke-width="2" rx="8"/>
+  <text x="500" y="78" text-anchor="middle" fill="#54a0ff" font-size="12" font-weight="bold">Context Window = System Prompt + User Messages + Assistant Responses + Available Space</text>
+
+  <!-- Window segments -->
+  <rect x="60" y="95" width="130" height="55" fill="#e94560" opacity="0.3" stroke="#e94560" stroke-width="1.5" rx="4"/>
+  <text x="125" y="118" text-anchor="middle" fill="#e94560" font-size="9" font-weight="bold">System Prompt</text>
+  <text x="125" y="135" text-anchor="middle" fill="#ffffff" font-size="7">Instructions, persona</text>
+  <text x="125" y="148" text-anchor="middle" fill="#aaaaaa" font-size="7">~500-2000 tokens</text>
+
+  <rect x="200" y="95" width="200" height="55" fill="#feca57" opacity="0.2" stroke="#feca57" stroke-width="1.5" rx="4"/>
+  <text x="300" y="118" text-anchor="middle" fill="#feca57" font-size="9" font-weight="bold">Conversation History</text>
+  <text x="300" y="135" text-anchor="middle" fill="#ffffff" font-size="7">Previous messages (user + assistant)</text>
+  <text x="300" y="148" text-anchor="middle" fill="#aaaaaa" font-size="7">Grows with conversation</text>
+
+  <rect x="410" y="95" width="160" height="55" fill="#00d2d3" opacity="0.2" stroke="#00d2d3" stroke-width="1.5" rx="4"/>
+  <text x="490" y="118" text-anchor="middle" fill="#00d2d3" font-size="9" font-weight="bold">Current Input</text>
+  <text x="490" y="135" text-anchor="middle" fill="#ffffff" font-size="7">Latest user message</text>
+  <text x="490" y="148" text-anchor="middle" fill="#aaaaaa" font-size="7">+ any retrieved context</text>
+
+  <rect x="580" y="95" width="370" height="55" fill="#00ff88" opacity="0.15" stroke="#00ff88" stroke-width="1.5" rx="4"/>
+  <text x="765" y="118" text-anchor="middle" fill="#00ff88" font-size="9" font-weight="bold">Generation Space (remaining tokens)</text>
+  <text x="765" y="135" text-anchor="middle" fill="#ffffff" font-size="7">Model generates response here (max_tokens limit)</text>
+  <text x="765" y="148" text-anchor="middle" fill="#aaaaaa" font-size="7">Cannot exceed context_window - input_tokens</text>
+
+  <!-- Timeline of context windows -->
+  <rect x="30" y="190" width="940" height="140" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="8"/>
+  <text x="500" y="215" text-anchor="middle" fill="#feca57" font-size="12" font-weight="bold">Context Window Evolution</text>
+
+  <!-- GPT-2 -->
+  <rect x="60" y="235" width="40" height="70" fill="#e94560" opacity="0.5" rx="3"/>
+  <text x="80" y="280" text-anchor="middle" fill="#ffffff" font-size="7" font-weight="bold">1K</text>
+  <text x="80" y="318" text-anchor="middle" fill="#aaaaaa" font-size="7">GPT-2</text>
+
+  <!-- GPT-3 -->
+  <rect x="120" y="235" width="60" height="70" fill="#e94560" opacity="0.5" rx="3"/>
+  <text x="150" y="280" text-anchor="middle" fill="#ffffff" font-size="7" font-weight="bold">4K</text>
+  <text x="150" y="318" text-anchor="middle" fill="#aaaaaa" font-size="7">GPT-3</text>
+
+  <!-- GPT-3.5 -->
+  <rect x="200" y="235" width="80" height="70" fill="#feca57" opacity="0.4" rx="3"/>
+  <text x="240" y="280" text-anchor="middle" fill="#ffffff" font-size="7" font-weight="bold">16K</text>
+  <text x="240" y="318" text-anchor="middle" fill="#aaaaaa" font-size="7">GPT-3.5</text>
+
+  <!-- GPT-4 -->
+  <rect x="300" y="235" width="120" height="70" fill="#00d2d3" opacity="0.4" rx="3"/>
+  <text x="360" y="280" text-anchor="middle" fill="#ffffff" font-size="8" font-weight="bold">128K</text>
+  <text x="360" y="318" text-anchor="middle" fill="#aaaaaa" font-size="7">GPT-4 Turbo</text>
+
+  <!-- Claude -->
+  <rect x="440" y="235" width="130" height="70" fill="#a29bfe" opacity="0.4" rx="3"/>
+  <text x="505" y="280" text-anchor="middle" fill="#ffffff" font-size="8" font-weight="bold">200K</text>
+  <text x="505" y="318" text-anchor="middle" fill="#aaaaaa" font-size="7">Claude 3</text>
+
+  <!-- Gemini -->
+  <rect x="590" y="235" width="180" height="70" fill="#00ff88" opacity="0.3" rx="3"/>
+  <text x="680" y="280" text-anchor="middle" fill="#ffffff" font-size="8" font-weight="bold">1M - 2M</text>
+  <text x="680" y="318" text-anchor="middle" fill="#aaaaaa" font-size="7">Gemini 1.5 Pro</text>
+
+  <!-- Future -->
+  <rect x="790" y="235" width="150" height="70" fill="#ffffff" opacity="0.1" stroke="#fff" stroke-dasharray="3" rx="3"/>
+  <text x="865" y="275" text-anchor="middle" fill="#ffffff" font-size="8" font-weight="bold">10M+?</text>
+  <text x="865" y="295" text-anchor="middle" fill="#aaaaaa" font-size="7">Future models</text>
+  <text x="865" y="318" text-anchor="middle" fill="#aaaaaa" font-size="7">(Ring Attention)</text>
+
+  <!-- Implications -->
+  <rect x="30" y="345" width="450" height="90" fill="#16213e" stroke="#00ff88" stroke-width="1.5" rx="8"/>
+  <text x="255" y="370" text-anchor="middle" fill="#00ff88" font-size="11" font-weight="bold">Context Window Implications</text>
+
+  <text x="50" y="393" fill="#ffffff" font-size="8">• Longer context = more information available per inference</text>
+  <text x="50" y="411" fill="#ffffff" font-size="8">• BUT: attention is O(n²) — 2× context = 4× compute cost</text>
+  <text x="50" y="429" fill="#ffffff" font-size="8">• "Lost in the middle" — models struggle with info in middle of long context</text>
+
+  <!-- KV cache memory -->
+  <rect x="500" y="345" width="470" height="90" fill="#16213e" stroke="#e94560" stroke-width="1.5" rx="8"/>
+  <text x="735" y="370" text-anchor="middle" fill="#e94560" font-size="11" font-weight="bold">Memory Cost (KV-Cache)</text>
+
+  <text x="520" y="393" fill="#ffffff" font-size="8">KV cache per token = 2 × layers × heads × d_head × dtype_bytes</text>
+  <text x="520" y="411" fill="#ffffff" font-size="8">LLaMA-70B, 128K context: ~40GB just for KV cache per request</text>
+  <text x="520" y="429" fill="#ffffff" font-size="8">Solutions: GQA, quantized KV, PagedAttention (vLLM), sliding window</text>
+
+  <defs>
+    <marker id="ctxA" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto"><polygon points="0 0, 6 2.5, 0 5" fill="#ffffff"/></marker>
+  </defs>
+</svg>

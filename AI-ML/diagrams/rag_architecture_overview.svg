@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 620" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1050" height="620" fill="#1a1a2e" rx="10"/>
+  <text x="525" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">RAG Architecture — Complete System Overview</text>
+
+  <!-- OFFLINE: Indexing Pipeline -->
+  <rect x="30" y="55" width="990" height="180" fill="#16213e" stroke="#00ff88" stroke-width="2" rx="8"/>
+  <text x="525" y="78" text-anchor="middle" fill="#00ff88" font-size="12" font-weight="bold">OFFLINE — Document Indexing Pipeline (run once or on schedule)</text>
+
+  <!-- Data Sources -->
+  <rect x="50" y="92" width="120" height="65" fill="#0f3460" stroke="#54a0ff" stroke-width="1.5" rx="4"/>
+  <text x="110" y="112" text-anchor="middle" fill="#54a0ff" font-size="9" font-weight="bold">Data Sources</text>
+  <text x="110" y="128" text-anchor="middle" fill="#aaaaaa" font-size="7">PDFs, Docs, Wiki</text>
+  <text x="110" y="140" text-anchor="middle" fill="#aaaaaa" font-size="7">APIs, Databases</text>
+  <text x="110" y="152" text-anchor="middle" fill="#aaaaaa" font-size="7">Web pages, Slack</text>
+
+  <line x1="175" y1="125" x2="205" y2="125" stroke="#fff" stroke-width="1.5" marker-end="url(#raArr)"/>
+
+  <!-- Document Loader -->
+  <rect x="210" y="92" width="110" height="65" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="4"/>
+  <text x="265" y="112" text-anchor="middle" fill="#feca57" font-size="9" font-weight="bold">Loader</text>
+  <text x="265" y="128" text-anchor="middle" fill="#aaaaaa" font-size="7">Parse & extract</text>
+  <text x="265" y="140" text-anchor="middle" fill="#aaaaaa" font-size="7">Clean text</text>
+  <text x="265" y="152" text-anchor="middle" fill="#aaaaaa" font-size="7">Extract metadata</text>
+
+  <line x1="325" y1="125" x2="355" y2="125" stroke="#fff" stroke-width="1.5" marker-end="url(#raArr)"/>
+
+  <!-- Chunking -->
+  <rect x="360" y="92" width="120" height="65" fill="#0f3460" stroke="#e94560" stroke-width="1.5" rx="4"/>
+  <text x="420" y="112" text-anchor="middle" fill="#e94560" font-size="9" font-weight="bold">Chunking</text>
+  <text x="420" y="128" text-anchor="middle" fill="#aaaaaa" font-size="7">Recursive / Semantic</text>
+  <text x="420" y="140" text-anchor="middle" fill="#aaaaaa" font-size="7">500 tok, 50 overlap</text>
+  <text x="420" y="152" text-anchor="middle" fill="#aaaaaa" font-size="7">Structure-aware</text>
+
+  <line x1="485" y1="125" x2="515" y2="125" stroke="#fff" stroke-width="1.5" marker-end="url(#raArr)"/>
+
+  <!-- Embedding -->
+  <rect x="520" y="92" width="130" height="65" fill="#0f3460" stroke="#a29bfe" stroke-width="1.5" rx="4"/>
+  <text x="585" y="112" text-anchor="middle" fill="#a29bfe" font-size="9" font-weight="bold">Embedding Model</text>
+  <text x="585" y="128" text-anchor="middle" fill="#aaaaaa" font-size="7">text-embedding-3-small</text>
+  <text x="585" y="140" text-anchor="middle" fill="#aaaaaa" font-size="7">or all-MiniLM-L6-v2</text>
+  <text x="585" y="152" text-anchor="middle" fill="#aaaaaa" font-size="7">batch process</text>
+
+  <line x1="655" y1="125" x2="685" y2="125" stroke="#fff" stroke-width="1.5" marker-end="url(#raArr)"/>
+
+  <!-- Vector DB -->
+  <rect x="690" y="85" width="150" height="78" fill="#0f3460" stroke="#00ff88" stroke-width="2" rx="4"/>
+  <text x="765" y="107" text-anchor="middle" fill="#00ff88" font-size="9" font-weight="bold">Vector Database</text>
+  <text x="765" y="123" text-anchor="middle" fill="#aaaaaa" font-size="7">Pinecone / Chroma</text>
+  <text x="765" y="136" text-anchor="middle" fill="#aaaaaa" font-size="7">Weaviate / FAISS</text>
+  <text x="765" y="149" text-anchor="middle" fill="#aaaaaa" font-size="7">HNSW indexed</text>
+  <text x="765" y="160" text-anchor="middle" fill="#feca57" font-size="7">vectors + metadata</text>
+
+  <!-- BM25 Index -->
+  <rect x="870" y="92" width="130" height="65" fill="#0f3460" stroke="#00d2d3" stroke-width="1.5" rx="4"/>
+  <text x="935" y="112" text-anchor="middle" fill="#00d2d3" font-size="9" font-weight="bold">BM25 Index</text>
+  <text x="935" y="128" text-anchor="middle" fill="#aaaaaa" font-size="7">Keyword search</text>
+  <text x="935" y="140" text-anchor="middle" fill="#aaaaaa" font-size="7">Elasticsearch /</text>
+  <text x="935" y="152" text-anchor="middle" fill="#aaaaaa" font-size="7">rank_bm25</text>
+
+  <line x1="845" y1="125" x2="865" y2="125" stroke="#fff" stroke-width="1.5" marker-end="url(#raArr)"/>
+
+  <!-- Stats -->
+  <text x="50" y="180" fill="#feca57" font-size="8" font-weight="bold">Chunk count: 500 tok × 10K docs = ~200K chunks</text>
+  <text x="50" y="195" fill="#aaaaaa" font-size="7">Embedding cost: 200K chunks × 500 tok ÷ 1M × $0.02 = $2.00</text>
+  <text x="420" y="180" fill="#00ff88" font-size="8" font-weight="bold">Index build: ~5 min for 200K vectors</text>
+  <text x="420" y="195" fill="#aaaaaa" font-size="7">Storage: 200K × 1536d × 4B = ~1.2 GB</text>
+  <text x="750" y="195" fill="#a29bfe" font-size="8">Re-index on: new docs, model change</text>
+
+  <!-- ONLINE: Query Pipeline -->
+  <rect x="30" y="250" width="990" height="350" fill="#16213e" stroke="#54a0ff" stroke-width="2" rx="8"/>
+  <text x="525" y="273" text-anchor="middle" fill="#54a0ff" font-size="12" font-weight="bold">ONLINE — Query Pipeline (every user request, ~1-3 seconds)</text>
+
+  <!-- User Query -->
+  <rect x="50" y="290" width="110" height="50" fill="#0f3460" stroke="#e94560" stroke-width="2" rx="4"/>
+  <text x="105" y="312" text-anchor="middle" fill="#e94560" font-size="9" font-weight="bold">User Query</text>
+  <text x="105" y="328" text-anchor="middle" fill="#aaaaaa" font-size="7">"How does X</text>
+  <text x="105" y="338" text-anchor="middle" fill="#aaaaaa" font-size="7">work?"</text>
+
+  <line x1="165" y1="315" x2="195" y2="315" stroke="#fff" stroke-width="1.5" marker-end="url(#raArr)"/>
+
+  <!-- Query Transform -->
+  <rect x="200" y="290" width="120" height="50" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="4"/>
+  <text x="260" y="310" text-anchor="middle" fill="#feca57" font-size="9" font-weight="bold">Query Transform</text>
+  <text x="260" y="325" text-anchor="middle" fill="#aaaaaa" font-size="7">Multi-query / HyDE</text>
+  <text x="260" y="337" text-anchor="middle" fill="#aaaaaa" font-size="7">(optional)</text>
+
+  <line x1="325" y1="315" x2="355" y2="315" stroke="#fff" stroke-width="1.5" marker-end="url(#raArr)"/>
+
+  <!-- Hybrid Retrieval -->
+  <rect x="360" y="285" width="150" height="60" fill="#0f3460" stroke="#00ff88" stroke-width="2" rx="4"/>
+  <text x="435" y="305" text-anchor="middle" fill="#00ff88" font-size="9" font-weight="bold">Hybrid Retrieval</text>
+  <text x="435" y="320" text-anchor="middle" fill="#aaaaaa" font-size="7">Vector (0.7) + BM25 (0.3)</text>
+  <text x="435" y="333" text-anchor="middle" fill="#aaaaaa" font-size="7">RRF fusion → top-20</text>
+  <text x="435" y="345" text-anchor="middle" fill="#feca57" font-size="7">~50ms</text>
+
+  <line x1="515" y1="315" x2="545" y2="315" stroke="#fff" stroke-width="1.5" marker-end="url(#raArr)"/>
+
+  <!-- Re-Ranking -->
+  <rect x="550" y="285" width="130" height="60" fill="#0f3460" stroke="#e94560" stroke-width="2" rx="4"/>
+  <text x="615" y="305" text-anchor="middle" fill="#e94560" font-size="9" font-weight="bold">Re-Ranker</text>
+  <text x="615" y="320" text-anchor="middle" fill="#aaaaaa" font-size="7">Cross-encoder</text>
+  <text x="615" y="333" text-anchor="middle" fill="#aaaaaa" font-size="7">top-20 → top-5</text>
+  <text x="615" y="345" text-anchor="middle" fill="#feca57" font-size="7">~100ms</text>
+
+  <line x1="685" y1="315" x2="715" y2="315" stroke="#fff" stroke-width="1.5" marker-end="url(#raArr)"/>
+
+  <!-- Context Assembly -->
+  <rect x="720" y="285" width="130" height="60" fill="#0f3460" stroke="#a29bfe" stroke-width="1.5" rx="4"/>
+  <text x="785" y="305" text-anchor="middle" fill="#a29bfe" font-size="9" font-weight="bold">Context Builder</text>
+  <text x="785" y="320" text-anchor="middle" fill="#aaaaaa" font-size="7">Format chunks</text>
+  <text x="785" y="333" text-anchor="middle" fill="#aaaaaa" font-size="7">+ sources + prompt</text>
+  <text x="785" y="345" text-anchor="middle" fill="#aaaaaa" font-size="7">Fit to context window</text>
+
+  <line x1="855" y1="315" x2="885" y2="315" stroke="#fff" stroke-width="1.5" marker-end="url(#raArr)"/>
+
+  <!-- LLM Generation -->
+  <rect x="890" y="285" width="115" height="60" fill="#0f3460" stroke="#e94560" stroke-width="2" rx="4"/>
+  <text x="947" y="305" text-anchor="middle" fill="#e94560" font-size="9" font-weight="bold">LLM Generate</text>
+  <text x="947" y="320" text-anchor="middle" fill="#aaaaaa" font-size="7">GPT-4o / Claude</text>
+  <text x="947" y="333" text-anchor="middle" fill="#aaaaaa" font-size="7">Grounded answer</text>
+  <text x="947" y="345" text-anchor="middle" fill="#feca57" font-size="7">~1-3s</text>
+
+  <!-- Answer box -->
+  <rect x="50" y="370" width="950" height="55" fill="#0f3460" stroke="#00ff88" stroke-width="1.5" rx="6"/>
+  <text x="525" y="390" text-anchor="middle" fill="#00ff88" font-size="10" font-weight="bold">Generated Answer (with citations)</text>
+  <text x="70" y="408" fill="#ffffff" font-size="9">"HNSW (Hierarchical Navigable Small World) is a graph-based ANN algorithm that builds a multi-layer graph structure.</text>
+  <text x="70" y="421" fill="#ffffff" font-size="9">Search starts at the top layer with few nodes and navigates down to the dense bottom layer." [Source: vector_db_guide.pdf, p.12]</text>
+
+  <!-- Advanced Patterns -->
+  <rect x="50" y="440" width="310" height="90" fill="#0f3460" stroke="#feca57" stroke-width="1" rx="6"/>
+  <text x="205" y="460" text-anchor="middle" fill="#feca57" font-size="10" font-weight="bold">Advanced RAG Patterns</text>
+  <text x="65" y="478" fill="#ffffff" font-size="8">• HyDE: Hypothetical doc embedding</text>
+  <text x="65" y="493" fill="#ffffff" font-size="8">• Self-RAG: LLM grades retrieval quality</text>
+  <text x="65" y="508" fill="#ffffff" font-size="8">• CRAG: Fallback to web if retrieval poor</text>
+  <text x="65" y="523" fill="#ffffff" font-size="8">• Agentic RAG: Tool-using retrieval</text>
+
+  <!-- Evaluation -->
+  <rect x="380" y="440" width="300" height="90" fill="#0f3460" stroke="#00d2d3" stroke-width="1" rx="6"/>
+  <text x="530" y="460" text-anchor="middle" fill="#00d2d3" font-size="10" font-weight="bold">Evaluation Metrics</text>
+  <text x="395" y="478" fill="#ffffff" font-size="8">• Retrieval: Recall@K, MRR, NDCG</text>
+  <text x="395" y="493" fill="#ffffff" font-size="8">• Generation: Faithfulness, Relevance</text>
+  <text x="395" y="508" fill="#ffffff" font-size="8">• End-to-end: Answer Correctness</text>
+  <text x="395" y="523" fill="#ffffff" font-size="8">• Tools: RAGAS, DeepEval, TruLens</text>
+
+  <!-- Production -->
+  <rect x="700" y="440" width="300" height="90" fill="#0f3460" stroke="#e94560" stroke-width="1" rx="6"/>
+  <text x="850" y="460" text-anchor="middle" fill="#e94560" font-size="10" font-weight="bold">Production Optimizations</text>
+  <text x="715" y="478" fill="#ffffff" font-size="8">• Cache frequent queries (Redis)</text>
+  <text x="715" y="493" fill="#ffffff" font-size="8">• Streaming response (token by token)</text>
+  <text x="715" y="508" fill="#ffffff" font-size="8">• Async retrieval for multi-query</text>
+  <text x="715" y="523" fill="#ffffff" font-size="8">• Metadata pre-filter (2-10× faster)</text>
+
+  <!-- Latency breakdown -->
+  <rect x="50" y="545" width="950" height="50" fill="#0f3460" stroke="#54a0ff" stroke-width="1" rx="5"/>
+  <text x="525" y="565" text-anchor="middle" fill="#54a0ff" font-size="10" font-weight="bold">End-to-End Latency Breakdown (p95)</text>
+  <text x="120" y="585" text-anchor="middle" fill="#feca57" font-size="9">Embed: 50ms</text>
+  <text x="280" y="585" text-anchor="middle" fill="#00ff88" font-size="9">Retrieval: 50ms</text>
+  <text x="440" y="585" text-anchor="middle" fill="#e94560" font-size="9">Re-rank: 100ms</text>
+  <text x="600" y="585" text-anchor="middle" fill="#a29bfe" font-size="9">Assembly: 10ms</text>
+  <text x="760" y="585" text-anchor="middle" fill="#e94560" font-size="9">LLM: 1-3s</text>
+  <text x="920" y="585" text-anchor="middle" fill="#ffffff" font-size="9" font-weight="bold">Total: 1.5-3.5s</text>
+
+  <defs>
+    <marker id="raArr" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto">
+      <polygon points="0 0, 6 2.5, 0 5" fill="#ffffff"/>
+    </marker>
+  </defs>
+</svg>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 550" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1050" height="550" fill="#1a1a2e" rx="10"/>
+  <text x="525" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">LangChain Agents — ReAct Loop &amp; Tool Use</text>
+
+  <!-- Agent Loop -->
+  <rect x="30" y="55" width="990" height="280" fill="#16213e" stroke="#00ff88" stroke-width="2" rx="8"/>
+  <text x="525" y="78" text-anchor="middle" fill="#00ff88" font-size="12" font-weight="bold">Agent Execution Loop (ReAct: Reason + Act)</text>
+
+  <!-- User Input -->
+  <rect x="50" y="100" width="130" height="50" fill="#0f3460" stroke="#e94560" stroke-width="2" rx="6"/>
+  <text x="115" y="122" text-anchor="middle" fill="#e94560" font-size="9" font-weight="bold">User Input</text>
+  <text x="115" y="138" text-anchor="middle" fill="#aaaaaa" font-size="7">"What's 15% of</text>
+  <text x="115" y="148" text-anchor="middle" fill="#aaaaaa" font-size="7">France's population?"</text>
+
+  <line x1="185" y1="125" x2="225" y2="125" stroke="#fff" stroke-width="1.5" marker-end="url(#agArr)"/>
+
+  <!-- LLM (Brain) -->
+  <rect x="230" y="90" width="180" height="70" fill="#0f3460" stroke="#feca57" stroke-width="2" rx="8"/>
+  <text x="320" y="112" text-anchor="middle" fill="#feca57" font-size="10" font-weight="bold">LLM (Brain)</text>
+  <text x="320" y="128" text-anchor="middle" fill="#ffffff" font-size="8">Observes + Reasons</text>
+  <text x="320" y="142" text-anchor="middle" fill="#ffffff" font-size="8">Decides: tool or answer?</text>
+  <text x="320" y="155" text-anchor="middle" fill="#aaaaaa" font-size="7">GPT-4o / Claude</text>
+
+  <!-- Decision diamond -->
+  <polygon points="475,125 520,100 565,125 520,150" fill="#0f3460" stroke="#a29bfe" stroke-width="2"/>
+  <text x="520" y="128" text-anchor="middle" fill="#a29bfe" font-size="8">Need</text>
+  <text x="520" y="140" text-anchor="middle" fill="#a29bfe" font-size="8">tool?</text>
+
+  <line x1="415" y1="125" x2="473" y2="125" stroke="#fff" stroke-width="1.5" marker-end="url(#agArr)"/>
+
+  <!-- YES path - Tool Call -->
+  <line x1="520" y1="152" x2="520" y2="185" stroke="#00ff88" stroke-width="1.5" marker-end="url(#agArr)"/>
+  <text x="540" y="175" fill="#00ff88" font-size="8">YES</text>
+
+  <!-- Tool Execution -->
+  <rect x="440" y="190" width="160" height="55" fill="#0f3460" stroke="#00ff88" stroke-width="2" rx="6"/>
+  <text x="520" y="210" text-anchor="middle" fill="#00ff88" font-size="9" font-weight="bold">Execute Tool</text>
+  <text x="520" y="226" text-anchor="middle" fill="#ffffff" font-size="8">search("France population")</text>
+  <text x="520" y="238" text-anchor="middle" fill="#aaaaaa" font-size="7">→ "67 million"</text>
+
+  <!-- Loop back arrow -->
+  <path d="M 440,218 L 320,218 L 320,165" fill="none" stroke="#feca57" stroke-width="1.5" marker-end="url(#agArr)" stroke-dasharray="4,3"/>
+  <text x="370" y="212" fill="#feca57" font-size="7">observation</text>
+  <text x="370" y="224" fill="#feca57" font-size="7">back to LLM</text>
+
+  <!-- NO path - Final Answer -->
+  <line x1="567" y1="125" x2="640" y2="125" stroke="#54a0ff" stroke-width="1.5" marker-end="url(#agArr)"/>
+  <text x="600" y="118" fill="#54a0ff" font-size="8">NO</text>
+
+  <rect x="645" y="100" width="160" height="50" fill="#0f3460" stroke="#54a0ff" stroke-width="2" rx="6"/>
+  <text x="725" y="120" text-anchor="middle" fill="#54a0ff" font-size="9" font-weight="bold">Final Answer</text>
+  <text x="725" y="136" text-anchor="middle" fill="#ffffff" font-size="8">"15% of 67M = 10.05M"</text>
+  <text x="725" y="148" text-anchor="middle" fill="#aaaaaa" font-size="7">Return to user</text>
+
+  <!-- Iteration counter -->
+  <rect x="640" y="190" width="160" height="45" fill="#0f3460" stroke="#ff6b6b" stroke-width="1" rx="4"/>
+  <text x="720" y="210" text-anchor="middle" fill="#ff6b6b" font-size="9" font-weight="bold">Guardrails</text>
+  <text x="720" y="225" text-anchor="middle" fill="#aaaaaa" font-size="7">max_iterations=5</text>
+  <text x="720" y="237" text-anchor="middle" fill="#aaaaaa" font-size="7">force answer if exceeded</text>
+
+  <!-- Trace example -->
+  <rect x="50" y="180" width="370" height="140" fill="#0f3460" stroke="#00d2d3" stroke-width="1.5" rx="6"/>
+  <text x="235" y="200" text-anchor="middle" fill="#00d2d3" font-size="9" font-weight="bold">Example Trace (3 iterations)</text>
+
+  <text x="65" y="220" fill="#feca57" font-size="8">Thought 1: I need to find France's population</text>
+  <text x="65" y="235" fill="#00ff88" font-size="8">Action: search("population of France 2024")</text>
+  <text x="65" y="250" fill="#aaaaaa" font-size="8">Observation: "France population: ~67.75 million"</text>
+
+  <text x="65" y="270" fill="#feca57" font-size="8">Thought 2: Now I need to calculate 15% of 67.75M</text>
+  <text x="65" y="285" fill="#00ff88" font-size="8">Action: calculator("67750000 * 0.15")</text>
+  <text x="65" y="300" fill="#aaaaaa" font-size="8">Observation: "10162500"</text>
+
+  <text x="65" y="318" fill="#54a0ff" font-size="8">Final Answer: "15% of France's population (~67.75M) is ~10.16 million"</text>
+
+  <!-- Tools Section -->
+  <rect x="30" y="350" width="990" height="185" fill="#16213e" stroke="#a29bfe" stroke-width="2" rx="8"/>
+  <text x="525" y="373" text-anchor="middle" fill="#a29bfe" font-size="12" font-weight="bold">Available Tools — The Agent's Toolkit</text>
+
+  <!-- Tool 1 -->
+  <rect x="50" y="388" width="175" height="70" fill="#0f3460" stroke="#54a0ff" stroke-width="1.5" rx="4"/>
+  <text x="137" y="408" text-anchor="middle" fill="#54a0ff" font-size="9" font-weight="bold">search_web</text>
+  <text x="137" y="425" text-anchor="middle" fill="#aaaaaa" font-size="7">"Search the internet for</text>
+  <text x="137" y="437" text-anchor="middle" fill="#aaaaaa" font-size="7">current information"</text>
+  <text x="137" y="452" text-anchor="middle" fill="#feca57" font-size="7">→ Tavily, SerpAPI</text>
+
+  <!-- Tool 2 -->
+  <rect x="240" y="388" width="175" height="70" fill="#0f3460" stroke="#00ff88" stroke-width="1.5" rx="4"/>
+  <text x="327" y="408" text-anchor="middle" fill="#00ff88" font-size="9" font-weight="bold">calculator</text>
+  <text x="327" y="425" text-anchor="middle" fill="#aaaaaa" font-size="7">"Calculate mathematical</text>
+  <text x="327" y="437" text-anchor="middle" fill="#aaaaaa" font-size="7">expressions"</text>
+  <text x="327" y="452" text-anchor="middle" fill="#feca57" font-size="7">→ Python eval</text>
+
+  <!-- Tool 3 -->
+  <rect x="430" y="388" width="175" height="70" fill="#0f3460" stroke="#e94560" stroke-width="1.5" rx="4"/>
+  <text x="517" y="408" text-anchor="middle" fill="#e94560" font-size="9" font-weight="bold">query_database</text>
+  <text x="517" y="425" text-anchor="middle" fill="#aaaaaa" font-size="7">"Execute SQL queries</text>
+  <text x="517" y="437" text-anchor="middle" fill="#aaaaaa" font-size="7">against company DB"</text>
+  <text x="517" y="452" text-anchor="middle" fill="#feca57" font-size="7">→ PostgreSQL, MySQL</text>
+
+  <!-- Tool 4 -->
+  <rect x="620" y="388" width="175" height="70" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="4"/>
+  <text x="707" y="408" text-anchor="middle" fill="#feca57" font-size="9" font-weight="bold">search_knowledge_base</text>
+  <text x="707" y="425" text-anchor="middle" fill="#aaaaaa" font-size="7">"Search internal docs</text>
+  <text x="707" y="437" text-anchor="middle" fill="#aaaaaa" font-size="7">for company info"</text>
+  <text x="707" y="452" text-anchor="middle" fill="#feca57" font-size="7">→ RAG retriever</text>
+
+  <!-- Tool 5 -->
+  <rect x="810" y="388" width="175" height="70" fill="#0f3460" stroke="#00d2d3" stroke-width="1.5" rx="4"/>
+  <text x="897" y="408" text-anchor="middle" fill="#00d2d3" font-size="9" font-weight="bold">create_ticket</text>
+  <text x="897" y="425" text-anchor="middle" fill="#aaaaaa" font-size="7">"Create support ticket</text>
+  <text x="897" y="437" text-anchor="middle" fill="#aaaaaa" font-size="7">for human follow-up"</text>
+  <text x="897" y="452" text-anchor="middle" fill="#feca57" font-size="7">→ Jira, Zendesk</text>
+
+  <!-- Key insight -->
+  <rect x="50" y="472" width="950" height="50" fill="#0f3460" stroke="#feca57" stroke-width="1" rx="6"/>
+  <text x="525" y="492" text-anchor="middle" fill="#feca57" font-size="10" font-weight="bold">Key Insight: The LLM Decides WHICH Tool + WHEN Based on Tool Descriptions</text>
+  <text x="525" y="510" text-anchor="middle" fill="#aaaaaa" font-size="9">Tool descriptions are critical — the model reads them to decide routing. Bad descriptions = wrong tool selection.</text>
+
+  <defs>
+    <marker id="agArr" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto">
+      <polygon points="0 0, 6 2.5, 0 5" fill="#ffffff"/>
+    </marker>
+  </defs>
+</svg>

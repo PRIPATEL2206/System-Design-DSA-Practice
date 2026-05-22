@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1000" height="520" fill="#1a1a2e" rx="10"/>
+  <text x="500" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">LSTM Cell — Long Short-Term Memory</text>
+
+  <!-- Main cell outline -->
+  <rect x="150" y="60" width="700" height="320" fill="#16213e" stroke="#54a0ff" stroke-width="2" rx="10"/>
+
+  <!-- Cell state (conveyor belt) -->
+  <line x1="170" y1="110" x2="830" y2="110" stroke="#00ff88" stroke-width="3"/>
+  <text x="500" y="80" text-anchor="middle" fill="#00ff88" font-size="12" font-weight="bold">Cell State C(t) — The "Memory Highway"</text>
+  <text x="140" y="114" text-anchor="end" fill="#00ff88" font-size="10">C(t-1) →</text>
+  <text x="855" y="114" fill="#00ff88" font-size="10">→ C(t)</text>
+
+  <!-- Forget Gate -->
+  <rect x="220" y="150" width="130" height="80" fill="#0f3460" stroke="#e94560" stroke-width="2" rx="8"/>
+  <text x="285" y="175" text-anchor="middle" fill="#e94560" font-size="11" font-weight="bold">Forget Gate</text>
+  <text x="285" y="195" text-anchor="middle" fill="#ffffff" font-size="9">f(t) = σ(W_f · [h(t-1), x(t)])</text>
+  <text x="285" y="215" text-anchor="middle" fill="#aaaaaa" font-size="8">Output: 0 to 1 per cell</text>
+  <text x="285" y="228" text-anchor="middle" fill="#aaaaaa" font-size="8">0=forget, 1=keep</text>
+
+  <!-- Multiply symbol for forget -->
+  <circle cx="285" cy="110" r="12" fill="#1a1a2e" stroke="#e94560" stroke-width="2"/>
+  <text x="285" y="115" text-anchor="middle" fill="#e94560" font-size="12">×</text>
+  <line x1="285" y1="150" x2="285" y2="122" stroke="#e94560" stroke-width="1.5" marker-end="url(#lstmA)"/>
+
+  <!-- Input Gate -->
+  <rect x="400" y="150" width="130" height="80" fill="#0f3460" stroke="#feca57" stroke-width="2" rx="8"/>
+  <text x="465" y="175" text-anchor="middle" fill="#feca57" font-size="11" font-weight="bold">Input Gate</text>
+  <text x="465" y="195" text-anchor="middle" fill="#ffffff" font-size="9">i(t) = σ(W_i · [h(t-1), x(t)])</text>
+  <text x="465" y="215" text-anchor="middle" fill="#ffffff" font-size="9">c̃(t) = tanh(W_c · [h(t-1), x(t)])</text>
+  <text x="465" y="228" text-anchor="middle" fill="#aaaaaa" font-size="8">What new info to store</text>
+
+  <!-- Multiply + Add for input -->
+  <circle cx="465" cy="110" r="12" fill="#1a1a2e" stroke="#feca57" stroke-width="2"/>
+  <text x="465" y="115" text-anchor="middle" fill="#feca57" font-size="12">+</text>
+  <line x1="465" y1="150" x2="465" y2="122" stroke="#feca57" stroke-width="1.5" marker-end="url(#lstmA)"/>
+
+  <!-- Output Gate -->
+  <rect x="600" y="150" width="130" height="80" fill="#0f3460" stroke="#00d2d3" stroke-width="2" rx="8"/>
+  <text x="665" y="175" text-anchor="middle" fill="#00d2d3" font-size="11" font-weight="bold">Output Gate</text>
+  <text x="665" y="195" text-anchor="middle" fill="#ffffff" font-size="9">o(t) = σ(W_o · [h(t-1), x(t)])</text>
+  <text x="665" y="215" text-anchor="middle" fill="#ffffff" font-size="9">h(t) = o(t) * tanh(C(t))</text>
+  <text x="665" y="228" text-anchor="middle" fill="#aaaaaa" font-size="8">What to expose as output</text>
+
+  <!-- Output gate connection -->
+  <circle cx="665" cy="110" r="12" fill="#1a1a2e" stroke="#00d2d3" stroke-width="2"/>
+  <text x="665" y="115" text-anchor="middle" fill="#00d2d3" font-size="10">tanh</text>
+  <line x1="665" y1="150" x2="665" y2="122" stroke="#00d2d3" stroke-width="1.5" marker-end="url(#lstmA)"/>
+
+  <!-- Hidden state output -->
+  <line x1="665" y1="98" x2="665" y2="65" stroke="#54a0ff" stroke-width="2" marker-end="url(#lstmA)"/>
+  <text x="690" y="60" fill="#54a0ff" font-size="10">h(t) output</text>
+
+  <!-- Input arrows -->
+  <line x1="150" y1="310" x2="220" y2="310" stroke="#ffffff" stroke-width="1.5" marker-end="url(#lstmA)"/>
+  <text x="120" y="300" text-anchor="end" fill="#ffffff" font-size="10">h(t-1)</text>
+
+  <line x1="150" y1="340" x2="220" y2="340" stroke="#00ff88" stroke-width="1.5" marker-end="url(#lstmA)"/>
+  <text x="120" y="345" text-anchor="end" fill="#00ff88" font-size="10">x(t)</text>
+
+  <!-- Connections from inputs to gates -->
+  <line x1="220" y1="310" x2="830" y2="310" stroke="#ffffff" stroke-width="1" stroke-dasharray="3"/>
+  <line x1="220" y1="340" x2="830" y2="340" stroke="#00ff88" stroke-width="1" stroke-dasharray="3"/>
+
+  <!-- Gate summary below -->
+  <rect x="30" y="395" width="940" height="110" fill="#0f3460" stroke="#54a0ff" stroke-width="1.5" rx="8"/>
+  <text x="500" y="420" text-anchor="middle" fill="#54a0ff" font-size="13" font-weight="bold">LSTM Gate Summary — Why It Solves Vanishing Gradients</text>
+
+  <text x="60" y="445" fill="#e94560" font-size="10" font-weight="bold">Forget Gate (f):</text>
+  <text x="195" y="445" fill="#ffffff" font-size="10">Decides what to remove from cell state. "Forget old subject when new one appears."</text>
+
+  <text x="60" y="468" fill="#feca57" font-size="10" font-weight="bold">Input Gate (i, c̃):</text>
+  <text x="195" y="468" fill="#ffffff" font-size="10">Decides what new information to store. "Remember new subject's gender."</text>
+
+  <text x="60" y="491" fill="#00d2d3" font-size="10" font-weight="bold">Output Gate (o):</text>
+  <text x="195" y="491" fill="#ffffff" font-size="10">Decides what to output from cell state. "Output singular/plural for next verb."</text>
+
+  <text x="500" y="500" text-anchor="middle" fill="#00ff88" font-size="9">Cell state flows with minimal modification (additive) → gradients flow unimpeded → learns 100+ step dependencies</text>
+
+  <defs>
+    <marker id="lstmA" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#ffffff"/></marker>
+  </defs>
+</svg>

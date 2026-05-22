@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 500" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1050" height="500" fill="#1a1a2e" rx="10"/>
+  <text x="525" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">AI-Powered Search System — Semantic + Lexical Hybrid</text>
+
+  <!-- Query flow -->
+  <rect x="30" y="55" width="990" height="65" fill="#16213e" stroke="#54a0ff" stroke-width="2" rx="8"/>
+  <text x="525" y="75" text-anchor="middle" fill="#54a0ff" font-size="10" font-weight="bold">QUERY PROCESSING PIPELINE</text>
+
+  <rect x="50" y="85" width="100" height="25" fill="#0f3460" stroke="#e94560" stroke-width="1" rx="3"/>
+  <text x="100" y="102" text-anchor="middle" fill="#ffffff" font-size="7">User Query</text>
+
+  <line x1="155" y1="97" x2="175" y2="97" stroke="#fff" stroke-width="1" marker-end="url(#srArr)"/>
+
+  <rect x="180" y="85" width="110" height="25" fill="#0f3460" stroke="#feca57" stroke-width="1" rx="3"/>
+  <text x="235" y="102" text-anchor="middle" fill="#feca57" font-size="7">Spell Correct</text>
+
+  <line x1="295" y1="97" x2="315" y2="97" stroke="#fff" stroke-width="1" marker-end="url(#srArr)"/>
+
+  <rect x="320" y="85" width="110" height="25" fill="#0f3460" stroke="#00ff88" stroke-width="1" rx="3"/>
+  <text x="375" y="102" text-anchor="middle" fill="#00ff88" font-size="7">Query Expand</text>
+
+  <line x1="435" y1="97" x2="455" y2="97" stroke="#fff" stroke-width="1" marker-end="url(#srArr)"/>
+
+  <rect x="460" y="85" width="110" height="25" fill="#0f3460" stroke="#a29bfe" stroke-width="1" rx="3"/>
+  <text x="515" y="102" text-anchor="middle" fill="#a29bfe" font-size="7">Intent Classify</text>
+
+  <line x1="575" y1="97" x2="595" y2="97" stroke="#fff" stroke-width="1" marker-end="url(#srArr)"/>
+
+  <rect x="600" y="85" width="110" height="25" fill="#0f3460" stroke="#00d2d3" stroke-width="1" rx="3"/>
+  <text x="655" y="102" text-anchor="middle" fill="#00d2d3" font-size="7">Entity Extract</text>
+
+  <line x1="715" y1="97" x2="735" y2="97" stroke="#fff" stroke-width="1" marker-end="url(#srArr)"/>
+
+  <rect x="740" y="85" width="100" height="25" fill="#0f3460" stroke="#54a0ff" stroke-width="1" rx="3"/>
+  <text x="790" y="102" text-anchor="middle" fill="#54a0ff" font-size="7">Embed Query</text>
+
+  <line x1="845" y1="97" x2="875" y2="97" stroke="#fff" stroke-width="1" marker-end="url(#srArr)"/>
+
+  <text x="920" y="102" fill="#00ff88" font-size="8" font-weight="bold">→ Retrieval</text>
+
+  <!-- Retrieval Layer -->
+  <rect x="30" y="130" width="990" height="145" fill="#16213e" stroke="#00ff88" stroke-width="2" rx="8"/>
+  <text x="525" y="153" text-anchor="middle" fill="#00ff88" font-size="11" font-weight="bold">MULTI-SIGNAL RETRIEVAL (Parallel)</text>
+
+  <!-- Lexical -->
+  <rect x="50" y="165" width="280" height="90" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="6"/>
+  <text x="190" y="185" text-anchor="middle" fill="#feca57" font-size="9" font-weight="bold">Lexical: Elasticsearch (BM25)</text>
+  <text x="65" y="203" fill="#ffffff" font-size="7">• Exact term matching + TF-IDF scoring</text>
+  <text x="65" y="218" fill="#ffffff" font-size="7">• Multi-field: title^3, description, attributes</text>
+  <text x="65" y="233" fill="#ffffff" font-size="7">• Fuzzy matching for typo tolerance</text>
+  <text x="65" y="248" fill="#aaaaaa" font-size="7">Returns: top-100 with BM25 scores</text>
+
+  <!-- Semantic -->
+  <rect x="350" y="165" width="280" height="90" fill="#0f3460" stroke="#54a0ff" stroke-width="1.5" rx="6"/>
+  <text x="490" y="185" text-anchor="middle" fill="#54a0ff" font-size="9" font-weight="bold">Semantic: Vector Search (ANN)</text>
+  <text x="365" y="203" fill="#ffffff" font-size="7">• Embedding similarity (cosine)</text>
+  <text x="365" y="218" fill="#ffffff" font-size="7">• Understands meaning, not just keywords</text>
+  <text x="365" y="233" fill="#ffffff" font-size="7">• "running shoes" ≈ "jogging sneakers"</text>
+  <text x="365" y="248" fill="#aaaaaa" font-size="7">Returns: top-100 with similarity scores</text>
+
+  <!-- Personalized -->
+  <rect x="650" y="165" width="350" height="90" fill="#0f3460" stroke="#a29bfe" stroke-width="1.5" rx="6"/>
+  <text x="825" y="185" text-anchor="middle" fill="#a29bfe" font-size="9" font-weight="bold">Personalized: User-Based Boost</text>
+  <text x="665" y="203" fill="#ffffff" font-size="7">• User preference vector (category/brand affinity)</text>
+  <text x="665" y="218" fill="#ffffff" font-size="7">• Recent purchase/view history boost</text>
+  <text x="665" y="233" fill="#ffffff" font-size="7">• Location-based (nearby stores/shipping)</text>
+  <text x="665" y="248" fill="#aaaaaa" font-size="7">Applies as score modifier to fused results</text>
+
+  <!-- Fusion -->
+  <rect x="30" y="285" width="990" height="50" fill="#16213e" stroke="#e94560" stroke-width="2" rx="8"/>
+  <text x="525" y="308" text-anchor="middle" fill="#e94560" font-size="10" font-weight="bold">FUSION: Reciprocal Rank Fusion (RRF)</text>
+  <text x="525" y="325" text-anchor="middle" fill="#ffffff" font-size="8">score(doc) = Σ 1/(k + rank_lexical) + 1/(k + rank_semantic) | k=60 | Merge 200 → unique top-100</text>
+
+  <!-- Ranking -->
+  <rect x="30" y="345" width="495" height="70" fill="#16213e" stroke="#a29bfe" stroke-width="2" rx="8"/>
+  <text x="277" y="368" text-anchor="middle" fill="#a29bfe" font-size="10" font-weight="bold">RE-RANKING (Cross-Encoder)</text>
+  <text x="50" y="388" fill="#ffffff" font-size="8">• Top-50 fused candidates re-scored with cross-encoder</text>
+  <text x="50" y="403" fill="#ffffff" font-size="8">• Features: query + title + description → relevance score | Latency: ~80ms</text>
+
+  <!-- Post-processing -->
+  <rect x="540" y="345" width="480" height="70" fill="#16213e" stroke="#00d2d3" stroke-width="2" rx="8"/>
+  <text x="780" y="368" text-anchor="middle" fill="#00d2d3" font-size="10" font-weight="bold">POST-PROCESSING</text>
+  <text x="560" y="388" fill="#ffffff" font-size="8">• Diversity: max 3 per brand/seller</text>
+  <text x="560" y="403" fill="#ffffff" font-size="8">• Business: sponsored, in-stock only, price range filter</text>
+
+  <!-- Latency breakdown -->
+  <rect x="30" y="425" width="990" height="55" fill="#16213e" stroke="#feca57" stroke-width="1.5" rx="8"/>
+  <text x="525" y="448" text-anchor="middle" fill="#feca57" font-size="10" font-weight="bold">LATENCY BUDGET (total &lt;200ms)</text>
+
+  <text x="100" y="470" text-anchor="middle" fill="#feca57" font-size="8">Query: 15ms</text>
+  <text x="250" y="470" text-anchor="middle" fill="#00ff88" font-size="8">Lexical: 30ms</text>
+  <text x="400" y="470" text-anchor="middle" fill="#54a0ff" font-size="8">Semantic: 30ms</text>
+  <text x="540" y="470" text-anchor="middle" fill="#e94560" font-size="8">Fusion: 5ms</text>
+  <text x="680" y="470" text-anchor="middle" fill="#a29bfe" font-size="8">Re-rank: 80ms</text>
+  <text x="820" y="470" text-anchor="middle" fill="#00d2d3" font-size="8">Post: 10ms</text>
+  <text x="950" y="470" text-anchor="middle" fill="#ffffff" font-size="8" font-weight="bold">≈170ms</text>
+
+  <defs>
+    <marker id="srArr" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto">
+      <polygon points="0 0, 6 2.5, 0 5" fill="#ffffff"/>
+    </marker>
+  </defs>
+</svg>

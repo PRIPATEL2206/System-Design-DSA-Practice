@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1000" height="520" fill="#1a1a2e" rx="10"/>
+  <text x="500" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">CNN Architecture Evolution — Key Milestones</text>
+
+  <!-- Timeline line -->
+  <line x1="50" y1="80" x2="950" y2="80" stroke="#444444" stroke-width="2"/>
+
+  <!-- Year markers -->
+  <circle cx="100" cy="80" r="6" fill="#e94560"/>
+  <text x="100" y="100" text-anchor="middle" fill="#e94560" font-size="10">2012</text>
+
+  <circle cx="250" cy="80" r="6" fill="#feca57"/>
+  <text x="250" y="100" text-anchor="middle" fill="#feca57" font-size="10">2014</text>
+
+  <circle cx="400" cy="80" r="6" fill="#00d2d3"/>
+  <text x="400" y="100" text-anchor="middle" fill="#00d2d3" font-size="10">2014</text>
+
+  <circle cx="550" cy="80" r="6" fill="#54a0ff"/>
+  <text x="550" y="100" text-anchor="middle" fill="#54a0ff" font-size="10">2015</text>
+
+  <circle cx="700" cy="80" r="6" fill="#a29bfe"/>
+  <text x="700" y="100" text-anchor="middle" fill="#a29bfe" font-size="10">2017</text>
+
+  <circle cx="850" cy="80" r="6" fill="#00ff88"/>
+  <text x="850" y="100" text-anchor="middle" fill="#00ff88" font-size="10">2019</text>
+
+  <!-- AlexNet -->
+  <rect x="30" y="110" width="155" height="130" fill="#16213e" stroke="#e94560" stroke-width="2" rx="8"/>
+  <text x="107" y="133" text-anchor="middle" fill="#e94560" font-size="12" font-weight="bold">AlexNet</text>
+  <text x="107" y="150" text-anchor="middle" fill="#ffffff" font-size="9">8 layers, 60M params</text>
+  <text x="107" y="167" text-anchor="middle" fill="#aaaaaa" font-size="8">Innovation:</text>
+  <text x="107" y="180" text-anchor="middle" fill="#aaaaaa" font-size="8">• ReLU activation</text>
+  <text x="107" y="193" text-anchor="middle" fill="#aaaaaa" font-size="8">• GPU training</text>
+  <text x="107" y="206" text-anchor="middle" fill="#aaaaaa" font-size="8">• Dropout</text>
+  <text x="107" y="222" text-anchor="middle" fill="#00ff88" font-size="8">ImageNet: 84.7%</text>
+
+  <!-- VGGNet -->
+  <rect x="185" y="110" width="145" height="130" fill="#16213e" stroke="#feca57" stroke-width="2" rx="8"/>
+  <text x="257" y="133" text-anchor="middle" fill="#feca57" font-size="12" font-weight="bold">VGGNet</text>
+  <text x="257" y="150" text-anchor="middle" fill="#ffffff" font-size="9">19 layers, 138M params</text>
+  <text x="257" y="167" text-anchor="middle" fill="#aaaaaa" font-size="8">Innovation:</text>
+  <text x="257" y="180" text-anchor="middle" fill="#aaaaaa" font-size="8">• Only 3×3 convs</text>
+  <text x="257" y="193" text-anchor="middle" fill="#aaaaaa" font-size="8">• Deeper = better</text>
+  <text x="257" y="206" text-anchor="middle" fill="#aaaaaa" font-size="8">• Simple architecture</text>
+  <text x="257" y="222" text-anchor="middle" fill="#00ff88" font-size="8">ImageNet: 92.7%</text>
+
+  <!-- GoogLeNet/Inception -->
+  <rect x="335" y="110" width="145" height="130" fill="#16213e" stroke="#00d2d3" stroke-width="2" rx="8"/>
+  <text x="407" y="133" text-anchor="middle" fill="#00d2d3" font-size="12" font-weight="bold">GoogLeNet</text>
+  <text x="407" y="150" text-anchor="middle" fill="#ffffff" font-size="9">22 layers, 5M params</text>
+  <text x="407" y="167" text-anchor="middle" fill="#aaaaaa" font-size="8">Innovation:</text>
+  <text x="407" y="180" text-anchor="middle" fill="#aaaaaa" font-size="8">• Inception modules</text>
+  <text x="407" y="193" text-anchor="middle" fill="#aaaaaa" font-size="8">• Multi-scale filters</text>
+  <text x="407" y="206" text-anchor="middle" fill="#aaaaaa" font-size="8">• 1×1 convs (bottleneck)</text>
+  <text x="407" y="222" text-anchor="middle" fill="#00ff88" font-size="8">ImageNet: 93.3%</text>
+
+  <!-- ResNet -->
+  <rect x="485" y="110" width="145" height="130" fill="#16213e" stroke="#54a0ff" stroke-width="3" rx="8"/>
+  <text x="557" y="133" text-anchor="middle" fill="#54a0ff" font-size="12" font-weight="bold">ResNet ⭐</text>
+  <text x="557" y="150" text-anchor="middle" fill="#ffffff" font-size="9">152 layers, 60M params</text>
+  <text x="557" y="167" text-anchor="middle" fill="#aaaaaa" font-size="8">Innovation:</text>
+  <text x="557" y="180" text-anchor="middle" fill="#aaaaaa" font-size="8">• Skip connections!</text>
+  <text x="557" y="193" text-anchor="middle" fill="#aaaaaa" font-size="8">• Learn residuals</text>
+  <text x="557" y="206" text-anchor="middle" fill="#aaaaaa" font-size="8">• Very deep training</text>
+  <text x="557" y="222" text-anchor="middle" fill="#00ff88" font-size="8">ImageNet: 96.4%</text>
+
+  <!-- MobileNet/EfficientNet -->
+  <rect x="635" y="110" width="145" height="130" fill="#16213e" stroke="#a29bfe" stroke-width="2" rx="8"/>
+  <text x="707" y="133" text-anchor="middle" fill="#a29bfe" font-size="12" font-weight="bold">MobileNet</text>
+  <text x="707" y="150" text-anchor="middle" fill="#ffffff" font-size="9">28 layers, 3.4M params</text>
+  <text x="707" y="167" text-anchor="middle" fill="#aaaaaa" font-size="8">Innovation:</text>
+  <text x="707" y="180" text-anchor="middle" fill="#aaaaaa" font-size="8">• Depthwise separable</text>
+  <text x="707" y="193" text-anchor="middle" fill="#aaaaaa" font-size="8">• Conv decomposition</text>
+  <text x="707" y="206" text-anchor="middle" fill="#aaaaaa" font-size="8">• Mobile-friendly</text>
+  <text x="707" y="222" text-anchor="middle" fill="#00ff88" font-size="8">90% acc, 10x fewer params</text>
+
+  <!-- EfficientNet -->
+  <rect x="785" y="110" width="175" height="130" fill="#16213e" stroke="#00ff88" stroke-width="2" rx="8"/>
+  <text x="872" y="133" text-anchor="middle" fill="#00ff88" font-size="12" font-weight="bold">EfficientNet</text>
+  <text x="872" y="150" text-anchor="middle" fill="#ffffff" font-size="9">B0-B7, 5-66M params</text>
+  <text x="872" y="167" text-anchor="middle" fill="#aaaaaa" font-size="8">Innovation:</text>
+  <text x="872" y="180" text-anchor="middle" fill="#aaaaaa" font-size="8">• Compound scaling</text>
+  <text x="872" y="193" text-anchor="middle" fill="#aaaaaa" font-size="8">• NAS architecture search</text>
+  <text x="872" y="206" text-anchor="middle" fill="#aaaaaa" font-size="8">• Scale depth+width+res</text>
+  <text x="872" y="222" text-anchor="middle" fill="#00ff88" font-size="8">ImageNet: 97.1% (B7)</text>
+
+  <!-- ResNet Skip Connection detail -->
+  <rect x="30" y="260" width="460" height="120" fill="#0f3460" stroke="#54a0ff" stroke-width="1.5" rx="8"/>
+  <text x="260" y="285" text-anchor="middle" fill="#54a0ff" font-size="13" font-weight="bold">ResNet Skip Connection (The Key Innovation)</text>
+
+  <!-- Block diagram -->
+  <rect x="60" y="300" width="70" height="35" fill="#16213e" stroke="#54a0ff" stroke-width="1.5" rx="4"/>
+  <text x="95" y="322" text-anchor="middle" fill="#ffffff" font-size="9">Input x</text>
+
+  <line x1="130" y1="317" x2="160" y2="317" stroke="#54a0ff" stroke-width="1.5"/>
+
+  <rect x="160" y="300" width="100" height="35" fill="#16213e" stroke="#e94560" stroke-width="1.5" rx="4"/>
+  <text x="210" y="316" text-anchor="middle" fill="#ffffff" font-size="8">Conv → BN →</text>
+  <text x="210" y="330" text-anchor="middle" fill="#ffffff" font-size="8">ReLU → Conv → BN</text>
+
+  <line x1="260" y1="317" x2="290" y2="317" stroke="#54a0ff" stroke-width="1.5"/>
+
+  <!-- Plus circle -->
+  <circle cx="310" cy="317" r="15" fill="#16213e" stroke="#00ff88" stroke-width="2"/>
+  <text x="310" y="322" text-anchor="middle" fill="#00ff88" font-size="14">+</text>
+
+  <!-- Skip connection line -->
+  <path d="M 95 335 L 95 360 L 310 360 L 310 332" fill="none" stroke="#feca57" stroke-width="2" stroke-dasharray="4"/>
+  <text x="200" y="372" text-anchor="middle" fill="#feca57" font-size="9">Skip connection: identity(x)</text>
+
+  <line x1="325" y1="317" x2="355" y2="317" stroke="#54a0ff" stroke-width="1.5"/>
+
+  <rect x="355" y="300" width="80" height="35" fill="#16213e" stroke="#00ff88" stroke-width="1.5" rx="4"/>
+  <text x="395" y="318" text-anchor="middle" fill="#ffffff" font-size="9">ReLU</text>
+  <text x="395" y="331" text-anchor="middle" fill="#ffffff" font-size="8">F(x) + x</text>
+
+  <!-- Why it works -->
+  <text x="260" y="350" text-anchor="middle" fill="#aaaaaa" font-size="9">Network learns RESIDUAL F(x) = H(x) - x, easier to learn than full mapping H(x)</text>
+
+  <!-- Transfer Learning Box -->
+  <rect x="510" y="260" width="460" height="120" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="8"/>
+  <text x="740" y="285" text-anchor="middle" fill="#feca57" font-size="13" font-weight="bold">Transfer Learning — Reuse Pre-trained CNNs</text>
+
+  <rect x="530" y="300" width="140" height="65" fill="#16213e" stroke="#e94560" stroke-width="1" rx="5"/>
+  <text x="600" y="318" text-anchor="middle" fill="#e94560" font-size="10" font-weight="bold">Feature Extraction</text>
+  <text x="600" y="335" text-anchor="middle" fill="#ffffff" font-size="9">Freeze all CNN layers</text>
+  <text x="600" y="350" text-anchor="middle" fill="#ffffff" font-size="9">Only train new FC head</text>
+  <text x="600" y="363" text-anchor="middle" fill="#aaaaaa" font-size="8">Fast, works with little data</text>
+
+  <rect x="690" y="300" width="140" height="65" fill="#16213e" stroke="#00d2d3" stroke-width="1" rx="5"/>
+  <text x="760" y="318" text-anchor="middle" fill="#00d2d3" font-size="10" font-weight="bold">Fine-Tuning</text>
+  <text x="760" y="335" text-anchor="middle" fill="#ffffff" font-size="9">Unfreeze last N layers</text>
+  <text x="760" y="350" text-anchor="middle" fill="#ffffff" font-size="9">Train with very low LR</text>
+  <text x="760" y="363" text-anchor="middle" fill="#aaaaaa" font-size="8">Better acc, needs more data</text>
+
+  <rect x="850" y="300" width="100" height="65" fill="#16213e" stroke="#00ff88" stroke-width="1" rx="5"/>
+  <text x="900" y="318" text-anchor="middle" fill="#00ff88" font-size="10" font-weight="bold">Full Retrain</text>
+  <text x="900" y="335" text-anchor="middle" fill="#ffffff" font-size="9">Unfreeze all</text>
+  <text x="900" y="350" text-anchor="middle" fill="#ffffff" font-size="9">Train end-to-end</text>
+  <text x="900" y="363" text-anchor="middle" fill="#aaaaaa" font-size="8">Needs lots of data</text>
+
+  <!-- Modern Recommendation -->
+  <rect x="30" y="400" width="940" height="100" fill="#16213e" stroke="#00ff88" stroke-width="1.5" rx="8"/>
+  <text x="500" y="425" text-anchor="middle" fill="#00ff88" font-size="13" font-weight="bold">Modern CNN Selection Guide (2024)</text>
+
+  <text x="60" y="450" fill="#ffffff" font-size="10">• Quick prototype: ResNet-18/34 (simple, well-understood, fast)</text>
+  <text x="60" y="470" fill="#ffffff" font-size="10">• Best accuracy: EfficientNet-B4/B5 or ConvNeXt (state-of-the-art with reasonable cost)</text>
+  <text x="60" y="490" fill="#ffffff" font-size="10">• Mobile/edge: MobileNetV3 or EfficientNet-Lite (optimized for inference speed)</text>
+  <text x="600" y="450" fill="#ffffff" font-size="10">• Vision Transformer (ViT): Beats CNNs with enough data</text>
+  <text x="600" y="470" fill="#ffffff" font-size="10">• Always start with pre-trained weights (ImageNet)</text>
+  <text x="600" y="490" fill="#ffffff" font-size="10">• Fine-tune &gt; train from scratch (unless 1M+ images)</text>
+</svg>

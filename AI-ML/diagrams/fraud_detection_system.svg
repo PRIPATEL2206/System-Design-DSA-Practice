@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 480" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1050" height="480" fill="#1a1a2e" rx="10"/>
+  <text x="525" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">Fraud Detection System — Real-Time Architecture</text>
+
+  <!-- Event Source -->
+  <rect x="30" y="65" width="120" height="55" fill="#0f3460" stroke="#e94560" stroke-width="2" rx="6"/>
+  <text x="90" y="88" text-anchor="middle" fill="#e94560" font-size="9" font-weight="bold">Transaction</text>
+  <text x="90" y="103" text-anchor="middle" fill="#aaaaaa" font-size="7">10K TPS</text>
+  <text x="90" y="113" text-anchor="middle" fill="#aaaaaa" font-size="7">Payment event</text>
+
+  <line x1="155" y1="92" x2="185" y2="92" stroke="#fff" stroke-width="1.5" marker-end="url(#fdArr)"/>
+
+  <!-- Kafka -->
+  <rect x="190" y="65" width="100" height="55" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="6"/>
+  <text x="240" y="88" text-anchor="middle" fill="#feca57" font-size="9" font-weight="bold">Kafka</text>
+  <text x="240" y="103" text-anchor="middle" fill="#aaaaaa" font-size="7">Event stream</text>
+  <text x="240" y="113" text-anchor="middle" fill="#aaaaaa" font-size="7">buffer</text>
+
+  <line x1="295" y1="92" x2="325" y2="92" stroke="#fff" stroke-width="1.5" marker-end="url(#fdArr)"/>
+
+  <!-- Feature Enrichment -->
+  <rect x="330" y="55" width="180" height="75" fill="#0f3460" stroke="#54a0ff" stroke-width="2" rx="6"/>
+  <text x="420" y="78" text-anchor="middle" fill="#54a0ff" font-size="9" font-weight="bold">Feature Enrichment</text>
+  <text x="345" y="95" fill="#ffffff" font-size="7">• Velocity (txns/hour)</text>
+  <text x="345" y="108" fill="#ffffff" font-size="7">• Geo-velocity (km/h)</text>
+  <text x="345" y="121" fill="#ffffff" font-size="7">• Amount vs average ratio</text>
+  <text x="420" y="135" text-anchor="middle" fill="#feca57" font-size="6">&lt;10ms from Redis</text>
+
+  <line x1="515" y1="92" x2="545" y2="92" stroke="#fff" stroke-width="1.5" marker-end="url(#fdArr)"/>
+
+  <!-- Model Ensemble -->
+  <rect x="550" y="50" width="200" height="85" fill="#0f3460" stroke="#00ff88" stroke-width="2" rx="6"/>
+  <text x="650" y="72" text-anchor="middle" fill="#00ff88" font-size="9" font-weight="bold">Model Ensemble</text>
+  <text x="565" y="90" fill="#ffffff" font-size="7">XGBoost (tabular) → 0.6 weight</text>
+  <text x="565" y="105" fill="#ffffff" font-size="7">LSTM (sequence) → 0.3 weight</text>
+  <text x="565" y="120" fill="#ffffff" font-size="7">Rule engine → 0.1 weight</text>
+  <text x="650" y="135" text-anchor="middle" fill="#feca57" font-size="6">&lt;5ms inference</text>
+
+  <line x1="755" y1="92" x2="785" y2="92" stroke="#fff" stroke-width="1.5" marker-end="url(#fdArr)"/>
+
+  <!-- Decision Engine -->
+  <rect x="790" y="55" width="155" height="75" fill="#0f3460" stroke="#a29bfe" stroke-width="2" rx="6"/>
+  <text x="867" y="75" text-anchor="middle" fill="#a29bfe" font-size="9" font-weight="bold">Decision Engine</text>
+  <text x="805" y="93" fill="#00ff88" font-size="7">&gt;0.95 → BLOCK</text>
+  <text x="805" y="108" fill="#feca57" font-size="7">0.7-0.95 → CHALLENGE</text>
+  <text x="805" y="123" fill="#54a0ff" font-size="7">&lt;0.7 → APPROVE</text>
+
+  <line x1="950" y1="92" x2="980" y2="92" stroke="#fff" stroke-width="1.5" marker-end="url(#fdArr)"/>
+
+  <!-- Action -->
+  <rect x="985" y="72" width="45" height="40" fill="#0f3460" stroke="#00ff88" stroke-width="2" rx="6"/>
+  <text x="1007" y="96" text-anchor="middle" fill="#00ff88" font-size="8">Act</text>
+
+  <!-- Feature Store (below) -->
+  <rect x="330" y="155" width="180" height="45" fill="#0f3460" stroke="#00d2d3" stroke-width="1.5" rx="4"/>
+  <text x="420" y="175" text-anchor="middle" fill="#00d2d3" font-size="8" font-weight="bold">Feature Store (Redis)</text>
+  <text x="420" y="190" text-anchor="middle" fill="#aaaaaa" font-size="7">Real-time counters, user profiles</text>
+  <line x1="420" y1="132" x2="420" y2="152" stroke="#00d2d3" stroke-width="1" stroke-dasharray="3,2"/>
+
+  <!-- Model Registry -->
+  <rect x="550" y="155" width="200" height="45" fill="#0f3460" stroke="#e94560" stroke-width="1.5" rx="4"/>
+  <text x="650" y="175" text-anchor="middle" fill="#e94560" font-size="8" font-weight="bold">Model Registry (MLflow)</text>
+  <text x="650" y="190" text-anchor="middle" fill="#aaaaaa" font-size="7">Versioned models, weekly retrain</text>
+  <line x1="650" y1="137" x2="650" y2="152" stroke="#e94560" stroke-width="1" stroke-dasharray="3,2"/>
+
+  <!-- Metrics section -->
+  <rect x="30" y="220" width="990" height="100" fill="#16213e" stroke="#feca57" stroke-width="2" rx="8"/>
+  <text x="525" y="243" text-anchor="middle" fill="#feca57" font-size="11" font-weight="bold">Key Metrics &amp; Performance</text>
+
+  <rect x="50" y="255" width="180" height="50" fill="#0f3460" stroke="#00ff88" stroke-width="1" rx="4"/>
+  <text x="140" y="275" text-anchor="middle" fill="#00ff88" font-size="8" font-weight="bold">Detection Rate</text>
+  <text x="140" y="293" text-anchor="middle" fill="#ffffff" font-size="9">95% fraud caught</text>
+
+  <rect x="250" y="255" width="180" height="50" fill="#0f3460" stroke="#54a0ff" stroke-width="1" rx="4"/>
+  <text x="340" y="275" text-anchor="middle" fill="#54a0ff" font-size="8" font-weight="bold">False Positive Rate</text>
+  <text x="340" y="293" text-anchor="middle" fill="#ffffff" font-size="9">0.05% legitimate blocked</text>
+
+  <rect x="450" y="255" width="180" height="50" fill="#0f3460" stroke="#feca57" stroke-width="1" rx="4"/>
+  <text x="540" y="275" text-anchor="middle" fill="#feca57" font-size="8" font-weight="bold">Latency (p99)</text>
+  <text x="540" y="293" text-anchor="middle" fill="#ffffff" font-size="9">&lt;50ms end-to-end</text>
+
+  <rect x="650" y="255" width="180" height="50" fill="#0f3460" stroke="#e94560" stroke-width="1" rx="4"/>
+  <text x="740" y="275" text-anchor="middle" fill="#e94560" font-size="8" font-weight="bold">Throughput</text>
+  <text x="740" y="293" text-anchor="middle" fill="#ffffff" font-size="9">10K+ TPS sustained</text>
+
+  <rect x="850" y="255" width="150" height="50" fill="#0f3460" stroke="#a29bfe" stroke-width="1" rx="4"/>
+  <text x="925" y="275" text-anchor="middle" fill="#a29bfe" font-size="8" font-weight="bold">AUC-ROC</text>
+  <text x="925" y="293" text-anchor="middle" fill="#ffffff" font-size="9">0.997</text>
+
+  <!-- Tech Stack -->
+  <rect x="30" y="335" width="990" height="125" fill="#16213e" stroke="#54a0ff" stroke-width="2" rx="8"/>
+  <text x="525" y="358" text-anchor="middle" fill="#54a0ff" font-size="11" font-weight="bold">Technology Stack &amp; Challenges</text>
+
+  <rect x="50" y="370" width="280" height="75" fill="#0f3460" rx="4"/>
+  <text x="190" y="388" text-anchor="middle" fill="#00ff88" font-size="9" font-weight="bold">Stack</text>
+  <text x="65" y="405" fill="#ffffff" font-size="7">• XGBoost + PyTorch LSTM</text>
+  <text x="65" y="418" fill="#ffffff" font-size="7">• FastAPI + Kafka + Redis</text>
+  <text x="65" y="431" fill="#ffffff" font-size="7">• MLflow + Kubernetes + Prometheus</text>
+  <text x="65" y="444" fill="#ffffff" font-size="7">• Weekly retrain on new chargebacks</text>
+
+  <rect x="350" y="370" width="320" height="75" fill="#0f3460" rx="4"/>
+  <text x="510" y="388" text-anchor="middle" fill="#e94560" font-size="9" font-weight="bold">Key Challenges</text>
+  <text x="365" y="405" fill="#ffffff" font-size="7">• Class imbalance: 0.1% fraud (SMOTE + focal loss)</text>
+  <text x="365" y="418" fill="#ffffff" font-size="7">• Concept drift: new fraud patterns emerge weekly</text>
+  <text x="365" y="431" fill="#ffffff" font-size="7">• Latency: all features + inference in &lt;50ms</text>
+  <text x="365" y="444" fill="#ffffff" font-size="7">• Adversarial: fraudsters adapt to detection</text>
+
+  <rect x="690" y="370" width="310" height="75" fill="#0f3460" rx="4"/>
+  <text x="845" y="388" text-anchor="middle" fill="#feca57" font-size="9" font-weight="bold">Feedback Loop</text>
+  <text x="705" y="405" fill="#ffffff" font-size="7">• Chargebacks arrive 30-90 days later (labels)</text>
+  <text x="705" y="418" fill="#ffffff" font-size="7">• Manual review team labels edge cases</text>
+  <text x="705" y="431" fill="#ffffff" font-size="7">• New patterns → retrain weekly</text>
+  <text x="705" y="444" fill="#ffffff" font-size="7">• Threshold tuning based on FP/FN trade-off</text>
+
+  <defs>
+    <marker id="fdArr" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto">
+      <polygon points="0 0, 6 2.5, 0 5" fill="#ffffff"/>
+    </marker>
+  </defs>
+</svg>

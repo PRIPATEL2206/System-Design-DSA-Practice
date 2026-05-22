@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 500" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1050" height="500" fill="#1a1a2e" rx="10"/>
+  <text x="525" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">Model Serving Architecture — Deployment Patterns</text>
+
+  <!-- Pattern 1: REST API -->
+  <rect x="30" y="55" width="320" height="200" fill="#16213e" stroke="#54a0ff" stroke-width="2" rx="8"/>
+  <text x="190" y="78" text-anchor="middle" fill="#54a0ff" font-size="11" font-weight="bold">REST API (Real-Time)</text>
+
+  <rect x="50" y="92" width="70" height="35" fill="#0f3460" stroke="#aaaaaa" stroke-width="1" rx="4"/>
+  <text x="85" y="113" text-anchor="middle" fill="#ffffff" font-size="8">Client</text>
+
+  <line x1="125" y1="110" x2="155" y2="110" stroke="#fff" stroke-width="1" marker-end="url(#svArr)"/>
+  <text x="140" y="103" fill="#feca57" font-size="6">HTTP</text>
+
+  <rect x="160" y="92" width="80" height="35" fill="#0f3460" stroke="#54a0ff" stroke-width="1.5" rx="4"/>
+  <text x="200" y="108" text-anchor="middle" fill="#54a0ff" font-size="7" font-weight="bold">FastAPI</text>
+  <text x="200" y="120" text-anchor="middle" fill="#aaaaaa" font-size="6">Load Balancer</text>
+
+  <line x1="245" y1="110" x2="275" y2="110" stroke="#fff" stroke-width="1" marker-end="url(#svArr)"/>
+
+  <rect x="280" y="92" width="55" height="35" fill="#0f3460" stroke="#00ff88" stroke-width="1.5" rx="4"/>
+  <text x="307" y="113" text-anchor="middle" fill="#00ff88" font-size="7">Model</text>
+
+  <text x="50" y="148" fill="#00ff88" font-size="8">+ Simple, standard interface</text>
+  <text x="50" y="163" fill="#00ff88" font-size="8">+ Easy to test and debug</text>
+  <text x="50" y="178" fill="#feca57" font-size="8">Latency: 10-100ms</text>
+  <text x="50" y="193" fill="#aaaaaa" font-size="8">Tools: FastAPI, Flask, TorchServe</text>
+  <text x="50" y="210" fill="#aaaaaa" font-size="7">Best for: general purpose, web apps</text>
+  <text x="50" y="240" fill="#ff6b6b" font-size="8">- Cold start, limited throughput/instance</text>
+
+  <!-- Pattern 2: Batch Inference -->
+  <rect x="365" y="55" width="320" height="200" fill="#16213e" stroke="#feca57" stroke-width="2" rx="8"/>
+  <text x="525" y="78" text-anchor="middle" fill="#feca57" font-size="11" font-weight="bold">Batch Inference (Offline)</text>
+
+  <rect x="385" y="92" width="80" height="35" fill="#0f3460" stroke="#aaaaaa" stroke-width="1" rx="4"/>
+  <text x="425" y="108" text-anchor="middle" fill="#ffffff" font-size="7">Data Lake</text>
+  <text x="425" y="120" text-anchor="middle" fill="#aaaaaa" font-size="6">1M rows</text>
+
+  <line x1="470" y1="110" x2="500" y2="110" stroke="#fff" stroke-width="1" marker-end="url(#svArr)"/>
+
+  <rect x="505" y="92" width="80" height="35" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="4"/>
+  <text x="545" y="108" text-anchor="middle" fill="#feca57" font-size="7" font-weight="bold">Spark/</text>
+  <text x="545" y="120" text-anchor="middle" fill="#feca57" font-size="7">Batch Job</text>
+
+  <line x1="590" y1="110" x2="620" y2="110" stroke="#fff" stroke-width="1" marker-end="url(#svArr)"/>
+
+  <rect x="625" y="92" width="45" height="35" fill="#0f3460" stroke="#00ff88" stroke-width="1.5" rx="4"/>
+  <text x="647" y="113" text-anchor="middle" fill="#00ff88" font-size="7">DB</text>
+
+  <text x="385" y="148" fill="#00ff88" font-size="8">+ Highest throughput</text>
+  <text x="385" y="163" fill="#00ff88" font-size="8">+ Cost-efficient (spot instances)</text>
+  <text x="385" y="178" fill="#feca57" font-size="8">Latency: hours (acceptable)</text>
+  <text x="385" y="193" fill="#aaaaaa" font-size="8">Tools: Spark, Airflow, Dataflow</text>
+  <text x="385" y="210" fill="#aaaaaa" font-size="7">Best for: recommendations, scoring millions</text>
+  <text x="385" y="240" fill="#ff6b6b" font-size="8">- Not real-time, stale predictions</text>
+
+  <!-- Pattern 3: Streaming -->
+  <rect x="700" y="55" width="320" height="200" fill="#16213e" stroke="#00ff88" stroke-width="2" rx="8"/>
+  <text x="860" y="78" text-anchor="middle" fill="#00ff88" font-size="11" font-weight="bold">Streaming (Event-Driven)</text>
+
+  <rect x="720" y="92" width="70" height="35" fill="#0f3460" stroke="#aaaaaa" stroke-width="1" rx="4"/>
+  <text x="755" y="108" text-anchor="middle" fill="#ffffff" font-size="7">Events</text>
+  <text x="755" y="120" text-anchor="middle" fill="#aaaaaa" font-size="6">(Kafka)</text>
+
+  <line x1="795" y1="110" x2="825" y2="110" stroke="#fff" stroke-width="1" marker-end="url(#svArr)"/>
+
+  <rect x="830" y="92" width="80" height="35" fill="#0f3460" stroke="#00ff88" stroke-width="1.5" rx="4"/>
+  <text x="870" y="108" text-anchor="middle" fill="#00ff88" font-size="7" font-weight="bold">Model</text>
+  <text x="870" y="120" text-anchor="middle" fill="#aaaaaa" font-size="6">Consumer</text>
+
+  <line x1="915" y1="110" x2="945" y2="110" stroke="#fff" stroke-width="1" marker-end="url(#svArr)"/>
+
+  <rect x="950" y="92" width="55" height="35" fill="#0f3460" stroke="#e94560" stroke-width="1.5" rx="4"/>
+  <text x="977" y="108" text-anchor="middle" fill="#e94560" font-size="7">Action</text>
+  <text x="977" y="120" text-anchor="middle" fill="#aaaaaa" font-size="6">Alert</text>
+
+  <text x="720" y="148" fill="#00ff88" font-size="8">+ Real-time, event-driven</text>
+  <text x="720" y="163" fill="#00ff88" font-size="8">+ Natural for fraud/anomaly</text>
+  <text x="720" y="178" fill="#feca57" font-size="8">Latency: 50-500ms</text>
+  <text x="720" y="193" fill="#aaaaaa" font-size="8">Tools: Kafka, Flink, KServe</text>
+  <text x="720" y="210" fill="#aaaaaa" font-size="7">Best for: fraud detection, real-time pricing</text>
+  <text x="720" y="240" fill="#ff6b6b" font-size="8">- Complex infra, harder to debug</text>
+
+  <!-- LLM Serving Section -->
+  <rect x="30" y="270" width="990" height="210" fill="#16213e" stroke="#e94560" stroke-width="2" rx="8"/>
+  <text x="525" y="293" text-anchor="middle" fill="#e94560" font-size="12" font-weight="bold">LLM Serving — Specialized Infrastructure</text>
+
+  <!-- vLLM -->
+  <rect x="50" y="310" width="215" height="80" fill="#0f3460" stroke="#a29bfe" stroke-width="1.5" rx="6"/>
+  <text x="157" y="330" text-anchor="middle" fill="#a29bfe" font-size="9" font-weight="bold">vLLM</text>
+  <text x="65" y="348" fill="#ffffff" font-size="7">• PagedAttention (2-4× throughput)</text>
+  <text x="65" y="362" fill="#ffffff" font-size="7">• Continuous batching</text>
+  <text x="65" y="376" fill="#ffffff" font-size="7">• Tensor parallelism (multi-GPU)</text>
+  <text x="65" y="390" fill="#00ff88" font-size="7">Best for: self-hosted LLM serving</text>
+
+  <!-- TGI -->
+  <rect x="285" y="310" width="215" height="80" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="6"/>
+  <text x="392" y="330" text-anchor="middle" fill="#feca57" font-size="9" font-weight="bold">TGI (Text Generation Inference)</text>
+  <text x="300" y="348" fill="#ffffff" font-size="7">• HuggingFace's serving solution</text>
+  <text x="300" y="362" fill="#ffffff" font-size="7">• Flash Attention, quantization</text>
+  <text x="300" y="376" fill="#ffffff" font-size="7">• Token streaming</text>
+  <text x="300" y="390" fill="#feca57" font-size="7">Best for: HuggingFace models</text>
+
+  <!-- Triton -->
+  <rect x="520" y="310" width="215" height="80" fill="#0f3460" stroke="#00ff88" stroke-width="1.5" rx="6"/>
+  <text x="627" y="330" text-anchor="middle" fill="#00ff88" font-size="9" font-weight="bold">NVIDIA Triton</text>
+  <text x="535" y="348" fill="#ffffff" font-size="7">• Multi-framework (PyTorch, TF, ONNX)</text>
+  <text x="535" y="362" fill="#ffffff" font-size="7">• Dynamic batching</text>
+  <text x="535" y="376" fill="#ffffff" font-size="7">• Model ensemble pipelines</text>
+  <text x="535" y="390" fill="#00ff88" font-size="7">Best for: multi-model, NVIDIA GPUs</text>
+
+  <!-- Managed -->
+  <rect x="755" y="310" width="245" height="80" fill="#0f3460" stroke="#00d2d3" stroke-width="1.5" rx="6"/>
+  <text x="877" y="330" text-anchor="middle" fill="#00d2d3" font-size="9" font-weight="bold">Managed Services</text>
+  <text x="770" y="348" fill="#ffffff" font-size="7">• AWS SageMaker Endpoints</text>
+  <text x="770" y="362" fill="#ffffff" font-size="7">• Google Vertex AI</text>
+  <text x="770" y="376" fill="#ffffff" font-size="7">• Azure ML Managed Endpoints</text>
+  <text x="770" y="390" fill="#00d2d3" font-size="7">Best for: zero-ops, enterprise</text>
+
+  <!-- Deployment strategies -->
+  <rect x="50" y="400" width="920" height="65" fill="#0f3460" rx="6"/>
+  <text x="525" y="420" text-anchor="middle" fill="#feca57" font-size="10" font-weight="bold">Deployment Strategies</text>
+
+  <text x="100" y="440" text-anchor="middle" fill="#54a0ff" font-size="8" font-weight="bold">Blue/Green</text>
+  <text x="100" y="455" text-anchor="middle" fill="#aaaaaa" font-size="7">Instant switch</text>
+
+  <text x="260" y="440" text-anchor="middle" fill="#00ff88" font-size="8" font-weight="bold">Canary</text>
+  <text x="260" y="455" text-anchor="middle" fill="#aaaaaa" font-size="7">5%→25%→100%</text>
+
+  <text x="420" y="440" text-anchor="middle" fill="#feca57" font-size="8" font-weight="bold">Shadow</text>
+  <text x="420" y="455" text-anchor="middle" fill="#aaaaaa" font-size="7">Log only, no impact</text>
+
+  <text x="580" y="440" text-anchor="middle" fill="#e94560" font-size="8" font-weight="bold">A/B Test</text>
+  <text x="580" y="455" text-anchor="middle" fill="#aaaaaa" font-size="7">Statistical comparison</text>
+
+  <text x="740" y="440" text-anchor="middle" fill="#a29bfe" font-size="8" font-weight="bold">Multi-Armed Bandit</text>
+  <text x="740" y="455" text-anchor="middle" fill="#aaaaaa" font-size="7">Adaptive routing</text>
+
+  <text x="900" y="440" text-anchor="middle" fill="#00d2d3" font-size="8" font-weight="bold">Rolling Update</text>
+  <text x="900" y="455" text-anchor="middle" fill="#aaaaaa" font-size="7">K8s default</text>
+
+  <defs>
+    <marker id="svArr" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto">
+      <polygon points="0 0, 6 2.5, 0 5" fill="#ffffff"/>
+    </marker>
+  </defs>
+</svg>

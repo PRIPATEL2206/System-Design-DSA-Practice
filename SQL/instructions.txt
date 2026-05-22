@@ -1,0 +1,234 @@
+You are a world-class database expert and educator. Your task is to teach me EVERY concept in Database Management Systems (DBMS) from absolute basics to advanced internals — A to Z — in a structured, hands-on curriculum.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CORE RULES (follow these always)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. MARKDOWN FILES: For EVERY topic/phase, create a dedicated .md file with:
+   - Full conceptual explanation with real-world analogies
+   - All sub-topics covered in depth
+   - Multiple worked SQL/code examples
+   - Common interview questions on that topic
+   - Key takeaways section at the end
+   - After EVERY .md file is generated, immediately provide a download button for that specific file before moving to the next topic.
+
+2. VISUALIZATIONS: Wherever a concept benefits from a diagram, create it:
+   - ER diagrams → SVG
+   - Query execution flow → SVG flowchart
+   - B-Tree / index structures → SVG
+   - CAP Theorem triangle → SVG
+   - ACID properties → visual card diagram
+   - Join types → SVG Venn/table diagrams
+   - Normalization steps → before/after table SVGs
+   - Transaction timelines → SVG
+   - Lock/deadlock graphs → SVG
+   Include the SVG inline in the .md file AND display it visually.
+
+3. EXAMPLES: Every concept must have:
+   - A simple beginner example (e.g., a student-course database)
+   - An intermediate example (e.g., e-commerce schema)
+   - A real-world advanced example (e.g., banking/inventory system)
+
+4. DOWNLOAD BUTTON: After each .md file, generate a clickable HTML download button so I can save that file immediately.
+
+5. PACE: Teach one phase at a time. After finishing each phase, ask if I'm ready to continue to the next. Don't dump everything at once.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CURRICULUM PHASES (teach in order)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PHASE 1 — Foundations
+File: 01_intro_to_dbms.md
+- What is a DBMS? DBMS vs File System
+- Types: Relational, NoSQL, NewSQL, In-memory
+- 3-tier architecture (External / Conceptual / Internal)
+- Data independence (logical & physical)
+- Popular DBMS: PostgreSQL, MySQL, Oracle, MongoDB
+
+PHASE 2 — Data Modeling & ER Diagrams
+File: 02_data_modeling_er.md
+- Entity, Attribute, Relationship types
+- Cardinality & participation constraints (1:1, 1:N, M:N)
+- Weak entities, ISA hierarchies
+- ER → Relational mapping rules
+- Draw a full ER diagram (SVG) for a university system
+
+PHASE 3 — Relational Model & Schema Design
+File: 03_relational_model.md
+- Relations, tuples, domains, attributes
+- Relational algebra: σ, π, ⋈, ∪, −, ×, ρ
+- Schema notation, integrity constraints
+- Relational calculus (TRC & DRC)
+
+PHASE 4 — SQL Fundamentals (DDL + DML + DQL)
+File: 04_sql_fundamentals.md
+- CREATE, ALTER, DROP, TRUNCATE
+- INSERT, UPDATE, DELETE, MERGE
+- SELECT with WHERE, GROUP BY, HAVING, ORDER BY
+- Data types deep-dive
+- 20+ worked query examples
+
+PHASE 5 — Keys & Constraints
+File: 05_keys_and_constraints.md
+- Primary Key, Foreign Key, Unique, Not Null, Check, Default
+- Composite keys, surrogate keys, natural keys
+- Referential integrity & CASCADE rules
+- Constraint enforcement internals
+
+PHASE 6 — Normalization (1NF → 5NF)
+File: 06_normalization.md
+- Functional dependencies & closure
+- 1NF, 2NF, 3NF, BCNF, 4NF, 5NF — definition + example for each
+- Decomposition (lossless join, dependency preserving)
+- Denormalization: when & why
+- SVG showing before/after tables for each normal form
+
+PHASE 7 — Joins (All Types)
+File: 07_joins.md
+- INNER, LEFT, RIGHT, FULL OUTER JOIN
+- CROSS JOIN, SELF JOIN, NATURAL JOIN
+- LATERAL joins, USING vs ON
+- SVG Venn diagrams for each join type
+- 15+ join query examples with output tables
+- Performance implications of each join
+
+PHASE 8 — Subqueries, CTEs & Advanced Queries
+File: 08_advanced_queries.md
+- Correlated vs non-correlated subqueries
+- EXISTS, IN, ANY, ALL operators
+- CTEs (WITH clause), recursive CTEs
+- CASE expressions, COALESCE, NULLIF
+- Set operations: UNION, INTERSECT, EXCEPT
+- 20+ complex query examples
+
+PHASE 9 — Views
+File: 09_views.md
+- Simple views vs complex views
+- Updatable views, WITH CHECK OPTION
+- Materialized views (refresh strategies)
+- Using views for security & abstraction
+- Performance: view vs CTE vs subquery vs temp table
+
+PHASE 10 — Indexes & Query Optimization
+File: 10_indexes_and_optimization.md
+- B-Tree index internals (SVG of tree structure)
+- Hash indexes, Bitmap indexes, GIN/GiST
+- Composite indexes, covering indexes, partial indexes
+- Index scan vs sequential scan vs index-only scan
+- EXPLAIN / EXPLAIN ANALYZE output reading
+- Query optimizer: cost model, statistics, hints
+- 10 slow query examples → optimized versions
+
+PHASE 11 — Transactions & ACID
+File: 11_transactions_acid.md
+- Transaction states (Active, Partially committed, Failed, Aborted, Committed)
+- ACID properties — deep dive with real examples
+- Isolation levels: READ UNCOMMITTED → SERIALIZABLE
+- Phenomena: dirty read, non-repeatable read, phantom read
+- SAVEPOINT, ROLLBACK, COMMIT
+- SVG transaction state diagram
+
+PHASE 12 — Concurrency Control
+File: 12_concurrency_control.md
+- Lock-based protocols (shared/exclusive, 2PL)
+- Timestamp ordering protocol
+- MVCC (Multi-Version Concurrency Control) — how Postgres does it
+- Optimistic vs pessimistic concurrency
+- Deadlocks: detection, prevention, wait-die, wound-wait
+- SVG: deadlock cycle graph
+
+PHASE 13 — Recovery & Crash Management
+File: 13_recovery.md
+- Log-based recovery: Undo/Redo logs
+- Write-Ahead Logging (WAL)
+- Checkpointing strategies
+- ARIES recovery algorithm
+- Shadow paging
+- SVG: recovery timeline diagram
+
+PHASE 14 — Stored Procedures, Functions, Triggers & Cursors
+File: 14_programmability.md
+- Stored procedures vs functions
+- Triggers: BEFORE/AFTER, ROW/STATEMENT level
+- Cursors: implicit vs explicit
+- Error handling in procedures
+- 10 worked examples
+
+PHASE 15 — Window Functions
+File: 15_window_functions.md
+- OVER(), PARTITION BY, ORDER BY in window context
+- ROW_NUMBER, RANK, DENSE_RANK, NTILE
+- LAG, LEAD, FIRST_VALUE, LAST_VALUE
+- Running totals, moving averages
+- 15+ window function query examples
+
+PHASE 16 — Security & Access Control
+File: 16_security.md
+- Authentication vs authorization
+- GRANT, REVOKE, DENY
+- Role-based access control (RBAC)
+- Row-Level Security (RLS)
+- SQL injection — attack + prevention
+- Encryption at rest & in transit
+
+PHASE 17 — CAP Theorem & Distributed Databases
+File: 17_cap_theorem_distributed.md
+- CAP Theorem explained with SVG triangle diagram
+- CP systems, AP systems, CA systems — real examples
+- PACELC theorem
+- Sharding strategies (range, hash, directory)
+- Replication: master-slave, master-master, quorum
+- Consensus: Paxos, Raft (simplified)
+- Distributed transactions: 2PC, 3PC
+
+PHASE 18 — BASE vs ACID & Eventual Consistency
+File: 18_base_vs_acid.md
+- ACID vs BASE comparison
+- Eventual consistency models
+- Vector clocks, conflict resolution
+- CRDTs (concept)
+
+PHASE 19 — NoSQL Databases
+File: 19_nosql.md
+- Document stores (MongoDB) — schema design
+- Key-value stores (Redis) — use cases
+- Column-family (Cassandra) — wide-column model
+- Graph databases (Neo4j) — nodes & edges
+- Time-series databases (InfluxDB)
+- When to use NoSQL vs SQL — decision guide
+
+PHASE 20 — Data Warehousing & OLAP
+File: 20_data_warehousing.md
+- OLTP vs OLAP
+- Star schema, snowflake schema, galaxy schema
+- Fact tables, dimension tables, slowly changing dimensions
+- ETL vs ELT pipelines
+- Columnar storage engines
+- ROLLUP, CUBE, GROUPING SETS in SQL
+
+PHASE 21 — Partitioning & Sharding
+File: 21_partitioning.md
+- Table partitioning: range, list, hash
+- Partition pruning & performance
+- Horizontal vs vertical partitioning
+- Sharding vs partitioning
+
+PHASE 22 — File Organization & Storage Internals
+File: 22_storage_internals.md
+- Heap files, sorted files, hashed files
+- Slotted page format
+- Buffer pool management (LRU, clock)
+- Disk I/O, pages, extents, tablespaces
+
+PHASE 23 — Interview Prep & Cheat Sheet
+File: 23_interview_cheatsheet.md
+- Top 50 DBMS interview questions with answers
+- SQL puzzle questions with solutions
+- System design: design Twitter/Uber/Amazon DB schema
+- Quick-reference cheat sheet for all concepts
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+START COMMAND
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Begin with Phase 1. Generate 01_intro_to_dbms.md with full content, inline SVGs where applicable, and a download button at the end. Then wait for me to say "next" before proceeding to Phase 2.

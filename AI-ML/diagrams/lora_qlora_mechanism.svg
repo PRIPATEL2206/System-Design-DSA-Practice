@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 580" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1050" height="580" fill="#1a1a2e" rx="10"/>
+  <text x="525" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">LoRA &amp; QLoRA — How Parameter-Efficient Fine-Tuning Works</text>
+
+  <!-- LoRA Mechanism -->
+  <rect x="30" y="55" width="500" height="290" fill="#16213e" stroke="#00ff88" stroke-width="2" rx="8"/>
+  <text x="280" y="78" text-anchor="middle" fill="#00ff88" font-size="12" font-weight="bold">LoRA — Low-Rank Adaptation</text>
+
+  <!-- Original weight matrix W -->
+  <rect x="60" y="100" width="80" height="80" fill="#0f3460" stroke="#54a0ff" stroke-width="2" rx="4"/>
+  <text x="100" y="135" text-anchor="middle" fill="#54a0ff" font-size="9" font-weight="bold">W</text>
+  <text x="100" y="150" text-anchor="middle" fill="#aaaaaa" font-size="7">4096×4096</text>
+  <text x="100" y="163" text-anchor="middle" fill="#ff6b6b" font-size="6">FROZEN</text>
+  <text x="100" y="175" text-anchor="middle" fill="#aaaaaa" font-size="6">16.7M params</text>
+
+  <!-- Plus sign -->
+  <text x="160" y="145" fill="#ffffff" font-size="20">+</text>
+
+  <!-- LoRA matrices B and A -->
+  <rect x="190" y="100" width="25" height="80" fill="#0f3460" stroke="#00ff88" stroke-width="2" rx="3"/>
+  <text x="202" y="135" text-anchor="middle" fill="#00ff88" font-size="7" font-weight="bold">B</text>
+  <text x="202" y="150" text-anchor="middle" fill="#aaaaaa" font-size="6">4096</text>
+  <text x="202" y="162" text-anchor="middle" fill="#aaaaaa" font-size="6">×r</text>
+
+  <!-- Multiply -->
+  <text x="225" y="145" fill="#ffffff" font-size="12">×</text>
+
+  <rect x="240" y="120" width="80" height="25" fill="#0f3460" stroke="#00ff88" stroke-width="2" rx="3"/>
+  <text x="280" y="137" text-anchor="middle" fill="#00ff88" font-size="7" font-weight="bold">A</text>
+  <text x="280" y="148" text-anchor="middle" fill="#aaaaaa" font-size="6">r×4096</text>
+
+  <!-- Equals ΔW -->
+  <text x="335" y="145" fill="#ffffff" font-size="14">=</text>
+
+  <rect x="355" y="100" width="80" height="80" fill="#0f3460" stroke="#feca57" stroke-width="2" rx="4"/>
+  <text x="395" y="130" text-anchor="middle" fill="#feca57" font-size="9" font-weight="bold">ΔW</text>
+  <text x="395" y="148" text-anchor="middle" fill="#feca57" font-size="7">= B × A</text>
+  <text x="395" y="163" text-anchor="middle" fill="#00ff88" font-size="6">TRAINABLE</text>
+  <text x="395" y="175" text-anchor="middle" fill="#aaaaaa" font-size="6">131K params</text>
+
+  <!-- Forward pass equation -->
+  <rect x="60" y="195" width="435" height="50" fill="#0f3460" rx="4"/>
+  <text x="277" y="215" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="bold">Forward Pass: h = Wx + BAx</text>
+  <text x="277" y="233" text-anchor="middle" fill="#aaaaaa" font-size="8">Original output + low-rank adaptation (scaled by α/r)</text>
+
+  <!-- Stats -->
+  <rect x="60" y="255" width="200" height="75" fill="#0f3460" stroke="#00ff88" stroke-width="1" rx="4"/>
+  <text x="160" y="275" text-anchor="middle" fill="#00ff88" font-size="9" font-weight="bold">Parameters (r=16)</text>
+  <text x="75" y="293" fill="#ffffff" font-size="8">Original W: 16,777,216</text>
+  <text x="75" y="308" fill="#ffffff" font-size="8">LoRA (B+A): 131,072</text>
+  <text x="75" y="323" fill="#00ff88" font-size="8" font-weight="bold">Reduction: 128× fewer!</text>
+
+  <rect x="280" y="255" width="200" height="75" fill="#0f3460" stroke="#feca57" stroke-width="1" rx="4"/>
+  <text x="380" y="275" text-anchor="middle" fill="#feca57" font-size="9" font-weight="bold">Key Insight</text>
+  <text x="295" y="293" fill="#ffffff" font-size="8">Weight updates during</text>
+  <text x="295" y="308" fill="#ffffff" font-size="8">fine-tuning have LOW</text>
+  <text x="295" y="323" fill="#ffffff" font-size="8">INTRINSIC RANK (~16-64)</text>
+
+  <!-- QLoRA Section -->
+  <rect x="550" y="55" width="470" height="290" fill="#16213e" stroke="#a29bfe" stroke-width="2" rx="8"/>
+  <text x="785" y="78" text-anchor="middle" fill="#a29bfe" font-size="12" font-weight="bold">QLoRA — Quantized LoRA</text>
+
+  <!-- Base model quantized -->
+  <rect x="575" y="100" width="180" height="70" fill="#0f3460" stroke="#e94560" stroke-width="2" rx="6"/>
+  <text x="665" y="120" text-anchor="middle" fill="#e94560" font-size="9" font-weight="bold">Base Model (4-bit NF4)</text>
+  <text x="665" y="138" text-anchor="middle" fill="#ffffff" font-size="8">LLaMA 7B: 28GB → 3.5GB</text>
+  <text x="665" y="153" text-anchor="middle" fill="#aaaaaa" font-size="7">NormalFloat4 quantization</text>
+  <text x="665" y="165" text-anchor="middle" fill="#ff6b6b" font-size="7">FROZEN (no gradient)</text>
+
+  <!-- Plus -->
+  <text x="770" y="135" fill="#ffffff" font-size="16">+</text>
+
+  <!-- LoRA adapters in fp16 -->
+  <rect x="790" y="100" width="180" height="70" fill="#0f3460" stroke="#00ff88" stroke-width="2" rx="6"/>
+  <text x="880" y="120" text-anchor="middle" fill="#00ff88" font-size="9" font-weight="bold">LoRA Adapters (fp16)</text>
+  <text x="880" y="138" text-anchor="middle" fill="#ffffff" font-size="8">B (4096×16) + A (16×4096)</text>
+  <text x="880" y="153" text-anchor="middle" fill="#aaaaaa" font-size="7">Full precision training</text>
+  <text x="880" y="165" text-anchor="middle" fill="#00ff88" font-size="7">TRAINABLE</text>
+
+  <!-- Three innovations -->
+  <rect x="575" y="185" width="420" height="145" fill="#0f3460" rx="6"/>
+  <text x="785" y="208" text-anchor="middle" fill="#a29bfe" font-size="10" font-weight="bold">Three Key Innovations</text>
+
+  <text x="590" y="232" fill="#e94560" font-size="9" font-weight="bold">1. 4-bit NormalFloat (NF4)</text>
+  <text x="605" y="248" fill="#aaaaaa" font-size="8">Optimal quantization for normally-distributed weights</text>
+
+  <text x="590" y="272" fill="#feca57" font-size="9" font-weight="bold">2. Double Quantization</text>
+  <text x="605" y="288" fill="#aaaaaa" font-size="8">Quantize the quantization constants (saves ~0.5 bit/param)</text>
+
+  <text x="590" y="312" fill="#00ff88" font-size="9" font-weight="bold">3. Paged Optimizers</text>
+  <text x="605" y="328" fill="#aaaaaa" font-size="8">CPU RAM overflow for optimizer states during spikes</text>
+
+  <!-- Memory comparison table -->
+  <rect x="30" y="360" width="990" height="200" fill="#16213e" stroke="#feca57" stroke-width="2" rx="8"/>
+  <text x="525" y="383" text-anchor="middle" fill="#feca57" font-size="12" font-weight="bold">GPU Memory Comparison — Fine-Tuning Methods</text>
+
+  <!-- Table headers -->
+  <rect x="50" y="395" width="950" height="25" fill="#0f3460" rx="3"/>
+  <text x="130" y="412" text-anchor="middle" fill="#ffffff" font-size="9" font-weight="bold">Model</text>
+  <text x="290" y="412" text-anchor="middle" fill="#ff6b6b" font-size="9" font-weight="bold">Full Fine-Tune</text>
+  <text x="460" y="412" text-anchor="middle" fill="#feca57" font-size="9" font-weight="bold">LoRA (fp16)</text>
+  <text x="630" y="412" text-anchor="middle" fill="#00ff88" font-size="9" font-weight="bold">QLoRA (4-bit)</text>
+  <text x="820" y="412" text-anchor="middle" fill="#54a0ff" font-size="9" font-weight="bold">GPU Needed (QLoRA)</text>
+
+  <!-- 7B row -->
+  <text x="130" y="442" text-anchor="middle" fill="#ffffff" font-size="9">LLaMA 7B</text>
+  <text x="290" y="442" text-anchor="middle" fill="#ff6b6b" font-size="9">~112 GB</text>
+  <text x="460" y="442" text-anchor="middle" fill="#feca57" font-size="9">~18 GB</text>
+  <text x="630" y="442" text-anchor="middle" fill="#00ff88" font-size="9" font-weight="bold">~6 GB</text>
+  <text x="820" y="442" text-anchor="middle" fill="#54a0ff" font-size="9">RTX 3090 / 4090</text>
+
+  <!-- 13B row -->
+  <text x="130" y="468" text-anchor="middle" fill="#ffffff" font-size="9">LLaMA 13B</text>
+  <text x="290" y="468" text-anchor="middle" fill="#ff6b6b" font-size="9">~208 GB</text>
+  <text x="460" y="468" text-anchor="middle" fill="#feca57" font-size="9">~32 GB</text>
+  <text x="630" y="468" text-anchor="middle" fill="#00ff88" font-size="9" font-weight="bold">~10 GB</text>
+  <text x="820" y="468" text-anchor="middle" fill="#54a0ff" font-size="9">RTX 4090 / A5000</text>
+
+  <!-- 33B row -->
+  <text x="130" y="494" text-anchor="middle" fill="#ffffff" font-size="9">LLaMA 33B</text>
+  <text x="290" y="494" text-anchor="middle" fill="#ff6b6b" font-size="9">~528 GB</text>
+  <text x="460" y="494" text-anchor="middle" fill="#feca57" font-size="9">~80 GB</text>
+  <text x="630" y="494" text-anchor="middle" fill="#00ff88" font-size="9" font-weight="bold">~24 GB</text>
+  <text x="820" y="494" text-anchor="middle" fill="#54a0ff" font-size="9">A6000 / A100 40GB</text>
+
+  <!-- 65B row -->
+  <text x="130" y="520" text-anchor="middle" fill="#ffffff" font-size="9">LLaMA 65B</text>
+  <text x="290" y="520" text-anchor="middle" fill="#ff6b6b" font-size="9">~1 TB+</text>
+  <text x="460" y="520" text-anchor="middle" fill="#feca57" font-size="9">~160 GB</text>
+  <text x="630" y="520" text-anchor="middle" fill="#00ff88" font-size="9" font-weight="bold">~48 GB</text>
+  <text x="820" y="520" text-anchor="middle" fill="#54a0ff" font-size="9">A100 80GB</text>
+
+  <!-- Quality note -->
+  <text x="525" y="550" text-anchor="middle" fill="#ffffff" font-size="9" font-weight="bold">QLoRA achieves 93-97% of full fine-tuning quality at 30-100× less memory</text>
+</svg>

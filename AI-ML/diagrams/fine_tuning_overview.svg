@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 580" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1050" height="580" fill="#1a1a2e" rx="10"/>
+  <text x="525" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">Fine-Tuning LLMs — Overview &amp; Decision Framework</text>
+
+  <!-- Spectrum: Prompt → RAG → Fine-Tune → Pre-Train -->
+  <rect x="30" y="55" width="990" height="120" fill="#16213e" stroke="#00ff88" stroke-width="2" rx="8"/>
+  <text x="525" y="78" text-anchor="middle" fill="#00ff88" font-size="11" font-weight="bold">Adaptation Spectrum — Effort vs Customization</text>
+
+  <!-- Arrow bar -->
+  <rect x="60" y="98" width="930" height="8" fill="#0f3460" rx="4"/>
+  <rect x="60" y="98" width="200" height="8" fill="#54a0ff" rx="4"/>
+  <rect x="260" y="98" width="250" height="8" fill="#feca57" rx="0"/>
+  <rect x="510" y="98" width="280" height="8" fill="#e94560" rx="0"/>
+  <rect x="790" y="98" width="200" height="8" fill="#a29bfe" rx="4"/>
+
+  <!-- Labels -->
+  <text x="160" y="92" text-anchor="middle" fill="#54a0ff" font-size="9" font-weight="bold">Prompt Engineering</text>
+  <text x="160" y="125" text-anchor="middle" fill="#aaaaaa" font-size="7">Free | Minutes | No training</text>
+  <text x="160" y="138" text-anchor="middle" fill="#aaaaaa" font-size="7">Change: input only</text>
+
+  <text x="385" y="92" text-anchor="middle" fill="#feca57" font-size="9" font-weight="bold">RAG</text>
+  <text x="385" y="125" text-anchor="middle" fill="#aaaaaa" font-size="7">Low cost | Hours | No training</text>
+  <text x="385" y="138" text-anchor="middle" fill="#aaaaaa" font-size="7">Change: context injection</text>
+
+  <text x="650" y="92" text-anchor="middle" fill="#e94560" font-size="9" font-weight="bold">Fine-Tuning (LoRA/QLoRA)</text>
+  <text x="650" y="125" text-anchor="middle" fill="#aaaaaa" font-size="7">$10-$1000 | Hours-Days | 0.1% params</text>
+  <text x="650" y="138" text-anchor="middle" fill="#aaaaaa" font-size="7">Change: model weights (partial)</text>
+
+  <text x="890" y="92" text-anchor="middle" fill="#a29bfe" font-size="9" font-weight="bold">Pre-Training</text>
+  <text x="890" y="125" text-anchor="middle" fill="#aaaaaa" font-size="7">$100K+ | Weeks | 100% params</text>
+  <text x="890" y="138" text-anchor="middle" fill="#aaaaaa" font-size="7">Change: entire model</text>
+
+  <text x="60" y="165" fill="#00ff88" font-size="8">← Less effort, less customization</text>
+  <text x="810" y="165" fill="#e94560" font-size="8">More effort, more customization →</text>
+
+  <!-- Fine-Tuning Pipeline -->
+  <rect x="30" y="185" width="990" height="180" fill="#16213e" stroke="#e94560" stroke-width="2" rx="8"/>
+  <text x="525" y="208" text-anchor="middle" fill="#e94560" font-size="12" font-weight="bold">Fine-Tuning Pipeline</text>
+
+  <!-- Step 1 -->
+  <rect x="50" y="225" width="140" height="60" fill="#0f3460" stroke="#54a0ff" stroke-width="1.5" rx="6"/>
+  <text x="120" y="248" text-anchor="middle" fill="#54a0ff" font-size="9" font-weight="bold">1. Dataset</text>
+  <text x="120" y="264" text-anchor="middle" fill="#aaaaaa" font-size="7">Curate 500-10K</text>
+  <text x="120" y="276" text-anchor="middle" fill="#aaaaaa" font-size="7">(instruction, output) pairs</text>
+
+  <line x1="195" y1="255" x2="225" y2="255" stroke="#fff" stroke-width="1.5" marker-end="url(#ftArr)"/>
+
+  <!-- Step 2 -->
+  <rect x="230" y="225" width="140" height="60" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="6"/>
+  <text x="300" y="248" text-anchor="middle" fill="#feca57" font-size="9" font-weight="bold">2. Base Model</text>
+  <text x="300" y="264" text-anchor="middle" fill="#aaaaaa" font-size="7">LLaMA / Mistral /</text>
+  <text x="300" y="276" text-anchor="middle" fill="#aaaaaa" font-size="7">GPT-4o-mini</text>
+
+  <line x1="375" y1="255" x2="405" y2="255" stroke="#fff" stroke-width="1.5" marker-end="url(#ftArr)"/>
+
+  <!-- Step 3 -->
+  <rect x="410" y="225" width="140" height="60" fill="#0f3460" stroke="#e94560" stroke-width="2" rx="6"/>
+  <text x="480" y="245" text-anchor="middle" fill="#e94560" font-size="9" font-weight="bold">3. LoRA/QLoRA</text>
+  <text x="480" y="261" text-anchor="middle" fill="#aaaaaa" font-size="7">Add adapters (0.1%)</text>
+  <text x="480" y="273" text-anchor="middle" fill="#aaaaaa" font-size="7">Train 1-3 epochs</text>
+  <text x="480" y="285" text-anchor="middle" fill="#feca57" font-size="7">4-bit quantized base</text>
+
+  <line x1="555" y1="255" x2="585" y2="255" stroke="#fff" stroke-width="1.5" marker-end="url(#ftArr)"/>
+
+  <!-- Step 4 -->
+  <rect x="590" y="225" width="140" height="60" fill="#0f3460" stroke="#00ff88" stroke-width="1.5" rx="6"/>
+  <text x="660" y="248" text-anchor="middle" fill="#00ff88" font-size="9" font-weight="bold">4. Evaluate</text>
+  <text x="660" y="264" text-anchor="middle" fill="#aaaaaa" font-size="7">Test set metrics</text>
+  <text x="660" y="276" text-anchor="middle" fill="#aaaaaa" font-size="7">LLM-as-judge</text>
+
+  <line x1="735" y1="255" x2="765" y2="255" stroke="#fff" stroke-width="1.5" marker-end="url(#ftArr)"/>
+
+  <!-- Step 5 -->
+  <rect x="770" y="225" width="140" height="60" fill="#0f3460" stroke="#a29bfe" stroke-width="1.5" rx="6"/>
+  <text x="840" y="248" text-anchor="middle" fill="#a29bfe" font-size="9" font-weight="bold">5. Deploy</text>
+  <text x="840" y="264" text-anchor="middle" fill="#aaaaaa" font-size="7">Merge adapter or</text>
+  <text x="840" y="276" text-anchor="middle" fill="#aaaaaa" font-size="7">serve with PEFT + vLLM</text>
+
+  <!-- Memory requirements -->
+  <rect x="50" y="300" width="900" height="50" fill="#0f3460" rx="4"/>
+  <text x="525" y="318" text-anchor="middle" fill="#feca57" font-size="9" font-weight="bold">GPU Memory Requirements (7B Model)</text>
+  <text x="150" y="338" text-anchor="middle" fill="#ff6b6b" font-size="8">Full Fine-Tune: ~112 GB</text>
+  <text x="380" y="338" text-anchor="middle" fill="#feca57" font-size="8">LoRA (fp16): ~18 GB</text>
+  <text x="580" y="338" text-anchor="middle" fill="#00ff88" font-size="8">QLoRA (4-bit): ~6 GB</text>
+  <text x="800" y="338" text-anchor="middle" fill="#aaaaaa" font-size="8">Inference only: ~4 GB</text>
+
+  <!-- When to Fine-Tune Decision -->
+  <rect x="30" y="380" width="990" height="185" fill="#16213e" stroke="#feca57" stroke-width="2" rx="8"/>
+  <text x="525" y="403" text-anchor="middle" fill="#feca57" font-size="12" font-weight="bold">Decision Guide: When to Fine-Tune</text>
+
+  <!-- YES column -->
+  <rect x="50" y="415" width="440" height="135" fill="#0f3460" stroke="#00ff88" stroke-width="1.5" rx="6"/>
+  <text x="270" y="435" text-anchor="middle" fill="#00ff88" font-size="10" font-weight="bold">Fine-Tune When:</text>
+  <text x="70" y="455" fill="#ffffff" font-size="8">• Consistent style/tone (legal, medical, brand voice)</text>
+  <text x="70" y="473" fill="#ffffff" font-size="8">• Complex structured output (specific JSON schemas)</text>
+  <text x="70" y="491" fill="#ffffff" font-size="8">• Domain-specific reasoning patterns</text>
+  <text x="70" y="509" fill="#ffffff" font-size="8">• Small model needs to match large model performance</text>
+  <text x="70" y="527" fill="#ffffff" font-size="8">• Latency-critical (no RAG retrieval overhead)</text>
+  <text x="70" y="545" fill="#ffffff" font-size="8">• 500+ high-quality examples available</text>
+
+  <!-- NO column -->
+  <rect x="520" y="415" width="480" height="135" fill="#0f3460" stroke="#ff6b6b" stroke-width="1.5" rx="6"/>
+  <text x="760" y="435" text-anchor="middle" fill="#ff6b6b" font-size="10" font-weight="bold">DON'T Fine-Tune When:</text>
+  <text x="540" y="455" fill="#ffffff" font-size="8">• Knowledge needs frequent updates (use RAG)</text>
+  <text x="540" y="473" fill="#ffffff" font-size="8">• Simple formatting changes (use prompting)</text>
+  <text x="540" y="491" fill="#ffffff" font-size="8">• Factual Q&amp;A about private data (use RAG)</text>
+  <text x="540" y="509" fill="#ffffff" font-size="8">• Less than 100 examples available</text>
+  <text x="540" y="527" fill="#ffffff" font-size="8">• Need rapid iteration (prompts are instant)</text>
+  <text x="540" y="545" fill="#ffffff" font-size="8">• General knowledge questions (base model knows)</text>
+
+  <defs>
+    <marker id="ftArr" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto">
+      <polygon points="0 0, 6 2.5, 0 5" fill="#ffffff"/>
+    </marker>
+  </defs>
+</svg>

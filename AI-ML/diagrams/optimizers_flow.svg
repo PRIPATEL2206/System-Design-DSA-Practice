@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 750" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1000" height="750" fill="#1a1a2e" rx="10"/>
+
+  <!-- Title -->
+  <text x="500" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">Optimizers — Evolution &amp; Comparison</text>
+
+  <!-- Evolution Timeline -->
+  <text x="500" y="65" text-anchor="middle" fill="#aaaaaa" font-size="12">Evolution of Gradient Descent Optimizers</text>
+
+  <!-- SGD -->
+  <rect x="30" y="85" width="180" height="100" fill="#16213e" stroke="#e94560" stroke-width="2" rx="8"/>
+  <text x="120" y="108" text-anchor="middle" fill="#e94560" font-size="13" font-weight="bold">SGD</text>
+  <text x="120" y="128" text-anchor="middle" fill="#ffffff" font-size="10">w = w - η·∇L</text>
+  <text x="120" y="148" text-anchor="middle" fill="#aaaaaa" font-size="9">Simple gradient step</text>
+  <text x="120" y="168" text-anchor="middle" fill="#ff6b6b" font-size="9">⚠️ Oscillates, slow</text>
+
+  <!-- Arrow -->
+  <line x1="210" y1="135" x2="250" y2="135" stroke="#ffffff" stroke-width="1.5" marker-end="url(#arrowW)"/>
+
+  <!-- SGD + Momentum -->
+  <rect x="250" y="85" width="180" height="100" fill="#16213e" stroke="#00d2d3" stroke-width="2" rx="8"/>
+  <text x="340" y="108" text-anchor="middle" fill="#00d2d3" font-size="13" font-weight="bold">Momentum</text>
+  <text x="340" y="128" text-anchor="middle" fill="#ffffff" font-size="10">v = βv + η·∇L</text>
+  <text x="340" y="143" text-anchor="middle" fill="#ffffff" font-size="10">w = w - v</text>
+  <text x="340" y="163" text-anchor="middle" fill="#aaaaaa" font-size="9">Accumulates velocity</text>
+  <text x="340" y="178" text-anchor="middle" fill="#00ff00" font-size="9">✓ Faster convergence</text>
+
+  <!-- Arrow -->
+  <line x1="430" y1="135" x2="470" y2="135" stroke="#ffffff" stroke-width="1.5" marker-end="url(#arrowW)"/>
+
+  <!-- RMSprop -->
+  <rect x="470" y="85" width="180" height="100" fill="#16213e" stroke="#feca57" stroke-width="2" rx="8"/>
+  <text x="560" y="108" text-anchor="middle" fill="#feca57" font-size="13" font-weight="bold">RMSprop</text>
+  <text x="560" y="128" text-anchor="middle" fill="#ffffff" font-size="10">s = βs + (1-β)·∇L²</text>
+  <text x="560" y="143" text-anchor="middle" fill="#ffffff" font-size="10">w = w - η·∇L/√s</text>
+  <text x="560" y="163" text-anchor="middle" fill="#aaaaaa" font-size="9">Adaptive learning rate</text>
+  <text x="560" y="178" text-anchor="middle" fill="#00ff00" font-size="9">✓ Per-parameter scaling</text>
+
+  <!-- Arrow -->
+  <line x1="650" y1="135" x2="690" y2="135" stroke="#ffffff" stroke-width="1.5" marker-end="url(#arrowW)"/>
+
+  <!-- Adam -->
+  <rect x="690" y="85" width="280" height="100" fill="#16213e" stroke="#54a0ff" stroke-width="3" rx="8"/>
+  <text x="830" y="108" text-anchor="middle" fill="#54a0ff" font-size="14" font-weight="bold">Adam ⭐ (Default Choice)</text>
+  <text x="830" y="128" text-anchor="middle" fill="#ffffff" font-size="10">m = β₁m + (1-β₁)·∇L  (momentum)</text>
+  <text x="830" y="143" text-anchor="middle" fill="#ffffff" font-size="10">v = β₂v + (1-β₂)·∇L²  (RMSprop)</text>
+  <text x="830" y="158" text-anchor="middle" fill="#ffffff" font-size="10">w = w - η·m̂/√v̂  (combined)</text>
+  <text x="830" y="178" text-anchor="middle" fill="#00ff00" font-size="9">✓ Best of both worlds</text>
+
+  <!-- Gradient Descent Visualization -->
+  <text x="300" y="220" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="bold">Gradient Descent on Loss Surface</text>
+
+  <!-- Loss surface contour (simplified) -->
+  <ellipse cx="250" cy="370" rx="180" ry="120" fill="none" stroke="#333333" stroke-width="1"/>
+  <ellipse cx="250" cy="370" rx="140" ry="90" fill="none" stroke="#444444" stroke-width="1"/>
+  <ellipse cx="250" cy="370" rx="100" ry="60" fill="none" stroke="#555555" stroke-width="1"/>
+  <ellipse cx="250" cy="370" rx="60" ry="35" fill="none" stroke="#666666" stroke-width="1"/>
+  <ellipse cx="250" cy="370" rx="20" ry="12" fill="none" stroke="#777777" stroke-width="1"/>
+  <circle cx="250" cy="370" r="5" fill="#00ff00"/>
+  <text x="250" y="395" text-anchor="middle" fill="#00ff00" font-size="9">global minimum</text>
+
+  <!-- SGD path (oscillating) -->
+  <path d="M 100 280 L 120 330 L 140 300 L 170 350 L 190 320 L 220 360 L 240 350 L 250 370" fill="none" stroke="#e94560" stroke-width="2" stroke-dasharray="4"/>
+  <circle cx="100" cy="280" r="4" fill="#e94560"/>
+  <text x="80" y="275" fill="#e94560" font-size="9">SGD</text>
+
+  <!-- Adam path (smooth) -->
+  <path d="M 400 280 Q 380 310 350 340 Q 320 355 290 365 Q 270 370 250 370" fill="none" stroke="#54a0ff" stroke-width="2"/>
+  <circle cx="400" cy="280" r="4" fill="#54a0ff"/>
+  <text x="415" y="275" fill="#54a0ff" font-size="9">Adam</text>
+
+  <!-- Momentum path -->
+  <path d="M 130 450 Q 160 440 190 420 Q 220 400 240 385 Q 248 375 250 370" fill="none" stroke="#00d2d3" stroke-width="2" stroke-dasharray="2,2"/>
+  <circle cx="130" cy="450" r="4" fill="#00d2d3"/>
+  <text x="100" y="460" fill="#00d2d3" font-size="9">Momentum</text>
+
+  <!-- Comparison Table -->
+  <rect x="500" y="230" width="470" height="260" fill="#0f3460" stroke="#ffffff" stroke-width="1" rx="8"/>
+  <text x="735" y="255" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">Optimizer Comparison</text>
+
+  <!-- Table headers -->
+  <text x="560" y="280" fill="#e94560" font-size="10" font-weight="bold">Optimizer</text>
+  <text x="650" y="280" fill="#e94560" font-size="10" font-weight="bold">Speed</text>
+  <text x="730" y="280" fill="#e94560" font-size="10" font-weight="bold">Memory</text>
+  <text x="820" y="280" fill="#e94560" font-size="10" font-weight="bold">Best For</text>
+  <line x1="520" y1="288" x2="950" y2="288" stroke="#444444" stroke-width="1"/>
+
+  <text x="560" y="308" fill="#e94560" font-size="10">SGD</text>
+  <text x="650" y="308" fill="#ffffff" font-size="10">Slow</text>
+  <text x="730" y="308" fill="#ffffff" font-size="10">Low</text>
+  <text x="820" y="308" fill="#ffffff" font-size="10">Simple problems, fine-tuning</text>
+
+  <text x="560" y="330" fill="#00d2d3" font-size="10">Momentum</text>
+  <text x="650" y="330" fill="#ffffff" font-size="10">Medium</text>
+  <text x="730" y="330" fill="#ffffff" font-size="10">Low</text>
+  <text x="820" y="330" fill="#ffffff" font-size="10">CNNs, stable training</text>
+
+  <text x="560" y="352" fill="#feca57" font-size="10">RMSprop</text>
+  <text x="650" y="352" fill="#ffffff" font-size="10">Fast</text>
+  <text x="730" y="352" fill="#ffffff" font-size="10">Medium</text>
+  <text x="820" y="352" fill="#ffffff" font-size="10">RNNs, non-stationary</text>
+
+  <text x="560" y="374" fill="#54a0ff" font-size="10">Adam</text>
+  <text x="650" y="374" fill="#ffffff" font-size="10">Fast</text>
+  <text x="730" y="374" fill="#ffffff" font-size="10">High</text>
+  <text x="820" y="374" fill="#ffffff" font-size="10">Default choice, most tasks</text>
+
+  <text x="560" y="396" fill="#a29bfe" font-size="10">AdamW</text>
+  <text x="650" y="396" fill="#ffffff" font-size="10">Fast</text>
+  <text x="730" y="396" fill="#ffffff" font-size="10">High</text>
+  <text x="820" y="396" fill="#ffffff" font-size="10">Transformers, LLMs</text>
+
+  <text x="560" y="418" fill="#ff6b6b" font-size="10">LAMB</text>
+  <text x="650" y="418" fill="#ffffff" font-size="10">Fast</text>
+  <text x="730" y="418" fill="#ffffff" font-size="10">High</text>
+  <text x="820" y="418" fill="#ffffff" font-size="10">Large batch training</text>
+
+  <!-- Hyperparameters -->
+  <text x="735" y="450" text-anchor="middle" fill="#feca57" font-size="11" font-weight="bold">Typical Hyperparameters (Adam)</text>
+  <text x="735" y="470" text-anchor="middle" fill="#ffffff" font-size="10">lr=0.001 | β₁=0.9 | β₂=0.999 | ε=1e-8</text>
+
+  <!-- Learning Rate Schedule -->
+  <rect x="30" y="510" width="940" height="220" fill="#16213e" stroke="#a29bfe" stroke-width="1.5" rx="8"/>
+  <text x="500" y="535" text-anchor="middle" fill="#a29bfe" font-size="14" font-weight="bold">Learning Rate Schedules</text>
+
+  <!-- Constant -->
+  <rect x="60" y="555" width="160" height="70" fill="#0f3460" stroke="#e94560" stroke-width="1" rx="5"/>
+  <text x="140" y="575" text-anchor="middle" fill="#e94560" font-size="11" font-weight="bold">Constant</text>
+  <line x1="80" y1="605" x2="200" y2="605" stroke="#e94560" stroke-width="2"/>
+  <text x="140" y="620" text-anchor="middle" fill="#aaaaaa" font-size="9">η stays same</text>
+
+  <!-- Step Decay -->
+  <rect x="240" y="555" width="160" height="70" fill="#0f3460" stroke="#00d2d3" stroke-width="1" rx="5"/>
+  <text x="320" y="575" text-anchor="middle" fill="#00d2d3" font-size="11" font-weight="bold">Step Decay</text>
+  <path d="M 260 590 L 290 590 L 290 600 L 320 600 L 320 610 L 380 610" fill="none" stroke="#00d2d3" stroke-width="2"/>
+  <text x="320" y="620" text-anchor="middle" fill="#aaaaaa" font-size="9">Drop every N epochs</text>
+
+  <!-- Cosine Annealing -->
+  <rect x="420" y="555" width="160" height="70" fill="#0f3460" stroke="#feca57" stroke-width="1" rx="5"/>
+  <text x="500" y="575" text-anchor="middle" fill="#feca57" font-size="11" font-weight="bold">Cosine Annealing</text>
+  <path d="M 440 590 Q 470 595 500 605 Q 530 612 560 615" fill="none" stroke="#feca57" stroke-width="2"/>
+  <text x="500" y="620" text-anchor="middle" fill="#aaaaaa" font-size="9">Smooth cosine decay</text>
+
+  <!-- Warmup + Decay -->
+  <rect x="600" y="555" width="160" height="70" fill="#0f3460" stroke="#54a0ff" stroke-width="1" rx="5"/>
+  <text x="680" y="575" text-anchor="middle" fill="#54a0ff" font-size="11" font-weight="bold">Warmup + Decay</text>
+  <path d="M 620 615 L 650 590 Q 680 590 710 600 Q 730 608 740 615" fill="none" stroke="#54a0ff" stroke-width="2"/>
+  <text x="680" y="620" text-anchor="middle" fill="#aaaaaa" font-size="9">LLM standard</text>
+
+  <!-- One Cycle -->
+  <rect x="780" y="555" width="160" height="70" fill="#0f3460" stroke="#a29bfe" stroke-width="1" rx="5"/>
+  <text x="860" y="575" text-anchor="middle" fill="#a29bfe" font-size="11" font-weight="bold">One Cycle</text>
+  <path d="M 800 610 Q 830 590 860 585 Q 890 590 920 610" fill="none" stroke="#a29bfe" stroke-width="2"/>
+  <text x="860" y="620" text-anchor="middle" fill="#aaaaaa" font-size="9">Super-convergence</text>
+
+  <!-- Key Insight -->
+  <text x="500" y="660" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">Production Rule of Thumb</text>
+  <text x="500" y="680" text-anchor="middle" fill="#aaaaaa" font-size="11">Start with Adam (lr=3e-4) + Cosine Annealing for most tasks</text>
+  <text x="500" y="700" text-anchor="middle" fill="#aaaaaa" font-size="11">For Transformers/LLMs: AdamW + Linear Warmup (2000 steps) + Cosine Decay</text>
+  <text x="500" y="720" text-anchor="middle" fill="#aaaaaa" font-size="11">For final fine-tuning: SGD + Momentum (0.9) for sharper minima = better generalization</text>
+
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="arrowW" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ffffff"/>
+    </marker>
+  </defs>
+</svg>

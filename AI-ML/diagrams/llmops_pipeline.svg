@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 520" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1050" height="520" fill="#1a1a2e" rx="10"/>
+  <text x="525" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">LLMOps Pipeline — Operating LLM Applications in Production</text>
+
+  <!-- Development Phase -->
+  <rect x="30" y="55" width="990" height="130" fill="#16213e" stroke="#54a0ff" stroke-width="2" rx="8"/>
+  <text x="525" y="78" text-anchor="middle" fill="#54a0ff" font-size="11" font-weight="bold">DEVELOPMENT — Build &amp; Iterate</text>
+
+  <rect x="50" y="92" width="130" height="55" fill="#0f3460" stroke="#54a0ff" stroke-width="1.5" rx="4"/>
+  <text x="115" y="112" text-anchor="middle" fill="#54a0ff" font-size="8" font-weight="bold">Prompt Design</text>
+  <text x="115" y="127" text-anchor="middle" fill="#aaaaaa" font-size="6">System prompts</text>
+  <text x="115" y="139" text-anchor="middle" fill="#aaaaaa" font-size="6">Few-shot templates</text>
+
+  <line x1="185" y1="120" x2="210" y2="120" stroke="#fff" stroke-width="1" marker-end="url(#loArr)"/>
+
+  <rect x="215" y="92" width="130" height="55" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="4"/>
+  <text x="280" y="112" text-anchor="middle" fill="#feca57" font-size="8" font-weight="bold">RAG Setup</text>
+  <text x="280" y="127" text-anchor="middle" fill="#aaaaaa" font-size="6">Chunking, embedding</text>
+  <text x="280" y="139" text-anchor="middle" fill="#aaaaaa" font-size="6">Vector DB config</text>
+
+  <line x1="350" y1="120" x2="375" y2="120" stroke="#fff" stroke-width="1" marker-end="url(#loArr)"/>
+
+  <rect x="380" y="92" width="130" height="55" fill="#0f3460" stroke="#e94560" stroke-width="1.5" rx="4"/>
+  <text x="445" y="112" text-anchor="middle" fill="#e94560" font-size="8" font-weight="bold">Fine-Tuning</text>
+  <text x="445" y="127" text-anchor="middle" fill="#aaaaaa" font-size="6">LoRA adapters</text>
+  <text x="445" y="139" text-anchor="middle" fill="#aaaaaa" font-size="6">Dataset curation</text>
+
+  <line x1="515" y1="120" x2="540" y2="120" stroke="#fff" stroke-width="1" marker-end="url(#loArr)"/>
+
+  <rect x="545" y="92" width="130" height="55" fill="#0f3460" stroke="#00ff88" stroke-width="1.5" rx="4"/>
+  <text x="610" y="112" text-anchor="middle" fill="#00ff88" font-size="8" font-weight="bold">Evaluation</text>
+  <text x="610" y="127" text-anchor="middle" fill="#aaaaaa" font-size="6">RAGAS, LLM-as-judge</text>
+  <text x="610" y="139" text-anchor="middle" fill="#aaaaaa" font-size="6">Golden test sets</text>
+
+  <line x1="680" y1="120" x2="705" y2="120" stroke="#fff" stroke-width="1" marker-end="url(#loArr)"/>
+
+  <rect x="710" y="92" width="130" height="55" fill="#0f3460" stroke="#a29bfe" stroke-width="1.5" rx="4"/>
+  <text x="775" y="112" text-anchor="middle" fill="#a29bfe" font-size="8" font-weight="bold">Guardrails</text>
+  <text x="775" y="127" text-anchor="middle" fill="#aaaaaa" font-size="6">Input/output filters</text>
+  <text x="775" y="139" text-anchor="middle" fill="#aaaaaa" font-size="6">Safety checks</text>
+
+  <line x1="845" y1="120" x2="870" y2="120" stroke="#fff" stroke-width="1" marker-end="url(#loArr)"/>
+
+  <rect x="875" y="92" width="125" height="55" fill="#0f3460" stroke="#00d2d3" stroke-width="1.5" rx="4"/>
+  <text x="937" y="112" text-anchor="middle" fill="#00d2d3" font-size="8" font-weight="bold">Deploy</text>
+  <text x="937" y="127" text-anchor="middle" fill="#aaaaaa" font-size="6">LangServe / API</text>
+  <text x="937" y="139" text-anchor="middle" fill="#aaaaaa" font-size="6">Docker + K8s</text>
+
+  <text x="525" y="170" text-anchor="middle" fill="#feca57" font-size="8">Tools: LangChain, LangSmith, HuggingFace, OpenAI Playground, Weights &amp; Biases</text>
+
+  <!-- Production Phase -->
+  <rect x="30" y="200" width="990" height="130" fill="#16213e" stroke="#00ff88" stroke-width="2" rx="8"/>
+  <text x="525" y="223" text-anchor="middle" fill="#00ff88" font-size="11" font-weight="bold">PRODUCTION — Serve, Monitor, Optimize</text>
+
+  <rect x="50" y="238" width="145" height="55" fill="#0f3460" stroke="#00ff88" stroke-width="1.5" rx="4"/>
+  <text x="122" y="258" text-anchor="middle" fill="#00ff88" font-size="8" font-weight="bold">Serving</text>
+  <text x="122" y="273" text-anchor="middle" fill="#aaaaaa" font-size="6">vLLM / TGI / API gateway</text>
+  <text x="122" y="285" text-anchor="middle" fill="#aaaaaa" font-size="6">Rate limiting, caching</text>
+
+  <rect x="210" y="238" width="145" height="55" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="4"/>
+  <text x="282" y="258" text-anchor="middle" fill="#feca57" font-size="8" font-weight="bold">Cost Control</text>
+  <text x="282" y="273" text-anchor="middle" fill="#aaaaaa" font-size="6">Token tracking</text>
+  <text x="282" y="285" text-anchor="middle" fill="#aaaaaa" font-size="6">Model routing (cheap→expensive)</text>
+
+  <rect x="370" y="238" width="145" height="55" fill="#0f3460" stroke="#e94560" stroke-width="1.5" rx="4"/>
+  <text x="442" y="258" text-anchor="middle" fill="#e94560" font-size="8" font-weight="bold">Quality Monitor</text>
+  <text x="442" y="273" text-anchor="middle" fill="#aaaaaa" font-size="6">Hallucination detection</text>
+  <text x="442" y="285" text-anchor="middle" fill="#aaaaaa" font-size="6">Faithfulness scoring</text>
+
+  <rect x="530" y="238" width="145" height="55" fill="#0f3460" stroke="#a29bfe" stroke-width="1.5" rx="4"/>
+  <text x="602" y="258" text-anchor="middle" fill="#a29bfe" font-size="8" font-weight="bold">Observability</text>
+  <text x="602" y="273" text-anchor="middle" fill="#aaaaaa" font-size="6">Trace every LLM call</text>
+  <text x="602" y="285" text-anchor="middle" fill="#aaaaaa" font-size="6">Latency, tokens, errors</text>
+
+  <rect x="690" y="238" width="145" height="55" fill="#0f3460" stroke="#00d2d3" stroke-width="1.5" rx="4"/>
+  <text x="762" y="258" text-anchor="middle" fill="#00d2d3" font-size="8" font-weight="bold">User Feedback</text>
+  <text x="762" y="273" text-anchor="middle" fill="#aaaaaa" font-size="6">Thumbs up/down</text>
+  <text x="762" y="285" text-anchor="middle" fill="#aaaaaa" font-size="6">Implicit signals (follow-ups)</text>
+
+  <rect x="850" y="238" width="150" height="55" fill="#0f3460" stroke="#ff6b6b" stroke-width="1.5" rx="4"/>
+  <text x="925" y="258" text-anchor="middle" fill="#ff6b6b" font-size="8" font-weight="bold">Security</text>
+  <text x="925" y="273" text-anchor="middle" fill="#aaaaaa" font-size="6">Prompt injection detection</text>
+  <text x="925" y="285" text-anchor="middle" fill="#aaaaaa" font-size="6">PII leakage prevention</text>
+
+  <text x="525" y="318" text-anchor="middle" fill="#feca57" font-size="8">Tools: LangSmith, Helicone, Arize Phoenix, Prometheus+Grafana, PagerDuty</text>
+
+  <!-- LLMOps-Specific Concerns -->
+  <rect x="30" y="345" width="990" height="155" fill="#16213e" stroke="#a29bfe" stroke-width="2" rx="8"/>
+  <text x="525" y="368" text-anchor="middle" fill="#a29bfe" font-size="11" font-weight="bold">LLMOps-Specific Challenges (Beyond Traditional MLOps)</text>
+
+  <!-- Challenge boxes -->
+  <rect x="50" y="382" width="180" height="50" fill="#0f3460" stroke="#e94560" stroke-width="1" rx="4"/>
+  <text x="140" y="400" text-anchor="middle" fill="#e94560" font-size="8" font-weight="bold">Cost Explosion</text>
+  <text x="140" y="415" text-anchor="middle" fill="#ffffff" font-size="7">$0.01→$100/query possible</text>
+  <text x="140" y="427" text-anchor="middle" fill="#aaaaaa" font-size="6">Fix: routing, caching, limits</text>
+
+  <rect x="245" y="382" width="180" height="50" fill="#0f3460" stroke="#feca57" stroke-width="1" rx="4"/>
+  <text x="335" y="400" text-anchor="middle" fill="#feca57" font-size="8" font-weight="bold">Prompt Versioning</text>
+  <text x="335" y="415" text-anchor="middle" fill="#ffffff" font-size="7">Prompts ARE code (version them)</text>
+  <text x="335" y="427" text-anchor="middle" fill="#aaaaaa" font-size="6">Fix: Git, PromptLayer, LangSmith</text>
+
+  <rect x="440" y="382" width="180" height="50" fill="#0f3460" stroke="#00ff88" stroke-width="1" rx="4"/>
+  <text x="530" y="400" text-anchor="middle" fill="#00ff88" font-size="8" font-weight="bold">Non-Determinism</text>
+  <text x="530" y="415" text-anchor="middle" fill="#ffffff" font-size="7">Same input → different output</text>
+  <text x="530" y="427" text-anchor="middle" fill="#aaaaaa" font-size="6">Fix: temp=0, seed, eval suites</text>
+
+  <rect x="635" y="382" width="180" height="50" fill="#0f3460" stroke="#54a0ff" stroke-width="1" rx="4"/>
+  <text x="725" y="400" text-anchor="middle" fill="#54a0ff" font-size="8" font-weight="bold">Hallucination</text>
+  <text x="725" y="415" text-anchor="middle" fill="#ffffff" font-size="7">Model invents plausible lies</text>
+  <text x="725" y="427" text-anchor="middle" fill="#aaaaaa" font-size="6">Fix: RAG, guardrails, eval</text>
+
+  <rect x="830" y="382" width="170" height="50" fill="#0f3460" stroke="#ff6b6b" stroke-width="1" rx="4"/>
+  <text x="915" y="400" text-anchor="middle" fill="#ff6b6b" font-size="8" font-weight="bold">Prompt Injection</text>
+  <text x="915" y="415" text-anchor="middle" fill="#ffffff" font-size="7">Users hijack system prompt</text>
+  <text x="915" y="427" text-anchor="middle" fill="#aaaaaa" font-size="6">Fix: input sanitization, guardrails</text>
+
+  <!-- Embedding pipeline management -->
+  <rect x="50" y="440" width="430" height="45" fill="#0f3460" stroke="#00d2d3" stroke-width="1" rx="4"/>
+  <text x="265" y="458" text-anchor="middle" fill="#00d2d3" font-size="8" font-weight="bold">Embedding Pipeline Ops</text>
+  <text x="65" y="475" fill="#ffffff" font-size="7">• Re-index when docs change • Version embedding models • Monitor retrieval quality • Chunk size A/B testing</text>
+
+  <!-- Model updates -->
+  <rect x="500" y="440" width="480" height="45" fill="#0f3460" stroke="#a29bfe" stroke-width="1" rx="4"/>
+  <text x="740" y="458" text-anchor="middle" fill="#a29bfe" font-size="8" font-weight="bold">Model Lifecycle Management</text>
+  <text x="515" y="475" fill="#ffffff" font-size="7">• API model deprecation (GPT-3.5→4o-mini) • Fine-tune adapter versioning • A/B test new models • Fallback chains</text>
+
+  <defs>
+    <marker id="loArr" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto">
+      <polygon points="0 0, 6 2.5, 0 5" fill="#ffffff"/>
+    </marker>
+  </defs>
+</svg>

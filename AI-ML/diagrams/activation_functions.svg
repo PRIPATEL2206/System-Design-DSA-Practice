@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1000" height="700" fill="#1a1a2e" rx="10"/>
+
+  <!-- Title -->
+  <text x="500" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">Activation Functions — Visual Comparison</text>
+
+  <!-- Sigmoid -->
+  <rect x="30" y="60" width="300" height="200" fill="#16213e" stroke="#e94560" stroke-width="2" rx="8"/>
+  <text x="180" y="85" text-anchor="middle" fill="#e94560" font-size="14" font-weight="bold">Sigmoid (σ)</text>
+  <text x="180" y="105" text-anchor="middle" fill="#aaaaaa" font-size="11">σ(x) = 1 / (1 + e⁻ˣ)</text>
+
+  <!-- Sigmoid curve approximation -->
+  <line x1="50" y1="180" x2="310" y2="180" stroke="#444444" stroke-width="1"/>
+  <line x1="180" y1="120" x2="180" y2="240" stroke="#444444" stroke-width="1"/>
+  <path d="M 50 235 Q 100 230 130 220 Q 155 205 170 190 Q 180 180 190 168 Q 205 152 230 140 Q 260 130 310 125" fill="none" stroke="#e94560" stroke-width="2.5"/>
+  <text x="315" y="128" fill="#aaaaaa" font-size="9">1</text>
+  <text x="315" y="238" fill="#aaaaaa" font-size="9">0</text>
+  <text x="80" y="252" fill="#ffffff" font-size="10">Range: (0, 1)</text>
+  <text x="200" y="252" fill="#ff6b6b" font-size="10">⚠️ Vanishing gradient</text>
+
+  <!-- ReLU -->
+  <rect x="350" y="60" width="300" height="200" fill="#16213e" stroke="#00d2d3" stroke-width="2" rx="8"/>
+  <text x="500" y="85" text-anchor="middle" fill="#00d2d3" font-size="14" font-weight="bold">ReLU</text>
+  <text x="500" y="105" text-anchor="middle" fill="#aaaaaa" font-size="11">f(x) = max(0, x)</text>
+
+  <!-- ReLU curve -->
+  <line x1="370" y1="180" x2="630" y2="180" stroke="#444444" stroke-width="1"/>
+  <line x1="500" y1="120" x2="500" y2="240" stroke="#444444" stroke-width="1"/>
+  <line x1="370" y1="180" x2="500" y2="180" stroke="#00d2d3" stroke-width="2.5"/>
+  <line x1="500" y1="180" x2="630" y2="120" stroke="#00d2d3" stroke-width="2.5"/>
+  <text x="400" y="252" fill="#ffffff" font-size="10">Range: [0, ∞)</text>
+  <text x="530" y="252" fill="#00ff00" font-size="10">✓ Most popular</text>
+
+  <!-- Tanh -->
+  <rect x="670" y="60" width="300" height="200" fill="#16213e" stroke="#feca57" stroke-width="2" rx="8"/>
+  <text x="820" y="85" text-anchor="middle" fill="#feca57" font-size="14" font-weight="bold">Tanh</text>
+  <text x="820" y="105" text-anchor="middle" fill="#aaaaaa" font-size="11">tanh(x) = (eˣ - e⁻ˣ) / (eˣ + e⁻ˣ)</text>
+
+  <!-- Tanh curve -->
+  <line x1="690" y1="180" x2="950" y2="180" stroke="#444444" stroke-width="1"/>
+  <line x1="820" y1="120" x2="820" y2="240" stroke="#444444" stroke-width="1"/>
+  <path d="M 690 235 Q 740 230 770 215 Q 800 195 810 185 Q 820 177 830 170 Q 845 158 870 145 Q 900 132 950 125" fill="none" stroke="#feca57" stroke-width="2.5"/>
+  <text x="955" y="128" fill="#aaaaaa" font-size="9">1</text>
+  <text x="955" y="238" fill="#aaaaaa" font-size="9">-1</text>
+  <text x="720" y="252" fill="#ffffff" font-size="10">Range: (-1, 1)</text>
+  <text x="860" y="252" fill="#feca57" font-size="10">Zero-centered</text>
+
+  <!-- Leaky ReLU -->
+  <rect x="30" y="290" width="300" height="200" fill="#16213e" stroke="#54a0ff" stroke-width="2" rx="8"/>
+  <text x="180" y="315" text-anchor="middle" fill="#54a0ff" font-size="14" font-weight="bold">Leaky ReLU</text>
+  <text x="180" y="335" text-anchor="middle" fill="#aaaaaa" font-size="11">f(x) = max(αx, x), α=0.01</text>
+
+  <!-- Leaky ReLU curve -->
+  <line x1="50" y1="410" x2="310" y2="410" stroke="#444444" stroke-width="1"/>
+  <line x1="180" y1="350" x2="180" y2="470" stroke="#444444" stroke-width="1"/>
+  <line x1="50" y1="412" x2="180" y2="410" stroke="#54a0ff" stroke-width="2.5"/>
+  <line x1="180" y1="410" x2="310" y2="350" stroke="#54a0ff" stroke-width="2.5"/>
+  <text x="80" y="482" fill="#ffffff" font-size="10">Range: (-∞, ∞)</text>
+  <text x="210" y="482" fill="#00ff00" font-size="10">✓ Fixes dying ReLU</text>
+
+  <!-- Softmax -->
+  <rect x="350" y="290" width="300" height="200" fill="#16213e" stroke="#ff6b6b" stroke-width="2" rx="8"/>
+  <text x="500" y="315" text-anchor="middle" fill="#ff6b6b" font-size="14" font-weight="bold">Softmax</text>
+  <text x="500" y="335" text-anchor="middle" fill="#aaaaaa" font-size="11">σ(zᵢ) = eᶻⁱ / Σeᶻʲ</text>
+
+  <!-- Softmax bars -->
+  <rect x="390" y="360" width="40" height="90" fill="#ff6b6b" opacity="0.8" rx="3"/>
+  <text x="410" y="460" text-anchor="middle" fill="#ffffff" font-size="9">0.6</text>
+  <text x="410" y="475" text-anchor="middle" fill="#aaaaaa" font-size="8">cat</text>
+
+  <rect x="445" y="400" width="40" height="50" fill="#ff6b6b" opacity="0.5" rx="3"/>
+  <text x="465" y="460" text-anchor="middle" fill="#ffffff" font-size="9">0.3</text>
+  <text x="465" y="475" text-anchor="middle" fill="#aaaaaa" font-size="8">dog</text>
+
+  <rect x="500" y="430" width="40" height="20" fill="#ff6b6b" opacity="0.3" rx="3"/>
+  <text x="520" y="460" text-anchor="middle" fill="#ffffff" font-size="9">0.1</text>
+  <text x="520" y="475" text-anchor="middle" fill="#aaaaaa" font-size="8">bird</text>
+
+  <text x="500" y="482" text-anchor="middle" fill="#ffffff" font-size="10">Sum = 1.0 (probabilities)</text>
+
+  <!-- Swish/SiLU -->
+  <rect x="670" y="290" width="300" height="200" fill="#16213e" stroke="#a29bfe" stroke-width="2" rx="8"/>
+  <text x="820" y="315" text-anchor="middle" fill="#a29bfe" font-size="14" font-weight="bold">Swish / SiLU</text>
+  <text x="820" y="335" text-anchor="middle" fill="#aaaaaa" font-size="11">f(x) = x · σ(x)</text>
+
+  <!-- Swish curve -->
+  <line x1="690" y1="410" x2="950" y2="410" stroke="#444444" stroke-width="1"/>
+  <line x1="820" y1="350" x2="820" y2="470" stroke="#444444" stroke-width="1"/>
+  <path d="M 690 420 Q 730 418 770 416 Q 800 414 815 413 Q 820 412 825 410 Q 840 400 870 380 Q 910 355 950 330" fill="none" stroke="#a29bfe" stroke-width="2.5"/>
+  <text x="720" y="482" fill="#ffffff" font-size="10">Range: (-0.28, ∞)</text>
+  <text x="870" y="482" fill="#a29bfe" font-size="10">Smooth, modern</text>
+
+  <!-- Comparison Table -->
+  <rect x="30" y="520" width="940" height="160" fill="#0f3460" stroke="#ffffff" stroke-width="1" rx="8"/>
+  <text x="500" y="545" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="bold">When to Use Each Activation Function</text>
+
+  <!-- Table headers -->
+  <text x="120" y="575" text-anchor="middle" fill="#e94560" font-size="11" font-weight="bold">Function</text>
+  <text x="320" y="575" text-anchor="middle" fill="#e94560" font-size="11" font-weight="bold">Best For</text>
+  <text x="570" y="575" text-anchor="middle" fill="#e94560" font-size="11" font-weight="bold">Pros</text>
+  <text x="830" y="575" text-anchor="middle" fill="#e94560" font-size="11" font-weight="bold">Cons</text>
+
+  <line x1="50" y1="582" x2="950" y2="582" stroke="#444444" stroke-width="1"/>
+
+  <text x="120" y="600" text-anchor="middle" fill="#e94560" font-size="10">Sigmoid</text>
+  <text x="320" y="600" text-anchor="middle" fill="#ffffff" font-size="10">Binary output, gates (LSTM)</text>
+  <text x="570" y="600" text-anchor="middle" fill="#ffffff" font-size="10">Output bounded [0,1]</text>
+  <text x="830" y="600" text-anchor="middle" fill="#ffffff" font-size="10">Vanishing gradient, not zero-centered</text>
+
+  <text x="120" y="620" text-anchor="middle" fill="#00d2d3" font-size="10">ReLU</text>
+  <text x="320" y="620" text-anchor="middle" fill="#ffffff" font-size="10">Hidden layers (default choice)</text>
+  <text x="570" y="620" text-anchor="middle" fill="#ffffff" font-size="10">Fast, sparse, no vanishing grad</text>
+  <text x="830" y="620" text-anchor="middle" fill="#ffffff" font-size="10">Dying neurons (output=0 forever)</text>
+
+  <text x="120" y="640" text-anchor="middle" fill="#feca57" font-size="10">Tanh</text>
+  <text x="320" y="640" text-anchor="middle" fill="#ffffff" font-size="10">RNNs, hidden layers</text>
+  <text x="570" y="640" text-anchor="middle" fill="#ffffff" font-size="10">Zero-centered, stronger gradients</text>
+  <text x="830" y="640" text-anchor="middle" fill="#ffffff" font-size="10">Still has vanishing gradient</text>
+
+  <text x="120" y="660" text-anchor="middle" fill="#ff6b6b" font-size="10">Softmax</text>
+  <text x="320" y="660" text-anchor="middle" fill="#ffffff" font-size="10">Multi-class output layer</text>
+  <text x="570" y="660" text-anchor="middle" fill="#ffffff" font-size="10">Probability distribution</text>
+  <text x="830" y="660" text-anchor="middle" fill="#ffffff" font-size="10">Expensive, only for output layer</text>
+</svg>

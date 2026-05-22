@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 420" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1050" height="420" fill="#1a1a2e" rx="10"/>
+  <text x="525" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">LCEL — LangChain Expression Language Pipeline</text>
+
+  <!-- Main Pipeline -->
+  <rect x="30" y="55" width="990" height="130" fill="#16213e" stroke="#00ff88" stroke-width="2" rx="8"/>
+  <text x="525" y="77" text-anchor="middle" fill="#00ff88" font-size="11" font-weight="bold">chain = prompt | model | parser   →   chain.invoke({"topic": "AI"}) / .stream() / .batch()</text>
+
+  <!-- Step 1: Input -->
+  <rect x="50" y="92" width="110" height="55" fill="#0f3460" stroke="#54a0ff" stroke-width="2" rx="6"/>
+  <text x="105" y="112" text-anchor="middle" fill="#54a0ff" font-size="9" font-weight="bold">Input</text>
+  <text x="105" y="127" text-anchor="middle" fill="#ffffff" font-size="8">{"topic": "AI",</text>
+  <text x="105" y="140" text-anchor="middle" fill="#ffffff" font-size="8"> "level": "beginner"}</text>
+
+  <line x1="165" y1="120" x2="195" y2="120" stroke="#fff" stroke-width="2" marker-end="url(#lcArr)"/>
+  <text x="180" y="112" fill="#feca57" font-size="7">|</text>
+
+  <!-- Step 2: Prompt Template -->
+  <rect x="200" y="92" width="150" height="55" fill="#0f3460" stroke="#feca57" stroke-width="2" rx="6"/>
+  <text x="275" y="110" text-anchor="middle" fill="#feca57" font-size="9" font-weight="bold">PromptTemplate</text>
+  <text x="275" y="126" text-anchor="middle" fill="#ffffff" font-size="7">"Explain {topic}</text>
+  <text x="275" y="138" text-anchor="middle" fill="#ffffff" font-size="7">for a {level} audience"</text>
+
+  <line x1="355" y1="120" x2="385" y2="120" stroke="#fff" stroke-width="2" marker-end="url(#lcArr)"/>
+  <text x="370" y="112" fill="#feca57" font-size="7">|</text>
+
+  <!-- Step 3: LLM -->
+  <rect x="390" y="92" width="145" height="55" fill="#0f3460" stroke="#e94560" stroke-width="2" rx="6"/>
+  <text x="462" y="110" text-anchor="middle" fill="#e94560" font-size="9" font-weight="bold">ChatModel</text>
+  <text x="462" y="126" text-anchor="middle" fill="#ffffff" font-size="8">ChatOpenAI(gpt-4o-mini)</text>
+  <text x="462" y="140" text-anchor="middle" fill="#aaaaaa" font-size="7">→ AIMessage</text>
+
+  <line x1="540" y1="120" x2="570" y2="120" stroke="#fff" stroke-width="2" marker-end="url(#lcArr)"/>
+  <text x="555" y="112" fill="#feca57" font-size="7">|</text>
+
+  <!-- Step 4: Output Parser -->
+  <rect x="575" y="92" width="140" height="55" fill="#0f3460" stroke="#a29bfe" stroke-width="2" rx="6"/>
+  <text x="645" y="110" text-anchor="middle" fill="#a29bfe" font-size="9" font-weight="bold">OutputParser</text>
+  <text x="645" y="126" text-anchor="middle" fill="#ffffff" font-size="8">StrOutputParser()</text>
+  <text x="645" y="140" text-anchor="middle" fill="#aaaaaa" font-size="7">or JsonOutputParser</text>
+
+  <line x1="720" y1="120" x2="750" y2="120" stroke="#fff" stroke-width="2" marker-end="url(#lcArr)"/>
+  <text x="735" y="112" fill="#feca57" font-size="7">→</text>
+
+  <!-- Step 5: Output -->
+  <rect x="755" y="92" width="245" height="55" fill="#0f3460" stroke="#00ff88" stroke-width="2" rx="6"/>
+  <text x="877" y="110" text-anchor="middle" fill="#00ff88" font-size="9" font-weight="bold">Output</text>
+  <text x="877" y="126" text-anchor="middle" fill="#ffffff" font-size="8">"AI is the simulation of human</text>
+  <text x="877" y="140" text-anchor="middle" fill="#ffffff" font-size="8">intelligence by machines..."</text>
+
+  <!-- Invocation methods -->
+  <text x="525" y="172" text-anchor="middle" fill="#aaaaaa" font-size="9">.invoke(input) → single result  |  .stream(input) → token by token  |  .batch([inputs]) → parallel  |  .ainvoke() → async</text>
+
+  <!-- Composition Patterns -->
+  <rect x="30" y="195" width="490" height="205" fill="#16213e" stroke="#54a0ff" stroke-width="2" rx="8"/>
+  <text x="275" y="218" text-anchor="middle" fill="#54a0ff" font-size="11" font-weight="bold">Composition Patterns</text>
+
+  <!-- Parallel -->
+  <rect x="50" y="230" width="210" height="68" fill="#0f3460" stroke="#feca57" stroke-width="1" rx="4"/>
+  <text x="155" y="248" text-anchor="middle" fill="#feca57" font-size="9" font-weight="bold">RunnableParallel</text>
+  <text x="155" y="265" text-anchor="middle" fill="#ffffff" font-size="7">Run multiple chains simultaneously</text>
+  <text x="65" y="282" fill="#aaaaaa" font-size="7">parallel = RunnableParallel(</text>
+  <text x="65" y="293" fill="#aaaaaa" font-size="7">  summary=chain_a, keywords=chain_b)</text>
+
+  <!-- Branch -->
+  <rect x="280" y="230" width="220" height="68" fill="#0f3460" stroke="#e94560" stroke-width="1" rx="4"/>
+  <text x="390" y="248" text-anchor="middle" fill="#e94560" font-size="9" font-weight="bold">RunnableBranch</text>
+  <text x="390" y="265" text-anchor="middle" fill="#ffffff" font-size="7">Conditional routing based on input</text>
+  <text x="295" y="282" fill="#aaaaaa" font-size="7">branch = RunnableBranch(</text>
+  <text x="295" y="293" fill="#aaaaaa" font-size="7">  (condition, chain), default_chain)</text>
+
+  <!-- Lambda -->
+  <rect x="50" y="310" width="210" height="68" fill="#0f3460" stroke="#00ff88" stroke-width="1" rx="4"/>
+  <text x="155" y="328" text-anchor="middle" fill="#00ff88" font-size="9" font-weight="bold">RunnableLambda</text>
+  <text x="155" y="345" text-anchor="middle" fill="#ffffff" font-size="7">Wrap any Python function</text>
+  <text x="65" y="362" fill="#aaaaaa" font-size="7">transform = RunnableLambda(</text>
+  <text x="65" y="373" fill="#aaaaaa" font-size="7">  lambda x: x.upper())</text>
+
+  <!-- Passthrough -->
+  <rect x="280" y="310" width="220" height="68" fill="#0f3460" stroke="#a29bfe" stroke-width="1" rx="4"/>
+  <text x="390" y="328" text-anchor="middle" fill="#a29bfe" font-size="9" font-weight="bold">RunnablePassthrough</text>
+  <text x="390" y="345" text-anchor="middle" fill="#ffffff" font-size="7">Pass input unchanged (identity)</text>
+  <text x="295" y="362" fill="#aaaaaa" font-size="7">{"context": retriever,</text>
+  <text x="295" y="373" fill="#aaaaaa" font-size="7"> "question": RunnablePassthrough()}</text>
+
+  <!-- RAG LCEL Example -->
+  <rect x="540" y="195" width="480" height="205" fill="#16213e" stroke="#e94560" stroke-width="2" rx="8"/>
+  <text x="780" y="218" text-anchor="middle" fill="#e94560" font-size="11" font-weight="bold">RAG Chain in LCEL</text>
+
+  <rect x="560" y="235" width="440" height="150" fill="#0f3460" rx="4"/>
+  <text x="580" y="257" fill="#feca57" font-size="9" font-weight="bold"># Complete RAG chain in 8 lines:</text>
+  <text x="580" y="277" fill="#ffffff" font-size="8">rag_chain = (</text>
+  <text x="580" y="294" fill="#00ff88" font-size="8">    RunnableParallel(</text>
+  <text x="580" y="311" fill="#54a0ff" font-size="8">        context=retriever | format_docs,</text>
+  <text x="580" y="328" fill="#a29bfe" font-size="8">        question=RunnablePassthrough()</text>
+  <text x="580" y="345" fill="#00ff88" font-size="8">    )</text>
+  <text x="580" y="362" fill="#e94560" font-size="8">    | rag_prompt | model | StrOutputParser()</text>
+  <text x="580" y="379" fill="#ffffff" font-size="8">)</text>
+
+  <!-- Legend -->
+  <text x="525" y="410" text-anchor="middle" fill="#666666" font-size="8">Every component is a Runnable → composable, streamable, batchable, async-ready out of the box</text>
+
+  <defs>
+    <marker id="lcArr" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto">
+      <polygon points="0 0, 6 2.5, 0 5" fill="#ffffff"/>
+    </marker>
+  </defs>
+</svg>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 450" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1000" height="450" fill="#1a1a2e" rx="10"/>
+  <text x="500" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">HNSW Index — How Billion-Scale Search Works</text>
+
+  <!-- HNSW layers visualization -->
+  <rect x="30" y="55" width="580" height="370" fill="#16213e" stroke="#00d2d3" stroke-width="2" rx="8"/>
+  <text x="320" y="80" text-anchor="middle" fill="#00d2d3" font-size="12" font-weight="bold">Hierarchical Navigable Small World (HNSW)</text>
+
+  <!-- Layer 2 (top - sparse) -->
+  <rect x="50" y="95" width="540" height="70" fill="#0f3460" stroke="#e94560" stroke-width="1" rx="6" stroke-dasharray="3"/>
+  <text x="70" y="112" fill="#e94560" font-size="8" font-weight="bold">Layer 2 (sparse — entry point)</text>
+
+  <circle cx="200" cy="135" r="8" fill="#e94560"/>
+  <circle cx="400" cy="135" r="8" fill="#e94560"/>
+  <line x1="208" y1="135" x2="392" y2="135" stroke="#e94560" stroke-width="1.5"/>
+
+  <!-- Layer 1 (middle) -->
+  <rect x="50" y="175" width="540" height="85" fill="#0f3460" stroke="#feca57" stroke-width="1" rx="6" stroke-dasharray="3"/>
+  <text x="70" y="192" fill="#feca57" font-size="8" font-weight="bold">Layer 1 (medium density)</text>
+
+  <circle cx="120" cy="225" r="7" fill="#feca57"/>
+  <circle cx="200" cy="225" r="7" fill="#feca57"/>
+  <circle cx="300" cy="225" r="7" fill="#feca57"/>
+  <circle cx="400" cy="225" r="7" fill="#feca57"/>
+  <circle cx="500" cy="225" r="7" fill="#feca57"/>
+
+  <line x1="127" y1="225" x2="193" y2="225" stroke="#feca57" stroke-width="1"/>
+  <line x1="207" y1="225" x2="293" y2="225" stroke="#feca57" stroke-width="1"/>
+  <line x1="307" y1="225" x2="393" y2="225" stroke="#feca57" stroke-width="1"/>
+  <line x1="407" y1="225" x2="493" y2="225" stroke="#feca57" stroke-width="1"/>
+  <line x1="120" y1="225" x2="300" y2="225" stroke="#feca57" stroke-width="0.5" stroke-dasharray="2"/>
+  <line x1="200" y1="225" x2="400" y2="225" stroke="#feca57" stroke-width="0.5" stroke-dasharray="2"/>
+
+  <!-- Layer 0 (bottom - dense) -->
+  <rect x="50" y="270" width="540" height="100" fill="#0f3460" stroke="#00ff88" stroke-width="1" rx="6" stroke-dasharray="3"/>
+  <text x="70" y="287" fill="#00ff88" font-size="8" font-weight="bold">Layer 0 (all vectors — dense)</text>
+
+  <circle cx="80" cy="330" r="5" fill="#00ff88"/>
+  <circle cx="120" cy="320" r="5" fill="#00ff88"/>
+  <circle cx="160" cy="335" r="5" fill="#00ff88"/>
+  <circle cx="200" cy="325" r="5" fill="#00ff88"/>
+  <circle cx="240" cy="315" r="5" fill="#00ff88"/>
+  <circle cx="280" cy="330" r="5" fill="#00ff88"/>
+  <circle cx="320" cy="320" r="5" fill="#00ff88"/>
+  <circle cx="360" cy="340" r="5" fill="#00ff88"/>
+  <circle cx="400" cy="325" r="5" fill="#00ff88"/>
+  <circle cx="440" cy="315" r="5" fill="#00ff88"/>
+  <circle cx="480" cy="330" r="5" fill="#00ff88"/>
+  <circle cx="520" cy="325" r="5" fill="#00ff88"/>
+  <circle cx="560" cy="335" r="5" fill="#00ff88"/>
+
+  <!-- Connections in layer 0 -->
+  <line x1="80" y1="330" x2="120" y2="320" stroke="#00ff88" stroke-width="0.5" opacity="0.5"/>
+  <line x1="120" y1="320" x2="160" y2="335" stroke="#00ff88" stroke-width="0.5" opacity="0.5"/>
+  <line x1="160" y1="335" x2="200" y2="325" stroke="#00ff88" stroke-width="0.5" opacity="0.5"/>
+  <line x1="200" y1="325" x2="240" y2="315" stroke="#00ff88" stroke-width="0.5" opacity="0.5"/>
+  <line x1="240" y1="315" x2="280" y2="330" stroke="#00ff88" stroke-width="0.5" opacity="0.5"/>
+  <line x1="280" y1="330" x2="320" y2="320" stroke="#00ff88" stroke-width="0.5" opacity="0.5"/>
+  <line x1="320" y1="320" x2="360" y2="340" stroke="#00ff88" stroke-width="0.5" opacity="0.5"/>
+  <line x1="400" y1="325" x2="440" y2="315" stroke="#00ff88" stroke-width="0.5" opacity="0.5"/>
+  <line x1="440" y1="315" x2="480" y2="330" stroke="#00ff88" stroke-width="0.5" opacity="0.5"/>
+  <line x1="480" y1="330" x2="520" y2="325" stroke="#00ff88" stroke-width="0.5" opacity="0.5"/>
+
+  <!-- Query path (highlighted) -->
+  <circle cx="300" cy="330" r="8" fill="none" stroke="#ffffff" stroke-width="2"/>
+  <text x="300" y="360" text-anchor="middle" fill="#ffffff" font-size="7" font-weight="bold">QUERY</text>
+
+  <!-- Search path arrows -->
+  <line x1="200" y1="143" x2="200" y2="218" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="4" marker-end="url(#hnswA)"/>
+  <line x1="200" y1="232" x2="280" y2="323" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="4" marker-end="url(#hnswA)"/>
+
+  <!-- Vertical connections -->
+  <line x1="200" y1="143" x2="200" y2="218" stroke="#aaaaaa" stroke-width="0.5" stroke-dasharray="2"/>
+  <line x1="400" y1="143" x2="400" y2="218" stroke="#aaaaaa" stroke-width="0.5" stroke-dasharray="2"/>
+
+  <!-- Search description -->
+  <text x="320" y="390" text-anchor="middle" fill="#ffffff" font-size="8">Search: Start at top layer → greedy walk toward query →</text>
+  <text x="320" y="406" text-anchor="middle" fill="#ffffff" font-size="8">drop to lower layer → repeat → fine-grained search at layer 0</text>
+  <text x="320" y="422" text-anchor="middle" fill="#aaaaaa" font-size="7">O(log N) hops instead of O(N) comparisons</text>
+
+  <!-- Properties panel -->
+  <rect x="630" y="55" width="340" height="185" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="8"/>
+  <text x="800" y="80" text-anchor="middle" fill="#feca57" font-size="11" font-weight="bold">HNSW Properties</text>
+
+  <text x="650" y="105" fill="#00ff88" font-size="8" font-weight="bold">Pros:</text>
+  <text x="650" y="122" fill="#ffffff" font-size="7">• Highest recall among ANN methods (~99%+)</text>
+  <text x="650" y="137" fill="#ffffff" font-size="7">• Very fast query time (sub-millisecond)</text>
+  <text x="650" y="152" fill="#ffffff" font-size="7">• Works well up to ~100M vectors per node</text>
+  <text x="650" y="167" fill="#ffffff" font-size="7">• No training required (incremental insertion)</text>
+
+  <text x="650" y="190" fill="#e94560" font-size="8" font-weight="bold">Cons:</text>
+  <text x="650" y="207" fill="#ffffff" font-size="7">• High memory usage (graph + vectors in RAM)</text>
+  <text x="650" y="222" fill="#ffffff" font-size="7">• Slow build time for large datasets</text>
+  <text x="650" y="237" fill="#ffffff" font-size="7">• Hard to update (delete is expensive)</text>
+
+  <!-- Parameters -->
+  <rect x="630" y="255" width="340" height="170" fill="#0f3460" stroke="#a29bfe" stroke-width="1.5" rx="8"/>
+  <text x="800" y="280" text-anchor="middle" fill="#a29bfe" font-size="11" font-weight="bold">Tuning Parameters</text>
+
+  <text x="650" y="305" fill="#feca57" font-size="8" font-weight="bold">M (connections per node):</text>
+  <text x="650" y="320" fill="#ffffff" font-size="7">Higher M → better recall, more memory. Default: 16-64</text>
+
+  <text x="650" y="345" fill="#feca57" font-size="8" font-weight="bold">ef_construction (build quality):</text>
+  <text x="650" y="360" fill="#ffffff" font-size="7">Higher → better index, slower build. Default: 200</text>
+
+  <text x="650" y="385" fill="#feca57" font-size="8" font-weight="bold">ef_search (query thoroughness):</text>
+  <text x="650" y="400" fill="#ffffff" font-size="7">Higher → better recall, slower query. Default: 50-100</text>
+
+  <text x="650" y="420" fill="#aaaaaa" font-size="7">Rule of thumb: ef_search ≥ top_k (number of results)</text>
+
+  <defs>
+    <marker id="hnswA" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto"><polygon points="0 0, 6 2.5, 0 5" fill="#ffffff"/></marker>
+  </defs>
+</svg>
