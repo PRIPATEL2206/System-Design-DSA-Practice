@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 450" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1000" height="450" fill="#1a1a2e" rx="10"/>
+  <text x="500" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">Positional Encoding — Giving Transformers a Sense of Order</text>
+
+  <!-- Problem statement -->
+  <rect x="30" y="55" width="940" height="70" fill="#0f3460" stroke="#e94560" stroke-width="1.5" rx="8"/>
+  <text x="500" y="78" text-anchor="middle" fill="#e94560" font-size="12" font-weight="bold">The Problem: Self-attention is permutation invariant</text>
+  <text x="500" y="98" text-anchor="middle" fill="#ffffff" font-size="10">"dog bites man" and "man bites dog" produce IDENTICAL attention outputs without positional information</text>
+  <text x="500" y="115" text-anchor="middle" fill="#aaaaaa" font-size="9">Solution: Add position information to input embeddings → PE(pos, 2i) = sin(pos / 10000^(2i/d)), PE(pos, 2i+1) = cos(pos / 10000^(2i/d))</text>
+
+  <!-- Sinusoidal encoding visualization -->
+  <rect x="30" y="140" width="470" height="290" fill="#16213e" stroke="#feca57" stroke-width="1.5" rx="8"/>
+  <text x="265" y="165" text-anchor="middle" fill="#feca57" font-size="12" font-weight="bold">Sinusoidal Positional Encoding</text>
+
+  <!-- Wave visualization (simplified) -->
+  <text x="60" y="195" fill="#aaaaaa" font-size="8">dim 0 (high freq):</text>
+  <!-- High frequency sine wave -->
+  <path d="M 170 195 Q 180 182 190 195 Q 200 208 210 195 Q 220 182 230 195 Q 240 208 250 195 Q 260 182 270 195 Q 280 208 290 195 Q 300 182 310 195 Q 320 208 330 195" fill="none" stroke="#e94560" stroke-width="1.5"/>
+
+  <text x="60" y="230" fill="#aaaaaa" font-size="8">dim 2 (med freq):</text>
+  <path d="M 170 230 Q 190 215 210 230 Q 230 245 250 230 Q 270 215 290 230 Q 310 245 330 230" fill="none" stroke="#feca57" stroke-width="1.5"/>
+
+  <text x="60" y="265" fill="#aaaaaa" font-size="8">dim 4 (low freq):</text>
+  <path d="M 170 265 Q 210 248 250 265 Q 290 282 330 265" fill="none" stroke="#00d2d3" stroke-width="1.5"/>
+
+  <text x="60" y="300" fill="#aaaaaa" font-size="8">dim d-1 (very low):</text>
+  <path d="M 170 300 Q 250 290 330 300" fill="none" stroke="#00ff88" stroke-width="1.5"/>
+
+  <!-- Position markers -->
+  <text x="170" y="325" text-anchor="middle" fill="#ffffff" font-size="8">pos 0</text>
+  <text x="210" y="325" text-anchor="middle" fill="#ffffff" font-size="8">pos 1</text>
+  <text x="250" y="325" text-anchor="middle" fill="#ffffff" font-size="8">pos 2</text>
+  <text x="290" y="325" text-anchor="middle" fill="#ffffff" font-size="8">pos 3</text>
+  <text x="330" y="325" text-anchor="middle" fill="#ffffff" font-size="8">pos 4</text>
+
+  <!-- Key properties -->
+  <text x="60" y="360" fill="#00ff88" font-size="9" font-weight="bold">Properties:</text>
+  <text x="60" y="378" fill="#ffffff" font-size="8">• Each position has a unique encoding</text>
+  <text x="60" y="394" fill="#ffffff" font-size="8">• Relative position = linear transformation apart</text>
+  <text x="60" y="410" fill="#ffffff" font-size="8">• Generalizes to unseen sequence lengths</text>
+  <text x="60" y="426" fill="#ffffff" font-size="8">• No learnable parameters (deterministic)</text>
+
+  <!-- Addition diagram -->
+  <rect x="520" y="140" width="450" height="140" fill="#16213e" stroke="#54a0ff" stroke-width="1.5" rx="8"/>
+  <text x="745" y="165" text-anchor="middle" fill="#54a0ff" font-size="12" font-weight="bold">How It's Applied</text>
+
+  <!-- Token embedding -->
+  <rect x="550" y="185" width="110" height="40" fill="#0f3460" stroke="#00ff88" stroke-width="1.5" rx="4"/>
+  <text x="605" y="203" text-anchor="middle" fill="#00ff88" font-size="9">Token Embed</text>
+  <text x="605" y="218" text-anchor="middle" fill="#aaaaaa" font-size="7">(seq, d_model)</text>
+
+  <!-- Plus -->
+  <circle cx="695" cy="205" r="15" fill="#1a1a2e" stroke="#feca57" stroke-width="2"/>
+  <text x="695" y="210" text-anchor="middle" fill="#feca57" font-size="14">+</text>
+
+  <!-- Positional encoding -->
+  <rect x="550" y="235" width="110" height="30" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="4"/>
+  <text x="605" y="255" text-anchor="middle" fill="#feca57" font-size="9">Pos Encoding</text>
+
+  <line x1="605" y1="235" x2="680" y2="210" stroke="#feca57" stroke-width="1" stroke-dasharray="3"/>
+  <line x1="660" y1="205" x2="680" y2="205" stroke="#fff" stroke-width="1"/>
+
+  <!-- Result -->
+  <line x1="710" y1="205" x2="740" y2="205" stroke="#fff" stroke-width="1.5" marker-end="url(#posA)"/>
+  <rect x="745" y="185" width="120" height="40" fill="#0f3460" stroke="#00ff88" stroke-width="2" rx="4"/>
+  <text x="805" y="203" text-anchor="middle" fill="#00ff88" font-size="9" font-weight="bold">Input to</text>
+  <text x="805" y="218" text-anchor="middle" fill="#00ff88" font-size="9" font-weight="bold">Transformer</text>
+
+  <text x="745" y="270" text-anchor="middle" fill="#aaaaaa" font-size="9">input = token_embedding + positional_encoding</text>
+
+  <!-- Types comparison -->
+  <rect x="520" y="295" width="450" height="135" fill="#0f3460" stroke="#a29bfe" stroke-width="1.5" rx="8"/>
+  <text x="745" y="320" text-anchor="middle" fill="#a29bfe" font-size="12" font-weight="bold">Positional Encoding Types</text>
+
+  <text x="550" y="345" fill="#feca57" font-size="9" font-weight="bold">Sinusoidal (original Transformer):</text>
+  <text x="550" y="362" fill="#ffffff" font-size="8">Fixed, no parameters. Generalizes to any length. Used in original paper.</text>
+
+  <text x="550" y="385" fill="#00d2d3" font-size="9" font-weight="bold">Learned (BERT, GPT-2):</text>
+  <text x="550" y="402" fill="#ffffff" font-size="8">nn.Embedding(max_len, d_model). Trained with model. Limited to max_len.</text>
+
+  <text x="550" y="425" fill="#00ff88" font-size="9" font-weight="bold">RoPE (GPT-4, LLaMA):</text>
+  <text x="550" y="442" fill="#ffffff" font-size="8">Rotary PE. Encodes relative position in attention. Extrapolates well.</text>
+
+  <defs>
+    <marker id="posA" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto"><polygon points="0 0, 6 2.5, 0 5" fill="#ffffff"/></marker>
+  </defs>
+</svg>

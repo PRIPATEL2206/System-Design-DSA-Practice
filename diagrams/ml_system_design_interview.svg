@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 460" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1050" height="460" fill="#1a1a2e" rx="10"/>
+  <text x="525" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">ML System Design Interview — The 7-Step Framework</text>
+
+  <!-- Steps as connected flow -->
+  <rect x="30" y="55" width="990" height="190" fill="#16213e" stroke="#00ff88" stroke-width="2" rx="8"/>
+  <text x="525" y="78" text-anchor="middle" fill="#00ff88" font-size="11" font-weight="bold">Follow This Structure in Every System Design Interview (45-60 min)</text>
+
+  <!-- Step 1 -->
+  <rect x="50" y="92" width="125" height="65" fill="#0f3460" stroke="#54a0ff" stroke-width="2" rx="6"/>
+  <text x="112" y="110" text-anchor="middle" fill="#54a0ff" font-size="8" font-weight="bold">1. CLARIFY</text>
+  <text x="112" y="123" text-anchor="middle" fill="#ffffff" font-size="6">Scale? Latency?</text>
+  <text x="112" y="135" text-anchor="middle" fill="#ffffff" font-size="6">Data available?</text>
+  <text x="112" y="147" text-anchor="middle" fill="#ffffff" font-size="6">Success metric?</text>
+  <text x="112" y="157" text-anchor="middle" fill="#feca57" font-size="5">3 min</text>
+
+  <line x1="180" y1="124" x2="195" y2="124" stroke="#fff" stroke-width="1.5" marker-end="url(#sdArr2)"/>
+
+  <!-- Step 2 -->
+  <rect x="200" y="92" width="115" height="65" fill="#0f3460" stroke="#feca57" stroke-width="2" rx="6"/>
+  <text x="257" y="110" text-anchor="middle" fill="#feca57" font-size="8" font-weight="bold">2. METRICS</text>
+  <text x="257" y="123" text-anchor="middle" fill="#ffffff" font-size="6">Business metric</text>
+  <text x="257" y="135" text-anchor="middle" fill="#ffffff" font-size="6">ML metric</text>
+  <text x="257" y="147" text-anchor="middle" fill="#ffffff" font-size="6">System metric</text>
+  <text x="257" y="157" text-anchor="middle" fill="#feca57" font-size="5">2 min</text>
+
+  <line x1="320" y1="124" x2="335" y2="124" stroke="#fff" stroke-width="1.5" marker-end="url(#sdArr2)"/>
+
+  <!-- Step 3 -->
+  <rect x="340" y="92" width="115" height="65" fill="#0f3460" stroke="#00ff88" stroke-width="2" rx="6"/>
+  <text x="397" y="110" text-anchor="middle" fill="#00ff88" font-size="8" font-weight="bold">3. ARCH</text>
+  <text x="397" y="123" text-anchor="middle" fill="#ffffff" font-size="6">Box diagram</text>
+  <text x="397" y="135" text-anchor="middle" fill="#ffffff" font-size="6">Data flow</text>
+  <text x="397" y="147" text-anchor="middle" fill="#ffffff" font-size="6">Components</text>
+  <text x="397" y="157" text-anchor="middle" fill="#feca57" font-size="5">5 min</text>
+
+  <line x1="460" y1="124" x2="475" y2="124" stroke="#fff" stroke-width="1.5" marker-end="url(#sdArr2)"/>
+
+  <!-- Step 4 -->
+  <rect x="480" y="92" width="115" height="65" fill="#0f3460" stroke="#e94560" stroke-width="2" rx="6"/>
+  <text x="537" y="110" text-anchor="middle" fill="#e94560" font-size="8" font-weight="bold">4. DATA</text>
+  <text x="537" y="123" text-anchor="middle" fill="#ffffff" font-size="6">Sources, features</text>
+  <text x="537" y="135" text-anchor="middle" fill="#ffffff" font-size="6">Labels, storage</text>
+  <text x="537" y="147" text-anchor="middle" fill="#ffffff" font-size="6">Feature store</text>
+  <text x="537" y="157" text-anchor="middle" fill="#feca57" font-size="5">7 min</text>
+
+  <line x1="600" y1="124" x2="615" y2="124" stroke="#fff" stroke-width="1.5" marker-end="url(#sdArr2)"/>
+
+  <!-- Step 5 -->
+  <rect x="620" y="92" width="115" height="65" fill="#0f3460" stroke="#a29bfe" stroke-width="2" rx="6"/>
+  <text x="677" y="110" text-anchor="middle" fill="#a29bfe" font-size="8" font-weight="bold">5. MODEL</text>
+  <text x="677" y="123" text-anchor="middle" fill="#ffffff" font-size="6">Architecture</text>
+  <text x="677" y="135" text-anchor="middle" fill="#ffffff" font-size="6">Training pipeline</text>
+  <text x="677" y="147" text-anchor="middle" fill="#ffffff" font-size="6">Inference path</text>
+  <text x="677" y="157" text-anchor="middle" fill="#feca57" font-size="5">10 min</text>
+
+  <line x1="740" y1="124" x2="755" y2="124" stroke="#fff" stroke-width="1.5" marker-end="url(#sdArr2)"/>
+
+  <!-- Step 6 -->
+  <rect x="760" y="92" width="115" height="65" fill="#0f3460" stroke="#00d2d3" stroke-width="2" rx="6"/>
+  <text x="817" y="110" text-anchor="middle" fill="#00d2d3" font-size="8" font-weight="bold">6. SERVE</text>
+  <text x="817" y="123" text-anchor="middle" fill="#ffffff" font-size="6">API, caching</text>
+  <text x="817" y="135" text-anchor="middle" fill="#ffffff" font-size="6">Scaling, deploy</text>
+  <text x="817" y="147" text-anchor="middle" fill="#ffffff" font-size="6">Failure modes</text>
+  <text x="817" y="157" text-anchor="middle" fill="#feca57" font-size="5">8 min</text>
+
+  <line x1="880" y1="124" x2="895" y2="124" stroke="#fff" stroke-width="1.5" marker-end="url(#sdArr2)"/>
+
+  <!-- Step 7 -->
+  <rect x="900" y="92" width="100" height="65" fill="#0f3460" stroke="#ff6b6b" stroke-width="2" rx="6"/>
+  <text x="950" y="110" text-anchor="middle" fill="#ff6b6b" font-size="8" font-weight="bold">7. MONITOR</text>
+  <text x="950" y="123" text-anchor="middle" fill="#ffffff" font-size="6">Drift, quality</text>
+  <text x="950" y="135" text-anchor="middle" fill="#ffffff" font-size="6">A/B testing</text>
+  <text x="950" y="147" text-anchor="middle" fill="#ffffff" font-size="6">Feedback loop</text>
+  <text x="950" y="157" text-anchor="middle" fill="#feca57" font-size="5">5 min</text>
+
+  <!-- Key phrases to use -->
+  <rect x="50" y="170" width="920" height="60" fill="#0f3460" rx="4"/>
+  <text x="525" y="188" text-anchor="middle" fill="#feca57" font-size="9" font-weight="bold">Key Phrases That Impress Interviewers</text>
+  <text x="70" y="206" fill="#00ff88" font-size="7">"Let me clarify the requirements first..."</text>
+  <text x="320" y="206" fill="#00ff88" font-size="7">"The trade-off here is..."</text>
+  <text x="530" y="206" fill="#00ff88" font-size="7">"For monitoring, I'd track..."</text>
+  <text x="750" y="206" fill="#00ff88" font-size="7">"At this scale, we'd need..."</text>
+  <text x="70" y="222" fill="#00ff88" font-size="7">"Start simple with baseline, then..."</text>
+  <text x="320" y="222" fill="#00ff88" font-size="7">"The failure mode is..."</text>
+  <text x="530" y="222" fill="#00ff88" font-size="7">"We can A/B test this by..."</text>
+  <text x="750" y="222" fill="#00ff88" font-size="7">"In production, I'd also consider..."</text>
+
+  <!-- Example Design -->
+  <rect x="30" y="260" width="990" height="180" fill="#16213e" stroke="#e94560" stroke-width="2" rx="8"/>
+  <text x="525" y="283" text-anchor="middle" fill="#e94560" font-size="11" font-weight="bold">Example: "Design a News Feed Recommendation System"</text>
+
+  <rect x="50" y="298" width="150" height="128" fill="#0f3460" stroke="#54a0ff" stroke-width="1" rx="4"/>
+  <text x="125" y="313" text-anchor="middle" fill="#54a0ff" font-size="7" font-weight="bold">Clarify + Metrics</text>
+  <text x="60" y="328" fill="#ffffff" font-size="6">500M users, 10K items/day</text>
+  <text x="60" y="341" fill="#ffffff" font-size="6">Latency: &lt;200ms</text>
+  <text x="60" y="354" fill="#ffffff" font-size="6">Metric: time spent (eng)</text>
+  <text x="60" y="367" fill="#ffffff" font-size="6">ML: NDCG@20, diversity</text>
+  <text x="60" y="380" fill="#ffffff" font-size="6">System: p99 latency, QPS</text>
+
+  <rect x="215" y="298" width="170" height="128" fill="#0f3460" stroke="#feca57" stroke-width="1" rx="4"/>
+  <text x="300" y="313" text-anchor="middle" fill="#feca57" font-size="7" font-weight="bold">Data + Features</text>
+  <text x="225" y="328" fill="#ffffff" font-size="6">User: history, demographics</text>
+  <text x="225" y="341" fill="#ffffff" font-size="6">Item: content, popularity, age</text>
+  <text x="225" y="354" fill="#ffffff" font-size="6">Context: time, device, location</text>
+  <text x="225" y="367" fill="#ffffff" font-size="6">Cross: user-category affinity</text>
+  <text x="225" y="380" fill="#ffffff" font-size="6">Real-time: clicks in last hour</text>
+  <text x="225" y="393" fill="#ffffff" font-size="6">Feature store: Redis + batch</text>
+
+  <rect x="400" y="298" width="190" height="128" fill="#0f3460" stroke="#00ff88" stroke-width="1" rx="4"/>
+  <text x="495" y="313" text-anchor="middle" fill="#00ff88" font-size="7" font-weight="bold">Model (Two-Stage)</text>
+  <text x="410" y="328" fill="#ffffff" font-size="6">Stage 1: Candidate gen (two-tower)</text>
+  <text x="410" y="341" fill="#ffffff" font-size="6">  User emb → ANN → 1000 candidates</text>
+  <text x="410" y="354" fill="#ffffff" font-size="6">  Pre-computed hourly</text>
+  <text x="410" y="370" fill="#ffffff" font-size="6">Stage 2: Ranking (neural)</text>
+  <text x="410" y="383" fill="#ffffff" font-size="6">  1000 → top 20 in real-time</text>
+  <text x="410" y="396" fill="#ffffff" font-size="6">  Wide&amp;Deep or LambdaMART</text>
+  <text x="410" y="412" fill="#ffffff" font-size="6">Post: diversity, freshness, rules</text>
+
+  <rect x="605" y="298" width="170" height="128" fill="#0f3460" stroke="#a29bfe" stroke-width="1" rx="4"/>
+  <text x="690" y="313" text-anchor="middle" fill="#a29bfe" font-size="7" font-weight="bold">Serve + Scale</text>
+  <text x="615" y="328" fill="#ffffff" font-size="6">Pre-compute candidates (batch)</text>
+  <text x="615" y="341" fill="#ffffff" font-size="6">Real-time ranking API (FastAPI)</text>
+  <text x="615" y="354" fill="#ffffff" font-size="6">Cache top results (Redis, 30s TTL)</text>
+  <text x="615" y="367" fill="#ffffff" font-size="6">Shard by user_id hash</text>
+  <text x="615" y="380" fill="#ffffff" font-size="6">Canary deploy new models</text>
+  <text x="615" y="393" fill="#ffffff" font-size="6">Fallback: popular items</text>
+
+  <rect x="790" y="298" width="210" height="128" fill="#0f3460" stroke="#ff6b6b" stroke-width="1" rx="4"/>
+  <text x="895" y="313" text-anchor="middle" fill="#ff6b6b" font-size="7" font-weight="bold">Monitor + Iterate</text>
+  <text x="800" y="328" fill="#ffffff" font-size="6">Online metrics: CTR, time spent, sessions</text>
+  <text x="800" y="341" fill="#ffffff" font-size="6">A/B test: 5% → 25% → 100%</text>
+  <text x="800" y="354" fill="#ffffff" font-size="6">Drift: feature distributions daily</text>
+  <text x="800" y="367" fill="#ffffff" font-size="6">Feedback loop: clicks → retrain</text>
+  <text x="800" y="380" fill="#ffffff" font-size="6">Cold start: onboarding + popularity</text>
+  <text x="800" y="393" fill="#ffffff" font-size="6">Bias check: diversity across users</text>
+  <text x="800" y="410" fill="#feca57" font-size="6">Key trade-off: engagement vs diversity</text>
+
+  <defs>
+    <marker id="sdArr2" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto">
+      <polygon points="0 0, 6 2.5, 0 5" fill="#ffffff"/>
+    </marker>
+  </defs>
+</svg>

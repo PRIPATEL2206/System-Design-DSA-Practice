@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1000" height="480" fill="#1a1a2e" rx="10"/>
+  <text x="500" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">Vector Database Architecture — Store, Index, Query</text>
+
+  <!-- Pipeline -->
+  <rect x="30" y="55" width="940" height="100" fill="#16213e" stroke="#54a0ff" stroke-width="2" rx="8"/>
+  <text x="500" y="78" text-anchor="middle" fill="#54a0ff" font-size="12" font-weight="bold">Vector Database Pipeline</text>
+
+  <!-- Ingest -->
+  <rect x="50" y="92" width="120" height="45" fill="#0f3460" stroke="#00ff88" stroke-width="1.5" rx="4"/>
+  <text x="110" y="112" text-anchor="middle" fill="#00ff88" font-size="8" font-weight="bold">Documents</text>
+  <text x="110" y="127" text-anchor="middle" fill="#aaaaaa" font-size="7">text, images, code</text>
+
+  <line x1="170" y1="114" x2="200" y2="114" stroke="#fff" stroke-width="1.5" marker-end="url(#vdbA)"/>
+
+  <rect x="200" y="92" width="120" height="45" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="4"/>
+  <text x="260" y="112" text-anchor="middle" fill="#feca57" font-size="8" font-weight="bold">Embed</text>
+  <text x="260" y="127" text-anchor="middle" fill="#aaaaaa" font-size="7">→ vectors [1536d]</text>
+
+  <line x1="320" y1="114" x2="350" y2="114" stroke="#fff" stroke-width="1.5" marker-end="url(#vdbA)"/>
+
+  <rect x="350" y="92" width="120" height="45" fill="#0f3460" stroke="#e94560" stroke-width="1.5" rx="4"/>
+  <text x="410" y="112" text-anchor="middle" fill="#e94560" font-size="8" font-weight="bold">Index</text>
+  <text x="410" y="127" text-anchor="middle" fill="#aaaaaa" font-size="7">HNSW / IVF-PQ</text>
+
+  <line x1="470" y1="114" x2="500" y2="114" stroke="#fff" stroke-width="1.5" marker-end="url(#vdbA)"/>
+
+  <rect x="500" y="92" width="120" height="45" fill="#0f3460" stroke="#00d2d3" stroke-width="1.5" rx="4"/>
+  <text x="560" y="112" text-anchor="middle" fill="#00d2d3" font-size="8" font-weight="bold">Store</text>
+  <text x="560" y="127" text-anchor="middle" fill="#aaaaaa" font-size="7">vectors + metadata</text>
+
+  <line x1="620" y1="114" x2="650" y2="114" stroke="#fff" stroke-width="1.5" marker-end="url(#vdbA)"/>
+
+  <rect x="650" y="92" width="120" height="45" fill="#0f3460" stroke="#a29bfe" stroke-width="1.5" rx="4"/>
+  <text x="710" y="112" text-anchor="middle" fill="#a29bfe" font-size="8" font-weight="bold">Query</text>
+  <text x="710" y="127" text-anchor="middle" fill="#aaaaaa" font-size="7">embed → search → rank</text>
+
+  <line x1="770" y1="114" x2="800" y2="114" stroke="#fff" stroke-width="1.5" marker-end="url(#vdbA)"/>
+
+  <rect x="800" y="92" width="150" height="45" fill="#0f3460" stroke="#00ff88" stroke-width="2" rx="4"/>
+  <text x="875" y="112" text-anchor="middle" fill="#00ff88" font-size="8" font-weight="bold">Top-K Results</text>
+  <text x="875" y="127" text-anchor="middle" fill="#aaaaaa" font-size="7">+ metadata + scores</text>
+
+  <!-- Comparison table -->
+  <rect x="30" y="170" width="940" height="290" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="8"/>
+  <text x="500" y="195" text-anchor="middle" fill="#feca57" font-size="13" font-weight="bold">Vector Database Comparison</text>
+
+  <!-- Headers -->
+  <text x="50" y="220" fill="#54a0ff" font-size="9" font-weight="bold">Database</text>
+  <text x="180" y="220" fill="#54a0ff" font-size="9" font-weight="bold">Type</text>
+  <text x="310" y="220" fill="#54a0ff" font-size="9" font-weight="bold">Best For</text>
+  <text x="530" y="220" fill="#54a0ff" font-size="9" font-weight="bold">Max Scale</text>
+  <text x="660" y="220" fill="#54a0ff" font-size="9" font-weight="bold">Key Feature</text>
+  <text x="850" y="220" fill="#54a0ff" font-size="9" font-weight="bold">Pricing</text>
+
+  <line x1="50" y1="228" x2="950" y2="228" stroke="#333" stroke-width="1"/>
+
+  <!-- FAISS -->
+  <rect x="45" y="235" width="75" height="22" fill="#e94560" opacity="0.3" rx="3"/>
+  <text x="82" y="250" text-anchor="middle" fill="#e94560" font-size="8" font-weight="bold">FAISS</text>
+  <text x="180" y="250" fill="#ffffff" font-size="7">Library (local)</text>
+  <text x="310" y="250" fill="#ffffff" font-size="7">Research, prototyping, on-prem</text>
+  <text x="530" y="250" fill="#ffffff" font-size="7">Billions</text>
+  <text x="660" y="250" fill="#ffffff" font-size="7">GPU-accelerated, most algorithms</text>
+  <text x="850" y="250" fill="#00ff88" font-size="7">Free (Meta OSS)</text>
+
+  <!-- Pinecone -->
+  <rect x="45" y="265" width="75" height="22" fill="#feca57" opacity="0.3" rx="3"/>
+  <text x="82" y="280" text-anchor="middle" fill="#feca57" font-size="8" font-weight="bold">Pinecone</text>
+  <text x="180" y="280" fill="#ffffff" font-size="7">Managed cloud</text>
+  <text x="310" y="280" fill="#ffffff" font-size="7">Production SaaS, enterprise</text>
+  <text x="530" y="280" fill="#ffffff" font-size="7">Billions</text>
+  <text x="660" y="280" fill="#ffffff" font-size="7">Serverless, hybrid search</text>
+  <text x="850" y="280" fill="#ffffff" font-size="7">Pay-per-use</text>
+
+  <!-- ChromaDB -->
+  <rect x="45" y="295" width="75" height="22" fill="#00ff88" opacity="0.3" rx="3"/>
+  <text x="82" y="310" text-anchor="middle" fill="#00ff88" font-size="8" font-weight="bold">Chroma</text>
+  <text x="180" y="310" fill="#ffffff" font-size="7">Embedded/Cloud</text>
+  <text x="310" y="310" fill="#ffffff" font-size="7">Prototyping, small-medium apps</text>
+  <text x="530" y="310" fill="#ffffff" font-size="7">Millions</text>
+  <text x="660" y="310" fill="#ffffff" font-size="7">Simple API, Python-native</text>
+  <text x="850" y="310" fill="#00ff88" font-size="7">Free (OSS)</text>
+
+  <!-- Weaviate -->
+  <rect x="45" y="325" width="75" height="22" fill="#00d2d3" opacity="0.3" rx="3"/>
+  <text x="82" y="340" text-anchor="middle" fill="#00d2d3" font-size="8" font-weight="bold">Weaviate</text>
+  <text x="180" y="340" fill="#ffffff" font-size="7">Self-host/Cloud</text>
+  <text x="310" y="340" fill="#ffffff" font-size="7">Multi-modal, GraphQL fans</text>
+  <text x="530" y="340" fill="#ffffff" font-size="7">Billions</text>
+  <text x="660" y="340" fill="#ffffff" font-size="7">Built-in vectorizer, multi-modal</text>
+  <text x="850" y="340" fill="#ffffff" font-size="7">OSS + Cloud</text>
+
+  <!-- Qdrant -->
+  <rect x="45" y="355" width="75" height="22" fill="#a29bfe" opacity="0.3" rx="3"/>
+  <text x="82" y="370" text-anchor="middle" fill="#a29bfe" font-size="8" font-weight="bold">Qdrant</text>
+  <text x="180" y="370" fill="#ffffff" font-size="7">Self-host/Cloud</text>
+  <text x="310" y="370" fill="#ffffff" font-size="7">Performance-critical, filtering</text>
+  <text x="530" y="370" fill="#ffffff" font-size="7">Billions</text>
+  <text x="660" y="370" fill="#ffffff" font-size="7">Rust-based, advanced filtering</text>
+  <text x="850" y="370" fill="#ffffff" font-size="7">OSS + Cloud</text>
+
+  <!-- Milvus -->
+  <rect x="45" y="385" width="75" height="22" fill="#54a0ff" opacity="0.3" rx="3"/>
+  <text x="82" y="400" text-anchor="middle" fill="#54a0ff" font-size="8" font-weight="bold">Milvus</text>
+  <text x="180" y="400" fill="#ffffff" font-size="7">Self-host/Cloud</text>
+  <text x="310" y="400" fill="#ffffff" font-size="7">Massive scale, enterprise</text>
+  <text x="530" y="400" fill="#ffffff" font-size="7">Trillions</text>
+  <text x="660" y="400" fill="#ffffff" font-size="7">Distributed, GPU support</text>
+  <text x="850" y="400" fill="#ffffff" font-size="7">OSS (Zilliz Cloud)</text>
+
+  <!-- pgvector -->
+  <rect x="45" y="415" width="75" height="22" fill="#ffffff" opacity="0.2" rx="3"/>
+  <text x="82" y="430" text-anchor="middle" fill="#ffffff" font-size="8" font-weight="bold">pgvector</text>
+  <text x="180" y="430" fill="#ffffff" font-size="7">PG extension</text>
+  <text x="310" y="430" fill="#ffffff" font-size="7">Already using Postgres, simple needs</text>
+  <text x="530" y="430" fill="#ffffff" font-size="7">Millions</text>
+  <text x="660" y="430" fill="#ffffff" font-size="7">SQL + vectors in one DB</text>
+  <text x="850" y="430" fill="#00ff88" font-size="7">Free (extension)</text>
+
+  <!-- Bottom recommendation -->
+  <text x="500" y="465" text-anchor="middle" fill="#feca57" font-size="9" font-weight="bold">Quick pick: FAISS for prototyping → Chroma/pgvector for small production → Pinecone/Qdrant for scale</text>
+
+  <defs>
+    <marker id="vdbA" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto"><polygon points="0 0, 6 2.5, 0 5" fill="#ffffff"/></marker>
+  </defs>
+</svg>

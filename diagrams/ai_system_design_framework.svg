@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 480" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1050" height="480" fill="#1a1a2e" rx="10"/>
+  <text x="525" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">AI System Design — 7-Step Interview Framework</text>
+
+  <!-- Step boxes in a flow -->
+  <rect x="30" y="60" width="135" height="75" fill="#0f3460" stroke="#54a0ff" stroke-width="2" rx="8"/>
+  <text x="97" y="82" text-anchor="middle" fill="#54a0ff" font-size="9" font-weight="bold">1. CLARIFY</text>
+  <text x="97" y="97" text-anchor="middle" fill="#ffffff" font-size="7">Requirements</text>
+  <text x="97" y="110" text-anchor="middle" fill="#aaaaaa" font-size="6">Functional + Scale</text>
+  <text x="97" y="122" text-anchor="middle" fill="#aaaaaa" font-size="6">Latency + Constraints</text>
+  <text x="97" y="132" text-anchor="middle" fill="#feca57" font-size="6">3-5 min</text>
+
+  <line x1="170" y1="97" x2="185" y2="97" stroke="#fff" stroke-width="1.5" marker-end="url(#sdArr)"/>
+
+  <rect x="190" y="60" width="135" height="75" fill="#0f3460" stroke="#feca57" stroke-width="2" rx="8"/>
+  <text x="257" y="82" text-anchor="middle" fill="#feca57" font-size="9" font-weight="bold">2. METRICS</text>
+  <text x="257" y="97" text-anchor="middle" fill="#ffffff" font-size="7">Define Success</text>
+  <text x="257" y="110" text-anchor="middle" fill="#aaaaaa" font-size="6">Business + ML +</text>
+  <text x="257" y="122" text-anchor="middle" fill="#aaaaaa" font-size="6">System metrics</text>
+  <text x="257" y="132" text-anchor="middle" fill="#feca57" font-size="6">2-3 min</text>
+
+  <line x1="330" y1="97" x2="345" y2="97" stroke="#fff" stroke-width="1.5" marker-end="url(#sdArr)"/>
+
+  <rect x="350" y="60" width="135" height="75" fill="#0f3460" stroke="#00ff88" stroke-width="2" rx="8"/>
+  <text x="417" y="82" text-anchor="middle" fill="#00ff88" font-size="9" font-weight="bold">3. ARCHITECTURE</text>
+  <text x="417" y="97" text-anchor="middle" fill="#ffffff" font-size="7">High-Level Design</text>
+  <text x="417" y="110" text-anchor="middle" fill="#aaaaaa" font-size="6">Components + Flow</text>
+  <text x="417" y="122" text-anchor="middle" fill="#aaaaaa" font-size="6">Major services</text>
+  <text x="417" y="132" text-anchor="middle" fill="#feca57" font-size="6">5-7 min</text>
+
+  <line x1="490" y1="97" x2="505" y2="97" stroke="#fff" stroke-width="1.5" marker-end="url(#sdArr)"/>
+
+  <rect x="510" y="60" width="135" height="75" fill="#0f3460" stroke="#e94560" stroke-width="2" rx="8"/>
+  <text x="577" y="82" text-anchor="middle" fill="#e94560" font-size="9" font-weight="bold">4. DATA</text>
+  <text x="577" y="97" text-anchor="middle" fill="#ffffff" font-size="7">Pipeline Design</text>
+  <text x="577" y="110" text-anchor="middle" fill="#aaaaaa" font-size="6">Collection, features</text>
+  <text x="577" y="122" text-anchor="middle" fill="#aaaaaa" font-size="6">Storage, labeling</text>
+  <text x="577" y="132" text-anchor="middle" fill="#feca57" font-size="6">5-7 min</text>
+
+  <line x1="650" y1="97" x2="665" y2="97" stroke="#fff" stroke-width="1.5" marker-end="url(#sdArr)"/>
+
+  <rect x="670" y="60" width="135" height="75" fill="#0f3460" stroke="#a29bfe" stroke-width="2" rx="8"/>
+  <text x="737" y="82" text-anchor="middle" fill="#a29bfe" font-size="9" font-weight="bold">5. ML MODEL</text>
+  <text x="737" y="97" text-anchor="middle" fill="#ffffff" font-size="7">Model Design</text>
+  <text x="737" y="110" text-anchor="middle" fill="#aaaaaa" font-size="6">Architecture, train</text>
+  <text x="737" y="122" text-anchor="middle" fill="#aaaaaa" font-size="6">Inference strategy</text>
+  <text x="737" y="132" text-anchor="middle" fill="#feca57" font-size="6">8-10 min</text>
+
+  <line x1="810" y1="97" x2="825" y2="97" stroke="#fff" stroke-width="1.5" marker-end="url(#sdArr)"/>
+
+  <rect x="830" y="60" width="95" height="75" fill="#0f3460" stroke="#00d2d3" stroke-width="2" rx="8"/>
+  <text x="877" y="82" text-anchor="middle" fill="#00d2d3" font-size="8" font-weight="bold">6. SERVE</text>
+  <text x="877" y="97" text-anchor="middle" fill="#ffffff" font-size="7">Deploy</text>
+  <text x="877" y="110" text-anchor="middle" fill="#aaaaaa" font-size="6">Scale, cache</text>
+  <text x="877" y="132" text-anchor="middle" fill="#feca57" font-size="6">8-10 min</text>
+
+  <line x1="930" y1="97" x2="942" y2="97" stroke="#fff" stroke-width="1.5" marker-end="url(#sdArr)"/>
+
+  <rect x="947" y="60" width="75" height="75" fill="#0f3460" stroke="#ff6b6b" stroke-width="2" rx="8"/>
+  <text x="984" y="82" text-anchor="middle" fill="#ff6b6b" font-size="8" font-weight="bold">7. MON</text>
+  <text x="984" y="97" text-anchor="middle" fill="#ffffff" font-size="7">Monitor</text>
+  <text x="984" y="110" text-anchor="middle" fill="#aaaaaa" font-size="6">Drift, A/B</text>
+  <text x="984" y="132" text-anchor="middle" fill="#feca57" font-size="6">3-5 min</text>
+
+  <!-- Common System Design Questions -->
+  <rect x="30" y="155" width="990" height="310" fill="#16213e" stroke="#feca57" stroke-width="2" rx="8"/>
+  <text x="525" y="178" text-anchor="middle" fill="#feca57" font-size="12" font-weight="bold">Common AI System Design Interview Questions</text>
+
+  <!-- Question cards -->
+  <rect x="50" y="195" width="290" height="80" fill="#0f3460" stroke="#54a0ff" stroke-width="1.5" rx="6"/>
+  <text x="195" y="215" text-anchor="middle" fill="#54a0ff" font-size="9" font-weight="bold">Design: AI Chatbot (10M users)</text>
+  <text x="65" y="233" fill="#ffffff" font-size="7">Key: LLM selection, RAG, memory, streaming</text>
+  <text x="65" y="248" fill="#ffffff" font-size="7">Scale: 1-2K QPS, <1s first token</text>
+  <text x="65" y="263" fill="#ffffff" font-size="7">Challenge: cost optimization, guardrails</text>
+
+  <rect x="360" y="195" width="290" height="80" fill="#0f3460" stroke="#00ff88" stroke-width="1.5" rx="6"/>
+  <text x="505" y="215" text-anchor="middle" fill="#00ff88" font-size="9" font-weight="bold">Design: Recommendation System</text>
+  <text x="375" y="233" fill="#ffffff" font-size="7">Key: two-stage (candidate gen + ranking)</text>
+  <text x="375" y="248" fill="#ffffff" font-size="7">Scale: 200M users, 50K items, <200ms</text>
+  <text x="375" y="263" fill="#ffffff" font-size="7">Challenge: cold start, diversity, freshness</text>
+
+  <rect x="670" y="195" width="290" height="80" fill="#0f3460" stroke="#e94560" stroke-width="1.5" rx="6"/>
+  <text x="815" y="215" text-anchor="middle" fill="#e94560" font-size="9" font-weight="bold">Design: Fraud Detection (Real-Time)</text>
+  <text x="685" y="233" fill="#ffffff" font-size="7">Key: streaming + ensemble + decision engine</text>
+  <text x="685" y="248" fill="#ffffff" font-size="7">Scale: 10K TPS, <100ms decision</text>
+  <text x="685" y="263" fill="#ffffff" font-size="7">Challenge: class imbalance, adaptation</text>
+
+  <rect x="50" y="290" width="290" height="80" fill="#0f3460" stroke="#a29bfe" stroke-width="1.5" rx="6"/>
+  <text x="195" y="310" text-anchor="middle" fill="#a29bfe" font-size="9" font-weight="bold">Design: Semantic Search Engine</text>
+  <text x="65" y="328" fill="#ffffff" font-size="7">Key: hybrid retrieval + re-ranking + personalization</text>
+  <text x="65" y="343" fill="#ffffff" font-size="7">Scale: 50M docs, 10K QPS, <200ms</text>
+  <text x="65" y="358" fill="#ffffff" font-size="7">Challenge: relevance vs latency trade-off</text>
+
+  <rect x="360" y="290" width="290" height="80" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="6"/>
+  <text x="505" y="310" text-anchor="middle" fill="#feca57" font-size="9" font-weight="bold">Design: Content Moderation</text>
+  <text x="375" y="328" fill="#ffffff" font-size="7">Key: multi-modal (text+image), cascading models</text>
+  <text x="375" y="343" fill="#ffffff" font-size="7">Scale: 1M posts/hour, <500ms</text>
+  <text x="375" y="358" fill="#ffffff" font-size="7">Challenge: false positives, adversarial content</text>
+
+  <rect x="670" y="290" width="290" height="80" fill="#0f3460" stroke="#00d2d3" stroke-width="1.5" rx="6"/>
+  <text x="815" y="310" text-anchor="middle" fill="#00d2d3" font-size="9" font-weight="bold">Design: Document Processing (OCR+AI)</text>
+  <text x="685" y="328" fill="#ffffff" font-size="7">Key: OCR → classify → extract → validate</text>
+  <text x="685" y="343" fill="#ffffff" font-size="7">Scale: 100K docs/day, 95%+ accuracy</text>
+  <text x="685" y="358" fill="#ffffff" font-size="7">Challenge: varied formats, confidence routing</text>
+
+  <!-- Key principles -->
+  <rect x="50" y="385" width="910" height="65" fill="#0f3460" stroke="#00ff88" stroke-width="1" rx="6"/>
+  <text x="505" y="405" text-anchor="middle" fill="#00ff88" font-size="10" font-weight="bold">Key Principles for AI System Design Interviews</text>
+  <text x="70" y="423" fill="#ffffff" font-size="8">• Always discuss TRADE-OFFS (accuracy vs latency, cost vs quality, freshness vs compute)</text>
+  <text x="70" y="438" fill="#ffffff" font-size="8">• Mention FAILURE MODES and mitigations (what if LLM is down? what if model drifts?)</text>
+  <text x="550" y="423" fill="#ffffff" font-size="8">• Quantify with NUMBERS (QPS, latency budget, cost/query)</text>
+  <text x="550" y="438" fill="#ffffff" font-size="8">• Show ITERATION path (MVP → scale → optimize)</text>
+
+  <defs>
+    <marker id="sdArr" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto">
+      <polygon points="0 0, 6 2.5, 0 5" fill="#ffffff"/>
+    </marker>
+  </defs>
+</svg>

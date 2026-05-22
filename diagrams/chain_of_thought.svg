@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1000" height="480" fill="#1a1a2e" rx="10"/>
+  <text x="500" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">Chain-of-Thought Prompting — Teaching LLMs to Reason</text>
+
+  <!-- Without CoT -->
+  <rect x="30" y="55" width="450" height="190" fill="#16213e" stroke="#e94560" stroke-width="2" rx="8"/>
+  <text x="255" y="80" text-anchor="middle" fill="#e94560" font-size="12" font-weight="bold">❌ Without Chain-of-Thought</text>
+
+  <rect x="50" y="95" width="410" height="55" fill="#0f3460" stroke="#ffffff" stroke-width="1" rx="4"/>
+  <text x="60" y="112" fill="#ffffff" font-size="8">Q: Roger has 5 tennis balls. He buys 2 cans of 3 balls each.</text>
+  <text x="60" y="127" fill="#ffffff" font-size="8">How many tennis balls does he have now?</text>
+  <text x="60" y="142" fill="#ffffff" font-size="8">A:</text>
+
+  <rect x="50" y="160" width="410" height="30" fill="#0f3460" stroke="#e94560" stroke-width="1.5" rx="4"/>
+  <text x="60" y="180" fill="#e94560" font-size="9">Model output: "The answer is 9." ✗ (Wrong! Should be 11)</text>
+
+  <text x="50" y="210" fill="#aaaaaa" font-size="8">The model jumps to an answer without showing work.</text>
+  <text x="50" y="226" fill="#aaaaaa" font-size="8">No way to diagnose WHERE the reasoning failed.</text>
+  <text x="50" y="242" fill="#aaaaaa" font-size="8">Accuracy on GSM8K (math): ~20% for small models</text>
+
+  <!-- With CoT -->
+  <rect x="510" y="55" width="460" height="190" fill="#16213e" stroke="#00ff88" stroke-width="2" rx="8"/>
+  <text x="740" y="80" text-anchor="middle" fill="#00ff88" font-size="12" font-weight="bold">✓ With Chain-of-Thought</text>
+
+  <rect x="530" y="95" width="420" height="55" fill="#0f3460" stroke="#ffffff" stroke-width="1" rx="4"/>
+  <text x="540" y="112" fill="#ffffff" font-size="8">Q: Roger has 5 tennis balls. He buys 2 cans of 3 balls each.</text>
+  <text x="540" y="127" fill="#ffffff" font-size="8">How many tennis balls does he have now?</text>
+  <text x="540" y="142" fill="#feca57" font-size="8">A: Let's think step by step.</text>
+
+  <rect x="530" y="160" width="420" height="60" fill="#0f3460" stroke="#00ff88" stroke-width="1.5" rx="4"/>
+  <text x="540" y="177" fill="#00ff88" font-size="8">Roger starts with 5 balls.</text>
+  <text x="540" y="192" fill="#00ff88" font-size="8">2 cans × 3 balls = 6 new balls.</text>
+  <text x="540" y="207" fill="#00ff88" font-size="8">5 + 6 = 11. The answer is 11. ✓</text>
+
+  <text x="530" y="233" fill="#aaaaaa" font-size="8">Each step is verifiable. Errors are pinpointed.</text>
+  <text x="530" y="249" fill="#aaaaaa" font-size="8">Accuracy on GSM8K: 50-80%+ (dramatic improvement)</text>
+
+  <!-- CoT Variants -->
+  <rect x="30" y="260" width="940" height="205" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="8"/>
+  <text x="500" y="285" text-anchor="middle" fill="#feca57" font-size="13" font-weight="bold">Chain-of-Thought Variants</text>
+
+  <!-- Zero-shot CoT -->
+  <rect x="50" y="300" width="195" height="90" fill="#16213e" stroke="#54a0ff" stroke-width="1.5" rx="6"/>
+  <text x="147" y="320" text-anchor="middle" fill="#54a0ff" font-size="9" font-weight="bold">Zero-Shot CoT</text>
+  <text x="147" y="340" text-anchor="middle" fill="#ffffff" font-size="7">"Let's think step by step"</text>
+  <text x="147" y="358" text-anchor="middle" fill="#aaaaaa" font-size="7">Just add this magic phrase!</text>
+  <text x="147" y="376" text-anchor="middle" fill="#aaaaaa" font-size="7">+15-30% accuracy on reasoning</text>
+
+  <!-- Few-shot CoT -->
+  <rect x="265" y="300" width="195" height="90" fill="#16213e" stroke="#00ff88" stroke-width="1.5" rx="6"/>
+  <text x="362" y="320" text-anchor="middle" fill="#00ff88" font-size="9" font-weight="bold">Few-Shot CoT</text>
+  <text x="362" y="340" text-anchor="middle" fill="#ffffff" font-size="7">Provide worked examples</text>
+  <text x="362" y="358" text-anchor="middle" fill="#ffffff" font-size="7">with step-by-step solutions</text>
+  <text x="362" y="376" text-anchor="middle" fill="#aaaaaa" font-size="7">Highest quality reasoning</text>
+
+  <!-- Self-consistency -->
+  <rect x="480" y="300" width="195" height="90" fill="#16213e" stroke="#e94560" stroke-width="1.5" rx="6"/>
+  <text x="577" y="320" text-anchor="middle" fill="#e94560" font-size="9" font-weight="bold">Self-Consistency</text>
+  <text x="577" y="340" text-anchor="middle" fill="#ffffff" font-size="7">Sample N CoT paths</text>
+  <text x="577" y="358" text-anchor="middle" fill="#ffffff" font-size="7">Majority vote on final answer</text>
+  <text x="577" y="376" text-anchor="middle" fill="#aaaaaa" font-size="7">+10-20% over single CoT</text>
+
+  <!-- Least-to-most -->
+  <rect x="695" y="300" width="255" height="90" fill="#16213e" stroke="#a29bfe" stroke-width="1.5" rx="6"/>
+  <text x="822" y="320" text-anchor="middle" fill="#a29bfe" font-size="9" font-weight="bold">Least-to-Most Decomposition</text>
+  <text x="822" y="340" text-anchor="middle" fill="#ffffff" font-size="7">Break complex problem into subproblems</text>
+  <text x="822" y="358" text-anchor="middle" fill="#ffffff" font-size="7">Solve each sequentially, build up</text>
+  <text x="822" y="376" text-anchor="middle" fill="#aaaaaa" font-size="7">Best for multi-step compositional tasks</text>
+
+  <!-- When to use -->
+  <text x="50" y="420" fill="#00ff88" font-size="9" font-weight="bold">When CoT helps most:</text>
+  <text x="50" y="438" fill="#ffffff" font-size="8">• Math and arithmetic • Multi-step logic • Code debugging • Planning • Any task where humans would "show work"</text>
+
+  <text x="50" y="462" fill="#e94560" font-size="9" font-weight="bold">When CoT doesn't help:</text>
+  <text x="50" y="478" fill="#ffffff" font-size="8">• Simple retrieval ("What year...?") • Classification with clear categories • Translation • Tasks that don't require reasoning</text>
+</svg>

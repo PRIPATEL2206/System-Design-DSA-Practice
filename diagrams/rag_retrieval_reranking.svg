@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 520" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1050" height="520" fill="#1a1a2e" rx="10"/>
+  <text x="525" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">RAG Retrieval &amp; Re-Ranking Pipeline</text>
+
+  <!-- Stage 1: Query Processing -->
+  <rect x="30" y="55" width="180" height="110" fill="#16213e" stroke="#54a0ff" stroke-width="2" rx="8"/>
+  <text x="120" y="78" text-anchor="middle" fill="#54a0ff" font-size="11" font-weight="bold">Query Processing</text>
+  <rect x="45" y="88" width="150" height="25" fill="#0f3460" stroke="#54a0ff" stroke-width="1" rx="3"/>
+  <text x="120" y="105" text-anchor="middle" fill="#ffffff" font-size="8">"How does HNSW work?"</text>
+  <text x="120" y="130" text-anchor="middle" fill="#aaaaaa" font-size="7">Embed with same model</text>
+  <text x="120" y="143" text-anchor="middle" fill="#aaaaaa" font-size="7">as indexing pipeline</text>
+  <text x="120" y="158" text-anchor="middle" fill="#feca57" font-size="7">→ [0.02, -0.04, ...] 384d</text>
+
+  <!-- Arrow -->
+  <line x1="215" y1="110" x2="245" y2="110" stroke="#fff" stroke-width="1.5" marker-end="url(#rrArr)"/>
+
+  <!-- Stage 2: Retrieval (Bi-Encoder) -->
+  <rect x="250" y="55" width="240" height="110" fill="#16213e" stroke="#00ff88" stroke-width="2" rx="8"/>
+  <text x="370" y="78" text-anchor="middle" fill="#00ff88" font-size="11" font-weight="bold">Stage 1: Bi-Encoder Retrieval</text>
+  <text x="370" y="97" text-anchor="middle" fill="#aaaaaa" font-size="8">Vector Search (ANN) — fast, approximate</text>
+
+  <!-- Retrieved candidates -->
+  <rect x="265" y="107" width="210" height="48" fill="#0f3460" rx="3"/>
+  <text x="275" y="121" fill="#ffffff" font-size="7">1. [0.89] "HNSW builds a multi-layer graph..."</text>
+  <text x="275" y="133" fill="#ffffff" font-size="7">2. [0.84] "Navigable small world networks..."</text>
+  <text x="275" y="145" fill="#ffffff" font-size="7">3. [0.79] "Approximate search algorithms..."</text>
+  <text x="340" y="157" fill="#feca57" font-size="7">... top-20 candidates</text>
+
+  <!-- Arrow -->
+  <line x1="495" y1="110" x2="525" y2="110" stroke="#fff" stroke-width="1.5" marker-end="url(#rrArr)"/>
+
+  <!-- Stage 3: Re-Ranking (Cross-Encoder) -->
+  <rect x="530" y="55" width="260" height="110" fill="#16213e" stroke="#e94560" stroke-width="2" rx="8"/>
+  <text x="660" y="78" text-anchor="middle" fill="#e94560" font-size="11" font-weight="bold">Stage 2: Cross-Encoder Re-Ranking</text>
+  <text x="660" y="97" text-anchor="middle" fill="#aaaaaa" font-size="8">Joint attention (query + doc) — slow, precise</text>
+
+  <rect x="545" y="107" width="230" height="48" fill="#0f3460" rx="3"/>
+  <text x="555" y="121" fill="#00ff88" font-size="7">1. [0.97] "HNSW builds a multi-layer graph..."  ↑</text>
+  <text x="555" y="133" fill="#00ff88" font-size="7">2. [0.91] "Approximate search algorithms..."  ↑</text>
+  <text x="555" y="145" fill="#feca57" font-size="7">3. [0.82] "Navigable small world networks..."  ↓</text>
+  <text x="660" y="157" text-anchor="middle" fill="#e94560" font-size="7">top-5 (reordered by relevance)</text>
+
+  <!-- Arrow -->
+  <line x1="795" y1="110" x2="825" y2="110" stroke="#fff" stroke-width="1.5" marker-end="url(#rrArr)"/>
+
+  <!-- Stage 4: Context Assembly -->
+  <rect x="830" y="55" width="190" height="110" fill="#16213e" stroke="#a29bfe" stroke-width="2" rx="8"/>
+  <text x="925" y="78" text-anchor="middle" fill="#a29bfe" font-size="11" font-weight="bold">Context → LLM</text>
+  <rect x="845" y="90" width="160" height="62" fill="#0f3460" rx="3"/>
+  <text x="855" y="105" fill="#aaaaaa" font-size="7">System: Answer from context only</text>
+  <text x="855" y="118" fill="#ffffff" font-size="7">[Doc 1]: HNSW builds...</text>
+  <text x="855" y="131" fill="#ffffff" font-size="7">[Doc 2]: Approximate...</text>
+  <text x="855" y="144" fill="#feca57" font-size="7">Question: How does HNSW work?</text>
+
+  <!-- Bi-Encoder vs Cross-Encoder Comparison -->
+  <rect x="30" y="185" width="490" height="155" fill="#16213e" stroke="#54a0ff" stroke-width="1.5" rx="8"/>
+  <text x="275" y="208" text-anchor="middle" fill="#54a0ff" font-size="12" font-weight="bold">Bi-Encoder (Retrieval)</text>
+
+  <!-- Bi-encoder diagram -->
+  <rect x="55" y="220" width="90" height="30" fill="#0f3460" stroke="#54a0ff" stroke-width="1" rx="4"/>
+  <text x="100" y="239" text-anchor="middle" fill="#54a0ff" font-size="8">Query</text>
+  <rect x="55" y="260" width="90" height="30" fill="#0f3460" stroke="#54a0ff" stroke-width="1" rx="4"/>
+  <text x="100" y="279" text-anchor="middle" fill="#54a0ff" font-size="8">Document</text>
+
+  <!-- Separate encoders -->
+  <line x1="150" y1="235" x2="190" y2="235" stroke="#54a0ff" stroke-width="1" marker-end="url(#rrArr)"/>
+  <line x1="150" y1="275" x2="190" y2="275" stroke="#54a0ff" stroke-width="1" marker-end="url(#rrArr)"/>
+
+  <rect x="195" y="220" width="75" height="30" fill="#1565c0" rx="4"/>
+  <text x="232" y="239" text-anchor="middle" fill="#fff" font-size="7">Encoder A</text>
+  <rect x="195" y="260" width="75" height="30" fill="#1565c0" rx="4"/>
+  <text x="232" y="279" text-anchor="middle" fill="#fff" font-size="7">Encoder B</text>
+
+  <!-- Vectors -->
+  <line x1="275" y1="235" x2="310" y2="235" stroke="#54a0ff" stroke-width="1" marker-end="url(#rrArr)"/>
+  <line x1="275" y1="275" x2="310" y2="275" stroke="#54a0ff" stroke-width="1" marker-end="url(#rrArr)"/>
+
+  <text x="325" y="239" fill="#ffffff" font-size="8">q⃗</text>
+  <text x="325" y="279" fill="#ffffff" font-size="8">d⃗</text>
+
+  <!-- Cosine -->
+  <line x1="340" y1="235" x2="370" y2="255" stroke="#fff" stroke-width="1"/>
+  <line x1="340" y1="275" x2="370" y2="255" stroke="#fff" stroke-width="1"/>
+  <text x="385" y="259" fill="#00ff88" font-size="8">cos(q⃗, d⃗)</text>
+
+  <text x="55" y="308" fill="#00ff88" font-size="8">+ Fast: encode once, compare N docs instantly</text>
+  <text x="55" y="322" fill="#00ff88" font-size="8">+ Scalable: pre-compute all doc embeddings</text>
+  <text x="55" y="336" fill="#ff6b6b" font-size="8">- Less accurate: no cross-attention between Q and D</text>
+
+  <!-- Cross-Encoder -->
+  <rect x="540" y="185" width="480" height="155" fill="#16213e" stroke="#e94560" stroke-width="1.5" rx="8"/>
+  <text x="780" y="208" text-anchor="middle" fill="#e94560" font-size="12" font-weight="bold">Cross-Encoder (Re-Ranking)</text>
+
+  <!-- Cross-encoder diagram -->
+  <rect x="565" y="225" width="90" height="25" fill="#0f3460" stroke="#e94560" stroke-width="1" rx="4"/>
+  <text x="610" y="242" text-anchor="middle" fill="#e94560" font-size="8">Query</text>
+
+  <text x="665" y="242" fill="#ffffff" font-size="10">+</text>
+
+  <rect x="680" y="225" width="90" height="25" fill="#0f3460" stroke="#e94560" stroke-width="1" rx="4"/>
+  <text x="725" y="242" text-anchor="middle" fill="#e94560" font-size="8">Document</text>
+
+  <!-- Combined into one encoder -->
+  <line x1="610" y1="253" x2="700" y2="268" stroke="#e94560" stroke-width="1"/>
+  <line x1="725" y1="253" x2="700" y2="268" stroke="#e94560" stroke-width="1"/>
+
+  <rect x="650" y="270" width="100" height="35" fill="#c62828" rx="4"/>
+  <text x="700" y="287" text-anchor="middle" fill="#fff" font-size="8">Full Transformer</text>
+  <text x="700" y="300" text-anchor="middle" fill="#fff" font-size="7">(joint attention)</text>
+
+  <!-- Output score -->
+  <line x1="700" y1="308" x2="700" y2="320" stroke="#e94560" stroke-width="1.5" marker-end="url(#rrArr)"/>
+  <rect x="665" y="322" width="70" height="20" fill="#0f3460" stroke="#00ff88" stroke-width="1" rx="3"/>
+  <text x="700" y="336" text-anchor="middle" fill="#00ff88" font-size="8">Score: 0.97</text>
+
+  <text x="800" y="250" fill="#00ff88" font-size="8">+ Very accurate</text>
+  <text x="800" y="265" fill="#00ff88" font-size="8">+ Sees Q↔D interactions</text>
+  <text x="800" y="285" fill="#ff6b6b" font-size="8">- Slow: must run model</text>
+  <text x="800" y="300" fill="#ff6b6b" font-size="8">  for EACH (Q,D) pair</text>
+  <text x="800" y="320" fill="#feca57" font-size="8">→ Only feasible for</text>
+  <text x="800" y="335" fill="#feca57" font-size="8">  top-20 to top-50</text>
+
+  <!-- Performance Numbers -->
+  <rect x="30" y="355" width="990" height="150" fill="#16213e" stroke="#feca57" stroke-width="1.5" rx="8"/>
+  <text x="525" y="378" text-anchor="middle" fill="#feca57" font-size="12" font-weight="bold">Pipeline Performance Impact</text>
+
+  <!-- Without re-ranking -->
+  <rect x="50" y="395" width="440" height="95" fill="#0f3460" stroke="#ff6b6b" stroke-width="1" rx="6"/>
+  <text x="270" y="415" text-anchor="middle" fill="#ff6b6b" font-size="10" font-weight="bold">Without Re-Ranking (Vector Only)</text>
+  <text x="70" y="438" fill="#ffffff" font-size="9">Recall@5:  85%    (relevant docs in top-5)</text>
+  <text x="70" y="456" fill="#ffffff" font-size="9">Precision@5: 60%   (top-5 actually relevant)</text>
+  <text x="70" y="474" fill="#ffffff" font-size="9">MRR: 0.72          Latency: ~80ms</text>
+  <text x="70" y="488" fill="#aaaaaa" font-size="8">Problem: noisy results, wrong order</text>
+
+  <!-- With re-ranking -->
+  <rect x="520" y="395" width="480" height="95" fill="#0f3460" stroke="#00ff88" stroke-width="1" rx="6"/>
+  <text x="760" y="415" text-anchor="middle" fill="#00ff88" font-size="10" font-weight="bold">With Re-Ranking (Vector → Cross-Encoder)</text>
+  <text x="540" y="438" fill="#ffffff" font-size="9">Recall@5:  93%    (+8% — finds more relevant docs)</text>
+  <text x="540" y="456" fill="#ffffff" font-size="9">Precision@5: 84%   (+24% — much cleaner top-5)</text>
+  <text x="540" y="474" fill="#ffffff" font-size="9">MRR: 0.91          Latency: ~180ms (+100ms for reranker)</text>
+  <text x="540" y="488" fill="#00ff88" font-size="8">Result: significantly better answer quality from LLM</text>
+
+  <defs>
+    <marker id="rrArr" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto">
+      <polygon points="0 0, 6 2.5, 0 5" fill="#ffffff"/>
+    </marker>
+  </defs>
+</svg>

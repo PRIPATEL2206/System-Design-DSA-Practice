@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1000" height="620" fill="#1a1a2e" rx="10"/>
+  <text x="500" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">GPT Architecture — Decoder-Only Transformer Stack</text>
+
+  <!-- Main architecture column -->
+  <rect x="300" y="55" width="400" height="520" fill="#16213e" stroke="#54a0ff" stroke-width="2" rx="10"/>
+  <text x="500" y="80" text-anchor="middle" fill="#54a0ff" font-size="14" font-weight="bold">GPT Model (Decoder-Only)</text>
+
+  <!-- Output layer -->
+  <rect x="350" y="95" width="300" height="40" fill="#0f3460" stroke="#e94560" stroke-width="2" rx="6"/>
+  <text x="500" y="113" text-anchor="middle" fill="#e94560" font-size="10" font-weight="bold">Linear → Softmax</text>
+  <text x="500" y="128" text-anchor="middle" fill="#aaaaaa" font-size="8">Project to vocab_size → next token probabilities</text>
+
+  <!-- Arrow -->
+  <line x1="500" y1="135" x2="500" y2="155" stroke="#fff" stroke-width="1.5" marker-end="url(#gptA)"/>
+
+  <!-- Layer Norm -->
+  <rect x="380" y="155" width="240" height="25" fill="#1a1a2e" stroke="#feca57" stroke-width="1.5" rx="4"/>
+  <text x="500" y="172" text-anchor="middle" fill="#feca57" font-size="9">Final Layer Norm (RMSNorm in modern)</text>
+
+  <!-- Transformer Block -->
+  <rect x="330" y="195" width="340" height="230" fill="#0f3460" stroke="#00ff88" stroke-width="2" rx="8" stroke-dasharray="5"/>
+  <text x="500" y="218" text-anchor="middle" fill="#00ff88" font-size="12" font-weight="bold">Transformer Block × N</text>
+  <text x="500" y="235" text-anchor="middle" fill="#aaaaaa" font-size="8">(GPT-3: N=96, LLaMA-70B: N=80)</text>
+
+  <!-- FFN -->
+  <rect x="360" y="250" width="280" height="45" fill="#1a1a2e" stroke="#00d2d3" stroke-width="1.5" rx="6"/>
+  <text x="500" y="270" text-anchor="middle" fill="#00d2d3" font-size="10" font-weight="bold">Feed-Forward Network (SwiGLU)</text>
+  <text x="500" y="287" text-anchor="middle" fill="#aaaaaa" font-size="8">d_model → 4×d_model → d_model (position-wise)</text>
+
+  <!-- Add & Norm -->
+  <rect x="360" y="303" width="280" height="22" fill="#1a1a2e" stroke="#feca57" stroke-width="1" rx="4"/>
+  <text x="500" y="318" text-anchor="middle" fill="#feca57" font-size="8">Add &amp; LayerNorm (residual connection)</text>
+
+  <!-- Causal Self-Attention -->
+  <rect x="360" y="335" width="280" height="50" fill="#1a1a2e" stroke="#e94560" stroke-width="1.5" rx="6"/>
+  <text x="500" y="357" text-anchor="middle" fill="#e94560" font-size="10" font-weight="bold">Causal Multi-Head Self-Attention</text>
+  <text x="500" y="375" text-anchor="middle" fill="#aaaaaa" font-size="8">Each token attends ONLY to past tokens (masked future)</text>
+
+  <!-- Add & Norm -->
+  <rect x="360" y="393" width="280" height="22" fill="#1a1a2e" stroke="#feca57" stroke-width="1" rx="4"/>
+  <text x="500" y="408" text-anchor="middle" fill="#feca57" font-size="8">Add &amp; LayerNorm (residual connection)</text>
+
+  <!-- Positional Encoding -->
+  <rect x="350" y="445" width="300" height="35" fill="#0f3460" stroke="#a29bfe" stroke-width="1.5" rx="6"/>
+  <text x="500" y="467" text-anchor="middle" fill="#a29bfe" font-size="10" font-weight="bold">Positional Encoding (RoPE / Learned)</text>
+
+  <!-- Token Embedding -->
+  <rect x="350" y="495" width="300" height="35" fill="#0f3460" stroke="#00ff88" stroke-width="1.5" rx="6"/>
+  <text x="500" y="517" text-anchor="middle" fill="#00ff88" font-size="10" font-weight="bold">Token Embedding (vocab → d_model)</text>
+
+  <!-- Input -->
+  <rect x="380" y="545" width="240" height="30" fill="#0f3460" stroke="#ffffff" stroke-width="1" rx="4"/>
+  <text x="500" y="565" text-anchor="middle" fill="#ffffff" font-size="9">Input Tokens: "The cat sat on the"</text>
+
+  <!-- Arrows -->
+  <line x1="500" y1="545" x2="500" y2="530" stroke="#fff" stroke-width="1.5" marker-end="url(#gptA)"/>
+  <line x1="500" y1="495" x2="500" y2="480" stroke="#fff" stroke-width="1.5" marker-end="url(#gptA)"/>
+  <line x1="500" y1="445" x2="500" y2="420" stroke="#fff" stroke-width="1.5" marker-end="url(#gptA)"/>
+  <line x1="500" y1="195" x2="500" y2="180" stroke="#fff" stroke-width="1.5" marker-end="url(#gptA)"/>
+
+  <!-- Output prediction -->
+  <rect x="380" y="55" width="240" height="30" fill="none"/>
+  <text x="500" y="52" text-anchor="middle" fill="#00ff88" font-size="10" font-weight="bold">→ "mat" (predicted next token)</text>
+
+  <!-- Side panel: Scale -->
+  <rect x="730" y="55" width="240" height="280" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="8"/>
+  <text x="850" y="80" text-anchor="middle" fill="#feca57" font-size="12" font-weight="bold">Model Scale</text>
+
+  <text x="750" y="110" fill="#e94560" font-size="9" font-weight="bold">GPT-2 (2019):</text>
+  <text x="750" y="127" fill="#ffffff" font-size="8">1.5B params, 48 layers, d=1600</text>
+
+  <text x="750" y="152" fill="#e94560" font-size="9" font-weight="bold">GPT-3 (2020):</text>
+  <text x="750" y="169" fill="#ffffff" font-size="8">175B params, 96 layers, d=12288</text>
+
+  <text x="750" y="194" fill="#e94560" font-size="9" font-weight="bold">LLaMA 2 (2023):</text>
+  <text x="750" y="211" fill="#ffffff" font-size="8">70B params, 80 layers, d=8192</text>
+
+  <text x="750" y="236" fill="#e94560" font-size="9" font-weight="bold">GPT-4 (2023):</text>
+  <text x="750" y="253" fill="#ffffff" font-size="8">~1.8T params (rumored MoE)</text>
+
+  <text x="750" y="278" fill="#e94560" font-size="9" font-weight="bold">Claude / Gemini (2024+):</text>
+  <text x="750" y="295" fill="#ffffff" font-size="8">Undisclosed, decoder-only</text>
+
+  <text x="750" y="322" fill="#aaaaaa" font-size="8">All decoder-only, all causal LM</text>
+
+  <!-- Side panel: Key features -->
+  <rect x="730" y="350" width="240" height="225" fill="#0f3460" stroke="#00d2d3" stroke-width="1.5" rx="8"/>
+  <text x="850" y="375" text-anchor="middle" fill="#00d2d3" font-size="12" font-weight="bold">Key Design Choices</text>
+
+  <text x="750" y="400" fill="#ffffff" font-size="8">• Causal mask (autoregressive)</text>
+  <text x="750" y="418" fill="#ffffff" font-size="8">• Pre-LayerNorm (training stability)</text>
+  <text x="750" y="436" fill="#ffffff" font-size="8">• RoPE positional encoding</text>
+  <text x="750" y="454" fill="#ffffff" font-size="8">• SwiGLU activation (not ReLU)</text>
+  <text x="750" y="472" fill="#ffffff" font-size="8">• GQA (grouped query attention)</text>
+  <text x="750" y="490" fill="#ffffff" font-size="8">• Weight tying (embed = LM head)</text>
+  <text x="750" y="508" fill="#ffffff" font-size="8">• No bias terms</text>
+  <text x="750" y="526" fill="#ffffff" font-size="8">• Flash Attention</text>
+  <text x="750" y="544" fill="#ffffff" font-size="8">• BPE tokenization (32K-128K)</text>
+  <text x="750" y="562" fill="#ffffff" font-size="8">• Mixed precision (bf16)</text>
+
+  <!-- Left panel: Training -->
+  <rect x="30" y="55" width="240" height="200" fill="#0f3460" stroke="#a29bfe" stroke-width="1.5" rx="8"/>
+  <text x="150" y="80" text-anchor="middle" fill="#a29bfe" font-size="12" font-weight="bold">Training Objective</text>
+
+  <text x="50" y="105" fill="#ffffff" font-size="9" font-weight="bold">Next Token Prediction:</text>
+  <text x="50" y="125" fill="#ffffff" font-size="8">P(xₜ | x₁, x₂, ..., xₜ₋₁)</text>
+  <text x="50" y="148" fill="#aaaaaa" font-size="8">Maximize log-likelihood of</text>
+  <text x="50" y="164" fill="#aaaaaa" font-size="8">predicting next token given</text>
+  <text x="50" y="180" fill="#aaaaaa" font-size="8">all previous tokens.</text>
+  <text x="50" y="205" fill="#feca57" font-size="8">Loss = CrossEntropy(logits, target)</text>
+  <text x="50" y="225" fill="#aaaaaa" font-size="8">Every token provides signal →</text>
+  <text x="50" y="241" fill="#aaaaaa" font-size="8">extremely data-efficient training</text>
+
+  <!-- Left panel: Inference -->
+  <rect x="30" y="275" width="240" height="170" fill="#0f3460" stroke="#00ff88" stroke-width="1.5" rx="8"/>
+  <text x="150" y="300" text-anchor="middle" fill="#00ff88" font-size="12" font-weight="bold">Inference (Generation)</text>
+
+  <text x="50" y="325" fill="#ffffff" font-size="8">1. Encode prompt (prefill phase)</text>
+  <text x="50" y="343" fill="#ffffff" font-size="8">2. Sample next token from P(xₜ)</text>
+  <text x="50" y="361" fill="#ffffff" font-size="8">3. Append token to context</text>
+  <text x="50" y="379" fill="#ffffff" font-size="8">4. Repeat until EOS or max_len</text>
+  <text x="50" y="402" fill="#feca57" font-size="8">KV-Cache: Store past K,V</text>
+  <text x="50" y="418" fill="#feca57" font-size="8">Only compute new token each step</text>
+  <text x="50" y="436" fill="#aaaaaa" font-size="8">Prefill: O(n²), Decode: O(n) per step</text>
+
+  <!-- Bottom bar -->
+  <rect x="30" y="585" width="940" height="25" fill="#0f3460" stroke="#feca57" stroke-width="1" rx="6"/>
+  <text x="500" y="602" text-anchor="middle" fill="#feca57" font-size="10" font-weight="bold">GPT = Generative Pre-trained Transformer — pre-train on web text, fine-tune/align for chat, deploy at scale</text>
+
+  <defs>
+    <marker id="gptA" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto"><polygon points="0 0, 6 2.5, 0 5" fill="#ffffff"/></marker>
+  </defs>
+</svg>

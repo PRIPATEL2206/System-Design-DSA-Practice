@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1000" height="500" fill="#1a1a2e" rx="10"/>
+  <text x="500" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">Similarity Search — Finding Nearest Neighbors</text>
+
+  <!-- Distance metrics -->
+  <rect x="30" y="55" width="940" height="130" fill="#16213e" stroke="#feca57" stroke-width="2" rx="8"/>
+  <text x="500" y="78" text-anchor="middle" fill="#feca57" font-size="13" font-weight="bold">Distance / Similarity Metrics</text>
+
+  <!-- Cosine -->
+  <rect x="50" y="92" width="270" height="75" fill="#0f3460" stroke="#00ff88" stroke-width="1.5" rx="6"/>
+  <text x="185" y="112" text-anchor="middle" fill="#00ff88" font-size="10" font-weight="bold">Cosine Similarity</text>
+  <text x="185" y="130" text-anchor="middle" fill="#ffffff" font-size="8">cos(A,B) = A·B / (||A|| × ||B||)</text>
+  <text x="185" y="148" text-anchor="middle" fill="#aaaaaa" font-size="7">Range: [-1, 1]. Measures angle, ignores magnitude.</text>
+  <text x="185" y="162" text-anchor="middle" fill="#feca57" font-size="7">Best for: text embeddings, normalized vectors</text>
+
+  <!-- Euclidean -->
+  <rect x="340" y="92" width="270" height="75" fill="#0f3460" stroke="#54a0ff" stroke-width="1.5" rx="6"/>
+  <text x="475" y="112" text-anchor="middle" fill="#54a0ff" font-size="10" font-weight="bold">Euclidean (L2) Distance</text>
+  <text x="475" y="130" text-anchor="middle" fill="#ffffff" font-size="8">d(A,B) = √Σ(Aᵢ - Bᵢ)²</text>
+  <text x="475" y="148" text-anchor="middle" fill="#aaaaaa" font-size="7">Range: [0, ∞]. Measures straight-line distance.</text>
+  <text x="475" y="162" text-anchor="middle" fill="#feca57" font-size="7">Best for: spatial data, image features</text>
+
+  <!-- Dot product -->
+  <rect x="630" y="92" width="320" height="75" fill="#0f3460" stroke="#e94560" stroke-width="1.5" rx="6"/>
+  <text x="790" y="112" text-anchor="middle" fill="#e94560" font-size="10" font-weight="bold">Dot Product (Inner Product)</text>
+  <text x="790" y="130" text-anchor="middle" fill="#ffffff" font-size="8">A·B = Σ(Aᵢ × Bᵢ)</text>
+  <text x="790" y="148" text-anchor="middle" fill="#aaaaaa" font-size="7">Range: (-∞, ∞). Measures both similarity AND magnitude.</text>
+  <text x="790" y="162" text-anchor="middle" fill="#feca57" font-size="7">Best for: MaxSim retrieval, when magnitude matters</text>
+
+  <!-- Exact vs Approximate -->
+  <rect x="30" y="200" width="450" height="140" fill="#16213e" stroke="#e94560" stroke-width="1.5" rx="8"/>
+  <text x="255" y="225" text-anchor="middle" fill="#e94560" font-size="12" font-weight="bold">Exact Search (Brute Force)</text>
+
+  <text x="50" y="250" fill="#ffffff" font-size="8">• Compare query against EVERY vector in database</text>
+  <text x="50" y="268" fill="#ffffff" font-size="8">• Always finds the true nearest neighbors</text>
+  <text x="50" y="286" fill="#ffffff" font-size="8">• Complexity: O(N × D) where N=vectors, D=dimensions</text>
+  <text x="50" y="304" fill="#ffffff" font-size="8">• Fine for &lt;100K vectors</text>
+  <text x="50" y="322" fill="#e94560" font-size="8" font-weight="bold">• Unusable at scale: 1M vectors × 1536d ≈ 1.5 sec per query</text>
+
+  <!-- ANN -->
+  <rect x="500" y="200" width="470" height="140" fill="#16213e" stroke="#00ff88" stroke-width="1.5" rx="8"/>
+  <text x="735" y="225" text-anchor="middle" fill="#00ff88" font-size="12" font-weight="bold">Approximate Nearest Neighbor (ANN)</text>
+
+  <text x="520" y="250" fill="#ffffff" font-size="8">• Trade tiny accuracy loss for massive speed gain</text>
+  <text x="520" y="268" fill="#ffffff" font-size="8">• 95-99% recall (finds most true neighbors)</text>
+  <text x="520" y="286" fill="#ffffff" font-size="8">• Complexity: O(log N) to O(√N) per query</text>
+  <text x="520" y="304" fill="#ffffff" font-size="8">• Handles billions of vectors at millisecond latency</text>
+  <text x="520" y="322" fill="#00ff88" font-size="8" font-weight="bold">• 1M vectors: &lt;5ms per query (1000x faster)</text>
+
+  <!-- ANN algorithms -->
+  <rect x="30" y="355" width="940" height="130" fill="#0f3460" stroke="#a29bfe" stroke-width="2" rx="8"/>
+  <text x="500" y="380" text-anchor="middle" fill="#a29bfe" font-size="12" font-weight="bold">ANN Index Algorithms</text>
+
+  <!-- HNSW -->
+  <rect x="50" y="395" width="200" height="70" fill="#16213e" stroke="#00d2d3" stroke-width="1.5" rx="6"/>
+  <text x="150" y="415" text-anchor="middle" fill="#00d2d3" font-size="9" font-weight="bold">HNSW</text>
+  <text x="150" y="432" text-anchor="middle" fill="#ffffff" font-size="7">Hierarchical Navigable</text>
+  <text x="150" y="445" text-anchor="middle" fill="#ffffff" font-size="7">Small World Graph</text>
+  <text x="150" y="460" text-anchor="middle" fill="#aaaaaa" font-size="7">Best quality, high memory</text>
+
+  <!-- IVF -->
+  <rect x="270" y="395" width="200" height="70" fill="#16213e" stroke="#feca57" stroke-width="1.5" rx="6"/>
+  <text x="370" y="415" text-anchor="middle" fill="#feca57" font-size="9" font-weight="bold">IVF (Inverted File)</text>
+  <text x="370" y="432" text-anchor="middle" fill="#ffffff" font-size="7">Cluster vectors, search</text>
+  <text x="370" y="445" text-anchor="middle" fill="#ffffff" font-size="7">only nearest clusters</text>
+  <text x="370" y="460" text-anchor="middle" fill="#aaaaaa" font-size="7">Good balance, scalable</text>
+
+  <!-- PQ -->
+  <rect x="490" y="395" width="200" height="70" fill="#16213e" stroke="#e94560" stroke-width="1.5" rx="6"/>
+  <text x="590" y="415" text-anchor="middle" fill="#e94560" font-size="9" font-weight="bold">PQ (Product Quantization)</text>
+  <text x="590" y="432" text-anchor="middle" fill="#ffffff" font-size="7">Compress vectors to</text>
+  <text x="590" y="445" text-anchor="middle" fill="#ffffff" font-size="7">compact codes</text>
+  <text x="590" y="460" text-anchor="middle" fill="#aaaaaa" font-size="7">Low memory, slight accuracy loss</text>
+
+  <!-- Flat -->
+  <rect x="710" y="395" width="240" height="70" fill="#16213e" stroke="#54a0ff" stroke-width="1.5" rx="6"/>
+  <text x="830" y="415" text-anchor="middle" fill="#54a0ff" font-size="9" font-weight="bold">IVF-PQ + HNSW (Combined)</text>
+  <text x="830" y="432" text-anchor="middle" fill="#ffffff" font-size="7">Quantize + Graph index</text>
+  <text x="830" y="445" text-anchor="middle" fill="#ffffff" font-size="7">Best for billion-scale</text>
+  <text x="830" y="460" text-anchor="middle" fill="#aaaaaa" font-size="7">Used in production (Pinecone, Milvus)</text>
+
+  <text x="500" y="495" text-anchor="middle" fill="#feca57" font-size="9" font-weight="bold">Key tradeoff: Recall (accuracy) vs. Latency (speed) vs. Memory (cost) — pick your index based on scale</text>
+
+  <defs>
+    <marker id="simA" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto"><polygon points="0 0, 6 2.5, 0 5" fill="#ffffff"/></marker>
+  </defs>
+</svg>

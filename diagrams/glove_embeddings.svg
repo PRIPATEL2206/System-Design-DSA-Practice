@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 440" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1000" height="440" fill="#1a1a2e" rx="10"/>
+  <text x="500" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">GloVe — Global Vectors for Word Representation</text>
+
+  <!-- Core idea -->
+  <rect x="30" y="55" width="940" height="95" fill="#16213e" stroke="#a29bfe" stroke-width="2" rx="8"/>
+  <text x="500" y="80" text-anchor="middle" fill="#a29bfe" font-size="13" font-weight="bold">Core Idea: Combine Count-Based + Prediction-Based Methods</text>
+
+  <text x="60" y="110" fill="#ffffff" font-size="10">1. Build a global word CO-OCCURRENCE MATRIX from entire corpus</text>
+  <text x="60" y="130" fill="#ffffff" font-size="10">2. Learn embeddings such that: dot(w_i, w_j) ≈ log(co-occurrence count of i and j)</text>
+  <text x="60" y="148" fill="#aaaaaa" font-size="9">Objective: minimize Σᵢⱼ f(Xᵢⱼ) × (wᵢᵀw̃ⱼ + bᵢ + b̃ⱼ - log Xᵢⱼ)²     where Xᵢⱼ = co-occurrence count, f() = weighting function</text>
+
+  <!-- Co-occurrence matrix -->
+  <rect x="30" y="165" width="430" height="255" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="8"/>
+  <text x="245" y="190" text-anchor="middle" fill="#feca57" font-size="12" font-weight="bold">Co-occurrence Matrix (window=2)</text>
+  <text x="245" y="208" text-anchor="middle" fill="#aaaaaa" font-size="9">Corpus: "the cat sat on the mat the cat lay on the rug"</text>
+
+  <!-- Matrix header -->
+  <text x="120" y="235" text-anchor="middle" fill="#ffffff" font-size="9" font-weight="bold">the</text>
+  <text x="170" y="235" text-anchor="middle" fill="#ffffff" font-size="9" font-weight="bold">cat</text>
+  <text x="220" y="235" text-anchor="middle" fill="#ffffff" font-size="9" font-weight="bold">sat</text>
+  <text x="270" y="235" text-anchor="middle" fill="#ffffff" font-size="9" font-weight="bold">on</text>
+  <text x="320" y="235" text-anchor="middle" fill="#ffffff" font-size="9" font-weight="bold">mat</text>
+  <text x="370" y="235" text-anchor="middle" fill="#ffffff" font-size="9" font-weight="bold">lay</text>
+
+  <!-- Row: the -->
+  <text x="65" y="258" fill="#ffffff" font-size="9" font-weight="bold">the</text>
+  <text x="120" y="258" text-anchor="middle" fill="#feca57" font-size="9">0</text>
+  <text x="170" y="258" text-anchor="middle" fill="#feca57" font-size="9">4</text>
+  <text x="220" y="258" text-anchor="middle" fill="#aaa" font-size="9">1</text>
+  <text x="270" y="258" text-anchor="middle" fill="#feca57" font-size="9">3</text>
+  <text x="320" y="258" text-anchor="middle" fill="#aaa" font-size="9">2</text>
+  <text x="370" y="258" text-anchor="middle" fill="#aaa" font-size="9">1</text>
+
+  <!-- Row: cat -->
+  <text x="65" y="280" fill="#ffffff" font-size="9" font-weight="bold">cat</text>
+  <text x="120" y="280" text-anchor="middle" fill="#feca57" font-size="9">4</text>
+  <text x="170" y="280" text-anchor="middle" fill="#aaa" font-size="9">0</text>
+  <text x="220" y="280" text-anchor="middle" fill="#aaa" font-size="9">2</text>
+  <text x="270" y="280" text-anchor="middle" fill="#aaa" font-size="9">0</text>
+  <text x="320" y="280" text-anchor="middle" fill="#aaa" font-size="9">0</text>
+  <text x="370" y="280" text-anchor="middle" fill="#aaa" font-size="9">1</text>
+
+  <!-- Row: sat -->
+  <text x="65" y="302" fill="#ffffff" font-size="9" font-weight="bold">sat</text>
+  <text x="120" y="302" text-anchor="middle" fill="#aaa" font-size="9">1</text>
+  <text x="170" y="302" text-anchor="middle" fill="#aaa" font-size="9">2</text>
+  <text x="220" y="302" text-anchor="middle" fill="#aaa" font-size="9">0</text>
+  <text x="270" y="302" text-anchor="middle" fill="#aaa" font-size="9">2</text>
+  <text x="320" y="302" text-anchor="middle" fill="#aaa" font-size="9">0</text>
+  <text x="370" y="302" text-anchor="middle" fill="#aaa" font-size="9">0</text>
+
+  <!-- Row: on -->
+  <text x="65" y="324" fill="#ffffff" font-size="9" font-weight="bold">on</text>
+  <text x="120" y="324" text-anchor="middle" fill="#feca57" font-size="9">3</text>
+  <text x="170" y="324" text-anchor="middle" fill="#aaa" font-size="9">0</text>
+  <text x="220" y="324" text-anchor="middle" fill="#aaa" font-size="9">2</text>
+  <text x="270" y="324" text-anchor="middle" fill="#aaa" font-size="9">0</text>
+  <text x="320" y="324" text-anchor="middle" fill="#aaa" font-size="9">2</text>
+  <text x="370" y="324" text-anchor="middle" fill="#aaa" font-size="9">1</text>
+
+  <text x="245" y="360" text-anchor="middle" fill="#aaaaaa" font-size="9">Symmetric matrix: X(i,j) = X(j,i)</text>
+  <text x="245" y="378" text-anchor="middle" fill="#aaaaaa" font-size="9">High count = words appear near each other often</text>
+  <text x="245" y="396" text-anchor="middle" fill="#feca57" font-size="9" font-weight="bold">"the" + "cat" = 4 → appear together frequently!</text>
+
+  <!-- Word2Vec vs GloVe comparison -->
+  <rect x="480" y="165" width="490" height="255" fill="#0f3460" stroke="#54a0ff" stroke-width="1.5" rx="8"/>
+  <text x="725" y="190" text-anchor="middle" fill="#54a0ff" font-size="12" font-weight="bold">Word2Vec vs GloVe vs FastText</text>
+
+  <!-- Headers -->
+  <text x="560" y="215" text-anchor="middle" fill="#ffffff" font-size="9" font-weight="bold">Aspect</text>
+  <text x="660" y="215" text-anchor="middle" fill="#e94560" font-size="9" font-weight="bold">Word2Vec</text>
+  <text x="770" y="215" text-anchor="middle" fill="#a29bfe" font-size="9" font-weight="bold">GloVe</text>
+  <text x="900" y="215" text-anchor="middle" fill="#00ff88" font-size="9" font-weight="bold">FastText</text>
+  <line x1="500" y1="222" x2="950" y2="222" stroke="#444" stroke-width="1"/>
+
+  <text x="560" y="242" text-anchor="middle" fill="#aaa" font-size="8">Method</text>
+  <text x="660" y="242" text-anchor="middle" fill="#fff" font-size="8">Prediction</text>
+  <text x="770" y="242" text-anchor="middle" fill="#fff" font-size="8">Count + Predict</text>
+  <text x="900" y="242" text-anchor="middle" fill="#fff" font-size="8">Prediction</text>
+
+  <text x="560" y="262" text-anchor="middle" fill="#aaa" font-size="8">Training</text>
+  <text x="660" y="262" text-anchor="middle" fill="#fff" font-size="8">Local context</text>
+  <text x="770" y="262" text-anchor="middle" fill="#fff" font-size="8">Global statistics</text>
+  <text x="900" y="262" text-anchor="middle" fill="#fff" font-size="8">Local + subwords</text>
+
+  <text x="560" y="282" text-anchor="middle" fill="#aaa" font-size="8">OOV</text>
+  <text x="660" y="282" text-anchor="middle" fill="#e94560" font-size="8">Cannot handle</text>
+  <text x="770" y="282" text-anchor="middle" fill="#e94560" font-size="8">Cannot handle</text>
+  <text x="900" y="282" text-anchor="middle" fill="#00ff88" font-size="8">Handles via char n-grams</text>
+
+  <text x="560" y="302" text-anchor="middle" fill="#aaa" font-size="8">Speed</text>
+  <text x="660" y="302" text-anchor="middle" fill="#fff" font-size="8">Fast (online)</text>
+  <text x="770" y="302" text-anchor="middle" fill="#fff" font-size="8">Slow (matrix)</text>
+  <text x="900" y="302" text-anchor="middle" fill="#fff" font-size="8">Medium</text>
+
+  <text x="560" y="322" text-anchor="middle" fill="#aaa" font-size="8">Semantic</text>
+  <text x="660" y="322" text-anchor="middle" fill="#fff" font-size="8">Good analogies</text>
+  <text x="770" y="322" text-anchor="middle" fill="#fff" font-size="8">Great analogies</text>
+  <text x="900" y="322" text-anchor="middle" fill="#fff" font-size="8">Good + morphology</text>
+
+  <text x="560" y="342" text-anchor="middle" fill="#aaa" font-size="8">Best for</text>
+  <text x="660" y="342" text-anchor="middle" fill="#fff" font-size="8">General NLP</text>
+  <text x="770" y="342" text-anchor="middle" fill="#fff" font-size="8">Semantic tasks</text>
+  <text x="900" y="342" text-anchor="middle" fill="#fff" font-size="8">Morphological langs</text>
+
+  <text x="560" y="362" text-anchor="middle" fill="#aaa" font-size="8">Polysemy</text>
+  <text x="660" y="362" text-anchor="middle" fill="#e94560" font-size="8">No (one vector/word)</text>
+  <text x="770" y="362" text-anchor="middle" fill="#e94560" font-size="8">No (one vector/word)</text>
+  <text x="900" y="362" text-anchor="middle" fill="#e94560" font-size="8">No (one vector/word)</text>
+
+  <text x="725" y="400" text-anchor="middle" fill="#feca57" font-size="10" font-weight="bold">Modern solution for polysemy: BERT/GPT contextual embeddings</text>
+  <text x="725" y="418" text-anchor="middle" fill="#aaaaaa" font-size="9">"bank" near "river" ≠ "bank" near "money" → different vectors in context</text>
+
+  <defs>
+    <marker id="glvA" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#ffffff"/></marker>
+  </defs>
+</svg>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 550" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1000" height="550" fill="#1a1a2e" rx="10"/>
+  <text x="500" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">RAG Pipeline with Vector Database — End-to-End Architecture</text>
+
+  <!-- INGESTION PIPELINE -->
+  <rect x="30" y="55" width="940" height="180" fill="#16213e" stroke="#00ff88" stroke-width="2" rx="8"/>
+  <text x="500" y="78" text-anchor="middle" fill="#00ff88" font-size="12" font-weight="bold">📥 INGESTION PIPELINE (Offline / Batch)</text>
+
+  <!-- Documents -->
+  <rect x="50" y="95" width="100" height="60" fill="#0f3460" stroke="#54a0ff" stroke-width="1.5" rx="4"/>
+  <text x="100" y="118" text-anchor="middle" fill="#54a0ff" font-size="9" font-weight="bold">Documents</text>
+  <text x="100" y="133" text-anchor="middle" fill="#aaaaaa" font-size="7">PDFs, Web, DB</text>
+  <text x="100" y="146" text-anchor="middle" fill="#aaaaaa" font-size="7">APIs, Wikis</text>
+
+  <line x1="150" y1="125" x2="175" y2="125" stroke="#fff" stroke-width="1.5" marker-end="url(#ragA)"/>
+
+  <!-- Chunking -->
+  <rect x="180" y="95" width="110" height="60" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="4"/>
+  <text x="235" y="115" text-anchor="middle" fill="#feca57" font-size="9" font-weight="bold">Chunking</text>
+  <text x="235" y="130" text-anchor="middle" fill="#aaaaaa" font-size="7">Fixed / Recursive</text>
+  <text x="235" y="143" text-anchor="middle" fill="#aaaaaa" font-size="7">Semantic / Sentence</text>
+
+  <line x1="290" y1="125" x2="315" y2="125" stroke="#fff" stroke-width="1.5" marker-end="url(#ragA)"/>
+
+  <!-- Embedding Model -->
+  <rect x="320" y="95" width="130" height="60" fill="#0f3460" stroke="#e94560" stroke-width="1.5" rx="4"/>
+  <text x="385" y="115" text-anchor="middle" fill="#e94560" font-size="9" font-weight="bold">Embedding Model</text>
+  <text x="385" y="130" text-anchor="middle" fill="#aaaaaa" font-size="7">OpenAI ada-002</text>
+  <text x="385" y="143" text-anchor="middle" fill="#aaaaaa" font-size="7">Cohere / BGE / E5</text>
+
+  <line x1="450" y1="125" x2="475" y2="125" stroke="#fff" stroke-width="1.5" marker-end="url(#ragA)"/>
+
+  <!-- Vector DB Storage -->
+  <rect x="480" y="88" width="150" height="74" fill="#0f3460" stroke="#00ff88" stroke-width="2" rx="4"/>
+  <text x="555" y="110" text-anchor="middle" fill="#00ff88" font-size="9" font-weight="bold">Vector Database</text>
+  <text x="555" y="126" text-anchor="middle" fill="#aaaaaa" font-size="7">Pinecone / Chroma</text>
+  <text x="555" y="139" text-anchor="middle" fill="#aaaaaa" font-size="7">Weaviate / FAISS</text>
+  <text x="555" y="152" text-anchor="middle" fill="#aaaaaa" font-size="7">vectors + metadata</text>
+
+  <!-- Metadata Store -->
+  <rect x="660" y="95" width="120" height="60" fill="#0f3460" stroke="#a29bfe" stroke-width="1.5" rx="4"/>
+  <text x="720" y="115" text-anchor="middle" fill="#a29bfe" font-size="9" font-weight="bold">Metadata Store</text>
+  <text x="720" y="130" text-anchor="middle" fill="#aaaaaa" font-size="7">source, page, date</text>
+  <text x="720" y="143" text-anchor="middle" fill="#aaaaaa" font-size="7">permissions, tags</text>
+
+  <line x1="630" y1="125" x2="655" y2="125" stroke="#fff" stroke-width="1.5" marker-end="url(#ragA)"/>
+
+  <!-- Index Config -->
+  <rect x="810" y="95" width="140" height="60" fill="#0f3460" stroke="#00d2d3" stroke-width="1.5" rx="4"/>
+  <text x="880" y="115" text-anchor="middle" fill="#00d2d3" font-size="9" font-weight="bold">Index Config</text>
+  <text x="880" y="130" text-anchor="middle" fill="#aaaaaa" font-size="7">HNSW: M=16, ef=200</text>
+  <text x="880" y="143" text-anchor="middle" fill="#aaaaaa" font-size="7">metric: cosine</text>
+
+  <!-- Chunking strategies -->
+  <text x="180" y="180" fill="#feca57" font-size="8" font-weight="bold">Chunk sizes: 256-1024 tokens</text>
+  <text x="180" y="195" fill="#aaaaaa" font-size="7">Overlap: 10-20% for context continuity</text>
+  <text x="450" y="180" fill="#00ff88" font-size="8" font-weight="bold">Batch embed: 100-1000 chunks/call</text>
+  <text x="450" y="195" fill="#aaaaaa" font-size="7">Cost: ~$0.0001 per 1K tokens (ada-002)</text>
+  <text x="750" y="180" fill="#a29bfe" font-size="8" font-weight="bold">Filter by metadata at query time</text>
+  <text x="750" y="195" fill="#aaaaaa" font-size="7">Enables access control + temporal filtering</text>
+
+  <!-- RETRIEVAL PIPELINE -->
+  <rect x="30" y="250" width="940" height="280" fill="#16213e" stroke="#54a0ff" stroke-width="2" rx="8"/>
+  <text x="500" y="273" text-anchor="middle" fill="#54a0ff" font-size="12" font-weight="bold">🔍 RETRIEVAL + GENERATION PIPELINE (Online / Real-time)</text>
+
+  <!-- User Query -->
+  <rect x="50" y="290" width="100" height="55" fill="#0f3460" stroke="#e94560" stroke-width="1.5" rx="4"/>
+  <text x="100" y="312" text-anchor="middle" fill="#e94560" font-size="9" font-weight="bold">User Query</text>
+  <text x="100" y="328" text-anchor="middle" fill="#aaaaaa" font-size="7">"How does X</text>
+  <text x="100" y="340" text-anchor="middle" fill="#aaaaaa" font-size="7">work?"</text>
+
+  <line x1="150" y1="317" x2="175" y2="317" stroke="#fff" stroke-width="1.5" marker-end="url(#ragA)"/>
+
+  <!-- Query Embedding -->
+  <rect x="180" y="290" width="110" height="55" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="4"/>
+  <text x="235" y="312" text-anchor="middle" fill="#feca57" font-size="9" font-weight="bold">Query Embed</text>
+  <text x="235" y="328" text-anchor="middle" fill="#aaaaaa" font-size="7">Same model as</text>
+  <text x="235" y="340" text-anchor="middle" fill="#aaaaaa" font-size="7">ingestion!</text>
+
+  <line x1="290" y1="317" x2="315" y2="317" stroke="#fff" stroke-width="1.5" marker-end="url(#ragA)"/>
+
+  <!-- Vector Search -->
+  <rect x="320" y="285" width="130" height="65" fill="#0f3460" stroke="#00ff88" stroke-width="2" rx="4"/>
+  <text x="385" y="305" text-anchor="middle" fill="#00ff88" font-size="9" font-weight="bold">Vector Search</text>
+  <text x="385" y="320" text-anchor="middle" fill="#aaaaaa" font-size="7">ANN (top-k=20)</text>
+  <text x="385" y="333" text-anchor="middle" fill="#aaaaaa" font-size="7">+ metadata filter</text>
+  <text x="385" y="346" text-anchor="middle" fill="#aaaaaa" font-size="7">~10-50ms latency</text>
+
+  <line x1="450" y1="317" x2="475" y2="317" stroke="#fff" stroke-width="1.5" marker-end="url(#ragA)"/>
+
+  <!-- Re-ranking -->
+  <rect x="480" y="290" width="110" height="55" fill="#0f3460" stroke="#a29bfe" stroke-width="1.5" rx="4"/>
+  <text x="535" y="312" text-anchor="middle" fill="#a29bfe" font-size="9" font-weight="bold">Re-Ranker</text>
+  <text x="535" y="328" text-anchor="middle" fill="#aaaaaa" font-size="7">Cohere Rerank</text>
+  <text x="535" y="340" text-anchor="middle" fill="#aaaaaa" font-size="7">→ top-k=5</text>
+
+  <line x1="590" y1="317" x2="615" y2="317" stroke="#fff" stroke-width="1.5" marker-end="url(#ragA)"/>
+
+  <!-- Context Assembly -->
+  <rect x="620" y="290" width="120" height="55" fill="#0f3460" stroke="#00d2d3" stroke-width="1.5" rx="4"/>
+  <text x="680" y="312" text-anchor="middle" fill="#00d2d3" font-size="9" font-weight="bold">Context Builder</text>
+  <text x="680" y="328" text-anchor="middle" fill="#aaaaaa" font-size="7">Assemble prompt</text>
+  <text x="680" y="340" text-anchor="middle" fill="#aaaaaa" font-size="7">+ retrieved chunks</text>
+
+  <line x1="740" y1="317" x2="765" y2="317" stroke="#fff" stroke-width="1.5" marker-end="url(#ragA)"/>
+
+  <!-- LLM -->
+  <rect x="770" y="285" width="100" height="65" fill="#0f3460" stroke="#e94560" stroke-width="2" rx="4"/>
+  <text x="820" y="305" text-anchor="middle" fill="#e94560" font-size="9" font-weight="bold">LLM</text>
+  <text x="820" y="320" text-anchor="middle" fill="#aaaaaa" font-size="7">GPT-4 / Claude</text>
+  <text x="820" y="333" text-anchor="middle" fill="#aaaaaa" font-size="7">Generate answer</text>
+  <text x="820" y="346" text-anchor="middle" fill="#aaaaaa" font-size="7">with citations</text>
+
+  <line x1="870" y1="317" x2="895" y2="317" stroke="#fff" stroke-width="1.5" marker-end="url(#ragA)"/>
+
+  <!-- Response -->
+  <rect x="900" y="290" width="55" height="55" fill="#0f3460" stroke="#00ff88" stroke-width="2" rx="4"/>
+  <text x="927" y="315" text-anchor="middle" fill="#00ff88" font-size="9" font-weight="bold">✓</text>
+  <text x="927" y="333" text-anchor="middle" fill="#aaaaaa" font-size="7">Answer</text>
+
+  <!-- Hybrid Search detail -->
+  <rect x="50" y="370" width="280" height="70" fill="#0f3460" stroke="#feca57" stroke-width="1" rx="5"/>
+  <text x="190" y="390" text-anchor="middle" fill="#feca57" font-size="9" font-weight="bold">Hybrid Search (Vector + Keyword)</text>
+  <text x="190" y="408" text-anchor="middle" fill="#ffffff" font-size="8">score = α × vector_score + (1-α) × BM25_score</text>
+  <text x="190" y="423" text-anchor="middle" fill="#aaaaaa" font-size="7">α = 0.7 (favor semantic) or 0.3 (favor keyword)</text>
+  <text x="190" y="436" text-anchor="middle" fill="#00ff88" font-size="7">Catches exact terms missed by embeddings</text>
+
+  <!-- Evaluation Metrics -->
+  <rect x="350" y="370" width="280" height="70" fill="#0f3460" stroke="#00d2d3" stroke-width="1" rx="5"/>
+  <text x="490" y="390" text-anchor="middle" fill="#00d2d3" font-size="9" font-weight="bold">Retrieval Quality Metrics</text>
+  <text x="490" y="408" text-anchor="middle" fill="#ffffff" font-size="8">Recall@K | MRR | NDCG | Hit Rate</text>
+  <text x="490" y="423" text-anchor="middle" fill="#aaaaaa" font-size="7">Faithfulness | Answer Relevance</text>
+  <text x="490" y="436" text-anchor="middle" fill="#aaaaaa" font-size="7">Tools: RAGAS, DeepEval, TruLens</text>
+
+  <!-- Optimization Tips -->
+  <rect x="650" y="370" width="305" height="70" fill="#0f3460" stroke="#e94560" stroke-width="1" rx="5"/>
+  <text x="802" y="390" text-anchor="middle" fill="#e94560" font-size="9" font-weight="bold">Production Optimizations</text>
+  <text x="802" y="408" text-anchor="middle" fill="#ffffff" font-size="8">• Cache frequent queries (Redis)</text>
+  <text x="802" y="423" text-anchor="middle" fill="#ffffff" font-size="8">• Pre-filter by metadata (2-10× faster)</text>
+  <text x="802" y="436" text-anchor="middle" fill="#ffffff" font-size="8">• Async batch retrieval for multi-query</text>
+
+  <!-- Latency breakdown -->
+  <rect x="50" y="455" width="905" height="60" fill="#0f3460" stroke="#54a0ff" stroke-width="1" rx="5"/>
+  <text x="500" y="475" text-anchor="middle" fill="#54a0ff" font-size="10" font-weight="bold">⏱️ Typical Latency Breakdown (p95)</text>
+  <text x="150" y="498" text-anchor="middle" fill="#feca57" font-size="9">Embed: 50-100ms</text>
+  <text x="330" y="498" text-anchor="middle" fill="#00ff88" font-size="9">Vector Search: 10-50ms</text>
+  <text x="510" y="498" text-anchor="middle" fill="#a29bfe" font-size="9">Re-rank: 100-200ms</text>
+  <text x="690" y="498" text-anchor="middle" fill="#e94560" font-size="9">LLM Gen: 500-3000ms</text>
+  <text x="870" y="498" text-anchor="middle" fill="#ffffff" font-size="9" font-weight="bold">Total: 1-4s</text>
+
+  <defs>
+    <marker id="ragA" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto"><polygon points="0 0, 6 2.5, 0 5" fill="#ffffff"/></marker>
+  </defs>
+</svg>

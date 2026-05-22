@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 550" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1000" height="550" fill="#1a1a2e" rx="10"/>
+
+  <!-- Title -->
+  <text x="500" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">Loss Functions — How Networks Measure Error</text>
+
+  <!-- MSE -->
+  <rect x="30" y="60" width="300" height="220" fill="#16213e" stroke="#00d2d3" stroke-width="2" rx="8"/>
+  <text x="180" y="85" text-anchor="middle" fill="#00d2d3" font-size="14" font-weight="bold">Mean Squared Error (MSE)</text>
+  <text x="180" y="108" text-anchor="middle" fill="#aaaaaa" font-size="11">L = (1/n) Σ(yᵢ - ŷᵢ)²</text>
+
+  <!-- MSE Parabola -->
+  <line x1="60" y1="200" x2="300" y2="200" stroke="#444444" stroke-width="1"/>
+  <line x1="180" y1="130" x2="180" y2="260" stroke="#444444" stroke-width="1"/>
+  <path d="M 70 250 Q 100 240 130 210 Q 155 170 180 140 Q 205 170 230 210 Q 260 240 290 250" fill="none" stroke="#00d2d3" stroke-width="2.5"/>
+  <circle cx="180" cy="140" r="4" fill="#00ff00"/>
+  <text x="180" y="133" text-anchor="middle" fill="#00ff00" font-size="9">minimum</text>
+
+  <text x="180" y="265" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="bold">Use for: Regression</text>
+  <text x="180" y="278" text-anchor="middle" fill="#aaaaaa" font-size="9">Penalizes large errors quadratically</text>
+
+  <!-- Cross-Entropy -->
+  <rect x="350" y="60" width="300" height="220" fill="#16213e" stroke="#e94560" stroke-width="2" rx="8"/>
+  <text x="500" y="85" text-anchor="middle" fill="#e94560" font-size="14" font-weight="bold">Cross-Entropy Loss</text>
+  <text x="500" y="108" text-anchor="middle" fill="#aaaaaa" font-size="11">L = -Σ yᵢ·log(ŷᵢ)</text>
+
+  <!-- Cross-Entropy curve -->
+  <line x1="380" y1="200" x2="620" y2="200" stroke="#444444" stroke-width="1"/>
+  <line x1="380" y1="130" x2="380" y2="260" stroke="#444444" stroke-width="1"/>
+  <path d="M 385 130 Q 400 170 430 200 Q 470 230 520 245 Q 570 252 620 255" fill="none" stroke="#e94560" stroke-width="2.5"/>
+  <text x="400" y="125" fill="#aaaaaa" font-size="9">high loss</text>
+  <text x="600" y="248" fill="#aaaaaa" font-size="9">low loss</text>
+  <text x="500" y="218" fill="#aaaaaa" font-size="9">predicted probability →</text>
+
+  <text x="500" y="265" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="bold">Use for: Classification</text>
+  <text x="500" y="278" text-anchor="middle" fill="#aaaaaa" font-size="9">Heavy penalty for confident wrong predictions</text>
+
+  <!-- Binary Cross-Entropy -->
+  <rect x="670" y="60" width="300" height="220" fill="#16213e" stroke="#feca57" stroke-width="2" rx="8"/>
+  <text x="820" y="85" text-anchor="middle" fill="#feca57" font-size="14" font-weight="bold">Binary Cross-Entropy</text>
+  <text x="820" y="108" text-anchor="middle" fill="#aaaaaa" font-size="11">L = -[y·log(ŷ) + (1-y)·log(1-ŷ)]</text>
+
+  <!-- BCE visualization -->
+  <line x1="700" y1="200" x2="940" y2="200" stroke="#444444" stroke-width="1"/>
+  <line x1="820" y1="130" x2="820" y2="260" stroke="#444444" stroke-width="1"/>
+  <!-- y=1 curve -->
+  <path d="M 705 130 Q 720 165 760 195 Q 800 220 840 235 Q 880 245 935 250" fill="none" stroke="#feca57" stroke-width="2"/>
+  <!-- y=0 curve -->
+  <path d="M 705 250 Q 750 245 800 235 Q 840 220 880 195 Q 920 165 935 130" fill="none" stroke="#ff6b6b" stroke-width="2"/>
+  <text x="720" y="125" fill="#feca57" font-size="9">y=1</text>
+  <text x="920" y="125" fill="#ff6b6b" font-size="9">y=0</text>
+
+  <text x="820" y="265" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="bold">Use for: Binary Classification</text>
+  <text x="820" y="278" text-anchor="middle" fill="#aaaaaa" font-size="9">Sigmoid output + this loss = logistic regression</text>
+
+  <!-- Loss Function Selection Flowchart -->
+  <rect x="30" y="310" width="940" height="220" fill="#0f3460" stroke="#54a0ff" stroke-width="1.5" rx="8"/>
+  <text x="500" y="340" text-anchor="middle" fill="#54a0ff" font-size="15" font-weight="bold">Loss Function Selection Guide</text>
+
+  <!-- Decision flow -->
+  <rect x="420" y="360" width="160" height="40" fill="#16213e" stroke="#ffffff" stroke-width="1.5" rx="20"/>
+  <text x="500" y="385" text-anchor="middle" fill="#ffffff" font-size="11">What's your task?</text>
+
+  <!-- Regression branch -->
+  <line x1="420" y1="380" x2="200" y2="420" stroke="#00d2d3" stroke-width="1.5"/>
+  <rect x="100" y="410" width="200" height="35" fill="#16213e" stroke="#00d2d3" stroke-width="1.5" rx="5"/>
+  <text x="200" y="432" text-anchor="middle" fill="#00d2d3" font-size="11">Regression (predict number)</text>
+
+  <line x1="200" y1="445" x2="120" y2="475" stroke="#00d2d3" stroke-width="1"/>
+  <line x1="200" y1="445" x2="280" y2="475" stroke="#00d2d3" stroke-width="1"/>
+
+  <rect x="60" y="470" width="120" height="30" fill="#16213e" stroke="#00d2d3" stroke-width="1" rx="5"/>
+  <text x="120" y="490" text-anchor="middle" fill="#ffffff" font-size="10">MSE (default)</text>
+
+  <rect x="220" y="470" width="120" height="30" fill="#16213e" stroke="#00d2d3" stroke-width="1" rx="5"/>
+  <text x="280" y="490" text-anchor="middle" fill="#ffffff" font-size="10">MAE (outliers)</text>
+
+  <!-- Classification branch -->
+  <line x1="580" y1="380" x2="750" y2="420" stroke="#e94560" stroke-width="1.5"/>
+  <rect x="650" y="410" width="200" height="35" fill="#16213e" stroke="#e94560" stroke-width="1.5" rx="5"/>
+  <text x="750" y="432" text-anchor="middle" fill="#e94560" font-size="11">Classification (predict class)</text>
+
+  <line x1="700" y1="445" x2="620" y2="475" stroke="#e94560" stroke-width="1"/>
+  <line x1="750" y1="445" x2="750" y2="475" stroke="#e94560" stroke-width="1"/>
+  <line x1="800" y1="445" x2="880" y2="475" stroke="#e94560" stroke-width="1"/>
+
+  <rect x="555" y="470" width="130" height="30" fill="#16213e" stroke="#e94560" stroke-width="1" rx="5"/>
+  <text x="620" y="490" text-anchor="middle" fill="#ffffff" font-size="10">BCE (2 classes)</text>
+
+  <rect x="690" y="470" width="130" height="30" fill="#16213e" stroke="#e94560" stroke-width="1" rx="5"/>
+  <text x="755" y="490" text-anchor="middle" fill="#ffffff" font-size="10">CE (N classes)</text>
+
+  <rect x="825" y="470" width="130" height="30" fill="#16213e" stroke="#e94560" stroke-width="1" rx="5"/>
+  <text x="890" y="490" text-anchor="middle" fill="#ffffff" font-size="10">Focal (imbalanced)</text>
+
+  <!-- Note -->
+  <text x="500" y="520" text-anchor="middle" fill="#aaaaaa" font-size="10">Huber Loss = MSE for small errors + MAE for large errors (robust regression) | Label Smoothing CE reduces overconfidence</text>
+</svg>

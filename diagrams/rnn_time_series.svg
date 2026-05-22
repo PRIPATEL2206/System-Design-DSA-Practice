@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 460" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1000" height="460" fill="#1a1a2e" rx="10"/>
+  <text x="500" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">Time Series Forecasting with RNNs — Architecture &amp; Pipeline</text>
+
+  <!-- Pipeline flow -->
+  <rect x="30" y="55" width="940" height="170" fill="#16213e" stroke="#54a0ff" stroke-width="1.5" rx="8"/>
+  <text x="500" y="78" text-anchor="middle" fill="#54a0ff" font-size="13" font-weight="bold">Sequence-to-Sequence Prediction Pipeline</text>
+
+  <!-- Raw data -->
+  <rect x="50" y="95" width="120" height="60" fill="#0f3460" stroke="#00ff88" stroke-width="1.5" rx="6"/>
+  <text x="110" y="118" text-anchor="middle" fill="#00ff88" font-size="10" font-weight="bold">Raw Time Series</text>
+  <text x="110" y="135" text-anchor="middle" fill="#ffffff" font-size="8">[t1, t2, ..., tN]</text>
+  <text x="110" y="148" text-anchor="middle" fill="#aaaaaa" font-size="7">Stock prices, temp, etc.</text>
+
+  <line x1="170" y1="125" x2="200" y2="125" stroke="#fff" stroke-width="1.5" marker-end="url(#tsA)"/>
+
+  <!-- Windowing -->
+  <rect x="200" y="95" width="130" height="60" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="6"/>
+  <text x="265" y="118" text-anchor="middle" fill="#feca57" font-size="10" font-weight="bold">Sliding Window</text>
+  <text x="265" y="135" text-anchor="middle" fill="#ffffff" font-size="8">Input: [t1..t30]</text>
+  <text x="265" y="148" text-anchor="middle" fill="#ffffff" font-size="8">Target: [t31]</text>
+
+  <line x1="330" y1="125" x2="360" y2="125" stroke="#fff" stroke-width="1.5" marker-end="url(#tsA)"/>
+
+  <!-- Normalize -->
+  <rect x="360" y="95" width="110" height="60" fill="#0f3460" stroke="#00d2d3" stroke-width="1.5" rx="6"/>
+  <text x="415" y="118" text-anchor="middle" fill="#00d2d3" font-size="10" font-weight="bold">Normalize</text>
+  <text x="415" y="135" text-anchor="middle" fill="#ffffff" font-size="8">MinMax / Standard</text>
+  <text x="415" y="148" text-anchor="middle" fill="#aaaaaa" font-size="7">Scale to [0,1] or μ=0,σ=1</text>
+
+  <line x1="470" y1="125" x2="500" y2="125" stroke="#fff" stroke-width="1.5" marker-end="url(#tsA)"/>
+
+  <!-- LSTM Model -->
+  <rect x="500" y="90" width="150" height="70" fill="#0f3460" stroke="#e94560" stroke-width="2" rx="6"/>
+  <text x="575" y="113" text-anchor="middle" fill="#e94560" font-size="10" font-weight="bold">LSTM / GRU Model</text>
+  <text x="575" y="130" text-anchor="middle" fill="#ffffff" font-size="8">layers=2, hidden=128</text>
+  <text x="575" y="145" text-anchor="middle" fill="#ffffff" font-size="8">dropout=0.2</text>
+  <text x="575" y="158" text-anchor="middle" fill="#aaaaaa" font-size="7">Learns temporal patterns</text>
+
+  <line x1="650" y1="125" x2="680" y2="125" stroke="#fff" stroke-width="1.5" marker-end="url(#tsA)"/>
+
+  <!-- Dense layer -->
+  <rect x="680" y="95" width="100" height="60" fill="#0f3460" stroke="#a29bfe" stroke-width="1.5" rx="6"/>
+  <text x="730" y="118" text-anchor="middle" fill="#a29bfe" font-size="10" font-weight="bold">Dense Head</text>
+  <text x="730" y="135" text-anchor="middle" fill="#ffffff" font-size="8">Linear(128, 1)</text>
+  <text x="730" y="148" text-anchor="middle" fill="#aaaaaa" font-size="7">Regression output</text>
+
+  <line x1="780" y1="125" x2="810" y2="125" stroke="#fff" stroke-width="1.5" marker-end="url(#tsA)"/>
+
+  <!-- Prediction -->
+  <rect x="810" y="95" width="130" height="60" fill="#0f3460" stroke="#00ff88" stroke-width="2" rx="6"/>
+  <text x="875" y="118" text-anchor="middle" fill="#00ff88" font-size="10" font-weight="bold">Prediction</text>
+  <text x="875" y="135" text-anchor="middle" fill="#ffffff" font-size="8">ŷ(t+1) = next value</text>
+  <text x="875" y="148" text-anchor="middle" fill="#aaaaaa" font-size="7">Inverse transform to get price</text>
+
+  <!-- Loss -->
+  <text x="575" y="195" text-anchor="middle" fill="#feca57" font-size="10">Loss: MSE(y, ŷ) or Huber Loss | Optimizer: Adam, lr=1e-3</text>
+  <text x="575" y="212" text-anchor="middle" fill="#aaaaaa" font-size="9">Backprop Through Time (BPTT): unroll and compute gradients across all timesteps</text>
+
+  <!-- Sliding window detail -->
+  <rect x="30" y="240" width="470" height="200" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="8"/>
+  <text x="265" y="265" text-anchor="middle" fill="#feca57" font-size="13" font-weight="bold">Sliding Window — Creating Training Samples</text>
+
+  <!-- Time series visualization -->
+  <text x="60" y="290" fill="#ffffff" font-size="9">Raw: [10, 12, 11, 14, 15, 13, 16, 18, 17, 20, 19, 22, ...]</text>
+
+  <text x="60" y="320" fill="#00ff88" font-size="9">Window size = 4, Forecast = 1:</text>
+
+  <text x="80" y="345" fill="#ffffff" font-size="9">Sample 1: X=[10, 12, 11, 14] → y=[15]</text>
+  <text x="80" y="365" fill="#ffffff" font-size="9">Sample 2: X=[12, 11, 14, 15] → y=[13]</text>
+  <text x="80" y="385" fill="#ffffff" font-size="9">Sample 3: X=[11, 14, 15, 13] → y=[16]</text>
+  <text x="80" y="405" fill="#ffffff" font-size="9">Sample 4: X=[14, 15, 13, 16] → y=[18]</text>
+  <text x="80" y="425" fill="#aaaaaa" font-size="9">...</text>
+
+  <text x="350" y="345" fill="#aaaaaa" font-size="9">Shape: X = (N, seq_len, features)</text>
+  <text x="350" y="365" fill="#aaaaaa" font-size="9">        y = (N, forecast_horizon)</text>
+  <text x="350" y="395" fill="#feca57" font-size="9" font-weight="bold">Multi-step forecast:</text>
+  <text x="350" y="415" fill="#ffffff" font-size="9">X=[10,12,11,14] → y=[15,13,16]</text>
+  <text x="350" y="433" fill="#aaaaaa" font-size="8">Predict next 3 values at once</text>
+
+  <!-- Strategies -->
+  <rect x="520" y="240" width="450" height="200" fill="#0f3460" stroke="#00d2d3" stroke-width="1.5" rx="8"/>
+  <text x="745" y="265" text-anchor="middle" fill="#00d2d3" font-size="13" font-weight="bold">Multi-Step Forecasting Strategies</text>
+
+  <!-- Strategy 1 -->
+  <text x="545" y="295" fill="#e94560" font-size="10" font-weight="bold">1. Recursive (Autoregressive)</text>
+  <text x="545" y="312" fill="#ffffff" font-size="9">Predict 1 step → feed back as input → predict next</text>
+  <text x="545" y="327" fill="#aaaaaa" font-size="8">Pro: Only train 1-step model | Con: Error compounds</text>
+
+  <!-- Strategy 2 -->
+  <text x="545" y="352" fill="#feca57" font-size="10" font-weight="bold">2. Direct Multi-Output</text>
+  <text x="545" y="369" fill="#ffffff" font-size="9">Model outputs all N future steps at once</text>
+  <text x="545" y="384" fill="#aaaaaa" font-size="8">Pro: No error accumulation | Con: Harder to train</text>
+
+  <!-- Strategy 3 -->
+  <text x="545" y="409" fill="#00ff88" font-size="10" font-weight="bold">3. Encoder-Decoder</text>
+  <text x="545" y="426" fill="#ffffff" font-size="9">Encoder reads history → Decoder generates future</text>
+  <text x="545" y="441" fill="#aaaaaa" font-size="8">Pro: Best for long horizons | Con: Most complex</text>
+
+  <defs>
+    <marker id="tsA" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#ffffff"/></marker>
+  </defs>
+</svg>

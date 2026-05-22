@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1000" height="500" fill="#1a1a2e" rx="10"/>
+  <text x="500" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">NLP Text Processing Pipeline</text>
+
+  <!-- Pipeline stages -->
+  <!-- Stage 1: Raw Text -->
+  <rect x="30" y="60" width="180" height="80" fill="#16213e" stroke="#00ff88" stroke-width="2" rx="8"/>
+  <text x="120" y="85" text-anchor="middle" fill="#00ff88" font-size="11" font-weight="bold">1. Raw Text</text>
+  <text x="120" y="105" text-anchor="middle" fill="#ffffff" font-size="9">"The cats are running</text>
+  <text x="120" y="120" text-anchor="middle" fill="#ffffff" font-size="9">faster than the dogs!"</text>
+
+  <line x1="210" y1="100" x2="240" y2="100" stroke="#fff" stroke-width="1.5" marker-end="url(#nlpA)"/>
+
+  <!-- Stage 2: Tokenization -->
+  <rect x="240" y="60" width="155" height="80" fill="#16213e" stroke="#feca57" stroke-width="2" rx="8"/>
+  <text x="317" y="85" text-anchor="middle" fill="#feca57" font-size="11" font-weight="bold">2. Tokenization</text>
+  <text x="317" y="105" text-anchor="middle" fill="#ffffff" font-size="9">["The", "cats", "are",</text>
+  <text x="317" y="120" text-anchor="middle" fill="#ffffff" font-size="9">"running", "faster", ...]</text>
+
+  <line x1="395" y1="100" x2="425" y2="100" stroke="#fff" stroke-width="1.5" marker-end="url(#nlpA)"/>
+
+  <!-- Stage 3: Lowercasing + Cleaning -->
+  <rect x="425" y="60" width="155" height="80" fill="#16213e" stroke="#00d2d3" stroke-width="2" rx="8"/>
+  <text x="502" y="85" text-anchor="middle" fill="#00d2d3" font-size="11" font-weight="bold">3. Normalize</text>
+  <text x="502" y="105" text-anchor="middle" fill="#ffffff" font-size="9">["the", "cats", "are",</text>
+  <text x="502" y="120" text-anchor="middle" fill="#ffffff" font-size="9">"running", "faster", ...]</text>
+
+  <line x1="580" y1="100" x2="610" y2="100" stroke="#fff" stroke-width="1.5" marker-end="url(#nlpA)"/>
+
+  <!-- Stage 4: Stop words -->
+  <rect x="610" y="60" width="155" height="80" fill="#16213e" stroke="#e94560" stroke-width="2" rx="8"/>
+  <text x="687" y="85" text-anchor="middle" fill="#e94560" font-size="11" font-weight="bold">4. Stop Words</text>
+  <text x="687" y="105" text-anchor="middle" fill="#ffffff" font-size="9">["cats", "running",</text>
+  <text x="687" y="120" text-anchor="middle" fill="#ffffff" font-size="9">"faster", "dogs"]</text>
+
+  <line x1="765" y1="100" x2="795" y2="100" stroke="#fff" stroke-width="1.5" marker-end="url(#nlpA)"/>
+
+  <!-- Stage 5: Stem/Lemma -->
+  <rect x="795" y="60" width="175" height="80" fill="#16213e" stroke="#a29bfe" stroke-width="2" rx="8"/>
+  <text x="882" y="85" text-anchor="middle" fill="#a29bfe" font-size="11" font-weight="bold">5. Stem / Lemmatize</text>
+  <text x="882" y="105" text-anchor="middle" fill="#ffffff" font-size="9">["cat", "run",</text>
+  <text x="882" y="120" text-anchor="middle" fill="#ffffff" font-size="9">"fast", "dog"]</text>
+
+  <!-- Tokenization types detail -->
+  <rect x="30" y="160" width="460" height="160" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="8"/>
+  <text x="260" y="185" text-anchor="middle" fill="#feca57" font-size="13" font-weight="bold">Tokenization Strategies</text>
+
+  <text x="60" y="210" fill="#e94560" font-size="10" font-weight="bold">Word-level:</text>
+  <text x="60" y="228" fill="#ffffff" font-size="9">"I can't" → ["I", "can't"] or ["I", "ca", "n't"]</text>
+  <text x="60" y="243" fill="#aaaaaa" font-size="8">Simple but huge vocabulary. OOV problem.</text>
+
+  <text x="60" y="265" fill="#feca57" font-size="10" font-weight="bold">Subword (BPE/WordPiece):</text>
+  <text x="60" y="283" fill="#ffffff" font-size="9">"unhappiness" → ["un", "##happi", "##ness"]</text>
+  <text x="60" y="298" fill="#aaaaaa" font-size="8">Used by BERT, GPT. Handles any word. Vocab ~30K-50K.</text>
+
+  <text x="60" y="318" fill="#00d2d3" font-size="10" font-weight="bold">Character-level:</text>
+  <text x="60" y="335" fill="#ffffff" font-size="9">"cat" → ["c", "a", "t"]</text>
+  <text x="60" y="350" fill="#aaaaaa" font-size="8">No OOV, but very long sequences. Tiny vocab (~256).</text>
+
+  <!-- Stemming vs Lemmatization -->
+  <rect x="510" y="160" width="460" height="160" fill="#0f3460" stroke="#a29bfe" stroke-width="1.5" rx="8"/>
+  <text x="740" y="185" text-anchor="middle" fill="#a29bfe" font-size="13" font-weight="bold">Stemming vs Lemmatization</text>
+
+  <text x="540" y="215" fill="#e94560" font-size="10" font-weight="bold">Stemming (Porter/Snowball):</text>
+  <text x="540" y="235" fill="#ffffff" font-size="9">Rule-based suffix stripping. Fast but crude.</text>
+  <text x="540" y="253" fill="#ffffff" font-size="9">running → run, studies → studi, better → better</text>
+  <text x="540" y="268" fill="#aaaaaa" font-size="8">⚠️ "university" → "univers" (not a real word)</text>
+
+  <line x1="530" y1="278" x2="950" y2="278" stroke="#444" stroke-width="1"/>
+
+  <text x="540" y="298" fill="#00ff88" font-size="10" font-weight="bold">Lemmatization (WordNet/spaCy):</text>
+  <text x="540" y="316" fill="#ffffff" font-size="9">Dictionary lookup + POS tagging. Slower but accurate.</text>
+  <text x="540" y="334" fill="#ffffff" font-size="9">running → run, studies → study, better → good</text>
+  <text x="540" y="349" fill="#aaaaaa" font-size="8">✓ Always produces valid dictionary words</text>
+
+  <!-- Feature Extraction Methods -->
+  <rect x="30" y="340" width="940" height="140" fill="#16213e" stroke="#54a0ff" stroke-width="1.5" rx="8"/>
+  <text x="500" y="365" text-anchor="middle" fill="#54a0ff" font-size="13" font-weight="bold">Text → Numbers: Feature Extraction Methods</text>
+
+  <!-- BoW -->
+  <rect x="55" y="385" width="170" height="75" fill="#0f3460" stroke="#e94560" stroke-width="1.5" rx="6"/>
+  <text x="140" y="405" text-anchor="middle" fill="#e94560" font-size="10" font-weight="bold">Bag of Words</text>
+  <text x="140" y="423" text-anchor="middle" fill="#ffffff" font-size="9">Count word frequency</text>
+  <text x="140" y="438" text-anchor="middle" fill="#ffffff" font-size="9">Ignores order</text>
+  <text x="140" y="453" text-anchor="middle" fill="#aaaaaa" font-size="8">Sparse, high-dim</text>
+
+  <!-- TF-IDF -->
+  <rect x="245" y="385" width="170" height="75" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="6"/>
+  <text x="330" y="405" text-anchor="middle" fill="#feca57" font-size="10" font-weight="bold">TF-IDF</text>
+  <text x="330" y="423" text-anchor="middle" fill="#ffffff" font-size="9">Weighted by importance</text>
+  <text x="330" y="438" text-anchor="middle" fill="#ffffff" font-size="9">Rare words score high</text>
+  <text x="330" y="453" text-anchor="middle" fill="#aaaaaa" font-size="8">Sparse, better than BoW</text>
+
+  <!-- Word2Vec -->
+  <rect x="435" y="385" width="170" height="75" fill="#0f3460" stroke="#00d2d3" stroke-width="1.5" rx="6"/>
+  <text x="520" y="405" text-anchor="middle" fill="#00d2d3" font-size="10" font-weight="bold">Word2Vec / GloVe</text>
+  <text x="520" y="423" text-anchor="middle" fill="#ffffff" font-size="9">Dense embeddings (300d)</text>
+  <text x="520" y="438" text-anchor="middle" fill="#ffffff" font-size="9">Semantic similarity</text>
+  <text x="520" y="453" text-anchor="middle" fill="#aaaaaa" font-size="8">Dense, captures meaning</text>
+
+  <!-- Contextual -->
+  <rect x="625" y="385" width="170" height="75" fill="#0f3460" stroke="#00ff88" stroke-width="1.5" rx="6"/>
+  <text x="710" y="405" text-anchor="middle" fill="#00ff88" font-size="10" font-weight="bold">BERT / GPT</text>
+  <text x="710" y="423" text-anchor="middle" fill="#ffffff" font-size="9">Context-dependent</text>
+  <text x="710" y="438" text-anchor="middle" fill="#ffffff" font-size="9">"bank" = different per context</text>
+  <text x="710" y="453" text-anchor="middle" fill="#aaaaaa" font-size="8">Dense, SOTA, expensive</text>
+
+  <!-- Arrow showing progression -->
+  <text x="860" y="410" fill="#ffffff" font-size="10" font-weight="bold">Progression →</text>
+  <text x="860" y="430" fill="#aaaaaa" font-size="9">More semantic</text>
+  <text x="860" y="448" fill="#aaaaaa" font-size="9">More compute</text>
+  <text x="860" y="466" fill="#aaaaaa" font-size="9">Better results</text>
+
+  <defs>
+    <marker id="nlpA" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#ffffff"/></marker>
+  </defs>
+</svg>

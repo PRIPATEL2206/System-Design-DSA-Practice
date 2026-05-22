@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1000" height="520" fill="#1a1a2e" rx="10"/>
+  <text x="500" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">FAISS — Index Types &amp; Selection Guide</text>
+
+  <!-- Index hierarchy -->
+  <rect x="30" y="55" width="940" height="200" fill="#16213e" stroke="#54a0ff" stroke-width="2" rx="8"/>
+  <text x="500" y="78" text-anchor="middle" fill="#54a0ff" font-size="12" font-weight="bold">FAISS Index Types (from Simple to Complex)</text>
+
+  <!-- Flat -->
+  <rect x="50" y="95" width="180" height="70" fill="#0f3460" stroke="#00ff88" stroke-width="2" rx="6"/>
+  <text x="140" y="115" text-anchor="middle" fill="#00ff88" font-size="9" font-weight="bold">IndexFlatL2 / FlatIP</text>
+  <text x="140" y="132" text-anchor="middle" fill="#ffffff" font-size="7">Brute-force exact search</text>
+  <text x="140" y="145" text-anchor="middle" fill="#ffffff" font-size="7">100% recall, O(N) per query</text>
+  <text x="140" y="158" text-anchor="middle" fill="#aaaaaa" font-size="7">Use: &lt;100K vectors</text>
+
+  <line x1="230" y1="130" x2="260" y2="130" stroke="#fff" stroke-width="1.5" marker-end="url(#faissA)"/>
+
+  <!-- IVF -->
+  <rect x="260" y="95" width="180" height="70" fill="#0f3460" stroke="#feca57" stroke-width="2" rx="6"/>
+  <text x="350" y="115" text-anchor="middle" fill="#feca57" font-size="9" font-weight="bold">IndexIVFFlat</text>
+  <text x="350" y="132" text-anchor="middle" fill="#ffffff" font-size="7">Cluster → search nearest clusters</text>
+  <text x="350" y="145" text-anchor="middle" fill="#ffffff" font-size="7">95-99% recall, much faster</text>
+  <text x="350" y="158" text-anchor="middle" fill="#aaaaaa" font-size="7">Use: 100K-10M vectors</text>
+
+  <line x1="440" y1="130" x2="470" y2="130" stroke="#fff" stroke-width="1.5" marker-end="url(#faissA)"/>
+
+  <!-- IVF-PQ -->
+  <rect x="470" y="95" width="180" height="70" fill="#0f3460" stroke="#e94560" stroke-width="2" rx="6"/>
+  <text x="560" y="115" text-anchor="middle" fill="#e94560" font-size="9" font-weight="bold">IndexIVFPQ</text>
+  <text x="560" y="132" text-anchor="middle" fill="#ffffff" font-size="7">Cluster + compress vectors</text>
+  <text x="560" y="145" text-anchor="middle" fill="#ffffff" font-size="7">90-95% recall, very compact</text>
+  <text x="560" y="158" text-anchor="middle" fill="#aaaaaa" font-size="7">Use: 10M-1B vectors</text>
+
+  <line x1="650" y1="130" x2="680" y2="130" stroke="#fff" stroke-width="1.5" marker-end="url(#faissA)"/>
+
+  <!-- HNSW -->
+  <rect x="680" y="95" width="280" height="70" fill="#0f3460" stroke="#00d2d3" stroke-width="2" rx="6"/>
+  <text x="820" y="115" text-anchor="middle" fill="#00d2d3" font-size="9" font-weight="bold">IndexHNSWFlat / IVFHNSW+PQ</text>
+  <text x="820" y="132" text-anchor="middle" fill="#ffffff" font-size="7">Graph-based ANN (highest quality)</text>
+  <text x="820" y="145" text-anchor="middle" fill="#ffffff" font-size="7">99%+ recall, fastest queries</text>
+  <text x="820" y="158" text-anchor="middle" fill="#aaaaaa" font-size="7">Use: when RAM allows graph storage</text>
+
+  <!-- Scale arrows -->
+  <line x1="50" y1="180" x2="950" y2="180" stroke="#feca57" stroke-width="1" marker-end="url(#faissA)"/>
+  <text x="100" y="195" fill="#00ff88" font-size="7">Small scale (&lt;100K)</text>
+  <text x="350" y="195" fill="#feca57" font-size="7">Medium (100K-10M)</text>
+  <text x="580" y="195" fill="#e94560" font-size="7">Large (10M-1B)</text>
+  <text x="820" y="195" fill="#00d2d3" font-size="7">Any (memory permitting)</text>
+
+  <!-- Tradeoff triangle -->
+  <text x="500" y="240" text-anchor="middle" fill="#a29bfe" font-size="9" font-weight="bold">↓ Speed increases, Memory decreases, Recall slightly decreases →</text>
+
+  <!-- FAISS Pipeline -->
+  <rect x="30" y="265" width="940" height="110" fill="#16213e" stroke="#00ff88" stroke-width="1.5" rx="8"/>
+  <text x="500" y="288" text-anchor="middle" fill="#00ff88" font-size="12" font-weight="bold">FAISS Usage Pipeline</text>
+
+  <rect x="50" y="305" width="130" height="50" fill="#0f3460" stroke="#e94560" stroke-width="1.5" rx="4"/>
+  <text x="115" y="325" text-anchor="middle" fill="#e94560" font-size="8" font-weight="bold">1. Choose Index</text>
+  <text x="115" y="342" text-anchor="middle" fill="#ffffff" font-size="7">Based on scale + RAM</text>
+
+  <line x1="180" y1="330" x2="210" y2="330" stroke="#fff" stroke-width="1.5" marker-end="url(#faissA)"/>
+
+  <rect x="210" y="305" width="130" height="50" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="4"/>
+  <text x="275" y="325" text-anchor="middle" fill="#feca57" font-size="8" font-weight="bold">2. Train Index</text>
+  <text x="275" y="342" text-anchor="middle" fill="#ffffff" font-size="7">IVF needs clustering</text>
+
+  <line x1="340" y1="330" x2="370" y2="330" stroke="#fff" stroke-width="1.5" marker-end="url(#faissA)"/>
+
+  <rect x="370" y="305" width="130" height="50" fill="#0f3460" stroke="#00ff88" stroke-width="1.5" rx="4"/>
+  <text x="435" y="325" text-anchor="middle" fill="#00ff88" font-size="8" font-weight="bold">3. Add Vectors</text>
+  <text x="435" y="342" text-anchor="middle" fill="#ffffff" font-size="7">index.add(vectors)</text>
+
+  <line x1="500" y1="330" x2="530" y2="330" stroke="#fff" stroke-width="1.5" marker-end="url(#faissA)"/>
+
+  <rect x="530" y="305" width="130" height="50" fill="#0f3460" stroke="#54a0ff" stroke-width="1.5" rx="4"/>
+  <text x="595" y="325" text-anchor="middle" fill="#54a0ff" font-size="8" font-weight="bold">4. Search</text>
+  <text x="595" y="342" text-anchor="middle" fill="#ffffff" font-size="7">index.search(query, k)</text>
+
+  <line x1="660" y1="330" x2="690" y2="330" stroke="#fff" stroke-width="1.5" marker-end="url(#faissA)"/>
+
+  <rect x="690" y="305" width="130" height="50" fill="#0f3460" stroke="#a29bfe" stroke-width="1.5" rx="4"/>
+  <text x="755" y="325" text-anchor="middle" fill="#a29bfe" font-size="8" font-weight="bold">5. Save/Load</text>
+  <text x="755" y="342" text-anchor="middle" fill="#ffffff" font-size="7">faiss.write_index()</text>
+
+  <line x1="820" y1="330" x2="850" y2="330" stroke="#fff" stroke-width="1.5" marker-end="url(#faissA)"/>
+
+  <rect x="850" y="305" width="110" height="50" fill="#0f3460" stroke="#00d2d3" stroke-width="2" rx="4"/>
+  <text x="905" y="325" text-anchor="middle" fill="#00d2d3" font-size="8" font-weight="bold">6. GPU?</text>
+  <text x="905" y="342" text-anchor="middle" fill="#ffffff" font-size="7">faiss.index_gpu()</text>
+
+  <!-- Decision guide -->
+  <rect x="30" y="390" width="940" height="115" fill="#0f3460" stroke="#a29bfe" stroke-width="1.5" rx="8"/>
+  <text x="500" y="415" text-anchor="middle" fill="#a29bfe" font-size="12" font-weight="bold">Quick Decision Guide</text>
+
+  <text x="50" y="440" fill="#00ff88" font-size="8">• Need 100% accuracy?</text>
+  <text x="250" y="440" fill="#ffffff" font-size="8">→ IndexFlatL2 (brute force)</text>
+
+  <text x="50" y="460" fill="#feca57" font-size="8">• 1M vectors, 8GB RAM?</text>
+  <text x="250" y="460" fill="#ffffff" font-size="8">→ IndexIVFFlat (nlist=1024, nprobe=32)</text>
+
+  <text x="50" y="480" fill="#e94560" font-size="8">• 100M vectors, limited RAM?</text>
+  <text x="250" y="480" fill="#ffffff" font-size="8">→ IndexIVFPQ (nlist=4096, m=64, nbits=8)</text>
+
+  <text x="530" y="440" fill="#00d2d3" font-size="8">• Need fastest queries?</text>
+  <text x="720" y="440" fill="#ffffff" font-size="8">→ IndexHNSWFlat (M=32, efSearch=64)</text>
+
+  <text x="530" y="460" fill="#54a0ff" font-size="8">• Have NVIDIA GPU?</text>
+  <text x="720" y="460" fill="#ffffff" font-size="8">→ GpuIndexFlatL2 (40x speedup on brute force)</text>
+
+  <text x="530" y="480" fill="#a29bfe" font-size="8">• Billion-scale production?</text>
+  <text x="720" y="480" fill="#ffffff" font-size="8">→ OPQ + IVF + HNSW + PQ (composite index)</text>
+
+  <text x="500" y="505" text-anchor="middle" fill="#feca57" font-size="8" font-weight="bold">Golden rule: Start with Flat for prototyping → benchmark with real data → move to ANN index</text>
+
+  <defs>
+    <marker id="faissA" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto"><polygon points="0 0, 6 2.5, 0 5" fill="#ffffff"/></marker>
+  </defs>
+</svg>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1000" height="600" fill="#1a1a2e" rx="10"/>
+  <text x="500" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">Vector Similarity Metrics — Distance Functions</text>
+
+  <!-- Cosine Similarity -->
+  <rect x="30" y="55" width="300" height="240" fill="#16213e" stroke="#00ff88" stroke-width="2" rx="8"/>
+  <text x="180" y="80" text-anchor="middle" fill="#00ff88" font-size="14" font-weight="bold">Cosine Similarity</text>
+
+  <!-- Cosine diagram - two vectors with angle -->
+  <line x1="80" y1="220" x2="220" y2="120" stroke="#54a0ff" stroke-width="2.5" marker-end="url(#arrG)"/>
+  <line x1="80" y1="220" x2="260" y2="180" stroke="#feca57" stroke-width="2.5" marker-end="url(#arrY)"/>
+  <text x="150" y="115" fill="#54a0ff" font-size="10">Vector A</text>
+  <text x="220" y="195" fill="#feca57" font-size="10">Vector B</text>
+
+  <!-- Angle arc -->
+  <path d="M 130 193 A 55 55 0 0 1 145 178" fill="none" stroke="#e94560" stroke-width="1.5"/>
+  <text x="145" y="200" fill="#e94560" font-size="9">θ</text>
+
+  <text x="180" y="248" text-anchor="middle" fill="#ffffff" font-size="9">cos(θ) = (A·B) / (||A|| × ||B||)</text>
+  <text x="180" y="268" text-anchor="middle" fill="#aaaaaa" font-size="8">Range: [-1, 1] → 1 = identical direction</text>
+  <text x="180" y="283" text-anchor="middle" fill="#00ff88" font-size="8">Best for: text embeddings, NLP</text>
+
+  <!-- Euclidean Distance -->
+  <rect x="350" y="55" width="300" height="240" fill="#16213e" stroke="#54a0ff" stroke-width="2" rx="8"/>
+  <text x="500" y="80" text-anchor="middle" fill="#54a0ff" font-size="14" font-weight="bold">Euclidean Distance (L2)</text>
+
+  <!-- Euclidean diagram - two points with line -->
+  <circle cx="420" cy="180" r="6" fill="#54a0ff"/>
+  <circle cx="580" cy="130" r="6" fill="#feca57"/>
+  <text x="420" y="200" text-anchor="middle" fill="#54a0ff" font-size="9">Point A</text>
+  <text x="580" y="120" text-anchor="middle" fill="#feca57" font-size="9">Point B</text>
+  <line x1="420" y1="180" x2="580" y2="130" stroke="#e94560" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="500" y="145" text-anchor="middle" fill="#e94560" font-size="9">d</text>
+
+  <!-- Grid dots -->
+  <circle cx="400" cy="140" r="2" fill="#333"/>
+  <circle cx="440" cy="140" r="2" fill="#333"/>
+  <circle cx="480" cy="140" r="2" fill="#333"/>
+  <circle cx="520" cy="140" r="2" fill="#333"/>
+  <circle cx="560" cy="140" r="2" fill="#333"/>
+  <circle cx="400" cy="170" r="2" fill="#333"/>
+  <circle cx="440" cy="170" r="2" fill="#333"/>
+  <circle cx="480" cy="170" r="2" fill="#333"/>
+  <circle cx="520" cy="170" r="2" fill="#333"/>
+  <circle cx="560" cy="170" r="2" fill="#333"/>
+  <circle cx="400" cy="200" r="2" fill="#333"/>
+  <circle cx="440" cy="200" r="2" fill="#333"/>
+  <circle cx="480" cy="200" r="2" fill="#333"/>
+  <circle cx="520" cy="200" r="2" fill="#333"/>
+  <circle cx="560" cy="200" r="2" fill="#333"/>
+
+  <text x="500" y="248" text-anchor="middle" fill="#ffffff" font-size="9">d = √Σ(aᵢ - bᵢ)²</text>
+  <text x="500" y="268" text-anchor="middle" fill="#aaaaaa" font-size="8">Range: [0, ∞) → 0 = identical</text>
+  <text x="500" y="283" text-anchor="middle" fill="#54a0ff" font-size="8">Best for: image features, spatial data</text>
+
+  <!-- Dot Product -->
+  <rect x="670" y="55" width="300" height="240" fill="#16213e" stroke="#feca57" stroke-width="2" rx="8"/>
+  <text x="820" y="80" text-anchor="middle" fill="#feca57" font-size="14" font-weight="bold">Dot Product (Inner Product)</text>
+
+  <!-- Dot product diagram -->
+  <line x1="730" y1="220" x2="870" y2="120" stroke="#54a0ff" stroke-width="2.5" marker-end="url(#arrG)"/>
+  <line x1="730" y1="220" x2="900" y2="170" stroke="#feca57" stroke-width="2.5" marker-end="url(#arrY)"/>
+  <text x="810" y="115" fill="#54a0ff" font-size="10">A (large)</text>
+  <text x="860" y="195" fill="#feca57" font-size="10">B</text>
+
+  <!-- Projection -->
+  <line x1="730" y1="220" x2="850" y2="180" stroke="#e94560" stroke-width="1.5" stroke-dasharray="3,2"/>
+
+  <text x="820" y="248" text-anchor="middle" fill="#ffffff" font-size="9">A·B = Σ(aᵢ × bᵢ) = ||A|| ||B|| cos(θ)</text>
+  <text x="820" y="268" text-anchor="middle" fill="#aaaaaa" font-size="8">Range: (-∞, ∞) → considers magnitude</text>
+  <text x="820" y="283" text-anchor="middle" fill="#feca57" font-size="8">Best for: recommendation, ranking</text>
+
+  <!-- Comparison Table -->
+  <rect x="30" y="310" width="940" height="270" fill="#0f3460" stroke="#a29bfe" stroke-width="1.5" rx="8"/>
+  <text x="500" y="338" text-anchor="middle" fill="#a29bfe" font-size="14" font-weight="bold">When to Use Each Metric</text>
+
+  <!-- Headers -->
+  <text x="60" y="368" fill="#e94560" font-size="10" font-weight="bold">Metric</text>
+  <text x="200" y="368" fill="#e94560" font-size="10" font-weight="bold">Magnitude Matters?</text>
+  <text x="380" y="368" fill="#e94560" font-size="10" font-weight="bold">Normalized Vectors?</text>
+  <text x="570" y="368" fill="#e94560" font-size="10" font-weight="bold">Use Case</text>
+  <text x="790" y="368" fill="#e94560" font-size="10" font-weight="bold">Performance</text>
+  <line x1="50" y1="378" x2="950" y2="378" stroke="#333" stroke-width="1"/>
+
+  <!-- Row 1: Cosine -->
+  <text x="60" y="402" fill="#00ff88" font-size="9" font-weight="bold">Cosine</text>
+  <text x="200" y="402" fill="#ffffff" font-size="9">No (direction only)</text>
+  <text x="380" y="402" fill="#ffffff" font-size="9">Works with any vectors</text>
+  <text x="570" y="402" fill="#ffffff" font-size="9">Semantic search, document similarity</text>
+  <text x="790" y="402" fill="#ffffff" font-size="9">Moderate</text>
+
+  <!-- Row 2: Euclidean -->
+  <text x="60" y="432" fill="#54a0ff" font-size="9" font-weight="bold">Euclidean</text>
+  <text x="200" y="432" fill="#ffffff" font-size="9">Yes</text>
+  <text x="380" y="432" fill="#ffffff" font-size="9">Best with normalized</text>
+  <text x="570" y="432" fill="#ffffff" font-size="9">Image similarity, clustering</text>
+  <text x="790" y="432" fill="#ffffff" font-size="9">Moderate</text>
+
+  <!-- Row 3: Dot Product -->
+  <text x="60" y="462" fill="#feca57" font-size="9" font-weight="bold">Dot Product</text>
+  <text x="200" y="462" fill="#ffffff" font-size="9">Yes (intended)</text>
+  <text x="380" y="462" fill="#ffffff" font-size="9">Must be normalized for similarity</text>
+  <text x="570" y="462" fill="#ffffff" font-size="9">Recommendations, MaxIP search</text>
+  <text x="790" y="462" fill="#ffffff" font-size="9">Fastest (SIMD)</text>
+
+  <!-- Row 4: Manhattan -->
+  <text x="60" y="492" fill="#00d2d3" font-size="9" font-weight="bold">Manhattan (L1)</text>
+  <text x="200" y="492" fill="#ffffff" font-size="9">Yes</text>
+  <text x="380" y="492" fill="#ffffff" font-size="9">High-dimensional preferred</text>
+  <text x="570" y="492" fill="#ffffff" font-size="9">Sparse vectors, high-dim spaces</text>
+  <text x="790" y="492" fill="#ffffff" font-size="9">Fast</text>
+
+  <!-- Key insight -->
+  <rect x="50" y="520" width="900" height="45" fill="#1a1a2e" stroke="#00ff88" stroke-width="1" rx="5"/>
+  <text x="500" y="540" text-anchor="middle" fill="#00ff88" font-size="10" font-weight="bold">💡 Key Insight: For normalized vectors, Cosine ≡ Dot Product ≡ Euclidean (all give same ranking)</text>
+  <text x="500" y="558" text-anchor="middle" fill="#aaaaaa" font-size="9">OpenAI embeddings are pre-normalized → any metric works. Choose based on your DB's optimization.</text>
+
+  <defs>
+    <marker id="arrG" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#54a0ff"/></marker>
+    <marker id="arrY" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#feca57"/></marker>
+  </defs>
+</svg>

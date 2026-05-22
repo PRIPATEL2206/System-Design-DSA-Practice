@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1000" height="500" fill="#1a1a2e" rx="10"/>
+
+  <!-- Title -->
+  <text x="500" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">Forward Propagation Flow</text>
+
+  <!-- Step 1: Input -->
+  <rect x="30" y="70" width="140" height="80" fill="#0f3460" stroke="#e94560" stroke-width="2" rx="10"/>
+  <text x="100" y="100" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">INPUT</text>
+  <text x="100" y="120" text-anchor="middle" fill="#aaaaaa" font-size="11">X = [x₁, x₂, ...xₙ]</text>
+  <text x="100" y="138" text-anchor="middle" fill="#aaaaaa" font-size="10">Features</text>
+
+  <!-- Arrow 1 -->
+  <line x1="170" y1="110" x2="210" y2="110" stroke="#e94560" stroke-width="2" marker-end="url(#arrowRed)"/>
+
+  <!-- Step 2: Weighted Sum -->
+  <rect x="210" y="70" width="160" height="80" fill="#16213e" stroke="#00d2d3" stroke-width="2" rx="10"/>
+  <text x="290" y="95" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">WEIGHTED SUM</text>
+  <text x="290" y="118" text-anchor="middle" fill="#00d2d3" font-size="12">z = Σ(wᵢ · xᵢ) + b</text>
+  <text x="290" y="138" text-anchor="middle" fill="#aaaaaa" font-size="10">Linear Transform</text>
+
+  <!-- Arrow 2 -->
+  <line x1="370" y1="110" x2="410" y2="110" stroke="#00d2d3" stroke-width="2" marker-end="url(#arrowCyan)"/>
+
+  <!-- Step 3: Activation -->
+  <rect x="410" y="70" width="160" height="80" fill="#16213e" stroke="#feca57" stroke-width="2" rx="10"/>
+  <text x="490" y="95" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">ACTIVATION</text>
+  <text x="490" y="118" text-anchor="middle" fill="#feca57" font-size="12">a = σ(z)</text>
+  <text x="490" y="138" text-anchor="middle" fill="#aaaaaa" font-size="10">Non-linearity</text>
+
+  <!-- Arrow 3 -->
+  <line x1="570" y1="110" x2="610" y2="110" stroke="#feca57" stroke-width="2" marker-end="url(#arrowYellow)"/>
+
+  <!-- Step 4: Next Layer -->
+  <rect x="610" y="70" width="160" height="80" fill="#16213e" stroke="#00d2d3" stroke-width="2" rx="10"/>
+  <text x="690" y="95" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">NEXT LAYER</text>
+  <text x="690" y="118" text-anchor="middle" fill="#00d2d3" font-size="12">Repeat z → a</text>
+  <text x="690" y="138" text-anchor="middle" fill="#aaaaaa" font-size="10">Layer by Layer</text>
+
+  <!-- Arrow 4 -->
+  <line x1="770" y1="110" x2="810" y2="110" stroke="#00d2d3" stroke-width="2" marker-end="url(#arrowCyan)"/>
+
+  <!-- Step 5: Output -->
+  <rect x="810" y="70" width="160" height="80" fill="#0f3460" stroke="#ff6b6b" stroke-width="2" rx="10"/>
+  <text x="890" y="95" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">OUTPUT</text>
+  <text x="890" y="118" text-anchor="middle" fill="#ff6b6b" font-size="12">ŷ = prediction</text>
+  <text x="890" y="138" text-anchor="middle" fill="#aaaaaa" font-size="10">Final Result</text>
+
+  <!-- Detailed Mathematical Flow -->
+  <text x="500" y="195" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="bold">Detailed Layer-by-Layer Computation</text>
+
+  <!-- Layer 1 Computation -->
+  <rect x="50" y="220" width="260" height="120" fill="#16213e" stroke="#e94560" stroke-width="1.5" rx="8"/>
+  <text x="180" y="245" text-anchor="middle" fill="#e94560" font-size="13" font-weight="bold">Layer 1 (Input → Hidden)</text>
+  <text x="180" y="270" text-anchor="middle" fill="#ffffff" font-size="11">z⁽¹⁾ = W⁽¹⁾ · X + b⁽¹⁾</text>
+  <text x="180" y="295" text-anchor="middle" fill="#ffffff" font-size="11">a⁽¹⁾ = ReLU(z⁽¹⁾)</text>
+  <text x="180" y="320" text-anchor="middle" fill="#aaaaaa" font-size="10">W⁽¹⁾ shape: (hidden_size × input_size)</text>
+
+  <!-- Arrow -->
+  <line x1="310" y1="280" x2="370" y2="280" stroke="#ffffff" stroke-width="2" marker-end="url(#arrowWhite)"/>
+
+  <!-- Layer 2 Computation -->
+  <rect x="370" y="220" width="260" height="120" fill="#16213e" stroke="#00d2d3" stroke-width="1.5" rx="8"/>
+  <text x="500" y="245" text-anchor="middle" fill="#00d2d3" font-size="13" font-weight="bold">Layer 2 (Hidden → Hidden)</text>
+  <text x="500" y="270" text-anchor="middle" fill="#ffffff" font-size="11">z⁽²⁾ = W⁽²⁾ · a⁽¹⁾ + b⁽²⁾</text>
+  <text x="500" y="295" text-anchor="middle" fill="#ffffff" font-size="11">a⁽²⁾ = ReLU(z⁽²⁾)</text>
+  <text x="500" y="320" text-anchor="middle" fill="#aaaaaa" font-size="10">W⁽²⁾ shape: (hidden₂ × hidden₁)</text>
+
+  <!-- Arrow -->
+  <line x1="630" y1="280" x2="690" y2="280" stroke="#ffffff" stroke-width="2" marker-end="url(#arrowWhite)"/>
+
+  <!-- Output Layer Computation -->
+  <rect x="690" y="220" width="260" height="120" fill="#16213e" stroke="#ff6b6b" stroke-width="1.5" rx="8"/>
+  <text x="820" y="245" text-anchor="middle" fill="#ff6b6b" font-size="13" font-weight="bold">Output Layer</text>
+  <text x="820" y="270" text-anchor="middle" fill="#ffffff" font-size="11">z⁽³⁾ = W⁽³⁾ · a⁽²⁾ + b⁽³⁾</text>
+  <text x="820" y="295" text-anchor="middle" fill="#ffffff" font-size="11">ŷ = Softmax(z⁽³⁾)</text>
+  <text x="820" y="320" text-anchor="middle" fill="#aaaaaa" font-size="10">W⁽³⁾ shape: (output_size × hidden₂)</text>
+
+  <!-- Key Insight Box -->
+  <rect x="50" y="370" width="900" height="110" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="8"/>
+  <text x="500" y="395" text-anchor="middle" fill="#feca57" font-size="14" font-weight="bold">Key Insights</text>
+  <text x="80" y="420" fill="#ffffff" font-size="11">1. Data flows LEFT → RIGHT through the network (hence "forward")</text>
+  <text x="80" y="440" fill="#ffffff" font-size="11">2. Each layer: Linear transformation (z = Wx + b) → Non-linear activation (a = σ(z))</text>
+  <text x="80" y="460" fill="#ffffff" font-size="11">3. No learning happens here — forward pass only COMPUTES the prediction given current weights</text>
+
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arrowRed" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#e94560"/>
+    </marker>
+    <marker id="arrowCyan" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#00d2d3"/>
+    </marker>
+    <marker id="arrowYellow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#feca57"/>
+    </marker>
+    <marker id="arrowWhite" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ffffff"/>
+    </marker>
+  </defs>
+</svg>

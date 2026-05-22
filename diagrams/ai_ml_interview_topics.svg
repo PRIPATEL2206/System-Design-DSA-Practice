@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 440" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1050" height="440" fill="#1a1a2e" rx="10"/>
+  <text x="525" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">AI/ML Interview Topics Map — What You Must Know</text>
+
+  <!-- Category 1: ML Fundamentals -->
+  <rect x="30" y="55" width="240" height="170" fill="#16213e" stroke="#54a0ff" stroke-width="2" rx="8"/>
+  <text x="150" y="78" text-anchor="middle" fill="#54a0ff" font-size="10" font-weight="bold">ML Fundamentals</text>
+  <text x="45" y="98" fill="#ffffff" font-size="7">• Bias-variance trade-off</text>
+  <text x="45" y="113" fill="#ffffff" font-size="7">• Overfitting / underfitting</text>
+  <text x="45" y="128" fill="#ffffff" font-size="7">• Cross-validation</text>
+  <text x="45" y="143" fill="#ffffff" font-size="7">• Regularization (L1/L2)</text>
+  <text x="45" y="158" fill="#ffffff" font-size="7">• Feature engineering</text>
+  <text x="45" y="173" fill="#ffffff" font-size="7">• Evaluation metrics</text>
+  <text x="45" y="188" fill="#ffffff" font-size="7">• Class imbalance</text>
+  <text x="45" y="203" fill="#ffffff" font-size="7">• Gradient descent + optimizers</text>
+  <text x="150" y="220" text-anchor="middle" fill="#feca57" font-size="6">Frequency: EVERY interview</text>
+
+  <!-- Category 2: Algorithms -->
+  <rect x="285" y="55" width="240" height="170" fill="#16213e" stroke="#feca57" stroke-width="2" rx="8"/>
+  <text x="405" y="78" text-anchor="middle" fill="#feca57" font-size="10" font-weight="bold">Algorithms Deep Dive</text>
+  <text x="300" y="98" fill="#ffffff" font-size="7">• Decision Trees / Random Forest</text>
+  <text x="300" y="113" fill="#ffffff" font-size="7">• XGBoost / LightGBM</text>
+  <text x="300" y="128" fill="#ffffff" font-size="7">• Logistic Regression</text>
+  <text x="300" y="143" fill="#ffffff" font-size="7">• SVM (kernel trick)</text>
+  <text x="300" y="158" fill="#ffffff" font-size="7">• K-Means / DBSCAN</text>
+  <text x="300" y="173" fill="#ffffff" font-size="7">• PCA / dimensionality reduction</text>
+  <text x="300" y="188" fill="#ffffff" font-size="7">• Ensemble methods (bag/boost/stack)</text>
+  <text x="300" y="203" fill="#ffffff" font-size="7">• KNN / Naive Bayes</text>
+  <text x="405" y="220" text-anchor="middle" fill="#feca57" font-size="6">Frequency: 80% of interviews</text>
+
+  <!-- Category 3: Deep Learning -->
+  <rect x="540" y="55" width="240" height="170" fill="#16213e" stroke="#e94560" stroke-width="2" rx="8"/>
+  <text x="660" y="78" text-anchor="middle" fill="#e94560" font-size="10" font-weight="bold">Deep Learning</text>
+  <text x="555" y="98" fill="#ffffff" font-size="7">• Neural network fundamentals</text>
+  <text x="555" y="113" fill="#ffffff" font-size="7">• Backpropagation</text>
+  <text x="555" y="128" fill="#ffffff" font-size="7">• CNNs (convolution, pooling)</text>
+  <text x="555" y="143" fill="#ffffff" font-size="7">• RNNs / LSTM / GRU</text>
+  <text x="555" y="158" fill="#ffffff" font-size="7">• Attention mechanism</text>
+  <text x="555" y="173" fill="#ffffff" font-size="7">• Transformer architecture</text>
+  <text x="555" y="188" fill="#ffffff" font-size="7">• Transfer learning</text>
+  <text x="555" y="203" fill="#ffffff" font-size="7">• Batch norm, dropout, residuals</text>
+  <text x="660" y="220" text-anchor="middle" fill="#feca57" font-size="6">Frequency: 70% of interviews</text>
+
+  <!-- Category 4: LLMs & GenAI -->
+  <rect x="795" y="55" width="225" height="170" fill="#16213e" stroke="#00ff88" stroke-width="2" rx="8"/>
+  <text x="907" y="78" text-anchor="middle" fill="#00ff88" font-size="10" font-weight="bold">LLMs &amp; GenAI</text>
+  <text x="810" y="98" fill="#ffffff" font-size="7">• GPT / BERT architectures</text>
+  <text x="810" y="113" fill="#ffffff" font-size="7">• RAG (chunking → retrieval)</text>
+  <text x="810" y="128" fill="#ffffff" font-size="7">• Embeddings + vector DBs</text>
+  <text x="810" y="143" fill="#ffffff" font-size="7">• Fine-tuning (LoRA/QLoRA)</text>
+  <text x="810" y="158" fill="#ffffff" font-size="7">• Prompt engineering</text>
+  <text x="810" y="173" fill="#ffffff" font-size="7">• RLHF / DPO alignment</text>
+  <text x="810" y="188" fill="#ffffff" font-size="7">• Hallucination mitigation</text>
+  <text x="810" y="203" fill="#ffffff" font-size="7">• LangChain / agents</text>
+  <text x="907" y="220" text-anchor="middle" fill="#feca57" font-size="6">Frequency: 90% (2024+)</text>
+
+  <!-- Category 5: System Design -->
+  <rect x="30" y="240" width="325" height="170" fill="#16213e" stroke="#a29bfe" stroke-width="2" rx="8"/>
+  <text x="192" y="263" text-anchor="middle" fill="#a29bfe" font-size="10" font-weight="bold">ML System Design</text>
+  <text x="45" y="283" fill="#ffffff" font-size="7">• Recommendation systems (two-stage)</text>
+  <text x="45" y="298" fill="#ffffff" font-size="7">• Search systems (hybrid retrieval)</text>
+  <text x="45" y="313" fill="#ffffff" font-size="7">• Fraud detection (real-time)</text>
+  <text x="45" y="328" fill="#ffffff" font-size="7">• AI chatbot architecture</text>
+  <text x="45" y="343" fill="#ffffff" font-size="7">• Feature stores + serving patterns</text>
+  <text x="45" y="358" fill="#ffffff" font-size="7">• A/B testing + canary deployment</text>
+  <text x="45" y="373" fill="#ffffff" font-size="7">• Scaling (sharding, caching, batching)</text>
+  <text x="45" y="388" fill="#ffffff" font-size="7">• Cost optimization strategies</text>
+  <text x="45" y="403" fill="#feca57" font-size="7">Framework: Clarify → Metrics → Arch → Data → Model → Serve → Monitor</text>
+
+  <!-- Category 6: Production & MLOps -->
+  <rect x="370" y="240" width="325" height="170" fill="#16213e" stroke="#00d2d3" stroke-width="2" rx="8"/>
+  <text x="532" y="263" text-anchor="middle" fill="#00d2d3" font-size="10" font-weight="bold">Production &amp; MLOps</text>
+  <text x="385" y="283" fill="#ffffff" font-size="7">• Model monitoring &amp; drift detection</text>
+  <text x="385" y="298" fill="#ffffff" font-size="7">• CI/CD for ML pipelines</text>
+  <text x="385" y="313" fill="#ffffff" font-size="7">• Docker + Kubernetes for serving</text>
+  <text x="385" y="328" fill="#ffffff" font-size="7">• Model versioning (MLflow)</text>
+  <text x="385" y="343" fill="#ffffff" font-size="7">• Data quality &amp; validation</text>
+  <text x="385" y="358" fill="#ffffff" font-size="7">• Debugging production failures</text>
+  <text x="385" y="373" fill="#ffffff" font-size="7">• LLMOps (cost, guardrails, prompts)</text>
+  <text x="385" y="388" fill="#ffffff" font-size="7">• Experiment tracking</text>
+  <text x="532" y="403" text-anchor="middle" fill="#feca57" font-size="6">Shows SENIOR-level thinking</text>
+
+  <!-- Category 7: Coding -->
+  <rect x="710" y="240" width="310" height="170" fill="#16213e" stroke="#ff6b6b" stroke-width="2" rx="8"/>
+  <text x="865" y="263" text-anchor="middle" fill="#ff6b6b" font-size="10" font-weight="bold">Coding Skills</text>
+  <text x="725" y="283" fill="#ffffff" font-size="7">• Implement ML algorithms from scratch</text>
+  <text x="725" y="298" fill="#ffffff" font-size="7">• pandas/numpy data manipulation</text>
+  <text x="725" y="313" fill="#ffffff" font-size="7">• sklearn pipeline building</text>
+  <text x="725" y="328" fill="#ffffff" font-size="7">• PyTorch model + training loop</text>
+  <text x="725" y="343" fill="#ffffff" font-size="7">• SQL for feature engineering</text>
+  <text x="725" y="358" fill="#ffffff" font-size="7">• API building (FastAPI)</text>
+  <text x="725" y="373" fill="#ffffff" font-size="7">• LeetCode (arrays, trees, DP)</text>
+  <text x="725" y="388" fill="#ffffff" font-size="7">• Data structures for ML</text>
+  <text x="865" y="403" text-anchor="middle" fill="#feca57" font-size="6">Practice: 1 problem/day for 8 weeks</text>
+
+  <!-- Priority note -->
+  <rect x="30" y="418" width="990" height="15" fill="#0f3460" rx="3"/>
+  <text x="525" y="430" text-anchor="middle" fill="#feca57" font-size="8" font-weight="bold">Priority for 2024+: LLMs &amp; GenAI (90%) &gt; ML Fundamentals (every) &gt; System Design (senior) &gt; Coding (always) &gt; Deep Learning (70%)</text>
+</svg>

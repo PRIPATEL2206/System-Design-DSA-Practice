@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 480" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1050" height="480" fill="#1a1a2e" rx="10"/>
+  <text x="525" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">AI/ML Interview Preparation Roadmap</text>
+
+  <!-- Timeline -->
+  <rect x="30" y="55" width="990" height="105" fill="#16213e" stroke="#feca57" stroke-width="2" rx="8"/>
+  <text x="525" y="78" text-anchor="middle" fill="#feca57" font-size="11" font-weight="bold">8-Week Preparation Plan</text>
+
+  <!-- Week blocks -->
+  <rect x="50" y="90" width="110" height="55" fill="#0f3460" stroke="#54a0ff" stroke-width="1.5" rx="4"/>
+  <text x="105" y="108" text-anchor="middle" fill="#54a0ff" font-size="8" font-weight="bold">Week 1-2</text>
+  <text x="105" y="122" text-anchor="middle" fill="#ffffff" font-size="6">ML Fundamentals</text>
+  <text x="105" y="134" text-anchor="middle" fill="#ffffff" font-size="6">Algorithms deep dive</text>
+  <text x="105" y="144" text-anchor="middle" fill="#aaaaaa" font-size="5">Phases 1-12</text>
+
+  <rect x="175" y="90" width="110" height="55" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="4"/>
+  <text x="230" y="108" text-anchor="middle" fill="#feca57" font-size="8" font-weight="bold">Week 3-4</text>
+  <text x="230" y="122" text-anchor="middle" fill="#ffffff" font-size="6">Deep Learning + NLP</text>
+  <text x="230" y="134" text-anchor="middle" fill="#ffffff" font-size="6">Transformers + LLMs</text>
+  <text x="230" y="144" text-anchor="middle" fill="#aaaaaa" font-size="5">Phases 13-21</text>
+
+  <rect x="300" y="90" width="110" height="55" fill="#0f3460" stroke="#00ff88" stroke-width="1.5" rx="4"/>
+  <text x="355" y="108" text-anchor="middle" fill="#00ff88" font-size="8" font-weight="bold">Week 5-6</text>
+  <text x="355" y="122" text-anchor="middle" fill="#ffffff" font-size="6">GenAI + RAG + Agents</text>
+  <text x="355" y="134" text-anchor="middle" fill="#ffffff" font-size="6">LangChain + VectorDB</text>
+  <text x="355" y="144" text-anchor="middle" fill="#aaaaaa" font-size="5">Phases 22-26</text>
+
+  <rect x="425" y="90" width="110" height="55" fill="#0f3460" stroke="#e94560" stroke-width="1.5" rx="4"/>
+  <text x="480" y="108" text-anchor="middle" fill="#e94560" font-size="8" font-weight="bold">Week 7</text>
+  <text x="480" y="122" text-anchor="middle" fill="#ffffff" font-size="6">System Design</text>
+  <text x="480" y="134" text-anchor="middle" fill="#ffffff" font-size="6">MLOps + Production</text>
+  <text x="480" y="144" text-anchor="middle" fill="#aaaaaa" font-size="5">Phases 27-29</text>
+
+  <rect x="550" y="90" width="110" height="55" fill="#0f3460" stroke="#a29bfe" stroke-width="1.5" rx="4"/>
+  <text x="605" y="108" text-anchor="middle" fill="#a29bfe" font-size="8" font-weight="bold">Week 8</text>
+  <text x="605" y="122" text-anchor="middle" fill="#ffffff" font-size="6">Mock interviews</text>
+  <text x="605" y="134" text-anchor="middle" fill="#ffffff" font-size="6">Coding practice</text>
+  <text x="605" y="144" text-anchor="middle" fill="#aaaaaa" font-size="5">Phases 30-31</text>
+
+  <!-- Daily practice -->
+  <rect x="680" y="90" width="310" height="55" fill="#0f3460" stroke="#00d2d3" stroke-width="1.5" rx="4"/>
+  <text x="835" y="108" text-anchor="middle" fill="#00d2d3" font-size="8" font-weight="bold">DAILY (Throughout)</text>
+  <text x="695" y="123" fill="#ffffff" font-size="6">• 1 LeetCode (ML-focused: arrays, trees, DP)</text>
+  <text x="695" y="136" fill="#ffffff" font-size="6">• 2 conceptual questions (explain out loud)</text>
+  <text x="695" y="148" fill="#ffffff" font-size="6">• 1 system design sketch (whiteboard practice)</text>
+
+  <!-- Interview Rounds -->
+  <rect x="30" y="175" width="990" height="285" fill="#16213e" stroke="#00ff88" stroke-width="2" rx="8"/>
+  <text x="525" y="198" text-anchor="middle" fill="#00ff88" font-size="12" font-weight="bold">Interview Round Types — What to Expect &amp; How to Prepare</text>
+
+  <!-- Round 1 -->
+  <rect x="50" y="212" width="300" height="110" fill="#0f3460" stroke="#54a0ff" stroke-width="1.5" rx="6"/>
+  <text x="200" y="232" text-anchor="middle" fill="#54a0ff" font-size="10" font-weight="bold">Phone Screen (30-45 min)</text>
+  <text x="65" y="252" fill="#ffffff" font-size="7">Questions: "Explain overfitting", "How does XGBoost work?"</text>
+  <text x="65" y="267" fill="#ffffff" font-size="7">Format: Rapid-fire conceptual + 1-2 light coding</text>
+  <text x="65" y="282" fill="#00ff88" font-size="7">Prep: Review basics, practice explaining out loud</text>
+  <text x="65" y="297" fill="#feca57" font-size="7">Pass rate: ~50% | Key: clarity + confidence</text>
+  <text x="65" y="312" fill="#aaaaaa" font-size="6">Tips: Keep answers &lt;2 min, use structure (what→why→example)</text>
+
+  <!-- Round 2 -->
+  <rect x="370" y="212" width="300" height="110" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="6"/>
+  <text x="520" y="232" text-anchor="middle" fill="#feca57" font-size="10" font-weight="bold">ML Coding Round (45-60 min)</text>
+  <text x="385" y="252" fill="#ffffff" font-size="7">Tasks: Implement model, data pipeline, feature engineering</text>
+  <text x="385" y="267" fill="#ffffff" font-size="7">Format: Colab/IDE, real data, build + evaluate model</text>
+  <text x="385" y="282" fill="#00ff88" font-size="7">Prep: sklearn, pandas, numpy — code without docs</text>
+  <text x="385" y="297" fill="#feca57" font-size="7">Pass rate: ~40% | Key: working code + explain choices</text>
+  <text x="385" y="312" fill="#aaaaaa" font-size="6">Tips: Start with baseline, iterate. Mention what you'd do with more time</text>
+
+  <!-- Round 3 -->
+  <rect x="690" y="212" width="310" height="110" fill="#0f3460" stroke="#e94560" stroke-width="1.5" rx="6"/>
+  <text x="845" y="232" text-anchor="middle" fill="#e94560" font-size="10" font-weight="bold">ML System Design (45-60 min)</text>
+  <text x="705" y="252" fill="#ffffff" font-size="7">Tasks: "Design a recommendation system for Netflix"</text>
+  <text x="705" y="267" fill="#ffffff" font-size="7">Format: Whiteboard, box diagrams, trade-off discussion</text>
+  <text x="705" y="282" fill="#00ff88" font-size="7">Prep: Phase 28 framework, practice 5+ designs</text>
+  <text x="705" y="297" fill="#feca57" font-size="7">Pass rate: ~35% | Key: structured approach + trade-offs</text>
+  <text x="705" y="312" fill="#aaaaaa" font-size="6">Tips: Clarify → Metrics → Architecture → Data → Model → Serve → Monitor</text>
+
+  <!-- Round 4 -->
+  <rect x="50" y="335" width="300" height="110" fill="#0f3460" stroke="#a29bfe" stroke-width="1.5" rx="6"/>
+  <text x="200" y="355" text-anchor="middle" fill="#a29bfe" font-size="10" font-weight="bold">LLM / GenAI Deep Dive (45 min)</text>
+  <text x="65" y="375" fill="#ffffff" font-size="7">Topics: RAG, embeddings, fine-tuning, prompt engineering</text>
+  <text x="65" y="390" fill="#ffffff" font-size="7">Format: Design or debug an LLM application</text>
+  <text x="65" y="405" fill="#00ff88" font-size="7">Prep: Build a RAG app, know LangChain, understand costs</text>
+  <text x="65" y="420" fill="#feca57" font-size="7">Pass rate: ~40% | Key: practical experience shows</text>
+  <text x="65" y="435" fill="#aaaaaa" font-size="6">Tips: Discuss hallucination mitigation, cost optimization, guardrails</text>
+
+  <!-- Round 5 -->
+  <rect x="370" y="335" width="300" height="110" fill="#0f3460" stroke="#00d2d3" stroke-width="1.5" rx="6"/>
+  <text x="520" y="355" text-anchor="middle" fill="#00d2d3" font-size="10" font-weight="bold">Behavioral / Culture (30-45 min)</text>
+  <text x="385" y="375" fill="#ffffff" font-size="7">Questions: Impact stories, conflict resolution, failure</text>
+  <text x="385" y="390" fill="#ffffff" font-size="7">Format: STAR method (Situation, Task, Action, Result)</text>
+  <text x="385" y="405" fill="#00ff88" font-size="7">Prep: 5 stories (shipped model, failure, conflict, scale, lead)</text>
+  <text x="385" y="420" fill="#feca57" font-size="7">Pass rate: ~60% | Key: specific numbers + reflection</text>
+  <text x="385" y="435" fill="#aaaaaa" font-size="6">Tips: Quantify impact ("improved X by 23%"), show learning from failure</text>
+
+  <!-- Key insight -->
+  <rect x="690" y="335" width="310" height="110" fill="#0f3460" stroke="#ff6b6b" stroke-width="2" rx="6"/>
+  <text x="845" y="355" text-anchor="middle" fill="#ff6b6b" font-size="10" font-weight="bold">What Separates Hire from No-Hire</text>
+  <text x="705" y="378" fill="#00ff88" font-size="8">✓ Structured thinking (framework first)</text>
+  <text x="705" y="395" fill="#00ff88" font-size="8">✓ Trade-off awareness (no "best" answer)</text>
+  <text x="705" y="412" fill="#00ff88" font-size="8">✓ Production mindset (monitoring, scaling)</text>
+  <text x="705" y="429" fill="#ff6b6b" font-size="8">✗ Jumping to solutions without clarifying</text>
+  <text x="705" y="443" fill="#ff6b6b" font-size="8">✗ Textbook answers without practical depth</text>
+</svg>

@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 580" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1000" height="580" fill="#1a1a2e" rx="10"/>
+  <text x="500" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">Embedding Generation &amp; Vector Search Pipeline</text>
+
+  <!-- SECTION 1: Text to Embedding -->
+  <rect x="30" y="55" width="940" height="160" fill="#16213e" stroke="#00ff88" stroke-width="2" rx="8"/>
+  <text x="500" y="78" text-anchor="middle" fill="#00ff88" font-size="12" font-weight="bold">EMBEDDING GENERATION — Text → Vector</text>
+
+  <!-- Input Text -->
+  <rect x="50" y="92" width="130" height="55" fill="#0f3460" stroke="#54a0ff" stroke-width="1.5" rx="4"/>
+  <text x="115" y="112" text-anchor="middle" fill="#54a0ff" font-size="9" font-weight="bold">Input Text</text>
+  <text x="115" y="128" text-anchor="middle" fill="#aaaaaa" font-size="7">"How do neural</text>
+  <text x="115" y="140" text-anchor="middle" fill="#aaaaaa" font-size="7">networks learn?"</text>
+
+  <!-- Arrow -->
+  <line x1="185" y1="119" x2="215" y2="119" stroke="#fff" stroke-width="1.5" marker-end="url(#arrW)"/>
+
+  <!-- Tokenization -->
+  <rect x="220" y="92" width="110" height="55" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="4"/>
+  <text x="275" y="112" text-anchor="middle" fill="#feca57" font-size="9" font-weight="bold">Tokenizer</text>
+  <text x="275" y="128" text-anchor="middle" fill="#aaaaaa" font-size="7">BPE / WordPiece</text>
+  <text x="275" y="140" text-anchor="middle" fill="#aaaaaa" font-size="7">[101, 2129, 2079...]</text>
+
+  <line x1="335" y1="119" x2="365" y2="119" stroke="#fff" stroke-width="1.5" marker-end="url(#arrW)"/>
+
+  <!-- Transformer Model -->
+  <rect x="370" y="85" width="160" height="68" fill="#0f3460" stroke="#e94560" stroke-width="2" rx="4"/>
+  <text x="450" y="105" text-anchor="middle" fill="#e94560" font-size="9" font-weight="bold">Transformer Encoder</text>
+  <text x="450" y="120" text-anchor="middle" fill="#aaaaaa" font-size="7">Self-Attention Layers</text>
+  <text x="450" y="133" text-anchor="middle" fill="#aaaaaa" font-size="7">all-MiniLM-L6-v2</text>
+  <text x="450" y="146" text-anchor="middle" fill="#aaaaaa" font-size="7">or OpenAI ada-002</text>
+
+  <line x1="535" y1="119" x2="565" y2="119" stroke="#fff" stroke-width="1.5" marker-end="url(#arrW)"/>
+
+  <!-- Pooling -->
+  <rect x="570" y="92" width="100" height="55" fill="#0f3460" stroke="#a29bfe" stroke-width="1.5" rx="4"/>
+  <text x="620" y="112" text-anchor="middle" fill="#a29bfe" font-size="9" font-weight="bold">Mean Pooling</text>
+  <text x="620" y="128" text-anchor="middle" fill="#aaaaaa" font-size="7">Aggregate token</text>
+  <text x="620" y="140" text-anchor="middle" fill="#aaaaaa" font-size="7">embeddings</text>
+
+  <line x1="675" y1="119" x2="705" y2="119" stroke="#fff" stroke-width="1.5" marker-end="url(#arrW)"/>
+
+  <!-- Normalization -->
+  <rect x="710" y="92" width="100" height="55" fill="#0f3460" stroke="#00d2d3" stroke-width="1.5" rx="4"/>
+  <text x="760" y="112" text-anchor="middle" fill="#00d2d3" font-size="9" font-weight="bold">L2 Normalize</text>
+  <text x="760" y="128" text-anchor="middle" fill="#aaaaaa" font-size="7">||v|| = 1</text>
+  <text x="760" y="140" text-anchor="middle" fill="#aaaaaa" font-size="7">Unit vector</text>
+
+  <line x1="815" y1="119" x2="845" y2="119" stroke="#fff" stroke-width="1.5" marker-end="url(#arrW)"/>
+
+  <!-- Output Embedding -->
+  <rect x="850" y="88" width="105" height="62" fill="#0f3460" stroke="#00ff88" stroke-width="2" rx="4"/>
+  <text x="902" y="108" text-anchor="middle" fill="#00ff88" font-size="9" font-weight="bold">Embedding</text>
+  <text x="902" y="124" text-anchor="middle" fill="#ffffff" font-size="7">[0.023, -0.041,</text>
+  <text x="902" y="136" text-anchor="middle" fill="#ffffff" font-size="7"> 0.087, ..., 0.012]</text>
+  <text x="902" y="148" text-anchor="middle" fill="#aaaaaa" font-size="7">384 dimensions</text>
+
+  <!-- Dimension explanation -->
+  <text x="50" y="180" fill="#feca57" font-size="8" font-weight="bold">Typical dimensions: 384 (fast) | 768 (balanced) | 1536 (OpenAI) | 3072 (high accuracy)</text>
+  <text x="50" y="195" fill="#aaaaaa" font-size="7">Each dimension encodes distributed semantic meaning — no single dim = one concept</text>
+  <text x="600" y="195" fill="#00ff88" font-size="8">Key: SAME model for embedding docs AND queries</text>
+
+  <!-- SECTION 2: Similarity Search -->
+  <rect x="30" y="225" width="940" height="150" fill="#16213e" stroke="#54a0ff" stroke-width="2" rx="8"/>
+  <text x="500" y="248" text-anchor="middle" fill="#54a0ff" font-size="12" font-weight="bold">SIMILARITY SEARCH — Finding Nearest Neighbors</text>
+
+  <!-- Query vector -->
+  <rect x="50" y="262" width="100" height="50" fill="#0f3460" stroke="#e94560" stroke-width="1.5" rx="4"/>
+  <text x="100" y="282" text-anchor="middle" fill="#e94560" font-size="9" font-weight="bold">Query</text>
+  <text x="100" y="298" text-anchor="middle" fill="#aaaaaa" font-size="7">q = [0.02, -0.04...]</text>
+
+  <!-- Cosine -->
+  <rect x="180" y="260" width="120" height="55" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="4"/>
+  <text x="240" y="278" text-anchor="middle" fill="#feca57" font-size="9" font-weight="bold">Cosine Similarity</text>
+  <text x="240" y="294" text-anchor="middle" fill="#ffffff" font-size="8">cos(θ) = A·B / |A||B|</text>
+  <text x="240" y="308" text-anchor="middle" fill="#aaaaaa" font-size="7">Range: [-1, 1]</text>
+
+  <!-- Euclidean -->
+  <rect x="320" y="260" width="120" height="55" fill="#0f3460" stroke="#a29bfe" stroke-width="1.5" rx="4"/>
+  <text x="380" y="278" text-anchor="middle" fill="#a29bfe" font-size="9" font-weight="bold">Euclidean (L2)</text>
+  <text x="380" y="294" text-anchor="middle" fill="#ffffff" font-size="8">√Σ(aᵢ - bᵢ)²</text>
+  <text x="380" y="308" text-anchor="middle" fill="#aaaaaa" font-size="7">Range: [0, ∞)</text>
+
+  <!-- Dot Product -->
+  <rect x="460" y="260" width="120" height="55" fill="#0f3460" stroke="#00d2d3" stroke-width="1.5" rx="4"/>
+  <text x="520" y="278" text-anchor="middle" fill="#00d2d3" font-size="9" font-weight="bold">Dot Product</text>
+  <text x="520" y="294" text-anchor="middle" fill="#ffffff" font-size="8">Σ(aᵢ × bᵢ)</text>
+  <text x="520" y="308" text-anchor="middle" fill="#aaaaaa" font-size="7">Range: (-∞, +∞)</text>
+
+  <!-- Results -->
+  <rect x="620" y="258" width="335" height="60" fill="#0f3460" stroke="#00ff88" stroke-width="1.5" rx="4"/>
+  <text x="787" y="276" text-anchor="middle" fill="#00ff88" font-size="9" font-weight="bold">Top-K Results (sorted by similarity)</text>
+  <text x="650" y="294" fill="#ffffff" font-size="8">1. "How do neural nets work?" — 0.94</text>
+  <text x="650" y="308" fill="#ffffff" font-size="8">2. "Deep learning training" — 0.87</text>
+
+  <!-- Trade-off note -->
+  <text x="50" y="345" fill="#e94560" font-size="8" font-weight="bold">Brute Force: O(N×D) exact | HNSW: O(log N) ~99% recall | IVF-PQ: O(√N) ~93% recall + 64× compression</text>
+  <text x="650" y="345" fill="#aaaaaa" font-size="8">Choose: accuracy vs speed vs memory</text>
+
+  <!-- SECTION 3: HNSW Visualization -->
+  <rect x="30" y="385" width="460" height="180" fill="#16213e" stroke="#a29bfe" stroke-width="2" rx="8"/>
+  <text x="260" y="408" text-anchor="middle" fill="#a29bfe" font-size="12" font-weight="bold">HNSW — Multi-Layer Graph</text>
+
+  <!-- Layer 2 (top) -->
+  <rect x="60" y="420" width="400" height="35" fill="#0f3460" stroke="#e94560" stroke-width="1" rx="4"/>
+  <text x="80" y="442" fill="#e94560" font-size="8" font-weight="bold">Layer 2</text>
+  <circle cx="200" cy="438" r="8" fill="#e94560"/>
+  <circle cx="350" cy="438" r="8" fill="#e94560"/>
+  <line x1="208" y1="438" x2="342" y2="438" stroke="#e94560" stroke-width="1"/>
+  <text x="430" y="442" fill="#aaaaaa" font-size="7">2 nodes (entry point)</text>
+
+  <!-- Layer 1 (middle) -->
+  <rect x="60" y="460" width="400" height="35" fill="#0f3460" stroke="#feca57" stroke-width="1" rx="4"/>
+  <text x="80" y="482" fill="#feca57" font-size="8" font-weight="bold">Layer 1</text>
+  <circle cx="150" cy="478" r="7" fill="#feca57"/>
+  <circle cx="220" cy="478" r="7" fill="#feca57"/>
+  <circle cx="300" cy="478" r="7" fill="#feca57"/>
+  <circle cx="380" cy="478" r="7" fill="#feca57"/>
+  <line x1="157" y1="478" x2="213" y2="478" stroke="#feca57" stroke-width="1"/>
+  <line x1="227" y1="478" x2="293" y2="478" stroke="#feca57" stroke-width="1"/>
+  <line x1="307" y1="478" x2="373" y2="478" stroke="#feca57" stroke-width="1"/>
+  <text x="430" y="482" fill="#aaaaaa" font-size="7">subset of nodes</text>
+
+  <!-- Layer 0 (bottom, all nodes) -->
+  <rect x="60" y="500" width="400" height="50" fill="#0f3460" stroke="#00ff88" stroke-width="1" rx="4"/>
+  <text x="80" y="520" fill="#00ff88" font-size="8" font-weight="bold">Layer 0</text>
+  <circle cx="120" cy="530" r="5" fill="#00ff88"/>
+  <circle cx="150" cy="530" r="5" fill="#00ff88"/>
+  <circle cx="180" cy="530" r="5" fill="#00ff88"/>
+  <circle cx="210" cy="530" r="5" fill="#00ff88"/>
+  <circle cx="240" cy="530" r="5" fill="#00ff88"/>
+  <circle cx="270" cy="530" r="5" fill="#00ff88"/>
+  <circle cx="300" cy="530" r="5" fill="#00ff88"/>
+  <circle cx="330" cy="530" r="5" fill="#00ff88"/>
+  <circle cx="360" cy="530" r="5" fill="#00ff88"/>
+  <circle cx="390" cy="530" r="5" fill="#00ff88"/>
+  <circle cx="420" cy="530" r="5" fill="#00ff88"/>
+  <line x1="120" y1="530" x2="150" y2="530" stroke="#00ff88" stroke-width="0.5"/>
+  <line x1="150" y1="530" x2="180" y2="530" stroke="#00ff88" stroke-width="0.5"/>
+  <line x1="180" y1="530" x2="240" y2="530" stroke="#00ff88" stroke-width="0.5"/>
+  <line x1="240" y1="530" x2="270" y2="530" stroke="#00ff88" stroke-width="0.5"/>
+  <line x1="270" y1="530" x2="330" y2="530" stroke="#00ff88" stroke-width="0.5"/>
+  <line x1="330" y1="530" x2="390" y2="530" stroke="#00ff88" stroke-width="0.5"/>
+  <line x1="150" y1="530" x2="270" y2="530" stroke="#00ff88" stroke-width="0.5" stroke-dasharray="2,2"/>
+  <line x1="210" y1="530" x2="360" y2="530" stroke="#00ff88" stroke-width="0.5" stroke-dasharray="2,2"/>
+  <text x="430" y="530" fill="#aaaaaa" font-size="7">ALL nodes (M</text>
+  <text x="430" y="542" fill="#aaaaaa" font-size="7">connections each)</text>
+
+  <!-- Search path -->
+  <line x1="200" y1="446" x2="220" y2="471" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <line x1="220" y1="485" x2="240" y2="525" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <text x="260" y="560" text-anchor="middle" fill="#ffffff" font-size="8">Search: Top → greedy navigate → Bottom (O(log N))</text>
+
+  <!-- SECTION 4: IVF Visualization -->
+  <rect x="510" y="385" width="460" height="180" fill="#16213e" stroke="#00d2d3" stroke-width="2" rx="8"/>
+  <text x="740" y="408" text-anchor="middle" fill="#00d2d3" font-size="12" font-weight="bold">IVF — Cluster-Based Partitioning</text>
+
+  <!-- Voronoi cells -->
+  <circle cx="600" cy="470" r="45" fill="none" stroke="#e94560" stroke-width="1" stroke-dasharray="3,2"/>
+  <circle cx="700" cy="455" r="50" fill="none" stroke="#feca57" stroke-width="1" stroke-dasharray="3,2"/>
+  <circle cx="800" cy="475" r="40" fill="none" stroke="#00ff88" stroke-width="1" stroke-dasharray="3,2"/>
+  <circle cx="900" cy="460" r="42" fill="none" stroke="#a29bfe" stroke-width="1" stroke-dasharray="3,2"/>
+
+  <!-- Centroids -->
+  <circle cx="600" cy="470" r="6" fill="#e94560"/>
+  <circle cx="700" cy="455" r="6" fill="#feca57"/>
+  <circle cx="800" cy="475" r="6" fill="#00ff88"/>
+  <circle cx="900" cy="460" r="6" fill="#a29bfe"/>
+
+  <!-- Points in clusters -->
+  <circle cx="585" cy="450" r="3" fill="#e94560" opacity="0.6"/>
+  <circle cx="615" cy="485" r="3" fill="#e94560" opacity="0.6"/>
+  <circle cx="590" cy="490" r="3" fill="#e94560" opacity="0.6"/>
+  <circle cx="610" cy="460" r="3" fill="#e94560" opacity="0.6"/>
+
+  <circle cx="680" cy="440" r="3" fill="#feca57" opacity="0.6"/>
+  <circle cx="720" cy="470" r="3" fill="#feca57" opacity="0.6"/>
+  <circle cx="690" cy="475" r="3" fill="#feca57" opacity="0.6"/>
+  <circle cx="710" cy="438" r="3" fill="#feca57" opacity="0.6"/>
+  <circle cx="725" cy="455" r="3" fill="#feca57" opacity="0.6"/>
+
+  <circle cx="790" cy="460" r="3" fill="#00ff88" opacity="0.6"/>
+  <circle cx="815" cy="490" r="3" fill="#00ff88" opacity="0.6"/>
+  <circle cx="785" cy="488" r="3" fill="#00ff88" opacity="0.6"/>
+
+  <circle cx="890" cy="445" r="3" fill="#a29bfe" opacity="0.6"/>
+  <circle cx="910" cy="475" r="3" fill="#a29bfe" opacity="0.6"/>
+  <circle cx="895" cy="480" r="3" fill="#a29bfe" opacity="0.6"/>
+  <circle cx="915" cy="450" r="3" fill="#a29bfe" opacity="0.6"/>
+
+  <!-- Query point -->
+  <circle cx="670" cy="480" r="5" fill="#ffffff" stroke="#ffffff" stroke-width="2"/>
+  <text x="670" y="500" text-anchor="middle" fill="#ffffff" font-size="7">query</text>
+
+  <!-- Labels -->
+  <text x="600" y="525" text-anchor="middle" fill="#e94560" font-size="7">C₀</text>
+  <text x="700" y="515" text-anchor="middle" fill="#feca57" font-size="7">C₁</text>
+  <text x="800" y="525" text-anchor="middle" fill="#00ff88" font-size="7">C₂</text>
+  <text x="900" y="515" text-anchor="middle" fill="#a29bfe" font-size="7">C₃</text>
+
+  <text x="740" y="545" text-anchor="middle" fill="#ffffff" font-size="8">nprobe=2: search C₁ + C₂ (nearest centroids)</text>
+  <text x="740" y="560" text-anchor="middle" fill="#aaaaaa" font-size="7">Skip C₀, C₃ entirely → much less computation</text>
+
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arrW" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto">
+      <polygon points="0 0, 6 2.5, 0 5" fill="#ffffff"/>
+    </marker>
+  </defs>
+</svg>

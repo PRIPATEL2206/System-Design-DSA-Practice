@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1000" height="520" fill="#1a1a2e" rx="10"/>
+  <text x="500" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">Word2Vec — Learning Word Embeddings</text>
+
+  <!-- CBOW Architecture -->
+  <rect x="30" y="55" width="460" height="250" fill="#16213e" stroke="#54a0ff" stroke-width="2" rx="8"/>
+  <text x="260" y="80" text-anchor="middle" fill="#54a0ff" font-size="13" font-weight="bold">CBOW (Continuous Bag of Words)</text>
+  <text x="260" y="98" text-anchor="middle" fill="#aaaaaa" font-size="9">Predict CENTER word from CONTEXT words</text>
+
+  <!-- Context words (input) -->
+  <rect x="60" y="115" width="90" height="28" fill="#0f3460" stroke="#00ff88" stroke-width="1.5" rx="4"/>
+  <text x="105" y="133" text-anchor="middle" fill="#00ff88" font-size="9">the (t-2)</text>
+
+  <rect x="60" y="150" width="90" height="28" fill="#0f3460" stroke="#00ff88" stroke-width="1.5" rx="4"/>
+  <text x="105" y="168" text-anchor="middle" fill="#00ff88" font-size="9">cat (t-1)</text>
+
+  <rect x="60" y="215" width="90" height="28" fill="#0f3460" stroke="#00ff88" stroke-width="1.5" rx="4"/>
+  <text x="105" y="233" text-anchor="middle" fill="#00ff88" font-size="9">on (t+1)</text>
+
+  <rect x="60" y="250" width="90" height="28" fill="#0f3460" stroke="#00ff88" stroke-width="1.5" rx="4"/>
+  <text x="105" y="268" text-anchor="middle" fill="#00ff88" font-size="9">the (t+2)</text>
+
+  <!-- Hidden layer -->
+  <rect x="210" y="140" width="90" height="100" fill="#0f3460" stroke="#feca57" stroke-width="2" rx="6"/>
+  <text x="255" y="178" text-anchor="middle" fill="#feca57" font-size="10" font-weight="bold">Average</text>
+  <text x="255" y="196" text-anchor="middle" fill="#ffffff" font-size="8">embeddings</text>
+  <text x="255" y="214" text-anchor="middle" fill="#ffffff" font-size="8">(300d)</text>
+
+  <!-- Arrows to hidden -->
+  <line x1="150" y1="129" x2="210" y2="175" stroke="#00ff88" stroke-width="1" marker-end="url(#w2vA)"/>
+  <line x1="150" y1="164" x2="210" y2="180" stroke="#00ff88" stroke-width="1" marker-end="url(#w2vA)"/>
+  <line x1="150" y1="229" x2="210" y2="200" stroke="#00ff88" stroke-width="1" marker-end="url(#w2vA)"/>
+  <line x1="150" y1="264" x2="210" y2="205" stroke="#00ff88" stroke-width="1" marker-end="url(#w2vA)"/>
+
+  <!-- Output (target word) -->
+  <rect x="360" y="165" width="100" height="40" fill="#0f3460" stroke="#e94560" stroke-width="2" rx="6"/>
+  <text x="410" y="185" text-anchor="middle" fill="#e94560" font-size="10" font-weight="bold">sat</text>
+  <text x="410" y="199" text-anchor="middle" fill="#aaaaaa" font-size="8">(predict)</text>
+
+  <line x1="300" y1="190" x2="360" y2="185" stroke="#feca57" stroke-width="1.5" marker-end="url(#w2vA)"/>
+
+  <text x="260" y="295" text-anchor="middle" fill="#aaaaaa" font-size="9">"the cat ___ on the" → predict "sat"</text>
+
+  <!-- Skip-gram Architecture -->
+  <rect x="510" y="55" width="460" height="250" fill="#16213e" stroke="#e94560" stroke-width="2" rx="8"/>
+  <text x="740" y="80" text-anchor="middle" fill="#e94560" font-size="13" font-weight="bold">Skip-gram</text>
+  <text x="740" y="98" text-anchor="middle" fill="#aaaaaa" font-size="9">Predict CONTEXT words from CENTER word</text>
+
+  <!-- Center word (input) -->
+  <rect x="550" y="165" width="90" height="40" fill="#0f3460" stroke="#feca57" stroke-width="2" rx="6"/>
+  <text x="595" y="185" text-anchor="middle" fill="#feca57" font-size="10" font-weight="bold">sat</text>
+  <text x="595" y="199" text-anchor="middle" fill="#aaaaaa" font-size="8">(input)</text>
+
+  <!-- Hidden layer -->
+  <rect x="690" y="150" width="80" height="70" fill="#0f3460" stroke="#54a0ff" stroke-width="2" rx="6"/>
+  <text x="730" y="182" text-anchor="middle" fill="#54a0ff" font-size="9" font-weight="bold">Embed</text>
+  <text x="730" y="200" text-anchor="middle" fill="#ffffff" font-size="8">(300d)</text>
+
+  <line x1="640" y1="185" x2="690" y2="185" stroke="#feca57" stroke-width="1.5" marker-end="url(#w2vA)"/>
+
+  <!-- Context outputs -->
+  <rect x="830" y="115" width="90" height="28" fill="#0f3460" stroke="#00ff88" stroke-width="1.5" rx="4"/>
+  <text x="875" y="133" text-anchor="middle" fill="#00ff88" font-size="9">the (t-2)</text>
+
+  <rect x="830" y="150" width="90" height="28" fill="#0f3460" stroke="#00ff88" stroke-width="1.5" rx="4"/>
+  <text x="875" y="168" text-anchor="middle" fill="#00ff88" font-size="9">cat (t-1)</text>
+
+  <rect x="830" y="215" width="90" height="28" fill="#0f3460" stroke="#00ff88" stroke-width="1.5" rx="4"/>
+  <text x="875" y="233" text-anchor="middle" fill="#00ff88" font-size="9">on (t+1)</text>
+
+  <rect x="830" y="250" width="90" height="28" fill="#0f3460" stroke="#00ff88" stroke-width="1.5" rx="4"/>
+  <text x="875" y="268" text-anchor="middle" fill="#00ff88" font-size="9">the (t+2)</text>
+
+  <!-- Arrows from hidden -->
+  <line x1="770" y1="175" x2="830" y2="129" stroke="#00ff88" stroke-width="1" marker-end="url(#w2vA)"/>
+  <line x1="770" y1="180" x2="830" y2="164" stroke="#00ff88" stroke-width="1" marker-end="url(#w2vA)"/>
+  <line x1="770" y1="195" x2="830" y2="229" stroke="#00ff88" stroke-width="1" marker-end="url(#w2vA)"/>
+  <line x1="770" y1="200" x2="830" y2="264" stroke="#00ff88" stroke-width="1" marker-end="url(#w2vA)"/>
+
+  <text x="740" y="295" text-anchor="middle" fill="#aaaaaa" font-size="9">"sat" → predict ["the", "cat", "on", "the"]</text>
+
+  <!-- Word embedding properties -->
+  <rect x="30" y="320" width="940" height="185" fill="#0f3460" stroke="#00ff88" stroke-width="1.5" rx="8"/>
+  <text x="500" y="345" text-anchor="middle" fill="#00ff88" font-size="13" font-weight="bold">Word Embedding Properties — Semantic Arithmetic</text>
+
+  <!-- Vector arithmetic -->
+  <text x="60" y="375" fill="#feca57" font-size="11" font-weight="bold">Famous example:</text>
+  <text x="60" y="398" fill="#ffffff" font-size="12">king - man + woman ≈ queen</text>
+  <text x="60" y="420" fill="#ffffff" font-size="12">Paris - France + Italy ≈ Rome</text>
+  <text x="60" y="442" fill="#ffffff" font-size="12">walked - walk + swim ≈ swam</text>
+
+  <!-- Visualization (2D projection) -->
+  <rect x="450" y="360" width="250" height="130" fill="#1a1a2e" stroke="#444" stroke-width="1" rx="6"/>
+  <text x="575" y="380" text-anchor="middle" fill="#aaaaaa" font-size="9">2D projection of embedding space</text>
+
+  <!-- Points representing words -->
+  <circle cx="490" cy="420" r="4" fill="#e94560"/>
+  <text x="490" y="438" text-anchor="middle" fill="#e94560" font-size="8">king</text>
+
+  <circle cx="520" cy="460" r="4" fill="#54a0ff"/>
+  <text x="520" y="478" text-anchor="middle" fill="#54a0ff" font-size="8">man</text>
+
+  <circle cx="620" cy="420" r="4" fill="#e94560"/>
+  <text x="620" y="438" text-anchor="middle" fill="#e94560" font-size="8">queen</text>
+
+  <circle cx="650" cy="460" r="4" fill="#54a0ff"/>
+  <text x="650" y="478" text-anchor="middle" fill="#54a0ff" font-size="8">woman</text>
+
+  <!-- Arrows showing relationships -->
+  <line x1="490" y1="420" x2="520" y2="456" stroke="#feca57" stroke-width="1" stroke-dasharray="3"/>
+  <line x1="620" y1="420" x2="650" y2="456" stroke="#feca57" stroke-width="1" stroke-dasharray="3"/>
+  <line x1="490" y1="415" x2="620" y2="415" stroke="#00ff88" stroke-width="1" stroke-dasharray="3"/>
+  <line x1="520" y1="456" x2="650" y2="456" stroke="#00ff88" stroke-width="1" stroke-dasharray="3"/>
+
+  <text x="555" y="405" text-anchor="middle" fill="#00ff88" font-size="7">gender direction</text>
+
+  <!-- Key properties list -->
+  <text x="730" y="375" fill="#54a0ff" font-size="10" font-weight="bold">Key Properties:</text>
+  <text x="730" y="395" fill="#ffffff" font-size="9">• Similar words → nearby vectors</text>
+  <text x="730" y="413" fill="#ffffff" font-size="9">• Relationships = vector offsets</text>
+  <text x="730" y="431" fill="#ffffff" font-size="9">• Typically 100-300 dimensions</text>
+  <text x="730" y="449" fill="#ffffff" font-size="9">• Trained on billions of words</text>
+  <text x="730" y="467" fill="#ffffff" font-size="9">• Cosine similarity for comparison</text>
+  <text x="730" y="485" fill="#aaaaaa" font-size="8">Limitation: one vector per word (no polysemy)</text>
+
+  <defs>
+    <marker id="w2vA" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto"><polygon points="0 0, 6 2.5, 0 5" fill="#ffffff"/></marker>
+  </defs>
+</svg>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 650" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1100" height="650" fill="#1a1a2e" rx="10"/>
+  <text x="550" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">Vector Database Comparison — Choosing the Right Solution</text>
+
+  <!-- Column Headers -->
+  <rect x="30" y="55" width="1040" height="35" fill="#16213e" rx="6"/>
+  <text x="130" y="78" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="bold">Feature</text>
+  <text x="280" y="78" text-anchor="middle" fill="#00ff88" font-size="11" font-weight="bold">FAISS</text>
+  <text x="430" y="78" text-anchor="middle" fill="#54a0ff" font-size="11" font-weight="bold">Pinecone</text>
+  <text x="580" y="78" text-anchor="middle" fill="#feca57" font-size="11" font-weight="bold">ChromaDB</text>
+  <text x="730" y="78" text-anchor="middle" fill="#a29bfe" font-size="11" font-weight="bold">Weaviate</text>
+  <text x="880" y="78" text-anchor="middle" fill="#ff6b6b" font-size="11" font-weight="bold">Qdrant</text>
+  <text x="1010" y="78" text-anchor="middle" fill="#00d2d3" font-size="11" font-weight="bold">Milvus</text>
+
+  <!-- Row 1: Type -->
+  <rect x="30" y="95" width="1040" height="40" fill="#0f3460" rx="4"/>
+  <text x="130" y="120" text-anchor="middle" fill="#e0e0e0" font-size="10" font-weight="bold">Type</text>
+  <text x="280" y="120" text-anchor="middle" fill="#aaaaaa" font-size="9">Library</text>
+  <text x="430" y="120" text-anchor="middle" fill="#aaaaaa" font-size="9">Managed SaaS</text>
+  <text x="580" y="120" text-anchor="middle" fill="#aaaaaa" font-size="9">Embedded/Server</text>
+  <text x="730" y="120" text-anchor="middle" fill="#aaaaaa" font-size="9">Self-host/Cloud</text>
+  <text x="880" y="120" text-anchor="middle" fill="#aaaaaa" font-size="9">Self-host/Cloud</text>
+  <text x="1010" y="120" text-anchor="middle" fill="#aaaaaa" font-size="9">Self-host/Cloud</text>
+
+  <!-- Row 2: License -->
+  <rect x="30" y="140" width="1040" height="40" fill="#16213e" rx="4"/>
+  <text x="130" y="165" text-anchor="middle" fill="#e0e0e0" font-size="10" font-weight="bold">License</text>
+  <text x="280" y="165" text-anchor="middle" fill="#00ff88" font-size="9">MIT (Free)</text>
+  <text x="430" y="165" text-anchor="middle" fill="#ff6b6b" font-size="9">Proprietary</text>
+  <text x="580" y="165" text-anchor="middle" fill="#00ff88" font-size="9">Apache 2.0</text>
+  <text x="730" y="165" text-anchor="middle" fill="#feca57" font-size="9">BSD-3</text>
+  <text x="880" y="165" text-anchor="middle" fill="#00ff88" font-size="9">Apache 2.0</text>
+  <text x="1010" y="165" text-anchor="middle" fill="#00ff88" font-size="9">Apache 2.0</text>
+
+  <!-- Row 3: Index Types -->
+  <rect x="30" y="185" width="1040" height="40" fill="#0f3460" rx="4"/>
+  <text x="130" y="210" text-anchor="middle" fill="#e0e0e0" font-size="10" font-weight="bold">Index Types</text>
+  <text x="280" y="205" text-anchor="middle" fill="#aaaaaa" font-size="8">Flat, IVF, HNSW</text>
+  <text x="280" y="218" text-anchor="middle" fill="#aaaaaa" font-size="8">PQ, ScaNN, LSH</text>
+  <text x="430" y="210" text-anchor="middle" fill="#aaaaaa" font-size="8">Proprietary ANN</text>
+  <text x="580" y="210" text-anchor="middle" fill="#aaaaaa" font-size="8">HNSW</text>
+  <text x="730" y="205" text-anchor="middle" fill="#aaaaaa" font-size="8">HNSW, Flat</text>
+  <text x="730" y="218" text-anchor="middle" fill="#aaaaaa" font-size="8">+ dynamic</text>
+  <text x="880" y="205" text-anchor="middle" fill="#aaaaaa" font-size="8">HNSW, IVF</text>
+  <text x="880" y="218" text-anchor="middle" fill="#aaaaaa" font-size="8">+ quantization</text>
+  <text x="1010" y="205" text-anchor="middle" fill="#aaaaaa" font-size="8">IVF, HNSW, DiskANN</text>
+  <text x="1010" y="218" text-anchor="middle" fill="#aaaaaa" font-size="8">GPU, PQ</text>
+
+  <!-- Row 4: Scale -->
+  <rect x="30" y="230" width="1040" height="40" fill="#16213e" rx="4"/>
+  <text x="130" y="255" text-anchor="middle" fill="#e0e0e0" font-size="10" font-weight="bold">Max Scale</text>
+  <text x="280" y="255" text-anchor="middle" fill="#aaaaaa" font-size="9">Billions (1 machine)</text>
+  <text x="430" y="255" text-anchor="middle" fill="#aaaaaa" font-size="9">Billions (managed)</text>
+  <text x="580" y="255" text-anchor="middle" fill="#aaaaaa" font-size="9">Millions</text>
+  <text x="730" y="255" text-anchor="middle" fill="#aaaaaa" font-size="9">Billions (sharded)</text>
+  <text x="880" y="255" text-anchor="middle" fill="#aaaaaa" font-size="9">Billions (sharded)</text>
+  <text x="1010" y="255" text-anchor="middle" fill="#aaaaaa" font-size="9">Billions (sharded)</text>
+
+  <!-- Row 5: Latency -->
+  <rect x="30" y="275" width="1040" height="40" fill="#0f3460" rx="4"/>
+  <text x="130" y="300" text-anchor="middle" fill="#e0e0e0" font-size="10" font-weight="bold">Query Latency</text>
+  <text x="280" y="300" text-anchor="middle" fill="#00ff88" font-size="9">&lt;1ms</text>
+  <text x="430" y="300" text-anchor="middle" fill="#feca57" font-size="9">50-100ms</text>
+  <text x="580" y="300" text-anchor="middle" fill="#00ff88" font-size="9">5-20ms</text>
+  <text x="730" y="300" text-anchor="middle" fill="#feca57" font-size="9">10-50ms</text>
+  <text x="880" y="300" text-anchor="middle" fill="#00ff88" font-size="9">5-20ms</text>
+  <text x="1010" y="300" text-anchor="middle" fill="#feca57" font-size="9">10-50ms</text>
+
+  <!-- Row 6: Filtering -->
+  <rect x="30" y="320" width="1040" height="40" fill="#16213e" rx="4"/>
+  <text x="130" y="345" text-anchor="middle" fill="#e0e0e0" font-size="10" font-weight="bold">Metadata Filter</text>
+  <text x="280" y="345" text-anchor="middle" fill="#ff6b6b" font-size="9">None (manual)</text>
+  <text x="430" y="345" text-anchor="middle" fill="#00ff88" font-size="9">Rich</text>
+  <text x="580" y="345" text-anchor="middle" fill="#feca57" font-size="9">Basic</text>
+  <text x="730" y="345" text-anchor="middle" fill="#00ff88" font-size="9">Rich + GraphQL</text>
+  <text x="880" y="345" text-anchor="middle" fill="#00ff88" font-size="9">Rich (payload)</text>
+  <text x="1010" y="345" text-anchor="middle" fill="#00ff88" font-size="9">Rich (expressions)</text>
+
+  <!-- Row 7: Hybrid Search -->
+  <rect x="30" y="365" width="1040" height="40" fill="#0f3460" rx="4"/>
+  <text x="130" y="390" text-anchor="middle" fill="#e0e0e0" font-size="10" font-weight="bold">Hybrid Search</text>
+  <text x="280" y="390" text-anchor="middle" fill="#ff6b6b" font-size="9">No</text>
+  <text x="430" y="390" text-anchor="middle" fill="#ff6b6b" font-size="9">No</text>
+  <text x="580" y="390" text-anchor="middle" fill="#ff6b6b" font-size="9">No</text>
+  <text x="730" y="390" text-anchor="middle" fill="#00ff88" font-size="9">Yes (BM25+vector)</text>
+  <text x="880" y="390" text-anchor="middle" fill="#00ff88" font-size="9">Yes (sparse+dense)</text>
+  <text x="1010" y="390" text-anchor="middle" fill="#00ff88" font-size="9">Yes (sparse+dense)</text>
+
+  <!-- Row 8: Persistence -->
+  <rect x="30" y="410" width="1040" height="40" fill="#16213e" rx="4"/>
+  <text x="130" y="435" text-anchor="middle" fill="#e0e0e0" font-size="10" font-weight="bold">Persistence</text>
+  <text x="280" y="435" text-anchor="middle" fill="#feca57" font-size="9">Manual save/load</text>
+  <text x="430" y="435" text-anchor="middle" fill="#00ff88" font-size="9">Fully managed</text>
+  <text x="580" y="435" text-anchor="middle" fill="#00ff88" font-size="9">Built-in</text>
+  <text x="730" y="435" text-anchor="middle" fill="#00ff88" font-size="9">Built-in</text>
+  <text x="880" y="435" text-anchor="middle" fill="#00ff88" font-size="9">Built-in (WAL)</text>
+  <text x="1010" y="435" text-anchor="middle" fill="#00ff88" font-size="9">Built-in</text>
+
+  <!-- Row 9: Language -->
+  <rect x="30" y="455" width="1040" height="40" fill="#0f3460" rx="4"/>
+  <text x="130" y="480" text-anchor="middle" fill="#e0e0e0" font-size="10" font-weight="bold">Written In</text>
+  <text x="280" y="480" text-anchor="middle" fill="#aaaaaa" font-size="9">C++ (Python API)</text>
+  <text x="430" y="480" text-anchor="middle" fill="#aaaaaa" font-size="9">Unknown (SaaS)</text>
+  <text x="580" y="480" text-anchor="middle" fill="#aaaaaa" font-size="9">Python + Rust</text>
+  <text x="730" y="480" text-anchor="middle" fill="#aaaaaa" font-size="9">Go</text>
+  <text x="880" y="480" text-anchor="middle" fill="#aaaaaa" font-size="9">Rust</text>
+  <text x="1010" y="480" text-anchor="middle" fill="#aaaaaa" font-size="9">Go + C++</text>
+
+  <!-- Row 10: Best For -->
+  <rect x="30" y="500" width="1040" height="50" fill="#16213e" rx="4"/>
+  <text x="130" y="525" text-anchor="middle" fill="#e0e0e0" font-size="10" font-weight="bold">Best For</text>
+  <text x="280" y="520" text-anchor="middle" fill="#00ff88" font-size="8">Research, custom</text>
+  <text x="280" y="535" text-anchor="middle" fill="#00ff88" font-size="8">systems, max perf</text>
+  <text x="430" y="520" text-anchor="middle" fill="#54a0ff" font-size="8">Enterprise, zero-ops</text>
+  <text x="430" y="535" text-anchor="middle" fill="#54a0ff" font-size="8">quick to production</text>
+  <text x="580" y="520" text-anchor="middle" fill="#feca57" font-size="8">Prototyping, small</text>
+  <text x="580" y="535" text-anchor="middle" fill="#feca57" font-size="8">apps, learning</text>
+  <text x="730" y="520" text-anchor="middle" fill="#a29bfe" font-size="8">Hybrid search, RAG</text>
+  <text x="730" y="535" text-anchor="middle" fill="#a29bfe" font-size="8">multi-modal</text>
+  <text x="880" y="520" text-anchor="middle" fill="#ff6b6b" font-size="8">Performance-critical</text>
+  <text x="880" y="535" text-anchor="middle" fill="#ff6b6b" font-size="8">self-hosted</text>
+  <text x="1010" y="520" text-anchor="middle" fill="#00d2d3" font-size="8">Large-scale, GPU</text>
+  <text x="1010" y="535" text-anchor="middle" fill="#00d2d3" font-size="8">multi-modal</text>
+
+  <!-- Decision Guide Section -->
+  <rect x="30" y="565" width="1040" height="70" fill="#0f3460" stroke="#e94560" stroke-width="1.5" rx="8"/>
+  <text x="550" y="588" text-anchor="middle" fill="#e94560" font-size="12" font-weight="bold">Decision Guide — When to Use What</text>
+
+  <text x="60" y="610" fill="#00ff88" font-size="9" font-weight="bold">Prototype/Learning:</text>
+  <text x="185" y="610" fill="#aaaaaa" font-size="9">ChromaDB (zero config, free, Python-native)</text>
+
+  <text x="430" y="610" fill="#54a0ff" font-size="9" font-weight="bold">Production SaaS (no ops):</text>
+  <text x="608" y="610" fill="#aaaaaa" font-size="9">Pinecone (managed, reliable, expensive)</text>
+
+  <text x="60" y="628" fill="#a29bfe" font-size="9" font-weight="bold">Hybrid + Self-hosted:</text>
+  <text x="195" y="628" fill="#aaaaaa" font-size="9">Weaviate (BM25+vector, modules, GraphQL)</text>
+
+  <text x="430" y="628" fill="#ff6b6b" font-size="9" font-weight="bold">Max Performance:</text>
+  <text x="552" y="628" fill="#aaaaaa" font-size="9">FAISS (library) or Qdrant (Rust, low latency)</text>
+
+  <text x="790" y="628" fill="#00d2d3" font-size="9" font-weight="bold">Massive Scale:</text>
+  <text x="895" y="628" fill="#aaaaaa" font-size="9">Milvus (GPU, sharding)</text>
+</svg>

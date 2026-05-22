@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1000" height="500" fill="#1a1a2e" rx="10"/>
+  <text x="500" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">System Prompt Architecture — Controlling LLM Behavior</text>
+
+  <!-- System prompt structure -->
+  <rect x="30" y="55" width="600" height="420" fill="#16213e" stroke="#54a0ff" stroke-width="2" rx="8"/>
+  <text x="330" y="80" text-anchor="middle" fill="#54a0ff" font-size="13" font-weight="bold">System Prompt Components</text>
+
+  <!-- Role -->
+  <rect x="50" y="95" width="560" height="50" fill="#0f3460" stroke="#e94560" stroke-width="1.5" rx="6"/>
+  <text x="60" y="113" fill="#e94560" font-size="9" font-weight="bold">1. ROLE &amp; IDENTITY</text>
+  <text x="60" y="130" fill="#ffffff" font-size="8">"You are an expert financial advisor with 20 years of experience..."</text>
+  <text x="60" y="142" fill="#aaaaaa" font-size="7">Defines persona, expertise level, and perspective</text>
+
+  <!-- Behavior -->
+  <rect x="50" y="155" width="560" height="55" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="6"/>
+  <text x="60" y="173" fill="#feca57" font-size="9" font-weight="bold">2. BEHAVIORAL CONSTRAINTS</text>
+  <text x="60" y="190" fill="#ffffff" font-size="8">"Always cite sources. Never give medical advice. If unsure, say so."</text>
+  <text x="60" y="205" fill="#aaaaaa" font-size="7">Guardrails, tone, refusal conditions, safety boundaries</text>
+
+  <!-- Output format -->
+  <rect x="50" y="220" width="560" height="55" fill="#0f3460" stroke="#00ff88" stroke-width="1.5" rx="6"/>
+  <text x="60" y="238" fill="#00ff88" font-size="9" font-weight="bold">3. OUTPUT FORMAT</text>
+  <text x="60" y="255" fill="#ffffff" font-size="8">"Respond in JSON format: {\"answer\": ..., \"confidence\": ..., \"sources\": [...]}"</text>
+  <text x="60" y="270" fill="#aaaaaa" font-size="7">Structure, length constraints, formatting requirements</text>
+
+  <!-- Context/Knowledge -->
+  <rect x="50" y="285" width="560" height="55" fill="#0f3460" stroke="#00d2d3" stroke-width="1.5" rx="6"/>
+  <text x="60" y="303" fill="#00d2d3" font-size="9" font-weight="bold">4. CONTEXT &amp; KNOWLEDGE</text>
+  <text x="60" y="320" fill="#ffffff" font-size="8">"Today's date is 2024-03-15. The user is a premium subscriber."</text>
+  <text x="60" y="335" fill="#aaaaaa" font-size="7">Dynamic context, user info, relevant data, RAG results</text>
+
+  <!-- Examples -->
+  <rect x="50" y="350" width="560" height="55" fill="#0f3460" stroke="#a29bfe" stroke-width="1.5" rx="6"/>
+  <text x="60" y="368" fill="#a29bfe" font-size="9" font-weight="bold">5. EXAMPLES (In-context learning)</text>
+  <text x="60" y="385" fill="#ffffff" font-size="8">"Example: User asks 'X' → You respond with 'Y' format"</text>
+  <text x="60" y="400" fill="#aaaaaa" font-size="7">Concrete demonstrations of desired behavior</text>
+
+  <!-- Fallback -->
+  <rect x="50" y="415" width="560" height="45" fill="#0f3460" stroke="#ffffff" stroke-width="1" rx="6"/>
+  <text x="60" y="433" fill="#ffffff" font-size="9" font-weight="bold">6. EDGE CASE HANDLING</text>
+  <text x="60" y="450" fill="#ffffff" font-size="8">"If the user asks something outside your scope, redirect to support."</text>
+
+  <!-- Best practices -->
+  <rect x="650" y="55" width="320" height="200" fill="#0f3460" stroke="#00ff88" stroke-width="1.5" rx="8"/>
+  <text x="810" y="80" text-anchor="middle" fill="#00ff88" font-size="11" font-weight="bold">Best Practices</text>
+
+  <text x="670" y="105" fill="#ffffff" font-size="8">✓ Be specific, not vague</text>
+  <text x="670" y="123" fill="#ffffff" font-size="8">✓ Put most important rules FIRST</text>
+  <text x="670" y="141" fill="#ffffff" font-size="8">✓ Use structured formatting</text>
+  <text x="670" y="159" fill="#ffffff" font-size="8">✓ Include negative examples (don'ts)</text>
+  <text x="670" y="177" fill="#ffffff" font-size="8">✓ Test with adversarial inputs</text>
+  <text x="670" y="195" fill="#ffffff" font-size="8">✓ Keep under 1500 tokens</text>
+  <text x="670" y="213" fill="#ffffff" font-size="8">✓ Version control your prompts</text>
+  <text x="670" y="231" fill="#ffffff" font-size="8">✓ Separate logic from content</text>
+  <text x="670" y="249" fill="#ffffff" font-size="8">✓ Use XML/markdown for structure</text>
+
+  <!-- Anti-patterns -->
+  <rect x="650" y="270" width="320" height="195" fill="#0f3460" stroke="#e94560" stroke-width="1.5" rx="8"/>
+  <text x="810" y="295" text-anchor="middle" fill="#e94560" font-size="11" font-weight="bold">Anti-Patterns</text>
+
+  <text x="670" y="320" fill="#ffffff" font-size="8">✗ "Be helpful" (too vague)</text>
+  <text x="670" y="338" fill="#ffffff" font-size="8">✗ Contradictory instructions</text>
+  <text x="670" y="356" fill="#ffffff" font-size="8">✗ Overly long (wastes context)</text>
+  <text x="670" y="374" fill="#ffffff" font-size="8">✗ No escape valve for edge cases</text>
+  <text x="670" y="392" fill="#ffffff" font-size="8">✗ Relying on "never" (models forget)</text>
+  <text x="670" y="410" fill="#ffffff" font-size="8">✗ No examples of desired output</text>
+  <text x="670" y="428" fill="#ffffff" font-size="8">✗ Mixing prompt with user data</text>
+  <text x="670" y="446" fill="#ffffff" font-size="8">✗ Not testing against injection</text>
+
+  <!-- Bottom note -->
+  <text x="500" y="493" text-anchor="middle" fill="#feca57" font-size="9" font-weight="bold">System prompts set the "personality" — they're processed first and shape ALL subsequent interactions</text>
+</svg>

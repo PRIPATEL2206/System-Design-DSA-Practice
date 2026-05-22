@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 440" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1050" height="440" fill="#1a1a2e" rx="10"/>
+  <text x="525" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">AI Resume Analyzer — Document Processing Pipeline</text>
+
+  <!-- Pipeline Flow -->
+  <rect x="30" y="55" width="990" height="150" fill="#16213e" stroke="#00ff88" stroke-width="2" rx="8"/>
+  <text x="525" y="78" text-anchor="middle" fill="#00ff88" font-size="11" font-weight="bold">Processing Pipeline</text>
+
+  <!-- Step 1: Upload -->
+  <rect x="50" y="92" width="110" height="55" fill="#0f3460" stroke="#e94560" stroke-width="1.5" rx="6"/>
+  <text x="105" y="112" text-anchor="middle" fill="#e94560" font-size="8" font-weight="bold">1. Upload</text>
+  <text x="105" y="127" text-anchor="middle" fill="#aaaaaa" font-size="6">PDF / DOCX</text>
+  <text x="105" y="139" text-anchor="middle" fill="#aaaaaa" font-size="6">Image (OCR)</text>
+
+  <line x1="165" y1="119" x2="190" y2="119" stroke="#fff" stroke-width="1.5" marker-end="url(#raArr2)"/>
+
+  <!-- Step 2: Parse -->
+  <rect x="195" y="92" width="110" height="55" fill="#0f3460" stroke="#feca57" stroke-width="1.5" rx="6"/>
+  <text x="250" y="112" text-anchor="middle" fill="#feca57" font-size="8" font-weight="bold">2. Parse</text>
+  <text x="250" y="127" text-anchor="middle" fill="#aaaaaa" font-size="6">PyMuPDF extract</text>
+  <text x="250" y="139" text-anchor="middle" fill="#aaaaaa" font-size="6">Clean text</text>
+
+  <line x1="310" y1="119" x2="335" y2="119" stroke="#fff" stroke-width="1.5" marker-end="url(#raArr2)"/>
+
+  <!-- Step 3: Extract -->
+  <rect x="340" y="92" width="130" height="55" fill="#0f3460" stroke="#54a0ff" stroke-width="2" rx="6"/>
+  <text x="405" y="112" text-anchor="middle" fill="#54a0ff" font-size="8" font-weight="bold">3. LLM Extract</text>
+  <text x="405" y="127" text-anchor="middle" fill="#aaaaaa" font-size="6">GPT-4o structured output</text>
+  <text x="405" y="139" text-anchor="middle" fill="#aaaaaa" font-size="6">Name, skills, experience</text>
+
+  <line x1="475" y1="119" x2="500" y2="119" stroke="#fff" stroke-width="1.5" marker-end="url(#raArr2)"/>
+
+  <!-- Step 4: Score -->
+  <rect x="505" y="92" width="130" height="55" fill="#0f3460" stroke="#00ff88" stroke-width="2" rx="6"/>
+  <text x="570" y="112" text-anchor="middle" fill="#00ff88" font-size="8" font-weight="bold">4. Score vs JD</text>
+  <text x="570" y="127" text-anchor="middle" fill="#aaaaaa" font-size="6">Skills match %</text>
+  <text x="570" y="139" text-anchor="middle" fill="#aaaaaa" font-size="6">Experience fit</text>
+
+  <line x1="640" y1="119" x2="665" y2="119" stroke="#fff" stroke-width="1.5" marker-end="url(#raArr2)"/>
+
+  <!-- Step 5: Generate -->
+  <rect x="670" y="92" width="140" height="55" fill="#0f3460" stroke="#a29bfe" stroke-width="1.5" rx="6"/>
+  <text x="740" y="112" text-anchor="middle" fill="#a29bfe" font-size="8" font-weight="bold">5. Generate</text>
+  <text x="740" y="127" text-anchor="middle" fill="#aaaaaa" font-size="6">Interview questions</text>
+  <text x="740" y="139" text-anchor="middle" fill="#aaaaaa" font-size="6">Candidate summary</text>
+
+  <line x1="815" y1="119" x2="840" y2="119" stroke="#fff" stroke-width="1.5" marker-end="url(#raArr2)"/>
+
+  <!-- Step 6: Output -->
+  <rect x="845" y="92" width="155" height="55" fill="#0f3460" stroke="#00d2d3" stroke-width="1.5" rx="6"/>
+  <text x="922" y="112" text-anchor="middle" fill="#00d2d3" font-size="8" font-weight="bold">6. Structured Output</text>
+  <text x="922" y="127" text-anchor="middle" fill="#aaaaaa" font-size="6">JSON report</text>
+  <text x="922" y="139" text-anchor="middle" fill="#aaaaaa" font-size="6">Score + gaps + questions</text>
+
+  <!-- Bias awareness note -->
+  <rect x="50" y="160" width="950" height="25" fill="#0f3460" stroke="#ff6b6b" stroke-width="1" rx="3"/>
+  <text x="525" y="177" text-anchor="middle" fill="#ff6b6b" font-size="8" font-weight="bold">BIAS GUARD: Scoring evaluates ONLY skills, experience, qualifications — never demographics (name, gender, age)</text>
+
+  <!-- Output Structure -->
+  <rect x="30" y="220" width="490" height="200" fill="#16213e" stroke="#54a0ff" stroke-width="2" rx="8"/>
+  <text x="275" y="243" text-anchor="middle" fill="#54a0ff" font-size="11" font-weight="bold">Extracted Data Structure (Pydantic)</text>
+
+  <rect x="50" y="258" width="450" height="145" fill="#0f3460" rx="4"/>
+  <text x="65" y="278" fill="#feca57" font-size="8">ResumeData:</text>
+  <text x="80" y="295" fill="#ffffff" font-size="7">name: str  |  email: str  |  phone: str</text>
+  <text x="80" y="310" fill="#ffffff" font-size="7">years_experience: int</text>
+  <text x="80" y="325" fill="#ffffff" font-size="7">education: [{degree, institution, year}]</text>
+  <text x="80" y="340" fill="#ffffff" font-size="7">skills: ["Python", "ML", "AWS", ...]</text>
+  <text x="80" y="355" fill="#ffffff" font-size="7">work_experience: [{company, role, duration, highlights}]</text>
+  <text x="80" y="370" fill="#ffffff" font-size="7">certifications: ["AWS SAA", ...]</text>
+  <text x="65" y="390" fill="#feca57" font-size="8">MatchScore:</text>
+  <text x="80" y="403" fill="#ffffff" font-size="7">overall: 85/100 | skills_match: 90% | strengths: [...] | gaps: [...]</text>
+
+  <!-- Features & Stack -->
+  <rect x="540" y="220" width="480" height="200" fill="#16213e" stroke="#e94560" stroke-width="2" rx="8"/>
+  <text x="780" y="243" text-anchor="middle" fill="#e94560" font-size="11" font-weight="bold">Features &amp; Technology Stack</text>
+
+  <rect x="560" y="260" width="210" height="80" fill="#0f3460" stroke="#00ff88" stroke-width="1" rx="4"/>
+  <text x="665" y="278" text-anchor="middle" fill="#00ff88" font-size="8" font-weight="bold">Features</text>
+  <text x="575" y="295" fill="#ffffff" font-size="7">• Multi-format parsing (PDF, DOCX)</text>
+  <text x="575" y="310" fill="#ffffff" font-size="7">• Structured extraction (Pydantic)</text>
+  <text x="575" y="325" fill="#ffffff" font-size="7">• JD matching with scoring</text>
+  <text x="575" y="340" fill="#ffffff" font-size="7">• Interview question generation</text>
+
+  <rect x="790" y="260" width="210" height="80" fill="#0f3460" stroke="#feca57" stroke-width="1" rx="4"/>
+  <text x="895" y="278" text-anchor="middle" fill="#feca57" font-size="8" font-weight="bold">Tech Stack</text>
+  <text x="805" y="295" fill="#ffffff" font-size="7">• GPT-4o (extraction + scoring)</text>
+  <text x="805" y="310" fill="#ffffff" font-size="7">• GPT-4o-mini (questions)</text>
+  <text x="805" y="325" fill="#ffffff" font-size="7">• PyMuPDF (PDF parsing)</text>
+  <text x="805" y="340" fill="#ffffff" font-size="7">• FastAPI + PostgreSQL</text>
+
+  <!-- Use cases -->
+  <rect x="560" y="350" width="440" height="55" fill="#0f3460" stroke="#a29bfe" stroke-width="1" rx="4"/>
+  <text x="780" y="368" text-anchor="middle" fill="#a29bfe" font-size="8" font-weight="bold">Business Use Cases</text>
+  <text x="575" y="385" fill="#ffffff" font-size="7">• Bulk resume screening (100s of applicants → ranked list)</text>
+  <text x="575" y="398" fill="#ffffff" font-size="7">• Skills gap analysis for internal mobility / L&amp;D planning</text>
+
+  <defs>
+    <marker id="raArr2" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto">
+      <polygon points="0 0, 6 2.5, 0 5" fill="#ffffff"/>
+    </marker>
+  </defs>
+</svg>

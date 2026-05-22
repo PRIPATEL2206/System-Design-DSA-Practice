@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1000" height="500" fill="#1a1a2e" rx="10"/>
+  <text x="500" y="35" text-anchor="middle" fill="#e94560" font-size="20" font-weight="bold">Prompt Engineering Techniques — From Zero-Shot to Advanced</text>
+
+  <!-- Zero-shot -->
+  <rect x="30" y="55" width="300" height="200" fill="#16213e" stroke="#54a0ff" stroke-width="2" rx="8"/>
+  <text x="180" y="80" text-anchor="middle" fill="#54a0ff" font-size="13" font-weight="bold">Zero-Shot Prompting</text>
+  <text x="180" y="98" text-anchor="middle" fill="#aaaaaa" font-size="8">No examples — just instructions</text>
+
+  <rect x="50" y="110" width="260" height="60" fill="#0f3460" stroke="#54a0ff" stroke-width="1" rx="4"/>
+  <text x="60" y="130" fill="#ffffff" font-size="8">Classify the sentiment of this review:</text>
+  <text x="60" y="145" fill="#feca57" font-size="8">"This product exceeded my expectations"</text>
+  <text x="60" y="163" fill="#00ff88" font-size="8">Sentiment:</text>
+
+  <text x="50" y="195" fill="#ffffff" font-size="8">✓ Simple, no example curation needed</text>
+  <text x="50" y="212" fill="#ffffff" font-size="8">✓ Works well for capable models (GPT-4)</text>
+  <text x="50" y="229" fill="#ffffff" font-size="8">✗ May fail on ambiguous/complex tasks</text>
+  <text x="50" y="246" fill="#ffffff" font-size="8">✗ Less control over output format</text>
+
+  <!-- Few-shot -->
+  <rect x="350" y="55" width="300" height="200" fill="#16213e" stroke="#feca57" stroke-width="2" rx="8"/>
+  <text x="500" y="80" text-anchor="middle" fill="#feca57" font-size="13" font-weight="bold">Few-Shot Prompting</text>
+  <text x="500" y="98" text-anchor="middle" fill="#aaaaaa" font-size="8">Provide examples to guide behavior</text>
+
+  <rect x="370" y="110" width="260" height="90" fill="#0f3460" stroke="#feca57" stroke-width="1" rx="4"/>
+  <text x="380" y="128" fill="#aaaaaa" font-size="7">Review: "Terrible quality" → Negative</text>
+  <text x="380" y="143" fill="#aaaaaa" font-size="7">Review: "Love it!" → Positive</text>
+  <text x="380" y="158" fill="#aaaaaa" font-size="7">Review: "It's okay" → Neutral</text>
+  <text x="380" y="178" fill="#ffffff" font-size="8">Review: "Best purchase ever"</text>
+  <text x="380" y="193" fill="#00ff88" font-size="8">→</text>
+
+  <text x="370" y="220" fill="#ffffff" font-size="8">✓ Guides format and reasoning style</text>
+  <text x="370" y="237" fill="#ffffff" font-size="8">✓ Works on smaller models too</text>
+  <text x="370" y="254" fill="#ffffff" font-size="8">✗ Uses context window space</text>
+
+  <!-- Chain-of-thought -->
+  <rect x="670" y="55" width="300" height="200" fill="#16213e" stroke="#00ff88" stroke-width="2" rx="8"/>
+  <text x="820" y="80" text-anchor="middle" fill="#00ff88" font-size="13" font-weight="bold">Chain-of-Thought (CoT)</text>
+  <text x="820" y="98" text-anchor="middle" fill="#aaaaaa" font-size="8">Step-by-step reasoning</text>
+
+  <rect x="690" y="110" width="260" height="90" fill="#0f3460" stroke="#00ff88" stroke-width="1" rx="4"/>
+  <text x="700" y="128" fill="#ffffff" font-size="7">Q: If a store has 5 apples and sells 2,</text>
+  <text x="700" y="143" fill="#ffffff" font-size="7">then gets 8 more, how many total?</text>
+  <text x="700" y="163" fill="#feca57" font-size="7">Let's think step by step:</text>
+  <text x="700" y="178" fill="#aaaaaa" font-size="7">Start: 5, Sell 2: 5-2=3, Add 8: 3+8=11</text>
+  <text x="700" y="193" fill="#00ff88" font-size="7">Answer: 11 apples</text>
+
+  <text x="690" y="220" fill="#ffffff" font-size="8">✓ Dramatic improvement on reasoning</text>
+  <text x="690" y="237" fill="#ffffff" font-size="8">✓ Makes errors visible and debuggable</text>
+  <text x="690" y="254" fill="#ffffff" font-size="8">✗ Uses more output tokens (cost)</text>
+
+  <!-- Advanced techniques -->
+  <rect x="30" y="275" width="940" height="210" fill="#0f3460" stroke="#a29bfe" stroke-width="2" rx="8"/>
+  <text x="500" y="300" text-anchor="middle" fill="#a29bfe" font-size="13" font-weight="bold">Advanced Techniques</text>
+
+  <!-- Self-consistency -->
+  <rect x="50" y="315" width="200" height="80" fill="#16213e" stroke="#e94560" stroke-width="1.5" rx="6"/>
+  <text x="150" y="337" text-anchor="middle" fill="#e94560" font-size="9" font-weight="bold">Self-Consistency</text>
+  <text x="150" y="355" text-anchor="middle" fill="#ffffff" font-size="7">Generate N answers with CoT</text>
+  <text x="150" y="370" text-anchor="middle" fill="#ffffff" font-size="7">Take majority vote</text>
+  <text x="150" y="388" text-anchor="middle" fill="#aaaaaa" font-size="7">5-10x sampling → better accuracy</text>
+
+  <!-- ReAct -->
+  <rect x="270" y="315" width="200" height="80" fill="#16213e" stroke="#00d2d3" stroke-width="1.5" rx="6"/>
+  <text x="370" y="337" text-anchor="middle" fill="#00d2d3" font-size="9" font-weight="bold">ReAct (Reason+Act)</text>
+  <text x="370" y="355" text-anchor="middle" fill="#ffffff" font-size="7">Thought → Action → Observation</text>
+  <text x="370" y="370" text-anchor="middle" fill="#ffffff" font-size="7">Interleave reasoning + tools</text>
+  <text x="370" y="388" text-anchor="middle" fill="#aaaaaa" font-size="7">Powers modern AI agents</text>
+
+  <!-- Tree of Thought -->
+  <rect x="490" y="315" width="200" height="80" fill="#16213e" stroke="#feca57" stroke-width="1.5" rx="6"/>
+  <text x="590" y="337" text-anchor="middle" fill="#feca57" font-size="9" font-weight="bold">Tree of Thoughts (ToT)</text>
+  <text x="590" y="355" text-anchor="middle" fill="#ffffff" font-size="7">Explore multiple paths</text>
+  <text x="590" y="370" text-anchor="middle" fill="#ffffff" font-size="7">Backtrack on dead ends</text>
+  <text x="590" y="388" text-anchor="middle" fill="#aaaaaa" font-size="7">Search + planning problems</text>
+
+  <!-- Structured output -->
+  <rect x="710" y="315" width="240" height="80" fill="#16213e" stroke="#54a0ff" stroke-width="1.5" rx="6"/>
+  <text x="830" y="337" text-anchor="middle" fill="#54a0ff" font-size="9" font-weight="bold">Structured Output</text>
+  <text x="830" y="355" text-anchor="middle" fill="#ffffff" font-size="7">Force JSON/XML/schema output</text>
+  <text x="830" y="370" text-anchor="middle" fill="#ffffff" font-size="7">Constrained decoding + validation</text>
+  <text x="830" y="388" text-anchor="middle" fill="#aaaaaa" font-size="7">Reliable for API integrations</text>
+
+  <!-- Difficulty scale -->
+  <line x1="50" y1="430" x2="950" y2="430" stroke="#555" stroke-width="1"/>
+  <circle cx="100" cy="430" r="8" fill="#54a0ff"/>
+  <text x="100" y="455" text-anchor="middle" fill="#54a0ff" font-size="8">Zero-shot</text>
+  <text x="100" y="468" text-anchor="middle" fill="#aaaaaa" font-size="7">Simplest</text>
+
+  <circle cx="300" cy="430" r="8" fill="#feca57"/>
+  <text x="300" y="455" text-anchor="middle" fill="#feca57" font-size="8">Few-shot</text>
+  <text x="300" y="468" text-anchor="middle" fill="#aaaaaa" font-size="7">+ Examples</text>
+
+  <circle cx="500" cy="430" r="8" fill="#00ff88"/>
+  <text x="500" y="455" text-anchor="middle" fill="#00ff88" font-size="8">CoT</text>
+  <text x="500" y="468" text-anchor="middle" fill="#aaaaaa" font-size="7">+ Reasoning</text>
+
+  <circle cx="700" cy="430" r="8" fill="#00d2d3"/>
+  <text x="700" y="455" text-anchor="middle" fill="#00d2d3" font-size="8">ReAct/ToT</text>
+  <text x="700" y="468" text-anchor="middle" fill="#aaaaaa" font-size="7">+ Tools/Search</text>
+
+  <circle cx="900" cy="430" r="8" fill="#e94560"/>
+  <text x="900" y="455" text-anchor="middle" fill="#e94560" font-size="8">Multi-Agent</text>
+  <text x="900" y="468" text-anchor="middle" fill="#aaaaaa" font-size="7">+ Orchestration</text>
+
+  <text x="500" y="493" text-anchor="middle" fill="#ffffff" font-size="9">Increasing complexity and capability →</text>
+</svg>
